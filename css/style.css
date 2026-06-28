@@ -1163,6 +1163,107 @@ select:focus {
   background: color-mix(in srgb, var(--surface) 72%, transparent);
 }
 
+.ai-teacher-module {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-strong) 92%, transparent), color-mix(in srgb, var(--accent-soft) 18%, var(--surface)));
+}
+
+.ai-teacher-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ai-teacher-head p,
+.ai-teacher-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ai-teacher-badge {
+  flex: 0 0 auto;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--surface-strong) 76%, transparent);
+}
+
+.ai-chat-log {
+  display: grid;
+  max-height: 360px;
+  gap: 12px;
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--line) 86%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
+}
+
+.ai-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.ai-message {
+  display: grid;
+  gap: 7px;
+  max-width: 88%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
+}
+
+.ai-message.user {
+  justify-self: end;
+  background: color-mix(in srgb, var(--accent-soft) 52%, var(--surface-strong));
+}
+
+.ai-message.assistant {
+  justify-self: start;
+}
+
+.ai-message.loading {
+  opacity: 0.72;
+}
+
+.ai-message span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ai-message p {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.ai-teacher-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.ai-teacher-form textarea {
+  min-height: 52px;
+  max-height: 140px;
+  resize: vertical;
+}
+
 .life-example-block ul {
   display: grid;
   gap: 10px;
@@ -2598,6 +2699,23 @@ select:focus {
     display: grid;
     justify-items: center;
     text-align: center;
+  }
+
+  .ai-teacher-head,
+  .ai-teacher-form {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-teacher-head {
+    display: grid;
+  }
+
+  .ai-teacher-badge {
+    width: fit-content;
+  }
+
+  .ai-message {
+    max-width: 100%;
   }
 
   .formula-card strong {

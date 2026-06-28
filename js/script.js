@@ -214,6 +214,7 @@ const defaultState = {
   masteredKnowledge: [],
   learningKnowledge: [],
   notes: {},
+  aiChats: {},
   videos: [
     { id: "bv-BV1Y64y1B7QC", title: "【运动的描述】质点", bv: "BV1Y64y1B7QC", topic: "质点 / 参考系", status: "未观看", favorite: false },
     { id: "bv-BV1TNWFzWERn", title: "高中物理必修一第一章：运动的描述", bv: "BV1TNWFzWERn", topic: "运动的描述", status: "未观看", favorite: false },
@@ -374,6 +375,7 @@ function loadState() {
   try {
     const merged = { ...structuredClone(defaultState), ...JSON.parse(saved) };
     merged.videos = normalizeStoredVideos(merged.videos);
+    merged.aiChats = merged.aiChats || {};
     return merged;
   } catch {
     return structuredClone(defaultState);
@@ -732,8 +734,9 @@ function openDetail(id) {
           </div>`).join("") : `<p>暂无视频，可添加 B站链接。</p>`}
         </div>
       </section>
+      ${aiTeacherBlock(item)}
       <section class="detail-block full note-module">
-        <h3>八、我的笔记</h3>
+        <h3>九、我的笔记</h3>
         <textarea id="noteInput" placeholder="写下你自己的理解、错因或课堂补充。">${escapeHTML(state.notes[item.id] || "")}</textarea>
         <div class="card-actions">
           <button class="primary-button" type="button" data-save-note="${item.id}">保存笔记</button>
@@ -745,6 +748,49 @@ function openDetail(id) {
 
 function detailBlock(title, content, extraClass = "") {
   return `<section class="detail-block ${extraClass}"><h3>${title}</h3><p>${content}</p></section>`;
+}
+
+function aiTeacherBlock(item) {
+  return `<section class="detail-block full ai-teacher-module" data-ai-teacher="${item.id}">
+    <div class="ai-teacher-head">
+      <div>
+        <h3>八、AI 物理老师</h3>
+        <p>向 AI 提问，它会按新高一能听懂的方式讲解当前知识点。</p>
+      </div>
+      <span class="ai-teacher-badge">${escapeHTML(item.name)}</span>
+    </div>
+    <div class="ai-chat-log" data-ai-log="${item.id}">
+      ${renderAIChat(item.id)}
+    </div>
+    <div class="ai-teacher-form">
+      <textarea id="aiTeacherInput" maxlength="500" rows="2" placeholder="例如：${escapeHTML(getAIPromptExample(item.name))}"></textarea>
+      <button class="primary-button" type="button" data-ai-send="${item.id}">AI讲解</button>
+    </div>
+    <p class="ai-teacher-help">单次最多 500 字。回答由 AI 生成，请结合课堂与教材判断。</p>
+  </section>`;
+}
+
+function renderAIChat(id) {
+  const messages = state.aiChats?.[id] || [];
+  if (!messages.length) {
+    return `<div class="ai-empty">还没有提问。可以先问一个“为什么”或“怎么判断”。</div>`;
+  }
+
+  return messages.map((message) => `<div class="ai-message ${message.role === "user" ? "user" : "assistant"}">
+    <span>${message.role === "user" ? "我" : "AI老师"}</span>
+    <p>${formatAIAnswer(message.content)}</p>
+  </div>`).join("");
+}
+
+function formatAIAnswer(content) {
+  return escapeHTML(content || "").replace(/\n/g, "<br>");
+}
+
+function getAIPromptExample(name) {
+  if (name.includes("位移") || name.includes("路程")) return "位移和路程有什么区别？";
+  if (name.includes("加速度")) return "加速度方向怎么判断？";
+  if (name.includes("牛顿第二定律")) return "帮我讲一下牛顿第二定律。";
+  return `帮我讲一下${name}。`;
 }
 
 function exampleBlock(examples) {
@@ -852,6 +898,87 @@ function openPlayer(videoId) {
   openModal("#playerModal");
 }
 
+function buildAIContext(item) {
+  const detailId = item.detailId || item.id;
+  const richDetail = item.symbols ? {
+    definition: item.definition,
+    formulas: item.formulas,
+    symbols: item.symbols,
+    mistakes: item.mistakes,
+    example: item.example,
+    hint: item.hint,
+  } : richPointDetails[detailId];
+
+  return {
+    id: item.id,
+    name: item.name,
+    chapter: item.category,
+    difficulty: item.difficulty,
+    summary: item.summary,
+    definition: richDetail?.definition || item.definition,
+    formulas: richDetail?.formulas || splitFormulas(item.formula),
+    symbols: richDetail?.symbols || richDetail?.quantities || item.symbols || "",
+    mistakes: richDetail?.mistakes || item.mistakes || [item.mistake].filter(Boolean),
+    example: richDetail?.example || item.example,
+    hint: richDetail?.hint || richDetail?.tip || item.hint,
+  };
+}
+
+async function sendAITeacherQuestion(id) {
+  const item = knowledgePoints.find((pointItem) => pointItem.id === id);
+  const input = $("#aiTeacherInput");
+  const log = $(`[data-ai-log="${CSS.escape(id)}"]`);
+  const button = $(`[data-ai-send="${CSS.escape(id)}"]`);
+  if (!item || !input || !log || !button) return;
+
+  const question = input.value.trim();
+  if (!question) {
+    showToast("请先输入你的问题");
+    input.focus();
+    return;
+  }
+  if (question.length > 500) {
+    showToast("问题不能超过 500 字");
+    return;
+  }
+
+  state.aiChats[id] = [...(state.aiChats[id] || []), { role: "user", content: question }];
+  input.value = "";
+  log.innerHTML = `${renderAIChat(id)}<div class="ai-message assistant loading"><span>AI老师</span><p>正在整理讲解...</p></div>`;
+  button.disabled = true;
+  button.textContent = "讲解中...";
+
+  try {
+    const response = await fetch("/api/physics-teacher", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        question,
+        knowledgePoint: item.name,
+        context: buildAIContext(item),
+      }),
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || "AI 老师暂时无法回答");
+
+    state.aiChats[id] = [...(state.aiChats[id] || []), { role: "assistant", content: data.answer }];
+    if (state.aiChats[id].length > 12) state.aiChats[id] = state.aiChats[id].slice(-12);
+    saveState();
+    log.innerHTML = renderAIChat(id);
+    log.scrollTop = log.scrollHeight;
+  } catch (error) {
+    state.aiChats[id] = [...(state.aiChats[id] || []), {
+      role: "assistant",
+      content: `抱歉，AI 物理老师暂时没有连上。${error.message || "请稍后再试。"}`,
+    }];
+    saveState();
+    log.innerHTML = renderAIChat(id);
+  } finally {
+    button.disabled = false;
+    button.textContent = "AI讲解";
+  }
+}
+
 function openModal(selector) {
   $(selector).classList.add("open");
   $(selector).setAttribute("aria-hidden", "false");
@@ -942,6 +1069,9 @@ document.addEventListener("click", (event) => {
 
   const detail = event.target.closest("[data-open-detail]");
   if (detail) openDetail(detail.dataset.openDetail);
+
+  const aiSend = event.target.closest("[data-ai-send]");
+  if (aiSend) sendAITeacherQuestion(aiSend.dataset.aiSend);
 
   const saveNote = event.target.closest("[data-save-note]");
   if (saveNote) {
