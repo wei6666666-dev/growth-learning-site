@@ -799,7 +799,7 @@ function openDetail(id) {
       ${richDetail ? detailBlock("三、物理量说明", richDetail.quantities, "full quantity-module") : ""}
       <section class="detail-block diagram-block">
         <h3>微型示意图</h3>
-        ${renderDiagram(detailId)}
+        ${renderDiagram(detailId, item.id)}
       </section>
       ${mistakeBlock(richDetail?.mistakes || item.mistakes || [item.mistake])}
       ${workedExampleBlock(detailId, richDetail?.example || item.example)}
@@ -969,7 +969,24 @@ function formulaBlock(item) {
   </section>`;
 }
 
-function renderDiagram(id) {
+function renderDiagram(id, rawId = id) {
+  const diagramAliases = {
+    curve_motion: "curve-motion",
+    curve_velocity_direction: "curve-velocity",
+    motion_decomposition: "motion-decomposition",
+    projectile_motion: "projectile",
+    uniform_circular_motion: "circular",
+    centripetal_force: "centripetal-force",
+    centripetal_acceleration: "centripetal-acceleration",
+    circular_motion_life: "circular-life",
+    kepler_laws: "kepler",
+    universal_gravitation: "gravitation",
+    artificial_satellite: "satellite",
+    cosmic_velocity: "cosmic-velocity",
+    kinetic_energy: "kinetic-energy",
+    potential_energy: "potential-energy",
+    mechanical_energy_conservation: "mechanical-energy",
+  };
   const diagrams = {
     particle: `<svg class="mini-diagram motion-diagram particle-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><path class="trace" d="M38 118 C82 36 150 40 218 102"/><circle class="moving-dot" cx="38" cy="118" r="7"/><text x="110" y="82">质点模型</text></svg>`,
     reference: `<svg class="mini-diagram motion-diagram reference-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><path d="M38 118H220"/><rect class="moving-box" x="84" y="88" width="58" height="30" rx="6"/><path class="accent-line" d="M154 102h54" marker-end="url(#miniArrow)"/><text x="72" y="136">地面参考系</text><text x="156" y="92">相对运动</text></svg>`,
@@ -1008,7 +1025,8 @@ function renderDiagram(id) {
     "potential-energy": `<svg class="mini-diagram motion-diagram potential-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="track-line" d="M54 146H206"/><path d="M80 146V50"/><circle class="pulse-dot" cx="80" cy="58" r="11"/><path class="component-y" d="M104 146V60" marker-end="url(#miniArrow)"/><text x="112" y="104">h</text><text x="92" y="42">Ep = mgh</text></svg>`,
     "mechanical-energy": `<svg class="mini-diagram motion-diagram energy-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="trace" d="M44 134 C86 38 162 36 216 132"/><circle class="moving-dot" cx="84" cy="76" r="10"/><path class="component-y" d="M84 76v54" marker-end="url(#miniArrow)"/><path class="speed-arrow" d="M98 80h62" marker-end="url(#miniArrow)"/><text x="54" y="56">Ep</text><text x="144" y="72">Ek</text><text x="82" y="154">Ek + Ep 守恒</text></svg>`,
   };
-  return diagrams[id] || diagrams.force;
+  const key = diagrams[id] ? id : diagramAliases[id] || diagramAliases[rawId] || rawId;
+  return diagrams[key] || diagrams.force;
 }
 
 function svgArrow() {
