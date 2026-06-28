@@ -2632,6 +2632,143 @@ select:focus {
   }
 }
 
+@media (max-width: 768px) {
+  #page-library .content-panel {
+    padding: 18px;
+    overflow: visible;
+    background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+  }
+
+  #page-library .content-panel::before,
+  #page-library .content-panel::after,
+  #page-library .knowledge-card::before,
+  #page-library .knowledge-card::after {
+    display: none;
+  }
+
+  #page-library .panel-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  #page-library .panel-head h2 {
+    font-size: 30px;
+  }
+
+  #page-library .knowledge-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  #page-library .knowledge-card,
+  #page-library .knowledge-card-primary,
+  #page-library .knowledge-card-secondary,
+  #page-library .knowledge-card-tool {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 14px;
+    min-height: 0;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--surface-strong) 94%, transparent);
+    box-shadow: 0 10px 26px rgba(20, 20, 20, 0.035);
+    transform: none;
+  }
+
+  :root.dark #page-library .knowledge-card,
+  :root.dark #page-library .knowledge-card-primary,
+  :root.dark #page-library .knowledge-card-secondary,
+  :root.dark #page-library .knowledge-card-tool {
+    background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  }
+
+  #page-library .knowledge-card:active {
+    transform: translateY(1px);
+  }
+
+  #page-library .knowledge-title-layer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 12px;
+  }
+
+  #page-library .knowledge-kicker {
+    margin-bottom: 7px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  #page-library .knowledge-title-layer h3,
+  #page-library .knowledge-card-primary .knowledge-title-layer h3 {
+    font-size: 24px;
+    line-height: 1.22;
+  }
+
+  #page-library .knowledge-title-layer .mini-button {
+    min-width: 72px;
+    min-height: 42px;
+    padding: 0 12px;
+    border-radius: 14px;
+  }
+
+  #page-library .knowledge-definition {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.72;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  #page-library .knowledge-meta-layer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  #page-library .physics-chip,
+  #page-library .tag,
+  #page-library .status {
+    min-height: 28px;
+    max-width: 100%;
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  #page-library .card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 2px;
+  }
+
+  #page-library .card-actions .mini-button {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+  }
+
+  #page-library .detail-button {
+    background: var(--text) !important;
+    color: var(--bg);
+  }
+
+  #page-library .empty-state,
+  #page-library .library-notice {
+    border-radius: 16px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
