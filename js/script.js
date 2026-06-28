@@ -21,7 +21,7 @@ let physicsDataStatus = {
   error: "",
 };
 
-const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "实验专区", "视频课程"];
+const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "必修二", "实验专区", "视频课程"];
 const materialThemes = ["成长", "坚持", "挫折", "亲情", "青春", "责任"];
 
 const categoryIcons = {
@@ -29,6 +29,7 @@ const categoryIcons = {
   "匀变速直线运动": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16h12"/><path d="m14 12 4 4-4 4"/><path d="M5 9h7"/></svg>`,
   "相互作用": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"/><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/></svg>`,
   "牛顿运动定律": `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="9" width="8" height="7" rx="1.5"/><path d="M12 9V4"/><path d="m10 6 2-2 2 2"/><path d="M16 12h5"/><path d="m19 10 2 2-2 2"/><path d="M8 12H3"/><path d="m5 10-2 2 2 2"/></svg>`,
+  "必修二": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15c4-7 8-7 12 0"/><path d="M4 18h16"/><path d="M15 8h5"/><path d="m18 5 3 3-3 3"/><circle cx="7" cy="15" r="1.5"/></svg>`,
   "实验专区": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v7l-4 7a3 3 0 0 0 2.6 4h6.8A3 3 0 0 0 18 17l-4-7V3"/><path d="M8 16h8"/></svg>`,
   "视频课程": `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="m10 9 5 3-5 3Z"/></svg>`,
 };
