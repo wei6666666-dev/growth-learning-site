@@ -1095,6 +1095,21 @@ function confirmDelete(message) {
   return window.confirm(message);
 }
 
+function hideAppLoader() {
+  const loader = $("#appLoader");
+  if (!loader) return;
+  window.setTimeout(() => loader.classList.add("hide"), 420);
+}
+
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/service-worker.js").catch((error) => {
+      console.warn("Growth service worker registration failed:", error);
+    });
+  });
+}
+
 async function initApp() {
   applyTheme();
   updateStreak();
@@ -1102,8 +1117,10 @@ async function initApp() {
   await loadPhysicsData();
   render();
   setPage(initialPage);
+  hideAppLoader();
 }
 
+registerServiceWorker();
 initApp();
 
 $("#themeToggle").addEventListener("click", () => {

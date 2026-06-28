@@ -4,9 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Growth · 学习统计</title>
+    <meta name="theme-color" content="#FAFAFA" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Growth" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body data-initial-page="stats">
+    <div class="app-loader" id="appLoader" aria-hidden="true">
+      <div class="app-loader-mark">G</div>
+      <span>Growth</span>
+    </div>
     <div class="page-shell">
       <header class="topbar">
         <button class="brand nav-trigger" type="button" data-page="home" aria-label="回到首页">
