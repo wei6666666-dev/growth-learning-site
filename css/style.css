@@ -1630,6 +1630,21 @@ select:focus {
   animation: none;
 }
 
+.motion-diagram .paper-dot {
+  fill: var(--surface-strong);
+  opacity: 0.82;
+}
+
+.motion-diagram .average-line {
+  opacity: 0.42;
+}
+
+.motion-diagram .component-x,
+.motion-diagram .component-y,
+.motion-diagram .span-line {
+  opacity: 0.72;
+}
+
 .acceleration-diagram .accel-frame {
   opacity: 0.55;
   animation: accelFrameFocus 3s ease-in-out infinite;
