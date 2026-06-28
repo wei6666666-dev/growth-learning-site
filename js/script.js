@@ -215,9 +215,17 @@ const defaultState = {
   learningKnowledge: [],
   notes: {},
   videos: [
-    { id: "v1", title: "高中物理 · 位移与路程", bv: "BV1xxxxxx", topic: "位移", status: "未观看", favorite: false },
-    { id: "v2", title: "高中物理 · 速度与加速度", bv: "BV2xxxxxx", topic: "速度 / 加速度", status: "学习中", favorite: false },
-    { id: "v3", title: "高中物理 · 牛顿第二定律", bv: "BV3xxxxxx", topic: "牛顿第二定律", status: "未观看", favorite: false },
+    { id: "bv-BV1Y64y1B7QC", title: "【运动的描述】质点", bv: "BV1Y64y1B7QC", topic: "质点 / 参考系", status: "未观看", favorite: false },
+    { id: "bv-BV1TNWFzWERn", title: "高中物理必修一第一章：运动的描述", bv: "BV1TNWFzWERn", topic: "运动的描述", status: "未观看", favorite: false },
+    { id: "bv-BV1oJGAzJEPf", title: "高中物理必修一第二章：匀变速直线运动", bv: "BV1oJGAzJEPf", topic: "匀变速直线运动", status: "未观看", favorite: false },
+    { id: "bv-BV1oP411A7Ey", title: "匀变速直线运动平均速度公式的推导", bv: "BV1oP411A7Ey", topic: "平均速度 / 速度公式", status: "未观看", favorite: false },
+    { id: "bv-BV1XHnXz6EU4", title: "匀变速直线运动的位移-时间关系", bv: "BV1XHnXz6EU4", topic: "位移公式", status: "未观看", favorite: false },
+    { id: "bv-BV1A68hzHE2E", title: "匀变速直线运动三个推论", bv: "BV1A68hzHE2E", topic: "匀变速直线运动", status: "未观看", favorite: false },
+    { id: "bv-BV1JNbpzJEj2", title: "相互作用力：重力、弹力轻松拿下", bv: "BV1JNbpzJEj2", topic: "重力 / 弹力", status: "未观看", favorite: false },
+    { id: "bv-BV1Dg411U7J8", title: "相互作用：力——弹力（1）", bv: "BV1Dg411U7J8", topic: "弹力", status: "未观看", favorite: false },
+    { id: "bv-BV1SrUsB3Eei", title: "弹簧模型与牛顿第二定律基础", bv: "BV1SrUsB3Eei", topic: "牛顿第二定律 / 弹力", status: "未观看", favorite: false },
+    { id: "bv-BV1sv411K7SU", title: "1.8小时快速学完物理必修一", bv: "BV1sv411K7SU", topic: "必修一总复习", status: "未观看", favorite: false },
+    { id: "bv-BV1RW411v75B", title: "高中物理必修一全套教学视频", bv: "BV1RW411v75B", topic: "牛顿运动定律 / 必修一", status: "未观看", favorite: false },
   ],
   mistakes: [],
   materials: [
@@ -364,10 +372,34 @@ function loadState() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (!saved) return structuredClone(defaultState);
   try {
-    return { ...structuredClone(defaultState), ...JSON.parse(saved) };
+    const merged = { ...structuredClone(defaultState), ...JSON.parse(saved) };
+    merged.videos = normalizeStoredVideos(merged.videos);
+    return merged;
   } catch {
     return structuredClone(defaultState);
   }
+}
+
+function normalizeStoredVideos(videos = []) {
+  const placeholderBvs = new Set(["BV1xxxxxx", "BV2xxxxxx", "BV3xxxxxx"]);
+  const savedVideos = Array.isArray(videos) ? videos : [];
+  const cleanSavedVideos = savedVideos.filter((video) => video?.bv && !placeholderBvs.has(video.bv));
+  const byBv = new Map();
+
+  // 先放默认公开课程，再合并用户自己添加或已经操作过的视频，保留收藏/观看状态。
+  [...defaultState.videos, ...cleanSavedVideos].forEach((video) => {
+    if (!video?.bv) return;
+    const previous = byBv.get(video.bv) || {};
+    byBv.set(video.bv, {
+      ...previous,
+      ...video,
+      id: video.id || previous.id || `bv-${video.bv}`,
+      status: video.status || previous.status || "未观看",
+      favorite: Boolean(video.favorite ?? previous.favorite),
+    });
+  });
+
+  return [...byBv.values()];
 }
 
 function saveState(message) {
