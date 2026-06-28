@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Growth · 学习统计</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body data-initial-page="stats">
+    <div class="page-shell">
+      <header class="topbar">
+        <button class="brand nav-trigger" type="button" data-page="home" aria-label="回到首页">
+          <span class="brand-mark"></span>
+          <span>Growth</span>
+        </button>
+
+        <nav class="nav-links" aria-label="主导航">
+          <button class="nav-trigger active" type="button" data-page="home">首页</button>
+          <button class="nav-trigger" type="button" data-page="library">知识库</button>
+          <button class="nav-trigger" type="button" data-page="mistakes">错题本</button>
+          <button class="nav-trigger" type="button" data-page="materials">作文素材</button>
+          <button class="nav-trigger" type="button" data-page="stats">学习统计</button>
+        </nav>
+
+        <div class="nav-actions">
+          <label class="search-control" aria-label="全站搜索">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" />
+            </svg>
+            <input id="globalSearch" type="search" placeholder="搜索当前页" />
+          </label>
+          <button class="icon-button" id="themeToggle" type="button" aria-label="切换深色模式">
+            <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.42-1.42M4.92 19.08l1.42-1.42m0-11.32L4.92 4.92m14.16 14.16-1.42-1.42" />
+              <circle cx="12" cy="12" r="4" />
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 14.2A7.8 7.8 0 0 1 9.8 3a8.6 8.6 0 1 0 11.2 11.2Z" />
+            </svg>
+          </button>
+          <button class="avatar" id="avatarButton" type="button" aria-label="个人中心">G</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="page-view active" id="page-home" data-page-view="home">
+          <div class="hero reveal">
+            <div>
+              <p class="eyebrow" id="todayLabel">Today</p>
+              <h1>今天，也是成长的一天。</h1>
+              <p class="hero-copy">把知识、错题、素材和时间，都安静地整理好。</p>
+            </div>
+            <div class="term-card">
+              <span>当前阶段</span>
+              <strong>高一上 · 必修第一册</strong>
+            </div>
+          </div>
+
+          <div class="home-grid">
+            <section class="panel task-panel reveal">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Today Goals</p>
+                  <h2>今日目标</h2>
+                </div>
+                <span class="pill" id="taskProgress">0/0</span>
+              </div>
+              <form class="inline-form" id="taskForm">
+                <input id="taskInput" type="text" placeholder="添加一个新任务" required />
+                <button class="primary-button" type="submit">添加</button>
+              </form>
+              <div class="task-list" id="taskList"></div>
+            </section>
+
+            <section class="panel reveal">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Overview</p>
+                  <h2>今日概览</h2>
+                </div>
+              </div>
+              <div class="metric-list" id="homeMetrics"></div>
+            </section>
+
+            <section class="panel wide-panel reveal">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Continue</p>
+                  <h2>最近学习</h2>
+                </div>
+              </div>
+              <div class="quick-grid">
+                <button class="quick-card nav-trigger" type="button" data-page="library">
+                  <span>物理</span>
+                  <strong>从位移、速度和加速度继续</strong>
+                </button>
+                <button class="quick-card nav-trigger" type="button" data-page="mistakes">
+                  <span>错题</span>
+                  <strong>整理一道真正看懂的题</strong>
+                </button>
+                <button class="quick-card nav-trigger" type="button" data-page="materials">
+                  <span>作文</span>
+                  <strong>收藏一个可以复用的表达</strong>
+                </button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page-view" id="page-library" data-page-view="library">
+          <div class="hero compact physics-hero reveal">
+            <svg class="physics-hero-sketch" viewBox="0 0 900 360" aria-hidden="true">
+              <defs>
+                <pattern id="physicsGrid" width="42" height="42" patternUnits="userSpaceOnUse">
+                  <path d="M 42 0 L 0 0 0 42" />
+                </pattern>
+                <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" />
+                </marker>
+              </defs>
+              <rect width="900" height="360" fill="url(#physicsGrid)" />
+              <path class="axis" d="M120 286H420M120 286V78" marker-end="url(#arrowHead)" />
+              <path class="trajectory" d="M188 252 C260 108 365 104 470 230" />
+              <path class="wave" d="M520 126 C548 86 576 166 604 126 S660 126 688 126 744 126 772 126" />
+              <path class="force" d="M578 254H728" marker-end="url(#arrowHead)" />
+              <path class="force soft" d="M650 286V188" marker-end="url(#arrowHead)" />
+              <circle cx="188" cy="252" r="8" />
+              <circle cx="286" cy="148" r="6" />
+              <circle cx="386" cy="162" r="6" />
+              <circle cx="470" cy="230" r="8" />
+              <rect x="560" y="244" width="76" height="42" rx="8" />
+            </svg>
+            <div>
+              <p class="eyebrow">Physics Library</p>
+              <h1>物理知识库</h1>
+              <p class="hero-copy">从运动开始，把高中物理一点点搭起来。</p>
+            </div>
+            <div class="term-card">
+              <span>当前教材</span>
+              <strong>高一上 · 必修第一册</strong>
+            </div>
+          </div>
+          <div class="library-layout">
+            <aside class="sidebar panel">
+              <div class="sidebar-title">分类</div>
+              <div class="category-list" id="categoryList"></div>
+            </aside>
+            <section class="panel content-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow" id="libraryEyebrow">运动的描述</p>
+                  <h2 id="libraryTitle">知识点</h2>
+                </div>
+                <span class="pill" id="libraryCount">0 个</span>
+              </div>
+              <div class="knowledge-grid" id="knowledgeGrid"></div>
+              <section class="video-section" id="videoSection" hidden>
+                <div class="video-form-card">
+                  <div>
+                    <p class="eyebrow">Bilibili</p>
+                    <h2>添加视频课程</h2>
+                    <p class="muted">填写标题、BV号和所属知识点。页面只使用 Bilibili 官方 iframe 嵌入，不下载视频。</p>
+                  </div>
+                  <form class="stack-form" id="videoForm">
+                    <input id="videoTitleInput" type="text" placeholder="视频标题" required />
+                    <input id="videoBvInput" type="text" placeholder="BV号或 B站链接" required />
+                    <input id="videoTopicInput" type="text" placeholder="所属知识点" required />
+                    <button class="primary-button" type="submit">添加视频</button>
+                  </form>
+                </div>
+                <div class="video-grid" id="videoGrid"></div>
+              </section>
+            </section>
+          </div>
+        </section>
+
+        <section class="page-view" id="page-mistakes" data-page-view="mistakes">
+          <div class="hero compact reveal">
+            <div>
+              <p class="eyebrow">Mistake Notebook</p>
+              <h1>错题本</h1>
+              <p class="hero-copy">把错因写清楚，下一次就不是同一道坎。</p>
+            </div>
+          </div>
+          <div class="two-column">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Add</p>
+                  <h2>添加错题</h2>
+                </div>
+              </div>
+              <form class="stack-form" id="mistakeForm">
+                <textarea id="mistakeQuestion" placeholder="题目内容" required></textarea>
+                <div class="form-row">
+                  <select id="mistakeSubject" required>
+                    <option value="物理">物理</option>
+                    <option value="数学">数学</option>
+                    <option value="英语">英语</option>
+                    <option value="语文">语文</option>
+                  </select>
+                  <select id="mistakeTopic" required></select>
+                </div>
+                <textarea id="mistakeReason" placeholder="错误原因" required></textarea>
+                <textarea id="mistakeSolution" placeholder="正确思路" required></textarea>
+                <input id="mistakeImage" type="file" accept="image/*" />
+                <div class="image-preview" id="mistakeImagePreview">图片预览</div>
+                <button class="primary-button" type="submit">保存错题</button>
+              </form>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Review</p>
+                  <h2>错题列表</h2>
+                </div>
+                <span class="pill" id="mistakeCount">0 题</span>
+              </div>
+              <div class="card-list" id="mistakeList"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page-view" id="page-materials" data-page-view="materials">
+          <div class="hero compact reveal">
+            <div>
+              <p class="eyebrow">Writing Materials</p>
+              <h1>作文素材</h1>
+              <p class="hero-copy">把能打动你的句子，放进一个安静的地方。</p>
+            </div>
+          </div>
+          <div class="library-layout">
+            <aside class="sidebar panel">
+              <div class="sidebar-title">主题</div>
+              <div class="category-list" id="materialThemes"></div>
+            </aside>
+            <section class="panel content-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow" id="materialEyebrow">成长</p>
+                  <h2>素材库</h2>
+                </div>
+                <span class="pill" id="materialCount">0 条</span>
+              </div>
+              <form class="stack-form material-form" id="materialForm">
+                <div class="form-row">
+                  <select id="materialThemeInput"></select>
+                  <input id="materialTitleInput" type="text" placeholder="素材标题" required />
+                </div>
+                <textarea id="materialContentInput" placeholder="写下你的素材、例子或金句" required></textarea>
+                <button class="primary-button" type="submit">添加素材</button>
+              </form>
+              <div class="material-grid" id="materialGrid"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page-view" id="page-stats" data-page-view="stats">
+          <div class="hero compact reveal">
+            <div>
+              <p class="eyebrow">Study Statistics</p>
+              <h1>学习统计</h1>
+              <p class="hero-copy">让努力看得见，但不让数字喧宾夺主。</p>
+            </div>
+          </div>
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Auto Summary</p>
+                <h2>自动统计</h2>
+              </div>
+            </div>
+            <div class="stats-grid" id="statsGrid"></div>
+            <div class="progress-board" id="progressBoard"></div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="footer">Small steps, visible growth.</footer>
+    </div>
+
+    <div class="modal" id="detailModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-detail></div>
+      <article class="modal-card" role="dialog" aria-modal="true">
+        <button class="close-button" type="button" data-close-detail aria-label="关闭">×</button>
+        <div id="detailContent"></div>
+      </article>
+    </div>
+
+    <div class="modal" id="playerModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-player></div>
+      <article class="modal-card player-card" role="dialog" aria-modal="true">
+        <button class="close-button" type="button" data-close-player aria-label="关闭">×</button>
+        <p class="eyebrow">Bilibili Player</p>
+        <h2 id="playerTitle">视频播放</h2>
+        <div class="player-frame" id="playerFrame"></div>
+      </article>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

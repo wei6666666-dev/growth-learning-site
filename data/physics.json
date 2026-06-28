@@ -1,0 +1,491 @@
+[
+  {
+    "id": "motion_particle",
+    "name": "质点",
+    "chapter": "第一章：运动的描述",
+    "definition": "研究物体运动时，如果物体的大小和形状对问题影响很小，就可以把物体看成一个有质量的点。",
+    "formula": "",
+    "symbols": "质点是理想模型，没有专门公式；关键是判断物体大小、形状、转动是否影响研究结果。",
+    "mistakes": [
+      "不是小物体才能看作质点，大物体在某些问题中也可以看作质点。",
+      "研究物体自身转动、姿态或形变时，通常不能把它看作质点。"
+    ],
+    "example": "例题：研究火车从北京到上海所用时间时，火车能否看作质点？解析：可以，因为此时只关心火车整体位置变化，火车长度和形状影响很小。",
+    "hint": "判断能否看作质点时，先看题目关心的是整体运动，还是物体自身形状和转动。",
+    "difficulty": "⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_reference_frame",
+      "motion_displacement",
+      "motion_average_velocity"
+    ]
+  },
+  {
+    "id": "motion_reference_frame",
+    "name": "参考系",
+    "chapter": "第一章：运动的描述",
+    "definition": "描述物体运动时，被选作标准的物体或物体系叫参考系。",
+    "formula": "",
+    "symbols": "参考系没有固定公式；同一物体相对不同参考系，位置和运动状态可能不同。",
+    "mistakes": [
+      "说物体运动或静止时，必须先明确相对哪个参考系。",
+      "默认参考系常是地面，但题目出现车、船、电梯时要重新判断。"
+    ],
+    "example": "例题：坐在公交车上的书包相对座椅静止，相对路边树木怎样？解析：相对路边树木，书包随公交车一起运动。",
+    "hint": "遇到运动描述题，先补一句“以谁为参考系”。",
+    "difficulty": "⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_particle",
+      "motion_displacement",
+      "motion_instant_velocity"
+    ]
+  },
+  {
+    "id": "motion_time_moment",
+    "name": "时间与时刻",
+    "chapter": "第一章：运动的描述",
+    "definition": "时刻是时间轴上的一个点，时间是两个时刻之间的一段间隔。",
+    "formula": "Δt = t2 - t1",
+    "symbols": "Δt 表示时间间隔，单位 s；t1 表示初时刻，t2 表示末时刻，单位 s。",
+    "mistakes": [
+      "“第3秒末”是时刻，“前3秒”是时间间隔。",
+      "“第3秒内”表示从2秒末到3秒末，持续时间是1秒。"
+    ],
+    "example": "例题：某同学8:00到校，8:00到8:20早读。指出时刻和时间。解析：8:00是时刻，8:00到8:20是时间间隔，长度为20 min。",
+    "hint": "看到“末、初、某一刻”想时刻，看到“内、经过、持续”想时间。",
+    "difficulty": "⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_average_velocity",
+      "motion_instant_velocity",
+      "motion_acceleration"
+    ]
+  },
+  {
+    "id": "motion_displacement",
+    "name": "位移",
+    "chapter": "第一章：运动的描述",
+    "definition": "位移表示物体位置的变化，是从初位置指向末位置的有向线段。",
+    "formula": "Δx = x2 - x1",
+    "symbols": "Δx 表示位移，单位 m；x1 表示初位置，x2 表示末位置，单位 m；位移有方向，是矢量。",
+    "mistakes": [
+      "位移不是路程，位移只看起点和终点。",
+      "绕一圈回到起点时，路程不为0，但位移为0。"
+    ],
+    "example": "例题：向东走30 m，再向西走10 m，求位移。解析：末位置在起点东侧20 m，所以位移大小20 m，方向向东。",
+    "hint": "画出起点和终点，位移就是从起点指向终点的箭头。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_path_length",
+      "motion_average_velocity",
+      "motion_velocity_formula"
+    ]
+  },
+  {
+    "id": "motion_path_length",
+    "name": "路程",
+    "chapter": "第一章：运动的描述",
+    "definition": "路程是物体实际运动轨迹的长度，是标量。",
+    "formula": "",
+    "symbols": "路程常用 s 表示，单位 m；路程只有大小，没有方向。",
+    "mistakes": [
+      "路程和位移单位相同，但物理意义不同。",
+      "路程不能为负，位移可以用正负表示方向。"
+    ],
+    "example": "例题：绕400 m操场跑一圈回到起点，路程和位移是多少？解析：路程为400 m，位移为0。",
+    "hint": "路程看走过的轨迹长度，位移看起点到终点。",
+    "difficulty": "⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_displacement",
+      "motion_average_velocity",
+      "motion_instant_velocity"
+    ]
+  },
+  {
+    "id": "motion_average_velocity",
+    "name": "平均速度",
+    "chapter": "第一章：运动的描述",
+    "definition": "平均速度描述一段时间内物体位置变化的快慢和方向。",
+    "formula": "v = Δx / Δt",
+    "symbols": "v 表示平均速度，单位 m/s；Δx 表示位移，单位 m；Δt 表示时间间隔，单位 s。",
+    "mistakes": [
+      "平均速度用位移除以时间，不是路程除以时间。",
+      "平均速度是矢量，方向与位移方向相同。"
+    ],
+    "example": "例题：物体向东位移60 m，用时12 s，求平均速度。解析：v = 60 / 12 = 5 m/s，方向向东。",
+    "hint": "平均速度一定对应一段过程，计算时先找位移。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_displacement",
+      "motion_time_moment",
+      "motion_instant_velocity",
+      "motion_acceleration"
+    ]
+  },
+  {
+    "id": "motion_instant_velocity",
+    "name": "瞬时速度",
+    "chapter": "第一章：运动的描述",
+    "definition": "瞬时速度描述物体在某一时刻或某一位置的运动快慢和方向。",
+    "formula": "",
+    "symbols": "瞬时速度单位 m/s；方向为该时刻物体运动方向，可看作很短时间内平均速度的极限。",
+    "mistakes": [
+      "速度表常显示瞬时速率，只给大小不一定给方向。",
+      "瞬时速度不是一段时间内的平均结果。"
+    ],
+    "example": "例题：汽车速度表显示72 km/h，这更接近平均速度还是瞬时速度？解析：更接近瞬时速率，表示某一时刻速度大小。",
+    "hint": "平均速度看一段，瞬时速度看一点。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_average_velocity",
+      "motion_acceleration",
+      "motion_uniformly_accelerated"
+    ]
+  },
+  {
+    "id": "motion_acceleration",
+    "name": "加速度",
+    "chapter": "第二章：匀变速直线运动",
+    "definition": "加速度描述速度变化的快慢和方向。",
+    "formula": "a = Δv / Δt",
+    "symbols": "a 表示加速度，单位 m/s²；Δv 表示速度变化量，单位 m/s；Δt 表示时间间隔，单位 s。",
+    "mistakes": [
+      "加速度大不代表速度大，只代表速度变化快。",
+      "减速运动也有加速度，加速度方向通常与速度方向相反。"
+    ],
+    "example": "例题：汽车速度从4 m/s增加到16 m/s，用时6 s，求加速度。解析：a = (16 - 4) / 6 = 2 m/s²。",
+    "hint": "判断加速度方向时，看速度变化量的方向。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_average_velocity",
+      "motion_instant_velocity",
+      "motion_uniformly_accelerated",
+      "newton_second_law"
+    ]
+  },
+  {
+    "id": "motion_uniformly_accelerated",
+    "name": "匀变速直线运动",
+    "chapter": "第二章：匀变速直线运动",
+    "definition": "加速度保持不变，并且运动轨迹是一条直线的运动。",
+    "formula": "v = v0 + at；x = v0t + 1/2at²；v² - v0² = 2ax",
+    "symbols": "v0 表示初速度，v 表示末速度，a 表示加速度，t 表示时间，x 表示位移；单位分别为 m/s、m/s、m/s²、s、m。",
+    "mistakes": [
+      "公式中的 x 是位移，不一定是路程。",
+      "要先规定正方向，再给速度和加速度带正负号。"
+    ],
+    "example": "例题：小车由静止开始以2 m/s²加速，3 s后速度和位移是多少？解析：v = at = 6 m/s；x = 1/2at² = 9 m。",
+    "hint": "先列已知量，再选择未知量最少的公式。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_acceleration",
+      "motion_velocity_formula",
+      "motion_displacement_formula",
+      "motion_free_fall"
+    ]
+  },
+  {
+    "id": "motion_velocity_formula",
+    "name": "速度公式",
+    "chapter": "第二章：匀变速直线运动",
+    "definition": "速度公式用来描述匀变速直线运动中速度随时间怎样变化。",
+    "formula": "v = v0 + at",
+    "symbols": "v 表示 t 时刻速度，v0 表示初速度，a 表示加速度，t 表示时间；单位分别为 m/s、m/s、m/s²、s。",
+    "mistakes": [
+      "加速度为负时，速度可能在减小，不要只代入大小。",
+      "公式只适用于加速度恒定的直线运动。"
+    ],
+    "example": "例题：汽车初速度5 m/s，加速度2 m/s²，4 s后速度是多少？解析：v = 5 + 2×4 = 13 m/s。",
+    "hint": "速度公式适合求某一时刻的速度。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_acceleration",
+      "motion_uniformly_accelerated",
+      "motion_displacement_formula"
+    ]
+  },
+  {
+    "id": "motion_displacement_formula",
+    "name": "位移公式",
+    "chapter": "第二章：匀变速直线运动",
+    "definition": "位移公式用来求匀变速直线运动在一段时间内的位置变化。",
+    "formula": "x = v0t + 1/2at²",
+    "symbols": "x 表示位移，v0 表示初速度，t 表示时间，a 表示加速度；单位分别为 m、m/s、s、m/s²。",
+    "mistakes": [
+      "x 是位移，方向由正负号表示，不一定等于路程。",
+      "时间 t 必须从所选初时刻开始计算。"
+    ],
+    "example": "例题：物体初速度3 m/s，加速度2 m/s²，运动4 s，位移是多少？解析：x = 3×4 + 1/2×2×16 = 28 m。",
+    "hint": "要求一段时间内走到哪里，优先考虑位移公式。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_displacement",
+      "motion_velocity_formula",
+      "motion_uniformly_accelerated"
+    ]
+  },
+  {
+    "id": "motion_free_fall",
+    "name": "自由落体",
+    "chapter": "第二章：匀变速直线运动",
+    "definition": "物体只在重力作用下，从静止开始下落的运动叫自由落体。",
+    "formula": "v = gt；h = 1/2gt²；v² = 2gh",
+    "symbols": "v 表示下落速度，h 表示下落高度，t 表示时间，g 表示重力加速度，常取9.8 m/s²或10 m/s²。",
+    "mistakes": [
+      "自由落体初速度必须为0。",
+      "空气阻力明显时，不能直接当作自由落体。"
+    ],
+    "example": "例题：小球从静止释放，取g = 10 m/s²，2 s后速度和下落高度是多少？解析：v = 20 m/s；h = 20 m。",
+    "hint": "自由落体就是初速度为0、加速度为g的匀加速直线运动。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_uniformly_accelerated",
+      "motion_acceleration",
+      "force_gravity"
+    ]
+  },
+  {
+    "id": "motion_vertical_throw",
+    "name": "竖直上抛",
+    "chapter": "第二章：匀变速直线运动",
+    "definition": "物体以一定初速度竖直向上抛出，只受重力作用的运动叫竖直上抛。",
+    "formula": "v = v0 - gt；h = v0t - 1/2gt²；v² = v0² - 2gh",
+    "symbols": "v0 表示初速度，v 表示某时刻速度，h 表示上升高度，g 表示重力加速度，t 表示时间。",
+    "mistakes": [
+      "最高点速度为0，但加速度仍为g，方向向下。",
+      "上升和下降过程加速度方向都向下。"
+    ],
+    "example": "例题：物体以20 m/s竖直上抛，取g = 10 m/s²，多久到最高点？解析：最高点v = 0，0 = 20 - 10t，t = 2 s。",
+    "hint": "竖直上抛要统一正方向，常取向上为正，则加速度为 -g。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_free_fall",
+      "motion_velocity_formula",
+      "motion_displacement_formula"
+    ]
+  },
+  {
+    "id": "force_gravity",
+    "name": "重力",
+    "chapter": "第三章：相互作用",
+    "definition": "重力是物体由于地球吸引而受到的力，方向竖直向下。",
+    "formula": "G = mg",
+    "symbols": "G 表示重力，单位 N；m 表示质量，单位 kg；g 表示重力加速度，单位 N/kg 或 m/s²。",
+    "mistakes": [
+      "重力方向是竖直向下，不是垂直接触面。",
+      "质量单位是kg，重力单位是N，不能混用。"
+    ],
+    "example": "例题：质量3 kg的物体，取g = 10 N/kg，重力多大？解析：G = mg = 30 N，方向竖直向下。",
+    "hint": "看到质量求重力，先写G = mg，再标方向竖直向下。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_free_fall",
+      "force_elastic",
+      "newton_second_law"
+    ]
+  },
+  {
+    "id": "force_elastic",
+    "name": "弹力",
+    "chapter": "第三章：相互作用",
+    "definition": "发生弹性形变的物体，为恢复原状而对接触物体产生的力叫弹力。",
+    "formula": "F = kx",
+    "symbols": "F 表示弹簧弹力，单位 N；k 表示劲度系数，单位 N/m；x 表示形变量，单位 m。",
+    "mistakes": [
+      "有接触不一定有弹力，还要有弹性形变。",
+      "支持力方向通常垂直接触面，不一定总是竖直向上。"
+    ],
+    "example": "例题：弹簧劲度系数200 N/m，伸长0.05 m，弹力多大？解析：F = kx = 10 N。",
+    "hint": "判断弹力先找接触，再看形变方向。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "force_gravity",
+      "force_friction",
+      "force_composition_decomposition"
+    ]
+  },
+  {
+    "id": "force_friction",
+    "name": "摩擦力",
+    "chapter": "第三章：相互作用",
+    "definition": "摩擦力阻碍接触物体之间的相对运动或相对运动趋势。",
+    "formula": "f = μN",
+    "symbols": "f 表示滑动摩擦力，单位 N；μ 表示动摩擦因数；N 表示正压力，单位 N。",
+    "mistakes": [
+      "静摩擦力不一定等于μN，要根据受力情况判断。",
+      "摩擦力不一定阻碍物体运动，它阻碍的是相对运动或相对运动趋势。"
+    ],
+    "example": "例题：木块在水平面滑动，N = 20 N，μ = 0.3，滑动摩擦力多大？解析：f = μN = 6 N。",
+    "hint": "判断摩擦力方向时，先判断相对运动或相对运动趋势。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "force_elastic",
+      "force_composition_decomposition",
+      "newton_laws_application"
+    ]
+  },
+  {
+    "id": "force_composition_decomposition",
+    "name": "力的合成与分解",
+    "chapter": "第三章：相互作用",
+    "definition": "力的合成是用一个力等效替代几个力，力的分解是把一个力等效拆成几个方向上的分力。",
+    "formula": "Fx = Fcosθ；Fy = Fsinθ",
+    "symbols": "F 表示原力，Fx 和 Fy 表示两个互相垂直方向上的分力，θ 表示F与x方向夹角。",
+    "mistakes": [
+      "合力大小不一定等于两个力大小相加。",
+      "分解方向不是随便选，通常沿运动方向和垂直运动方向。"
+    ],
+    "example": "例题：10 N拉力与水平方向成37°，cos37° = 0.8，求水平分力。解析：Fx = 10×0.8 = 8 N。",
+    "hint": "遇到斜面或斜拉力，优先考虑正交分解。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "force_elastic",
+      "force_friction",
+      "newton_second_law"
+    ]
+  },
+  {
+    "id": "newton_first_law",
+    "name": "牛顿第一定律",
+    "chapter": "第四章：牛顿运动定律",
+    "definition": "物体不受外力或合外力为零时，会保持静止或匀速直线运动状态。",
+    "formula": "ΣF = 0 → v不变",
+    "symbols": "ΣF 表示合外力，单位 N；v 表示速度，合外力为0时速度大小和方向都不变。",
+    "mistakes": [
+      "力不是维持运动的原因，而是改变运动状态的原因。",
+      "静止和匀速直线运动都属于平衡状态。"
+    ],
+    "example": "例题：冰面上冰壶几乎不受阻力时会怎样运动？解析：合外力近似为0，它会保持原速度做匀速直线运动。",
+    "hint": "用牛顿第一定律纠正直觉：没有合外力，速度不会自己改变。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "newton_inertia",
+      "newton_second_law",
+      "force_friction"
+    ]
+  },
+  {
+    "id": "newton_second_law",
+    "name": "牛顿第二定律",
+    "chapter": "第四章：牛顿运动定律",
+    "definition": "物体的加速度与所受合外力成正比，与质量成反比，方向与合外力方向相同。",
+    "formula": "F = ma",
+    "symbols": "F 表示合外力，单位 N；m 表示质量，单位 kg；a 表示加速度，单位 m/s²。",
+    "mistakes": [
+      "F必须是研究对象受到的合外力，不是某一个单独的力。",
+      "加速度方向与合外力方向相同，不一定与速度方向相同。"
+    ],
+    "example": "例题：质量4 kg的物体受到12 N合外力，加速度多大？解析：a = F/m = 3 m/s²。",
+    "hint": "牛顿第二定律题目按对象、受力、方向、方程四步走。",
+    "difficulty": "⭐⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_acceleration",
+      "force_composition_decomposition",
+      "newton_laws_application",
+      "newton_third_law"
+    ]
+  },
+  {
+    "id": "newton_third_law",
+    "name": "牛顿第三定律",
+    "chapter": "第四章：牛顿运动定律",
+    "definition": "两个物体之间的作用力和反作用力总是大小相等、方向相反、作用在不同物体上。",
+    "formula": "FAB = -FBA",
+    "symbols": "FAB 表示A对B的力，FBA 表示B对A的力；两者大小相等、方向相反、作用对象不同。",
+    "mistakes": [
+      "作用力和反作用力作用在不同物体上，不能相互抵消。",
+      "平衡力作用在同一物体上，容易和相互作用力混淆。"
+    ],
+    "example": "例题：人向后蹬地为什么能向前走？解析：脚给地面向后的力，地面给脚向前的反作用力，推动人前进。",
+    "hint": "区分第三定律和平衡力，先看两个力是否作用在同一个物体上。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "newton_second_law",
+      "force_friction",
+      "newton_laws_application"
+    ]
+  },
+  {
+    "id": "newton_inertia",
+    "name": "惯性",
+    "chapter": "第四章：牛顿运动定律",
+    "definition": "惯性是物体保持原来运动状态不变的性质。",
+    "formula": "",
+    "symbols": "惯性大小只与质量有关，质量越大，惯性越大。",
+    "mistakes": [
+      "惯性不是力，不能说物体受到惯性。",
+      "速度大不代表惯性大，惯性只与质量有关。"
+    ],
+    "example": "例题：公交车急刹车时人为什么向前倾？解析：人的脚随车减速，上身由于惯性保持原来的向前运动状态。",
+    "hint": "凡是解释“保持原状态”的现象，先想到惯性。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "newton_first_law",
+      "newton_second_law",
+      "newton_laws_application"
+    ]
+  },
+  {
+    "id": "newton_laws_application",
+    "name": "牛顿定律应用",
+    "chapter": "第四章：牛顿运动定律",
+    "definition": "用牛顿定律分析实际运动问题，核心是受力分析并建立方程。",
+    "formula": "ΣF = ma",
+    "symbols": "ΣF 表示沿选定方向的合外力，m 表示质量，a 表示该方向加速度。",
+    "mistakes": [
+      "没有画受力图就列方程，容易漏力或多力。",
+      "斜面问题中，重力常需要分解到沿斜面和垂直斜面方向。"
+    ],
+    "example": "例题：质量2 kg物体在水平面受10 N拉力和2 N摩擦力，求加速度。解析：合外力为8 N，a = 8/2 = 4 m/s²。",
+    "hint": "先画受力图，再选方向，最后列ΣF = ma。",
+    "difficulty": "⭐⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "newton_second_law",
+      "force_friction",
+      "force_composition_decomposition",
+      "motion_acceleration"
+    ]
+  }
+]

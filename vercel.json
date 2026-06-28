@@ -1,0 +1,37 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/physics",
+      "destination": "/physics.html"
+    },
+    {
+      "source": "/mistakes",
+      "destination": "/mistakes.html"
+    },
+    {
+      "source": "/statistics",
+      "destination": "/statistics.html"
+    },
+    {
+      "source": "/stats",
+      "destination": "/statistics.html"
+    },
+    {
+      "source": "/math",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
