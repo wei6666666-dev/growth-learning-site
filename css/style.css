@@ -1645,6 +1645,38 @@ select:focus {
   opacity: 0.72;
 }
 
+.projectile-diagram .component-x {
+  stroke-width: 2.6;
+  opacity: 0.95;
+}
+
+.projectile-diagram .component-y {
+  stroke-width: 2.2;
+  opacity: 0.52;
+  animation: arrowPulse 2.4s ease-in-out infinite;
+}
+
+.projectile-diagram .vy-two {
+  opacity: 0.68;
+  animation-delay: 0.25s;
+}
+
+.projectile-diagram .vy-three {
+  opacity: 0.86;
+  animation-delay: 0.5s;
+}
+
+.projectile-diagram .height-line,
+.projectile-diagram .height-tick {
+  opacity: 0.58;
+  animation: none;
+}
+
+.projectile-diagram .diagram-label {
+  font-size: 11px;
+  font-weight: 720;
+}
+
 .acceleration-diagram .accel-frame {
   opacity: 0.55;
   animation: accelFrameFocus 3s ease-in-out infinite;
