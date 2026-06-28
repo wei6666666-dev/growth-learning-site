@@ -1195,11 +1195,21 @@ select:focus {
   background: color-mix(in srgb, var(--surface-strong) 76%, transparent);
 }
 
+.ai-teacher-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .ai-chat-log {
   display: grid;
   max-height: 360px;
   gap: 12px;
   overflow: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
   padding: 12px;
   border: 1px solid color-mix(in srgb, var(--line) 86%, transparent);
   border-radius: 16px;
@@ -1254,6 +1264,7 @@ select:focus {
 .ai-teacher-form {
   display: grid;
   grid-template-columns: 1fr auto;
+  align-items: end;
   gap: 12px;
   margin-top: 14px;
 }
@@ -2710,8 +2721,36 @@ select:focus {
     display: grid;
   }
 
+  .ai-teacher-module {
+    padding-bottom: 92px;
+  }
+
+  .ai-teacher-tools {
+    justify-content: flex-start;
+  }
+
+  .ai-chat-log {
+    max-height: 58vh;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .ai-teacher-badge {
     width: fit-content;
+  }
+
+  .ai-teacher-form {
+    position: sticky;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    z-index: 5;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+    backdrop-filter: blur(18px);
+  }
+
+  .ai-teacher-form textarea {
+    min-height: 48px;
   }
 
   .ai-message {

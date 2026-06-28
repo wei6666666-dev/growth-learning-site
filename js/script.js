@@ -3,6 +3,12 @@
 const STORAGE_KEY = "growth-interactive-learning";
 const THEME_KEY = "growth-theme";
 
+// 仅学习用途，不用于生产环境：前端直连 API 会暴露密钥。
+// 使用前请把下面的占位值替换为你的 OpenRouter API Key。
+const AI_API_KEY = "你的key";
+const AI_API_URL = "https://openrouter.ai/api/v1/chat/completions";
+const AI_MODEL = "openai/gpt-4o-mini";
+
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
@@ -757,7 +763,10 @@ function aiTeacherBlock(item) {
         <h3>八、AI 物理老师</h3>
         <p>向 AI 提问，它会按新高一能听懂的方式讲解当前知识点。</p>
       </div>
-      <span class="ai-teacher-badge">${escapeHTML(item.name)}</span>
+      <div class="ai-teacher-tools">
+        <span class="ai-teacher-badge">${escapeHTML(item.name)}</span>
+        <button class="mini-button" type="button" data-ai-clear="${item.id}">清空对话</button>
+      </div>
     </div>
     <div class="ai-chat-log" data-ai-log="${item.id}">
       ${renderAIChat(item.id)}
@@ -784,6 +793,33 @@ function renderAIChat(id) {
 
 function formatAIAnswer(content) {
   return escapeHTML(content || "").replace(/\n/g, "<br>");
+}
+
+function renderAIContextText(context) {
+  const formulas = Array.isArray(context.formulas) ? context.formulas.map((entry) => entry.formula || entry).join("；") : context.formulas;
+  const mistakes = Array.isArray(context.mistakes) ? context.mistakes.join("；") : context.mistakes;
+  return [
+    `知识点：${context.name || ""}`,
+    `章节：${context.chapter || ""}`,
+    `定义：${context.definition || ""}`,
+    `公式：${formulas || "无固定公式"}`,
+    `易错点：${mistakes || ""}`,
+    `例题：${context.example || ""}`,
+  ].join("\n");
+}
+
+function aiSystemPrompt() {
+  return [
+    "你是一名高中物理老师，讲解对象是新高一学生。",
+    "要求：",
+    "1. 语言通俗。",
+    "2. 先讲核心概念。",
+    "3. 再分步骤解释。",
+    "4. 必须举生活例子。",
+    "5. 最后给一个小练习。",
+    "6. 不允许超纲。",
+    "7. 回答必须结合当前知识点上下文，不要泛泛而谈。",
+  ].join("\n");
 }
 
 function getAIPromptExample(name) {
@@ -941,35 +977,58 @@ async function sendAITeacherQuestion(id) {
     showToast("问题不能超过 500 字");
     return;
   }
+  if (!AI_API_KEY || AI_API_KEY === "你的key") {
+    showToast("请先在 script.js 中填写 OpenRouter API Key");
+    return;
+  }
 
   state.aiChats[id] = [...(state.aiChats[id] || []), { role: "user", content: question }];
   input.value = "";
-  log.innerHTML = `${renderAIChat(id)}<div class="ai-message assistant loading"><span>AI老师</span><p>正在整理讲解...</p></div>`;
+  log.innerHTML = `${renderAIChat(id)}<div class="ai-message assistant loading"><span>AI老师</span><p>AI思考中...</p></div>`;
   button.disabled = true;
   button.textContent = "讲解中...";
 
   try {
-    const response = await fetch("/api/physics-teacher", {
+    const context = buildAIContext(item);
+    const response = await fetch(AI_API_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Authorization": `Bearer ${AI_API_KEY}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": window.location.origin,
+        "X-Title": "Growth AI Physics Teacher",
+      },
       body: JSON.stringify({
-        question,
-        knowledgePoint: item.name,
-        context: buildAIContext(item),
+        model: AI_MODEL,
+        messages: [
+          { role: "system", content: aiSystemPrompt() },
+          {
+            role: "user",
+            content: [
+              "请结合下面的物理知识点上下文回答学生问题。",
+              renderAIContextText(context),
+              `学生问题：${question}`,
+            ].join("\n\n"),
+          },
+        ],
+        temperature: 0.45,
+        max_tokens: 700,
       }),
     });
     const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.error || "AI 老师暂时无法回答");
+    if (!response.ok) throw new Error(data.error?.message || data.error || "AI暂时不可用，请检查网络");
+    const answer = data.choices?.[0]?.message?.content?.trim();
+    if (!answer) throw new Error("AI暂时不可用，请检查网络");
 
-    state.aiChats[id] = [...(state.aiChats[id] || []), { role: "assistant", content: data.answer }];
+    state.aiChats[id] = [...(state.aiChats[id] || []), { role: "assistant", content: answer }];
     if (state.aiChats[id].length > 12) state.aiChats[id] = state.aiChats[id].slice(-12);
     saveState();
-    log.innerHTML = renderAIChat(id);
+    await typeAIAnswer(id, answer);
     log.scrollTop = log.scrollHeight;
   } catch (error) {
     state.aiChats[id] = [...(state.aiChats[id] || []), {
       role: "assistant",
-      content: `抱歉，AI 物理老师暂时没有连上。${error.message || "请稍后再试。"}`,
+      content: `AI暂时不可用，请检查网络。${error.message || ""}`,
     }];
     saveState();
     log.innerHTML = renderAIChat(id);
@@ -977,6 +1036,25 @@ async function sendAITeacherQuestion(id) {
     button.disabled = false;
     button.textContent = "AI讲解";
   }
+}
+
+async function typeAIAnswer(id, answer) {
+  const log = $(`[data-ai-log="${CSS.escape(id)}"]`);
+  if (!log) return;
+  const messages = state.aiChats?.[id] || [];
+  const previous = messages.slice(0, -1);
+  log.innerHTML = `${previous.map((message) => `<div class="ai-message ${message.role === "user" ? "user" : "assistant"}">
+    <span>${message.role === "user" ? "我" : "AI老师"}</span>
+    <p>${formatAIAnswer(message.content)}</p>
+  </div>`).join("")}<div class="ai-message assistant"><span>AI老师</span><p data-typewriter></p></div>`;
+  const target = log.querySelector("[data-typewriter]");
+  const plain = answer || "";
+  for (let index = 1; index <= plain.length; index += 2) {
+    target.innerHTML = formatAIAnswer(plain.slice(0, index));
+    log.scrollTop = log.scrollHeight;
+    await new Promise((resolve) => setTimeout(resolve, 12));
+  }
+  target.innerHTML = formatAIAnswer(plain);
 }
 
 function openModal(selector) {
@@ -1073,6 +1151,15 @@ document.addEventListener("click", (event) => {
   const aiSend = event.target.closest("[data-ai-send]");
   if (aiSend) sendAITeacherQuestion(aiSend.dataset.aiSend);
 
+  const aiClear = event.target.closest("[data-ai-clear]");
+  if (aiClear && confirmDelete("确定清空这段 AI 对话吗？")) {
+    const id = aiClear.dataset.aiClear;
+    state.aiChats[id] = [];
+    saveState("AI 对话已清空");
+    const log = $(`[data-ai-log="${CSS.escape(id)}"]`);
+    if (log) log.innerHTML = renderAIChat(id);
+  }
+
   const saveNote = event.target.closest("[data-save-note]");
   if (saveNote) {
     const id = saveNote.dataset.saveNote;
@@ -1151,6 +1238,17 @@ document.addEventListener("click", (event) => {
 globalSearch.addEventListener("input", (event) => {
   state.search = event.target.value;
   render();
+});
+
+document.addEventListener("keydown", (event) => {
+  const input = event.target.closest("#aiTeacherInput");
+  if (!input) return;
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault();
+    const module = input.closest("[data-ai-teacher]");
+    const id = module?.dataset.aiTeacher;
+    if (id) sendAITeacherQuestion(id);
+  }
 });
 
 $("#taskForm").addEventListener("submit", (event) => {
