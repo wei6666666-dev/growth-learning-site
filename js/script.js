@@ -9,6 +9,28 @@ const AI_KEY_STORAGE = "growth-openrouter-key";
 const AI_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 const AI_MODEL = "openai/gpt-oss-20b:free";
 
+const SUPABASE_CONFIG = window.GROWTH_SUPABASE || {};
+const SUPABASE_READY = Boolean(
+  window.supabase
+  && SUPABASE_CONFIG.url
+  && SUPABASE_CONFIG.anonKey
+  && !SUPABASE_CONFIG.url.includes("YOUR_PROJECT_ID")
+  && !SUPABASE_CONFIG.anonKey.includes("YOUR_SUPABASE_ANON_KEY")
+);
+const supabaseClient = SUPABASE_READY
+  ? window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey, {
+      auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+    })
+  : null;
+const authState = {
+  mode: "login",
+  user: null,
+  profile: null,
+  cloudReady: false,
+  migrating: false,
+};
+let cloudSyncTimer = null;
+
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
@@ -481,6 +503,7 @@ function normalizeStoredVideos(videos = []) {
 function saveState(message) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   if (message) showToast(message);
+  queueCloudSync();
 }
 
 function showToast(message) {
@@ -488,6 +511,288 @@ function showToast(message) {
   toast.classList.add("show");
   clearTimeout(showToast.timer);
   showToast.timer = setTimeout(() => toast.classList.remove("show"), 1700);
+}
+
+function getMigrationKey() {
+  return authState.user ? `growth-cloud-migrated-${authState.user.id}` : "";
+}
+
+function getCloudPayload() {
+  return {
+    tasks: state.tasks || [],
+    notes: state.notes || {},
+    knowledgeFavorites: state.knowledgeFavorites || [],
+    masteredKnowledge: state.masteredKnowledge || [],
+    learningKnowledge: state.learningKnowledge || [],
+    mistakes: state.mistakes || [],
+    videos: state.videos || [],
+    lastCheckIn: state.lastCheckIn || "",
+    streak: state.streak || 0,
+  };
+}
+
+function hasLocalLearningData() {
+  const payload = getCloudPayload();
+  return Boolean(
+    payload.tasks.length
+    || Object.keys(payload.notes).length
+    || payload.knowledgeFavorites.length
+    || payload.masteredKnowledge.length
+    || payload.learningKnowledge.length
+    || payload.mistakes.length
+    || payload.videos.some((video) => video.status === "已观看" || video.favorite)
+  );
+}
+
+function queueCloudSync() {
+  if (!authState.user || !authState.cloudReady || authState.migrating || !supabaseClient) return;
+  clearTimeout(cloudSyncTimer);
+  cloudSyncTimer = setTimeout(() => {
+    syncStateToCloud().catch((error) => {
+      console.warn("Growth cloud sync failed:", error);
+      showToast("云同步失败，请稍后再试");
+    });
+  }, 900);
+}
+
+async function upsertProfile(user) {
+  if (!supabaseClient || !user) return;
+  const nickname = user.user_metadata?.nickname || user.email?.split("@")[0] || "Growth 用户";
+  const { data, error } = await supabaseClient
+    .from("profiles")
+    .upsert({
+      user_id: user.id,
+      email: user.email,
+      nickname,
+      updated_at: new Date().toISOString(),
+    })
+    .select()
+    .maybeSingle();
+  if (error) throw error;
+  authState.profile = data || { nickname, email: user.email };
+}
+
+async function syncStateToCloud() {
+  if (!supabaseClient || !authState.user) return;
+  const user_id = authState.user.id;
+  const payload = getCloudPayload();
+  const updated_at = new Date().toISOString();
+  await Promise.all([
+    supabaseClient.from("user_tasks").upsert({ user_id, tasks: payload.tasks, updated_at }),
+    supabaseClient.from("user_notes").upsert({ user_id, notes: payload.notes, updated_at }),
+    supabaseClient.from("user_favorites").upsert({ user_id, knowledge_favorites: payload.knowledgeFavorites, updated_at }),
+    supabaseClient.from("user_progress").upsert({
+      user_id,
+      mastered_knowledge: payload.masteredKnowledge,
+      learning_knowledge: payload.learningKnowledge,
+      last_check_in: payload.lastCheckIn,
+      streak: payload.streak,
+      updated_at,
+    }),
+    supabaseClient.from("user_mistakes").upsert({ user_id, mistakes: payload.mistakes, updated_at }),
+    supabaseClient.from("user_videos").upsert({ user_id, videos: payload.videos, updated_at }),
+  ]).then((results) => {
+    const failed = results.find((result) => result.error);
+    if (failed) throw failed.error;
+  });
+  localStorage.setItem(getMigrationKey(), "true");
+}
+
+async function loadCloudState() {
+  if (!supabaseClient || !authState.user) return;
+  const user_id = authState.user.id;
+  const [tasks, notes, favorites, progress, mistakes, videos] = await Promise.all([
+    supabaseClient.from("user_tasks").select("tasks").eq("user_id", user_id).maybeSingle(),
+    supabaseClient.from("user_notes").select("notes").eq("user_id", user_id).maybeSingle(),
+    supabaseClient.from("user_favorites").select("knowledge_favorites").eq("user_id", user_id).maybeSingle(),
+    supabaseClient.from("user_progress").select("mastered_knowledge,learning_knowledge,last_check_in,streak").eq("user_id", user_id).maybeSingle(),
+    supabaseClient.from("user_mistakes").select("mistakes").eq("user_id", user_id).maybeSingle(),
+    supabaseClient.from("user_videos").select("videos").eq("user_id", user_id).maybeSingle(),
+  ]);
+  const failed = [tasks, notes, favorites, progress, mistakes, videos].find((result) => result.error);
+  if (failed) throw failed.error;
+
+  authState.migrating = true;
+  if (tasks.data?.tasks) state.tasks = tasks.data.tasks;
+  if (notes.data?.notes) state.notes = notes.data.notes;
+  if (favorites.data?.knowledge_favorites) state.knowledgeFavorites = favorites.data.knowledge_favorites;
+  if (progress.data) {
+    state.masteredKnowledge = progress.data.mastered_knowledge || [];
+    state.learningKnowledge = progress.data.learning_knowledge || [];
+    state.lastCheckIn = progress.data.last_check_in || state.lastCheckIn;
+    state.streak = progress.data.streak ?? state.streak;
+  }
+  if (mistakes.data?.mistakes) state.mistakes = mistakes.data.mistakes;
+  if (videos.data?.videos) state.videos = normalizeStoredVideos(videos.data.videos);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  authState.migrating = false;
+  render();
+}
+
+function updateAuthUI() {
+  const avatarButton = $("#avatarButton");
+  const panel = $("#authUserPanel");
+  const form = $("#authForm");
+  const notice = $("#authConfigNotice");
+  const isLoggedIn = Boolean(authState.user);
+  const nickname = authState.profile?.nickname || authState.user?.email?.split("@")[0] || "Growth 用户";
+  const initial = (nickname || "G").trim().slice(0, 1).toUpperCase();
+
+  if (avatarButton) {
+    avatarButton.textContent = isLoggedIn ? initial : "G";
+    avatarButton.title = isLoggedIn ? `已登录：${nickname}` : "登录 / 注册";
+  }
+  if (notice) notice.hidden = SUPABASE_READY;
+  if (form) form.hidden = isLoggedIn;
+  if (panel) panel.hidden = !isLoggedIn;
+  $("#authAvatar") && ($("#authAvatar").textContent = initial);
+  $("#authUserName") && ($("#authUserName").textContent = isLoggedIn ? nickname : "未登录");
+  $("#authUserEmail") && ($("#authUserEmail").textContent = isLoggedIn ? authState.user.email : "本地数据仅保存在当前浏览器。");
+  const migrationPanel = $("#authMigrationPanel");
+  if (migrationPanel && isLoggedIn) {
+    migrationPanel.hidden = localStorage.getItem(getMigrationKey()) === "true" || !hasLocalLearningData();
+  }
+}
+
+function setAuthMode(mode) {
+  authState.mode = mode;
+  $$(".auth-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.authMode === mode));
+  const titleMap = { login: "登录 Growth", register: "创建 Growth 账号", reset: "重置密码" };
+  const subtitleMap = {
+    login: "继续学习，并把你的任务、笔记和进度同步到云端。",
+    register: "使用邮箱和密码创建账号，之后可在不同设备保持学习进度。",
+    reset: "输入注册邮箱，Supabase 会发送密码重置邮件。",
+  };
+  $("#authTitle").textContent = titleMap[mode];
+  $("#authSubtitle").textContent = subtitleMap[mode];
+  $("#authNicknameField").hidden = mode !== "register";
+  $("#authPasswordField").hidden = mode === "reset";
+  $("#authPassword").required = mode !== "reset";
+  $("#authPassword").autocomplete = mode === "register" ? "new-password" : "current-password";
+  $("#authSubmit").textContent = mode === "login" ? "登录" : mode === "register" ? "注册" : "发送重置邮件";
+}
+
+function openAuthModal(mode = "login") {
+  setAuthMode(mode);
+  updateAuthUI();
+  openModal("#authModal");
+}
+
+async function handleAuthSubmit(event) {
+  event.preventDefault();
+  if (!supabaseClient) {
+    showToast("请先配置 Supabase URL 和 anon key");
+    return;
+  }
+  const email = $("#authEmail").value.trim();
+  const password = $("#authPassword").value;
+  const nickname = $("#authNickname").value.trim();
+  if (!email) {
+    showToast("请输入邮箱");
+    return;
+  }
+  if (authState.mode !== "reset" && password.length < 6) {
+    showToast("密码至少 6 位");
+    return;
+  }
+  $("#authSubmit").disabled = true;
+  $("#authSubmit").textContent = "处理中...";
+  try {
+    if (authState.mode === "login") {
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      await handleSignedIn(data.session);
+      showToast("登录成功");
+    } else if (authState.mode === "register") {
+      const { data, error } = await supabaseClient.auth.signUp({
+        email,
+        password,
+        options: { data: { nickname: nickname || email.split("@")[0] } },
+      });
+      if (error) throw error;
+      if (data.session) await handleSignedIn(data.session);
+      showToast(data.session ? "注册成功" : "注册成功，请检查邮箱验证");
+    } else {
+      const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + window.location.pathname,
+      });
+      if (error) throw error;
+      showToast("重置邮件已发送");
+    }
+  } catch (error) {
+    showToast(error.message || "账户操作失败");
+  } finally {
+    $("#authSubmit").disabled = false;
+    setAuthMode(authState.mode);
+  }
+}
+
+async function handleSignedIn(session) {
+  if (!session?.user) return;
+  authState.user = session.user;
+  authState.cloudReady = false;
+  try {
+    await upsertProfile(session.user);
+  } catch (error) {
+    console.warn("Growth profile sync failed:", error);
+    authState.profile = {
+      nickname: session.user.email?.split("@")[0] || "Growth 用户",
+      email: session.user.email,
+    };
+    showToast("已登录，云端表配置完成后可同步数据");
+  }
+  updateAuthUI();
+  if (hasLocalLearningData() && localStorage.getItem(getMigrationKey()) !== "true") {
+    showToast("可将本地学习数据同步到云端");
+    return;
+  }
+  authState.cloudReady = true;
+  try {
+    await loadCloudState();
+  } catch (error) {
+    authState.cloudReady = false;
+    console.warn("Growth cloud load failed:", error);
+    showToast("云数据读取失败，请检查 Supabase 表配置");
+  }
+}
+
+async function initAuth() {
+  if (!supabaseClient) {
+    updateAuthUI();
+    return;
+  }
+  const { data, error } = await supabaseClient.auth.getSession();
+  if (!error && data.session) {
+    await handleSignedIn(data.session).catch((authError) => {
+      console.warn("Growth auth init failed:", authError);
+      showToast("账户状态读取失败，本地功能仍可使用");
+    });
+  }
+  supabaseClient.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) {
+      handleSignedIn(session).catch((error) => console.warn("Growth auth state failed:", error));
+    } else {
+      authState.user = null;
+      authState.profile = null;
+      authState.cloudReady = false;
+      updateAuthUI();
+    }
+  });
+}
+
+async function migrateLocalToCloud() {
+  if (!authState.user) return;
+  authState.migrating = true;
+  try {
+    await syncStateToCloud();
+    authState.cloudReady = true;
+    $("#authMigrationPanel").hidden = true;
+    showToast("本地数据已同步到云端");
+  } catch (error) {
+    showToast(error.message || "同步失败，请检查 Supabase 表配置");
+  } finally {
+    authState.migrating = false;
+  }
 }
 
 function escapeHTML(text) {
@@ -1228,6 +1533,7 @@ async function initApp() {
   await loadPhysicsData();
   render();
   setPage(initialPage);
+  await initAuth();
   hideAppLoader();
 }
 
@@ -1241,10 +1547,36 @@ $("#themeToggle").addEventListener("click", () => {
 });
 
 $("#avatarButton").addEventListener("click", () => {
-  showToast("个人中心会在后续版本继续扩展");
+  openAuthModal("login");
+});
+
+$("#authForm").addEventListener("submit", handleAuthSubmit);
+
+$("#authLogout").addEventListener("click", async () => {
+  if (!supabaseClient) return;
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) {
+    showToast(error.message || "退出失败");
+    return;
+  }
+  closeModal("#authModal");
+  showToast("已退出登录，本地功能仍可使用");
+});
+
+$("#authSyncLocal").addEventListener("click", migrateLocalToCloud);
+$("#authManualSync").addEventListener("click", migrateLocalToCloud);
+
+$("#authKeepLocal").addEventListener("click", () => {
+  authState.cloudReady = false;
+  $("#authMigrationPanel").hidden = true;
+  showToast("已保持本地数据，稍后可在账户中心同步");
 });
 
 document.addEventListener("click", (event) => {
+  const authMode = event.target.closest("[data-auth-mode]");
+  if (authMode) setAuthMode(authMode.dataset.authMode);
+  if (event.target.closest("[data-close-auth]")) closeModal("#authModal");
+
   const nav = event.target.closest("[data-page]");
   if (nav) setPage(nav.dataset.page);
 
@@ -1494,6 +1826,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   closeModal("#detailModal");
   closeModal("#playerModal");
+  closeModal("#authModal");
 });
 
 document.addEventListener("input", (event) => {

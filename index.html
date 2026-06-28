@@ -11,7 +11,7 @@
     <link rel="manifest" href="./manifest.json" />
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png" />
-    <link rel="stylesheet" href="./css/style.css?v=20260628-mobile-fix" />
+    <link rel="stylesheet" href="./css/style.css?v=20260628-auth" />
   </head>
   <body data-initial-page="home">
     <div class="app-loader" id="appLoader" aria-hidden="true">
@@ -327,7 +327,65 @@
       </article>
     </div>
 
+    <div class="modal" id="authModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-auth></div>
+      <article class="modal-card auth-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button class="close-button" type="button" data-close-auth aria-label="关闭">×</button>
+        <div class="auth-shell">
+          <div class="auth-intro">
+            <p class="eyebrow">Growth Account</p>
+            <h2 id="authTitle">登录 Growth</h2>
+            <p id="authSubtitle">登录后，你的任务、笔记、收藏和学习进度可以同步到云端。</p>
+          </div>
+          <div class="auth-tabs" role="tablist" aria-label="账户操作">
+            <button class="auth-tab active" type="button" data-auth-mode="login">登录</button>
+            <button class="auth-tab" type="button" data-auth-mode="register">注册</button>
+            <button class="auth-tab" type="button" data-auth-mode="reset">忘记密码</button>
+          </div>
+          <div class="auth-notice" id="authConfigNotice" hidden>Supabase 还未配置，请先填写 js/supabase-config.js。</div>
+          <form class="auth-form" id="authForm">
+            <label id="authNicknameField">
+              <span>昵称</span>
+              <input id="authNickname" type="text" autocomplete="nickname" maxlength="24" placeholder="例如 Growth 学生" />
+            </label>
+            <label>
+              <span>邮箱</span>
+              <input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </label>
+            <label id="authPasswordField">
+              <span>密码</span>
+              <input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="至少 6 位" />
+            </label>
+            <button class="primary-button" id="authSubmit" type="submit">登录</button>
+          </form>
+          <section class="auth-user-panel" id="authUserPanel" hidden>
+            <div class="auth-user-card">
+              <div class="auth-avatar" id="authAvatar">G</div>
+              <div>
+                <strong id="authUserName">未登录</strong>
+                <p id="authUserEmail">本地数据仅保存在当前浏览器。</p>
+              </div>
+            </div>
+            <div class="auth-cloud-panel" id="authMigrationPanel" hidden>
+              <strong>是否将本地学习数据同步到云端？</strong>
+              <p>确认后会把当前浏览器里的任务、笔记、收藏、错题和视频状态保存到你的账号。</p>
+              <div class="auth-actions">
+                <button class="primary-button" type="button" id="authSyncLocal">同步到云端</button>
+                <button class="mini-button" type="button" id="authKeepLocal">暂不同步</button>
+              </div>
+            </div>
+            <div class="auth-actions">
+              <button class="mini-button" type="button" id="authManualSync">同步本地数据</button>
+              <button class="mini-button danger-button" type="button" id="authLogout">退出登录</button>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="./js/script.js?v=20260628-mobile-fix"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabase-config.js?v=20260628-auth"></script>
+    <script src="./js/script.js?v=20260628-auth"></script>
   </body>
 </html>
