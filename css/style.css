@@ -1695,6 +1695,17 @@ select:focus {
   }
 }
 
+@keyframes mobilePageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes modalIn {
   from {
     opacity: 0;
@@ -2044,8 +2055,12 @@ select:focus {
   }
 
   body {
-    padding-bottom: calc(86px + env(safe-area-inset-bottom));
+    padding-bottom: calc(104px + env(safe-area-inset-bottom));
     font-size: 15px;
+  }
+
+  main {
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
   }
 
   .page-shell {
@@ -2096,60 +2111,131 @@ select:focus {
   }
 
   .mobile-tabbar {
+    --tab-index: 0;
     position: fixed;
     top: auto;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    left: calc(10px + env(safe-area-inset-left));
-    right: calc(10px + env(safe-area-inset-right));
-    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    left: calc(12px + env(safe-area-inset-left));
+    right: calc(12px + env(safe-area-inset-right));
+    bottom: calc(12px + env(safe-area-inset-bottom));
     z-index: 100;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 4px;
+    gap: 0;
+    min-height: 72px;
     padding: 8px;
-    border: 1px solid var(--line);
-    border-radius: 22px;
-    background: color-mix(in srgb, var(--surface) 92%, transparent);
-    box-shadow: 0 18px 54px rgba(20, 20, 20, 0.14);
-    backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
+    border-top-color: color-mix(in srgb, var(--text) 7%, transparent);
+    border-radius: 24px;
+    background: color-mix(in srgb, var(--surface-strong) 76%, transparent);
+    box-shadow: 0 18px 48px rgba(20, 20, 20, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    isolation: isolate;
+    overflow: hidden;
   }
+
+  :root.dark .mobile-tabbar {
+    border-color: rgba(255, 255, 255, 0.08);
+    border-top-color: rgba(255, 255, 255, 0.12);
+    background: rgba(20, 20, 24, 0.72);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  }
+
+  .mobile-tabbar::before {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 8px;
+    z-index: -1;
+    width: calc((100% - 16px) / 5);
+    border: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--accent) 11%, var(--surface-strong));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
+    content: "";
+    transform: translateX(calc(var(--tab-index) * 100%));
+    transition: transform 230ms cubic-bezier(0.2, 0.8, 0.2, 1), background 220ms ease, border-color 220ms ease;
+  }
+
+  :root.dark .mobile-tabbar::before {
+    border-color: rgba(140, 207, 189, 0.12);
+    background: rgba(140, 207, 189, 0.13);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-tabbar:has(button[data-page="home"].active) { --tab-index: 0; }
+  .mobile-tabbar:has(button[data-page="library"].active) { --tab-index: 1; }
+  .mobile-tabbar:has(button[data-page="mistakes"].active) { --tab-index: 2; }
+  .mobile-tabbar:has(button[data-page="materials"].active) { --tab-index: 3; }
+  .mobile-tabbar:has(button[data-page="stats"].active) { --tab-index: 4; }
 
   .mobile-tabbar button {
     display: grid;
     place-items: center;
-    gap: 3px;
+    gap: 4px;
     min-width: 0;
     min-height: 56px;
-    padding: 7px 2px;
+    padding: 7px 2px 6px;
     border-radius: 16px;
-    font-size: 0;
-    white-space: normal;
-  }
-
-  .mobile-tabbar button::before {
-    font-size: 19px;
-    line-height: 1;
-  }
-
-  .mobile-tabbar button::after {
-    color: inherit;
+    background: transparent;
+    color: var(--muted);
     font-size: 11px;
-    font-weight: 700;
-    line-height: 1.1;
+    font-weight: 650;
+    white-space: normal;
+    transition: color 210ms ease, transform 180ms ease;
   }
 
-  .mobile-tabbar button[data-page="home"]::before { content: "⌂"; }
-  .mobile-tabbar button[data-page="home"]::after { content: "首页"; }
-  .mobile-tabbar button[data-page="library"]::before { content: "⌁"; }
-  .mobile-tabbar button[data-page="library"]::after { content: "物理"; }
-  .mobile-tabbar button[data-page="mistakes"]::before { content: "□"; }
-  .mobile-tabbar button[data-page="mistakes"]::after { content: "错题"; }
-  .mobile-tabbar button[data-page="materials"]::before { content: "✎"; }
-  .mobile-tabbar button[data-page="materials"]::after { content: "作文"; }
-  .mobile-tabbar button[data-page="stats"]::before { content: "◷"; }
-  .mobile-tabbar button[data-page="stats"]::after { content: "统计"; }
+  .mobile-tabbar button svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), stroke-width 180ms ease;
+  }
+
+  .mobile-tabbar button span {
+    line-height: 1;
+    transition: font-weight 180ms ease, transform 210ms ease;
+  }
+
+  .mobile-tabbar button.active {
+    color: var(--text);
+    font-weight: 780;
+  }
+
+  .mobile-tabbar button.active span {
+    transform: translateY(-1px);
+  }
+
+  .mobile-tabbar button.active svg {
+    transform: translateY(-2px) scale(1.04);
+    stroke-width: 2;
+  }
+
+  .mobile-tabbar button:active svg {
+    transform: translateY(-2px) scale(0.94);
+  }
+
+  @supports not selector(:has(*)) {
+    .mobile-tabbar::before {
+      display: none;
+    }
+
+    .mobile-tabbar button.active {
+      background: color-mix(in srgb, var(--accent) 11%, var(--surface-strong));
+      border-radius: 18px;
+    }
+  }
+
+  .page-view.active {
+    animation: mobilePageIn 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
 
   .hero,
   .hero.compact {
