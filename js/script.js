@@ -578,6 +578,8 @@ function renderLibrary() {
   if (!visibleCategories.includes(state.activeCategory)) {
     state.activeCategory = state.activeTextbook === "required2" ? "曲线运动" : "运动的描述";
   }
+  const sidebarTitle = $(".sidebar-title");
+  if (sidebarTitle) sidebarTitle.textContent = "知识分类";
 
   $("#categoryList").innerHTML = visibleCategories.map((category) => {
     const count = category === "视频课程" ? state.videos.length : knowledgePoints.filter((item) => item.category === category).length;

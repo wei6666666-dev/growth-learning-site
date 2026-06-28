@@ -3223,3 +3223,245 @@ select:focus {
     }
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+
+  .page-shell {
+    width: min(100% - 22px, 720px);
+    padding: 10px 0 24px;
+  }
+
+  .topbar {
+    top: 8px;
+    gap: 8px;
+    min-height: 0;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  .brand {
+    min-height: 34px;
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 18px;
+    height: 18px;
+  }
+
+  .brand span:last-child {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  .nav-actions {
+    grid-template-columns: minmax(0, 1fr) 40px 40px;
+    gap: 8px;
+  }
+
+  .search-control {
+    height: 40px;
+    min-width: 0;
+  }
+
+  .search-control input {
+    min-width: 0;
+    font-size: 14px;
+  }
+
+  .icon-button,
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+  }
+
+  .topbar .nav-links {
+    min-height: 54px;
+    margin-top: 0;
+    padding: 5px;
+    border-radius: 18px;
+  }
+
+  .topbar .nav-links::before {
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    width: calc((100% - 10px) / 5);
+    border-radius: 14px;
+  }
+
+  .topbar .nav-links button {
+    min-height: 44px;
+    padding: 4px 1px;
+    border-radius: 14px;
+    font-size: 11px;
+    line-height: 1.08;
+  }
+
+  .topbar .nav-links button::before {
+    font-size: 18px;
+  }
+
+  .topbar .nav-links button[data-page="home"]::before { content: "⌂"; }
+  .topbar .nav-links button[data-page="library"]::before { content: "⌁"; }
+  .topbar .nav-links button[data-page="mistakes"]::before { content: "□"; }
+  .topbar .nav-links button[data-page="materials"]::before { content: "✎"; }
+  .topbar .nav-links button[data-page="stats"]::before { content: "◷"; }
+
+  #page-home .hero,
+  #page-home .hero.reveal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: 0;
+    margin-top: 18px;
+    padding: 18px 0 14px;
+    opacity: 1;
+    transform: none;
+  }
+
+  #page-home .hero h1 {
+    display: block;
+    max-width: 100%;
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  #page-home .hero-copy,
+  #page-home .eyebrow {
+    display: block;
+    color: var(--muted);
+  }
+
+  #page-home .term-card {
+    min-width: 0;
+    padding: 16px;
+  }
+
+  #page-home .term-card strong,
+  #currentTextbookLabel {
+    display: block;
+    min-height: 22px;
+    color: var(--text);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .home-grid {
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .task-panel,
+  .panel {
+    min-width: 0;
+  }
+
+  .task-panel .panel-head {
+    gap: 10px;
+  }
+
+  .inline-form {
+    gap: 10px;
+  }
+
+  .primary-button {
+    min-height: 48px;
+  }
+
+  #page-library .physics-hero {
+    min-height: 0;
+    margin-top: 12px;
+    padding: 24px 18px 18px;
+  }
+
+  #page-library .physics-hero h1 {
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1.08;
+  }
+
+  #page-library .textbook-card {
+    padding: 14px;
+  }
+
+  #page-library .textbook-switch {
+    margin-top: 2px;
+  }
+
+  #page-library .sidebar.panel {
+    position: static;
+    top: auto;
+    z-index: auto;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 0 10px 28px rgba(20, 20, 20, 0.045);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  #page-library .sidebar-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 12px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 820;
+  }
+
+  #page-library .category-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    overflow: visible;
+    padding: 0;
+    scroll-snap-type: none;
+  }
+
+  #page-library .category-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--surface-strong);
+  }
+
+  #page-library .category-button small {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  #page-library .category-label {
+    min-width: 0;
+  }
+
+  #page-library .category-label span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #page-library .content-panel {
+    padding: 16px;
+  }
+
+  #page-library .panel-head {
+    align-items: start;
+    gap: 10px;
+  }
+
+  #page-library .panel-head h2 {
+    font-size: 28px;
+  }
+}

@@ -1,12 +1,12 @@
-const CACHE_NAME = "growth-pwa-v7";
+const CACHE_NAME = "growth-pwa-v8";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/physics.html",
   "/mistakes.html",
   "/statistics.html",
-  "/css/style.css?v=20260628-cn-diagrams",
-  "/js/script.js?v=20260628-cn-diagrams",
+  "/css/style.css?v=20260628-mobile-fix",
+  "/js/script.js?v=20260628-mobile-fix",
   "/data/physics.json",
   "/manifest.json",
   "/assets/icon-192.png",
