@@ -127,6 +127,10 @@ button {
   gap: 6px;
 }
 
+.mobile-tabbar {
+  display: none;
+}
+
 .nav-links button {
   padding: 9px 12px;
   border-radius: var(--button-radius);
@@ -2088,6 +2092,10 @@ select:focus {
   }
 
   .nav-links {
+    display: none !important;
+  }
+
+  .mobile-tabbar {
     position: fixed;
     top: auto;
     left: 10px;
@@ -2106,11 +2114,9 @@ select:focus {
     background: color-mix(in srgb, var(--surface) 92%, transparent);
     box-shadow: 0 18px 54px rgba(20, 20, 20, 0.14);
     backdrop-filter: blur(24px);
-    order: initial;
-    grid-column: auto;
   }
 
-  .nav-links button {
+  .mobile-tabbar button {
     display: grid;
     place-items: center;
     gap: 3px;
@@ -2122,28 +2128,28 @@ select:focus {
     white-space: normal;
   }
 
-  .nav-links button::before {
+  .mobile-tabbar button::before {
     font-size: 19px;
     line-height: 1;
   }
 
-  .nav-links button::after {
+  .mobile-tabbar button::after {
     color: inherit;
     font-size: 11px;
     font-weight: 700;
     line-height: 1.1;
   }
 
-  .nav-links button[data-page="home"]::before { content: "⌂"; }
-  .nav-links button[data-page="home"]::after { content: "首页"; }
-  .nav-links button[data-page="library"]::before { content: "⌁"; }
-  .nav-links button[data-page="library"]::after { content: "物理"; }
-  .nav-links button[data-page="mistakes"]::before { content: "□"; }
-  .nav-links button[data-page="mistakes"]::after { content: "错题"; }
-  .nav-links button[data-page="materials"]::before { content: "✎"; }
-  .nav-links button[data-page="materials"]::after { content: "作文"; }
-  .nav-links button[data-page="stats"]::before { content: "◷"; }
-  .nav-links button[data-page="stats"]::after { content: "统计"; }
+  .mobile-tabbar button[data-page="home"]::before { content: "⌂"; }
+  .mobile-tabbar button[data-page="home"]::after { content: "首页"; }
+  .mobile-tabbar button[data-page="library"]::before { content: "⌁"; }
+  .mobile-tabbar button[data-page="library"]::after { content: "物理"; }
+  .mobile-tabbar button[data-page="mistakes"]::before { content: "□"; }
+  .mobile-tabbar button[data-page="mistakes"]::after { content: "错题"; }
+  .mobile-tabbar button[data-page="materials"]::before { content: "✎"; }
+  .mobile-tabbar button[data-page="materials"]::after { content: "作文"; }
+  .mobile-tabbar button[data-page="stats"]::before { content: "◷"; }
+  .mobile-tabbar button[data-page="stats"]::after { content: "统计"; }
 
   .hero,
   .hero.compact {
