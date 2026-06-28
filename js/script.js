@@ -3,11 +3,11 @@
 const STORAGE_KEY = "growth-interactive-learning";
 const THEME_KEY = "growth-theme";
 
-// 仅学习用途，不用于生产环境：前端直连 API 会暴露密钥。
-// 使用前请把下面的占位值替换为你的 OpenRouter API Key。
-const AI_API_KEY = "你的key";
+// 仅学习用途，不用于生产环境：前端直连 API 会让密钥进入浏览器环境。
+// 为避免把密钥提交到公开仓库，OpenRouter Key 会保存在当前浏览器 localStorage。
+const AI_KEY_STORAGE = "growth-openrouter-key";
 const AI_API_URL = "https://openrouter.ai/api/v1/chat/completions";
-const AI_MODEL = "openai/gpt-4o-mini";
+const AI_MODEL = "openai/gpt-oss-20b:free";
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -771,6 +771,10 @@ function aiTeacherBlock(item) {
     <div class="ai-chat-log" data-ai-log="${item.id}">
       ${renderAIChat(item.id)}
     </div>
+    <div class="ai-key-row">
+      <input id="openRouterKeyInput" type="password" autocomplete="off" placeholder="OpenRouter API Key，仅保存在本机浏览器" value="${escapeHTML(getOpenRouterKey())}" />
+      <button class="mini-button" type="button" data-ai-save-key>保存 Key</button>
+    </div>
     <div class="ai-teacher-form">
       <textarea id="aiTeacherInput" maxlength="500" rows="2" placeholder="例如：${escapeHTML(getAIPromptExample(item.name))}"></textarea>
       <button class="primary-button" type="button" data-ai-send="${item.id}">AI讲解</button>
@@ -793,6 +797,23 @@ function renderAIChat(id) {
 
 function formatAIAnswer(content) {
   return escapeHTML(content || "").replace(/\n/g, "<br>");
+}
+
+function getOpenRouterKey() {
+  return localStorage.getItem(AI_KEY_STORAGE) || "";
+}
+
+function saveOpenRouterKey() {
+  const input = $("#openRouterKeyInput");
+  const key = input?.value.trim() || "";
+  if (!key.startsWith("sk-or-")) {
+    showToast("请输入有效的 OpenRouter Key");
+    input?.focus();
+    return false;
+  }
+  localStorage.setItem(AI_KEY_STORAGE, key);
+  showToast("OpenRouter Key 已保存在本机浏览器");
+  return true;
 }
 
 function renderAIContextText(context) {
@@ -977,8 +998,10 @@ async function sendAITeacherQuestion(id) {
     showToast("问题不能超过 500 字");
     return;
   }
-  if (!AI_API_KEY || AI_API_KEY === "你的key") {
-    showToast("请先在 script.js 中填写 OpenRouter API Key");
+  const apiKey = getOpenRouterKey();
+  if (!apiKey) {
+    showToast("请先填写并保存 OpenRouter API Key");
+    $("#openRouterKeyInput")?.focus();
     return;
   }
 
@@ -993,7 +1016,7 @@ async function sendAITeacherQuestion(id) {
     const response = await fetch(AI_API_URL, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${AI_API_KEY}`,
+        "Authorization": `Bearer ${apiKey}`,
         "Content-Type": "application/json",
         "HTTP-Referer": window.location.origin,
         "X-Title": "Growth AI Physics Teacher",
@@ -1150,6 +1173,8 @@ document.addEventListener("click", (event) => {
 
   const aiSend = event.target.closest("[data-ai-send]");
   if (aiSend) sendAITeacherQuestion(aiSend.dataset.aiSend);
+
+  if (event.target.closest("[data-ai-save-key]")) saveOpenRouterKey();
 
   const aiClear = event.target.closest("[data-ai-clear]");
   if (aiClear && confirmDelete("确定清空这段 AI 对话吗？")) {
