@@ -22,7 +22,7 @@ let physicsDataStatus = {
 };
 
 const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "实验专区", "视频课程"];
-const requiredTwoCategories = ["必修二", "视频课程"];
+const requiredTwoCategories = ["曲线运动", "圆周运动", "万有引力与宇宙航行", "机械能守恒定律", "视频课程"];
 const textbookLabels = {
   required1: "高一上 · 必修第一册",
   required2: "高一下 · 必修第二册",
@@ -34,7 +34,10 @@ const categoryIcons = {
   "匀变速直线运动": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16h12"/><path d="m14 12 4 4-4 4"/><path d="M5 9h7"/></svg>`,
   "相互作用": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"/><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/></svg>`,
   "牛顿运动定律": `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="9" width="8" height="7" rx="1.5"/><path d="M12 9V4"/><path d="m10 6 2-2 2 2"/><path d="M16 12h5"/><path d="m19 10 2 2-2 2"/><path d="M8 12H3"/><path d="m5 10-2 2 2 2"/></svg>`,
-  "必修二": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15c4-7 8-7 12 0"/><path d="M4 18h16"/><path d="M15 8h5"/><path d="m18 5 3 3-3 3"/><circle cx="7" cy="15" r="1.5"/></svg>`,
+  "曲线运动": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16c4-8 9-8 16-2"/><circle cx="6" cy="15" r="1.4"/><path d="M15 9h5"/><path d="m18 6 3 3-3 3"/></svg>`,
+  "圆周运动": `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M12 5v7h7"/><path d="m17 10 2 2-2 2"/></svg>`,
+  "万有引力与宇宙航行": `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M4 12c3-6 13-6 16 0"/><path d="M4 12c3 6 13 6 16 0"/><circle cx="18" cy="8" r="1.4"/></svg>`,
+  "机械能守恒定律": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18h14"/><path d="M7 16 12 6l5 10"/><path d="M9 13h6"/><circle cx="12" cy="6" r="1.5"/></svg>`,
   "实验专区": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v7l-4 7a3 3 0 0 0 2.6 4h6.8A3 3 0 0 0 18 17l-4-7V3"/><path d="M8 16h8"/></svg>`,
   "视频课程": `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="m10 9 5 3-5 3Z"/></svg>`,
 };
@@ -56,6 +59,23 @@ const physicsTags = {
   newton3: ["Pair Force", "Interaction"],
   ticker: ["Experiment", "Time Dots"],
   "newton-lab": ["Experiment", "Control Variables"],
+  "curve-motion": ["Trajectory", "F ⟂ v"],
+  "curve-velocity": ["Tangent", "Instant v"],
+  "motion-decomposition": ["Components", "x / y"],
+  projectile: ["Projectile", "vx + g"],
+  circular: ["Circle", "v = ωr"],
+  "centripetal-force": ["F向", "mv²/r"],
+  "centripetal-acceleration": ["a向", "v²/r"],
+  "circular-life": ["Bridge", "Turn"],
+  kepler: ["Orbit", "T²/a³"],
+  gravitation: ["Gravity", "Gm₁m₂/r²"],
+  satellite: ["Satellite", "GMm/r²"],
+  "cosmic-velocity": ["7.9 km/s", "Orbit"],
+  work: ["W", "Flcosθ"],
+  power: ["P", "W/t"],
+  "kinetic-energy": ["Ek", "1/2mv²"],
+  "potential-energy": ["Ep", "mgh"],
+  "mechanical-energy": ["Ek + Ep", "Conserved"],
 };
 
 const formulaDetails = {
@@ -261,6 +281,14 @@ function normalizeChapter(chapter) {
   return String(chapter || "").replace(/^第[一二三四五六七八九十]+章：?/, "") || "运动的描述";
 }
 
+function getRequiredTwoCategory(id) {
+  if (["curve_motion", "curve_velocity_direction", "motion_decomposition", "projectile_motion"].includes(id)) return "曲线运动";
+  if (["uniform_circular_motion", "centripetal_force", "centripetal_acceleration", "circular_motion_life"].includes(id)) return "圆周运动";
+  if (["kepler_laws", "universal_gravitation", "artificial_satellite", "cosmic_velocity"].includes(id)) return "万有引力与宇宙航行";
+  if (["work", "power", "kinetic_energy", "potential_energy", "mechanical_energy_conservation"].includes(id)) return "机械能守恒定律";
+  return "曲线运动";
+}
+
 function displaySummary(text) {
   const clean = String(text || "").trim();
   return clean.length > 68 ? `${clean.slice(0, 68)}...` : clean;
@@ -296,6 +324,23 @@ function detailAlias(id) {
     newton_third_law: "newton3",
     newton_inertia: "newton1",
     newton_laws_application: "newton2",
+    curve_motion: "curve-motion",
+    curve_velocity_direction: "curve-velocity",
+    motion_decomposition: "motion-decomposition",
+    projectile_motion: "projectile",
+    uniform_circular_motion: "circular",
+    centripetal_force: "centripetal-force",
+    centripetal_acceleration: "centripetal-acceleration",
+    circular_motion_life: "circular-life",
+    kepler_laws: "kepler",
+    universal_gravitation: "gravitation",
+    artificial_satellite: "satellite",
+    cosmic_velocity: "cosmic-velocity",
+    work: "work",
+    power: "power",
+    kinetic_energy: "kinetic-energy",
+    potential_energy: "potential-energy",
+    mechanical_energy_conservation: "mechanical-energy",
   }[id] || id;
 }
 
@@ -307,7 +352,7 @@ function normalizePhysicsPoint(raw) {
   return {
     id: raw.id,
     name: raw.name,
-    category: normalizeChapter(raw.chapter),
+    category: raw.chapter === "必修二" ? getRequiredTwoCategory(raw.id) : normalizeChapter(raw.chapter),
     chapter: raw.chapter,
     difficulty: raw.difficulty || "⭐",
     summary: displaySummary(raw.definition),
@@ -401,7 +446,10 @@ function loadState() {
     const merged = { ...structuredClone(defaultState), ...JSON.parse(saved) };
     merged.videos = normalizeStoredVideos(merged.videos);
     merged.aiChats = merged.aiChats || {};
-    if (merged.activeCategory === "必修二") merged.activeTextbook = "required2";
+    if (merged.activeCategory === "必修二") {
+      merged.activeTextbook = "required2";
+      merged.activeCategory = "曲线运动";
+    }
     return merged;
   } catch {
     return structuredClone(defaultState);
@@ -528,7 +576,7 @@ function renderLibrary() {
   syncTextbookControls();
   const visibleCategories = getTextbookCategories();
   if (!visibleCategories.includes(state.activeCategory)) {
-    state.activeCategory = state.activeTextbook === "required2" ? "必修二" : "运动的描述";
+    state.activeCategory = state.activeTextbook === "required2" ? "曲线运动" : "运动的描述";
   }
 
   $("#categoryList").innerHTML = visibleCategories.map((category) => {
@@ -942,6 +990,23 @@ function renderDiagram(id) {
     newton3: `<svg class="mini-diagram motion-diagram newton3-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><rect class="force-block" x="72" y="78" width="44" height="38" rx="8"/><rect class="force-block" x="144" y="78" width="44" height="38" rx="8"/><path class="pair-a" d="M116 96h50" marker-end="url(#miniArrow)"/><path class="pair-b" d="M144 104H94" marker-end="url(#miniArrow)"/><text x="80" y="64">A</text><text x="172" y="64">B</text><text x="82" y="136">等大反向</text></svg>`,
     ticker: `<svg class="mini-diagram motion-diagram ticker-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><path d="M34 106H226"/><circle class="paper-dot d1" cx="58" cy="106" r="4"/><circle class="paper-dot d2" cx="86" cy="106" r="4"/><circle class="paper-dot d3" cx="124" cy="106" r="4"/><circle class="paper-dot d4" cx="176" cy="106" r="4"/><path class="accent-line" d="M58 78h118" marker-end="url(#miniArrow)"/><text x="74" y="66">点距增大</text></svg>`,
     "newton-lab": `<svg class="mini-diagram motion-diagram lab-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><path class="track-line" d="M42 130H154"/><g class="rolling-cart lab-cart"><rect class="force-block" x="66" y="92" width="68" height="34" rx="8"/><circle class="wheel" cx="84" cy="130" r="7"/><circle class="wheel" cx="116" cy="130" r="7"/><path class="accent-line force-arrow" d="M134 108h42" marker-end="url(#miniArrow)"/><text x="80" y="82">小车</text></g><path class="pulley-line" d="M176 108h22v28"/><circle class="hanging-mass" cx="198" cy="138" r="10"/><text x="174" y="124">钩码</text></svg>`,
+    "curve-motion": `<svg class="mini-diagram motion-diagram curve-motion-diagram" viewBox="0 0 260 170"><defs>${svgArrow()}</defs><path class="trace" d="M34 128 C82 50 148 44 222 94"/><circle class="moving-dot" cx="94" cy="70" r="9"/><path class="accent-line tangent-arrow" d="M98 68h72" marker-end="url(#miniArrow)"/><path class="force-arrow" d="M108 76l36 44" marker-end="url(#miniArrow)"/><text x="154" y="58">v</text><text x="148" y="132">F合</text></svg>`,
+    "curve-velocity": `<svg class="mini-diagram motion-diagram curve-velocity-diagram" viewBox="0 0 260 170"><defs>${svgArrow()}</defs><path class="trace" d="M38 122 C86 54 148 46 216 90"/><circle class="pulse-dot" cx="132" cy="58" r="8"/><path class="accent-line tangent-arrow" d="M130 58h78" marker-end="url(#miniArrow)"/><path d="M106 74c20-20 42-24 68-12" opacity=".35"/><text x="164" y="48">切线方向</text></svg>`,
+    "motion-decomposition": `<svg class="mini-diagram motion-diagram decomposition-diagram" viewBox="0 0 260 170"><defs>${svgArrow()}</defs><circle cx="76" cy="104" r="6"/><path class="diag-force" d="M76 104 174 54" marker-end="url(#miniArrow)"/><path class="component-x" d="M76 104h104" marker-end="url(#miniArrow)"/><path class="component-y" d="M180 104V56" marker-end="url(#miniArrow)"/><path class="trace" d="M42 128 C86 86 132 68 218 62"/><text x="126" y="124">x</text><text x="188" y="82">y</text><text x="126" y="54">合运动</text></svg>`,
+    projectile: `<svg class="mini-diagram motion-diagram projectile-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="trace" d="M38 46 C92 48 164 80 222 144"/><circle class="moving-dot" cx="76" cy="52" r="9"/><path class="component-x" d="M86 52h76" marker-end="url(#miniArrow)"/><path class="component-y" d="M164 62v70" marker-end="url(#miniArrow)"/><path class="track-line" d="M34 148H228"/><text x="116" y="40">vx 不变</text><text x="174" y="108">g</text></svg>`,
+    circular: `<svg class="mini-diagram motion-diagram circular-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><circle class="trace" cx="130" cy="92" r="54"/><circle class="moving-dot" cx="184" cy="92" r="9"/><path class="tangent-arrow" d="M184 92v-62" marker-end="url(#miniArrow)"/><path class="accent-line" d="M184 92H134" marker-end="url(#miniArrow)"/><text x="196" y="58">v</text><text x="146" y="84">r</text></svg>`,
+    "centripetal-force": `<svg class="mini-diagram motion-diagram centripetal-force-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><circle class="trace" cx="130" cy="92" r="56"/><circle class="moving-dot" cx="178" cy="62" r="9"/><path class="force-arrow" d="M178 62 134 90" marker-end="url(#miniArrow)"/><path class="tangent-arrow" d="M182 58l46 34" marker-end="url(#miniArrow)"/><text x="150" y="76">F向</text><text x="214" y="82">v</text></svg>`,
+    "centripetal-acceleration": `<svg class="mini-diagram motion-diagram centripetal-acc-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><circle class="trace" cx="130" cy="92" r="56"/><circle class="pulse-dot" cx="76" cy="92" r="8"/><path class="acc-arrow" d="M76 92h50" marker-end="url(#miniArrow)"/><path class="tangent-arrow" d="M76 92v52" marker-end="url(#miniArrow)"/><text x="96" y="84">a向</text><text x="58" y="144">v</text></svg>`,
+    "circular-life": `<svg class="mini-diagram motion-diagram circular-life-diagram" viewBox="0 0 260 170"><defs>${svgArrow()}</defs><path class="trace" d="M42 128 C96 54 162 52 220 126"/><g class="rolling-cart"><rect class="force-block" x="112" y="84" width="54" height="28" rx="7"/><circle class="wheel" cx="126" cy="116" r="6"/><circle class="wheel" cx="154" cy="116" r="6"/><path class="force-arrow" d="M138 84V42" marker-end="url(#miniArrow)"/><path class="tangent-arrow" d="M166 98h48" marker-end="url(#miniArrow)"/><text x="146" y="58">N</text><text x="194" y="90">v</text></g></svg>`,
+    kepler: `<svg class="mini-diagram motion-diagram kepler-diagram" viewBox="0 0 260 170"><defs>${svgArrow()}</defs><ellipse class="trace" cx="130" cy="88" rx="82" ry="42"/><circle cx="102" cy="88" r="8"/><circle class="moving-dot" cx="194" cy="88" r="7"/><path class="accent-line" d="M102 88H194" marker-end="url(#miniArrow)"/><text x="88" y="68">中心天体</text><text x="132" y="124">T² / a³ = k</text></svg>`,
+    gravitation: `<svg class="mini-diagram motion-diagram gravitation-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><circle class="gravity-ball" cx="76" cy="82" r="20"/><circle class="pulse-dot" cx="188" cy="82" r="12"/><path class="pair-a" d="M96 82h76" marker-end="url(#miniArrow)"/><path class="pair-b" d="M176 92H100" marker-end="url(#miniArrow)"/><text x="116" y="62">F = Gm₁m₂/r²</text></svg>`,
+    satellite: `<svg class="mini-diagram motion-diagram satellite-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><circle cx="130" cy="92" r="28"/><ellipse class="trace" cx="130" cy="92" rx="84" ry="56"/><rect class="moving-box" x="198" y="78" width="24" height="16" rx="4"/><path class="force-arrow" d="M198 86 144 92" marker-end="url(#miniArrow)"/><path class="tangent-arrow" d="M210 76v-42" marker-end="url(#miniArrow)"/><text x="156" y="82">引力</text><text x="222" y="52">v</text></svg>`,
+    "cosmic-velocity": `<svg class="mini-diagram motion-diagram cosmic-diagram" viewBox="0 0 260 170"><defs>${svgArrow()}</defs><circle cx="84" cy="112" r="28"/><path class="trace" d="M84 112 C120 40 176 36 226 72"/><path class="accent-line" d="M110 96 C148 46 186 42 226 72" marker-end="url(#miniArrow)"/><text x="130" y="52">v₁≈7.9 km/s</text><text x="60" y="150">地球</text></svg>`,
+    work: `<svg class="mini-diagram motion-diagram work-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><path class="track-line" d="M42 124H222"/><rect class="force-block" x="74" y="88" width="58" height="36" rx="8"/><path class="force-arrow" d="M132 106h74" marker-end="url(#miniArrow)"/><path class="displacement-arrow" d="M74 142h104" marker-end="url(#miniArrow)"/><text x="168" y="96">F</text><text x="112" y="156">l</text></svg>`,
+    power: `<svg class="mini-diagram motion-diagram power-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><path class="track-line" d="M42 122H222"/><g class="rolling-cart"><rect class="force-block" x="70" y="86" width="58" height="32" rx="8"/><circle class="wheel" cx="86" cy="122" r="7"/><circle class="wheel" cx="112" cy="122" r="7"/><path class="force-arrow" d="M128 102h72" marker-end="url(#miniArrow)"/><text x="146" y="88">P = W/t</text></g></svg>`,
+    "kinetic-energy": `<svg class="mini-diagram motion-diagram kinetic-diagram" viewBox="0 0 260 160"><defs>${svgArrow()}</defs><path class="track-line" d="M38 122H224"/><circle class="moving-dot" cx="78" cy="122" r="12"/><path class="speed-arrow" d="M96 122h104" marker-end="url(#miniArrow)"/><text x="116" y="94">Ek = 1/2mv²</text></svg>`,
+    "potential-energy": `<svg class="mini-diagram motion-diagram potential-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="track-line" d="M54 146H206"/><path d="M80 146V50"/><circle class="pulse-dot" cx="80" cy="58" r="11"/><path class="component-y" d="M104 146V60" marker-end="url(#miniArrow)"/><text x="112" y="104">h</text><text x="92" y="42">Ep = mgh</text></svg>`,
+    "mechanical-energy": `<svg class="mini-diagram motion-diagram energy-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="trace" d="M44 134 C86 38 162 36 216 132"/><circle class="moving-dot" cx="84" cy="76" r="10"/><path class="component-y" d="M84 76v54" marker-end="url(#miniArrow)"/><path class="speed-arrow" d="M98 80h62" marker-end="url(#miniArrow)"/><text x="54" y="56">Ep</text><text x="144" y="72">Ek</text><text x="82" y="154">Ek + Ep 守恒</text></svg>`,
   };
   return diagrams[id] || diagrams.force;
 }
@@ -1166,7 +1231,7 @@ document.addEventListener("click", (event) => {
   const textbook = event.target.closest("[data-textbook]");
   if (textbook) {
     state.activeTextbook = textbook.dataset.textbook;
-    state.activeCategory = state.activeTextbook === "required2" ? "必修二" : "运动的描述";
+    state.activeCategory = state.activeTextbook === "required2" ? "曲线运动" : "运动的描述";
     saveState();
     renderLibrary();
   }

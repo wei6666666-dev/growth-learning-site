@@ -1493,7 +1493,8 @@ select:focus {
 
 .mini-diagram path,
 .mini-diagram rect,
-.mini-diagram circle {
+.mini-diagram circle,
+.mini-diagram ellipse {
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
