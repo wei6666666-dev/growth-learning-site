@@ -405,6 +405,7 @@ function applyTheme() {
 
 function setPage(page) {
   state.activePage = page;
+  document.body.dataset.activePage = page;
   state.search = "";
   globalSearch.value = "";
   $$(".page-view").forEach((view) => view.classList.toggle("active", view.dataset.pageView === page));

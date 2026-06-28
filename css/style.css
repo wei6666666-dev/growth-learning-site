@@ -131,6 +131,10 @@ button {
   display: none;
 }
 
+.stage-tabbar {
+  display: none;
+}
+
 .nav-links button {
   padding: 9px 12px;
   border-radius: var(--button-radius);
@@ -2172,6 +2176,10 @@ select:focus {
   .mobile-tabbar:has(button[data-page="materials"].active) { --tab-index: 3; }
   .mobile-tabbar:has(button[data-page="stats"].active) { --tab-index: 4; }
 
+  body[data-active-page="home"] .mobile-tabbar {
+    display: none;
+  }
+
   .mobile-tabbar button {
     display: grid;
     place-items: center;
@@ -2222,12 +2230,116 @@ select:focus {
     transform: translateY(-2px) scale(0.94);
   }
 
+  .term-card {
+    gap: 5px;
+  }
+
+  .stage-tabbar {
+    --stage-tab-index: 0;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    margin-top: 16px;
+    padding: 6px;
+    border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+    border-top-color: color-mix(in srgb, var(--text) 7%, transparent);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--surface-strong) 66%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+  }
+
+  :root.dark .stage-tabbar {
+    border-color: rgba(255, 255, 255, 0.08);
+    border-top-color: rgba(255, 255, 255, 0.12);
+    background: rgba(20, 20, 24, 0.48);
+  }
+
+  .stage-tabbar::before {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 6px;
+    z-index: -1;
+    width: calc((100% - 12px) / 5);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--accent) 11%, var(--surface-strong));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32);
+    content: "";
+    transform: translateX(calc(var(--stage-tab-index) * 100%));
+    transition: transform 230ms cubic-bezier(0.2, 0.8, 0.2, 1), background 220ms ease;
+  }
+
+  :root.dark .stage-tabbar::before {
+    background: rgba(140, 207, 189, 0.13);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .stage-tabbar:has(button[data-page="home"].active) { --stage-tab-index: 0; }
+  .stage-tabbar:has(button[data-page="library"].active) { --stage-tab-index: 1; }
+  .stage-tabbar:has(button[data-page="mistakes"].active) { --stage-tab-index: 2; }
+  .stage-tabbar:has(button[data-page="materials"].active) { --stage-tab-index: 3; }
+  .stage-tabbar:has(button[data-page="stats"].active) { --stage-tab-index: 4; }
+
+  .stage-tabbar button {
+    display: grid;
+    place-items: center;
+    gap: 4px;
+    min-width: 0;
+    min-height: 52px;
+    padding: 6px 2px;
+    border-radius: 14px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 650;
+    transition: color 210ms ease, transform 180ms ease;
+  }
+
+  .stage-tabbar button svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), stroke-width 180ms ease;
+  }
+
+  .stage-tabbar button span {
+    line-height: 1;
+  }
+
+  .stage-tabbar button.active {
+    color: var(--text);
+    font-weight: 780;
+  }
+
+  .stage-tabbar button.active svg {
+    transform: translateY(-2px) scale(1.04);
+    stroke-width: 2;
+  }
+
+  .stage-tabbar button:active svg {
+    transform: translateY(-2px) scale(0.94);
+  }
+
   @supports not selector(:has(*)) {
     .mobile-tabbar::before {
       display: none;
     }
 
-    .mobile-tabbar button.active {
+    .stage-tabbar::before {
+      display: none;
+    }
+
+    .mobile-tabbar button.active,
+    .stage-tabbar button.active {
       background: color-mix(in srgb, var(--accent) 11%, var(--surface-strong));
       border-radius: 18px;
     }
