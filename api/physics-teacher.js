@@ -8,12 +8,7 @@ function parseBody(req) {
 }
 
 function extractAnswer(data) {
-  if (data.output_text) return data.output_text;
-  const parts = data.output
-    ?.flatMap((item) => item.content || [])
-    ?.map((content) => content.text)
-    ?.filter(Boolean);
-  return parts?.join("\n").trim();
+  return data.choices?.[0]?.message?.content?.trim();
 }
 
 module.exports = async function handler(req, res) {
@@ -28,9 +23,9 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: "只支持 POST 请求" });
   }
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.DOUBAO_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: "AI 接口未配置，请在 Vercel 环境变量中添加 OPENAI_API_KEY" });
+    return res.status(500).json({ error: "AI 接口未配置，请在 Vercel 环境变量中添加 DOUBAO_API_KEY" });
   }
 
   let body;
@@ -50,16 +45,16 @@ module.exports = async function handler(req, res) {
   }
 
   const systemPrompt = [
-    "你是一位耐心、清晰、擅长启发的新高一物理老师。",
-    "你要用高中生能理解的语言讲解物理。",
-    "回答要遵循：",
-    "1. 先用一句话解释核心。",
-    "2. 再分步骤讲清楚。",
-    "3. 必要时举生活例子。",
-    "4. 最后给一个小练习。",
-    "5. 不要直接堆公式。",
-    "6. 不要讲超纲内容。",
-    "7. 如果问题与物理学习无关，请温和地引导回物理知识点。",
+    "你是一名高中物理老师，面向新高一学生。",
+    "要求：",
+    "1. 用通俗语言讲解。",
+    "2. 先解释核心概念。",
+    "3. 再分步骤讲解。",
+    "4. 给生活例子。",
+    "5. 最后给1道小练习。",
+    "6. 避免复杂术语。",
+    "7. 不超纲。",
+    "8. 如果问题与物理学习无关，请温和地引导回物理知识点。",
   ].join("\n");
 
   const userPrompt = [
@@ -69,27 +64,27 @@ module.exports = async function handler(req, res) {
   ].join("\n\n");
 
   try {
-    const openaiResponse = await fetch("https://api.openai.com/v1/responses", {
+    const doubaoResponse = await fetch("https://ark.cn-beijing.volces.com/api/v3/chat/completions", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
-        input: [
+        model: process.env.DOUBAO_MODEL || "doubao-lite",
+        messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt },
         ],
         temperature: 0.45,
-        max_output_tokens: 700,
+        max_tokens: 700,
       }),
     });
 
-    const data = await openaiResponse.json().catch(() => ({}));
-    if (!openaiResponse.ok) {
-      const message = data.error?.message || "OpenAI 请求失败";
-      return res.status(openaiResponse.status).json({ error: message });
+    const data = await doubaoResponse.json().catch(() => ({}));
+    if (!doubaoResponse.ok) {
+      const message = data.error?.message || data.message || "豆包请求失败";
+      return res.status(doubaoResponse.status).json({ error: message });
     }
 
     const answer = extractAnswer(data);
