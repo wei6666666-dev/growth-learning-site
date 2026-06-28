@@ -153,9 +153,13 @@
               <h1>物理知识库</h1>
               <p class="hero-copy">从运动开始，把高中物理一点点搭起来。</p>
             </div>
-            <div class="term-card">
+            <div class="term-card textbook-card">
               <span>当前教材</span>
-              <strong>高一上 · 必修第一册</strong>
+              <strong id="currentTextbookLabel">高一上 · 必修第一册</strong>
+              <div class="textbook-switch" role="group" aria-label="选择教材">
+                <button class="textbook-option active" type="button" data-textbook="required1">必修一</button>
+                <button class="textbook-option" type="button" data-textbook="required2">必修二</button>
+              </div>
             </div>
           </div>
           <div class="library-layout">

@@ -21,7 +21,12 @@ let physicsDataStatus = {
   error: "",
 };
 
-const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "必修二", "实验专区", "视频课程"];
+const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "实验专区", "视频课程"];
+const requiredTwoCategories = ["必修二", "视频课程"];
+const textbookLabels = {
+  required1: "高一上 · 必修第一册",
+  required2: "高一下 · 必修第二册",
+};
 const materialThemes = ["成长", "坚持", "挫折", "亲情", "青春", "责任"];
 
 const categoryIcons = {
@@ -208,6 +213,7 @@ function rich(definition, formulas, quantities, mistakes, example, tip) {
 
 const defaultState = {
   activePage: "home",
+  activeTextbook: "required1",
   activeCategory: "运动的描述",
   activeTheme: "成长",
   search: "",
@@ -333,6 +339,18 @@ function getKnowledgeStatus(id) {
   return { text: "未学", className: "unlearned" };
 }
 
+function getTextbookCategories() {
+  return state.activeTextbook === "required2" ? requiredTwoCategories : physicsCategories;
+}
+
+function syncTextbookControls() {
+  const label = $("#currentTextbookLabel");
+  if (label) label.textContent = textbookLabels[state.activeTextbook] || textbookLabels.required1;
+  $$(".textbook-option").forEach((button) => {
+    button.classList.toggle("active", button.dataset.textbook === state.activeTextbook);
+  });
+}
+
 function getKnowledgeKeyword(item) {
   return (physicsTags[item.id] || physicsTags[item.detailId] || [item.name, item.category]).slice(0, 2).join(" · ");
 }
@@ -383,6 +401,7 @@ function loadState() {
     const merged = { ...structuredClone(defaultState), ...JSON.parse(saved) };
     merged.videos = normalizeStoredVideos(merged.videos);
     merged.aiChats = merged.aiChats || {};
+    if (merged.activeCategory === "必修二") merged.activeTextbook = "required2";
     return merged;
   } catch {
     return structuredClone(defaultState);
@@ -506,7 +525,13 @@ function renderHome() {
 }
 
 function renderLibrary() {
-  $("#categoryList").innerHTML = physicsCategories.map((category) => {
+  syncTextbookControls();
+  const visibleCategories = getTextbookCategories();
+  if (!visibleCategories.includes(state.activeCategory)) {
+    state.activeCategory = state.activeTextbook === "required2" ? "必修二" : "运动的描述";
+  }
+
+  $("#categoryList").innerHTML = visibleCategories.map((category) => {
     const count = category === "视频课程" ? state.videos.length : knowledgePoints.filter((item) => item.category === category).length;
     return `<button class="category-button ${state.activeCategory === category ? "active" : ""}" type="button" data-category="${category}">
       <span class="category-label">${categoryIcons[category]}<span>${category}</span></span><small>${count}</small>
@@ -1137,6 +1162,14 @@ $("#avatarButton").addEventListener("click", () => {
 document.addEventListener("click", (event) => {
   const nav = event.target.closest("[data-page]");
   if (nav) setPage(nav.dataset.page);
+
+  const textbook = event.target.closest("[data-textbook]");
+  if (textbook) {
+    state.activeTextbook = textbook.dataset.textbook;
+    state.activeCategory = state.activeTextbook === "required2" ? "必修二" : "运动的描述";
+    saveState();
+    renderLibrary();
+  }
 
   const category = event.target.closest("[data-category]");
   if (category) {
