@@ -71,7 +71,7 @@ module.exports = async function handler(req, res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: process.env.DOUBAO_MODEL || "doubao-lite",
+        model: process.env.DOUBAO_MODEL || "doubao-1-5-lite-32k-250115",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt },
