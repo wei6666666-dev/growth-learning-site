@@ -1563,6 +1563,13 @@ select:focus {
   animation: diagramDrift 2.8s ease-in-out infinite;
 }
 
+.motion-diagram .current-point {
+  fill: color-mix(in srgb, var(--accent) 14%, var(--surface-strong));
+  stroke-width: 2.4;
+  opacity: 0.92;
+  animation: none;
+}
+
 .motion-diagram .steady {
   animation: steadyMove 3.2s linear infinite;
 }
