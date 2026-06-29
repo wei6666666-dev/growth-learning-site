@@ -3845,5 +3845,378 @@
         "内阻"
       ]
     }
+  },
+  {
+    "id": "selective2_magnetic_field",
+    "name": "磁场",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "磁场是磁体或电流周围存在的一种物质，它能对磁体、电流以及运动电荷产生力的作用。",
+    "formula": "",
+    "symbols": "磁场常用磁感线和磁感应强度 B 来描述；B 的单位是 T。",
+    "mistakes": [
+      "磁场不是只有磁铁周围才有，电流周围也有磁场。",
+      "磁场方向不能凭感觉判断，要按小磁针 N 极受力方向或右手定则判断。"
+    ],
+    "example": "例题：通电直导线周围是否有磁场？解析：有。电流周围存在磁场，可用右手螺旋定则判断方向。",
+    "hint": "学磁场先建立“电流能产生磁场”的观念，再学受力和运动。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "磁感应强度",
+      "磁感线",
+      "安培力"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电流",
+        "力"
+      ],
+      "next": [
+        "磁感应强度",
+        "安培力"
+      ],
+      "related_core": [
+        "场",
+        "右手定则"
+      ]
+    }
+  },
+  {
+    "id": "selective2_magnetic_induction",
+    "name": "磁感应强度",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "磁感应强度 B 描述磁场强弱和方向，是研究磁场作用力的核心物理量。",
+    "formula": "B = F / IL",
+    "symbols": "B 表示磁感应强度，单位 T；F 表示通电导线受力，单位 N；I 表示电流；L 表示导线在磁场中的有效长度。",
+    "mistakes": [
+      "B 是磁场本身的性质，不由放入的导线电流大小决定。",
+      "公式 B=F/IL 要求导线与磁场方向垂直。"
+    ],
+    "example": "例题：长 0.5 m 导线通 2 A 电流，垂直磁场受力 0.1 N，B 多大？解析：B=F/IL=0.1/(2×0.5)=0.1 T。",
+    "hint": "记住 B 像电场中的 E，是描述“场”的量。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "磁场",
+      "安培力",
+      "洛伦兹力"
+    ],
+    "graph": {
+      "prerequisite": [
+        "磁场",
+        "电流"
+      ],
+      "next": [
+        "安培力",
+        "洛伦兹力"
+      ],
+      "related_core": [
+        "场强弱",
+        "特斯拉"
+      ]
+    }
+  },
+  {
+    "id": "selective2_magnetic_field_lines",
+    "name": "磁感线",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "磁感线是用来形象表示磁场方向和强弱的假想曲线，曲线上每点切线方向表示该点磁场方向。",
+    "formula": "",
+    "symbols": "磁感线疏密表示磁场强弱；外部磁感线从 N 极指向 S 极，内部形成闭合曲线。",
+    "mistakes": [
+      "磁感线是假想线，不是真实存在的线。",
+      "磁感线是闭合曲线，不像电场线那样从正电荷出发到负电荷终止。"
+    ],
+    "example": "例题：磁感线较密处和较疏处哪里磁场强？解析：较密处磁场更强。",
+    "hint": "看磁感线图时先看方向，再看疏密。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "磁场",
+      "磁感应强度",
+      "安培力"
+    ],
+    "graph": {
+      "prerequisite": [
+        "磁场"
+      ],
+      "next": [
+        "安培力"
+      ],
+      "related_core": [
+        "闭合曲线",
+        "疏密"
+      ]
+    }
+  },
+  {
+    "id": "selective2_ampere_force",
+    "name": "安培力",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "安培力是磁场对通电导线的作用力，方向由左手定则判断。",
+    "formula": "F = BIL",
+    "symbols": "F 表示安培力；B 表示磁感应强度；I 表示电流；L 表示导线在磁场中的有效长度。",
+    "mistakes": [
+      "F=BIL 适用于电流方向与磁场方向垂直的情况。",
+      "安培力方向同时垂直于电流方向和磁场方向，不能只看其中一个方向。"
+    ],
+    "example": "例题：B=0.2 T，I=3 A，L=0.5 m 且导线垂直磁场，安培力多大？解析：F=BIL=0.2×3×0.5=0.3 N。",
+    "hint": "安培力题先画 B 和 I，再用左手定则定方向。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "磁感应强度",
+      "左手定则",
+      "电动机"
+    ],
+    "graph": {
+      "prerequisite": [
+        "磁感应强度",
+        "电流"
+      ],
+      "next": [
+        "电动机原理",
+        "洛伦兹力"
+      ],
+      "related_core": [
+        "左手定则",
+        "有效长度"
+      ]
+    }
+  },
+  {
+    "id": "selective2_lorentz_force",
+    "name": "洛伦兹力",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "洛伦兹力是磁场对运动电荷的作用力，方向与电荷运动方向和磁场方向都有关。",
+    "formula": "F = qvB",
+    "symbols": "F 表示洛伦兹力；q 表示电荷量；v 表示电荷速度；B 表示磁感应强度。",
+    "mistakes": [
+      "静止电荷在磁场中不受洛伦兹力。",
+      "负电荷受力方向与左手定则对正电荷判断的方向相反。"
+    ],
+    "example": "例题：q=2×10^-6 C，v=1×10^4 m/s，B=0.5 T 且垂直，力多大？解析：F=qvB=0.01 N。",
+    "hint": "洛伦兹力只改变速度方向时不做功，这是理解圆周运动的关键。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "安培力",
+      "带电粒子在磁场中的运动",
+      "圆周运动"
+    ],
+    "graph": {
+      "prerequisite": [
+        "磁感应强度",
+        "圆周运动"
+      ],
+      "next": [
+        "带电粒子在匀强磁场中的运动"
+      ],
+      "related_core": [
+        "运动电荷",
+        "不做功"
+      ]
+    }
+  },
+  {
+    "id": "selective2_charged_particle_magnetic",
+    "name": "带电粒子在匀强磁场中的运动",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "当带电粒子速度垂直进入匀强磁场时，洛伦兹力总指向圆心，粒子做匀速圆周运动。",
+    "formula": "qvB = mv^2 / r；r = mv / qB；T = 2πm / qB",
+    "symbols": "r 表示轨道半径；T 表示周期；m 表示粒子质量；q 表示电荷量；v 表示速度；B 表示磁感应强度。",
+    "mistakes": [
+      "洛伦兹力不改变速率，只改变速度方向。",
+      "周期 T 与速度 v 无关，只由 m、q、B 决定。"
+    ],
+    "example": "例题：粒子速度变为原来 2 倍，B 不变，半径如何变化？解析：r=mv/qB，半径变为原来 2 倍。",
+    "hint": "把洛伦兹力当向心力列方程，是这类题的核心套路。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "洛伦兹力",
+      "向心力",
+      "匀速圆周运动"
+    ],
+    "graph": {
+      "prerequisite": [
+        "洛伦兹力",
+        "向心力"
+      ],
+      "next": [
+        "质谱仪",
+        "回旋加速器"
+      ],
+      "related_core": [
+        "半径",
+        "周期"
+      ]
+    }
+  },
+  {
+    "id": "selective2_mass_spectrometer",
+    "name": "质谱仪",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "质谱仪利用带电粒子在磁场中偏转半径不同，来分析粒子的质量或荷质比。",
+    "formula": "r = mv / qB",
+    "symbols": "r 表示偏转半径；m 表示质量；v 表示速度；q 表示电荷量；B 表示磁感应强度。",
+    "mistakes": [
+      "半径不同不只和质量有关，也和速度、电荷量、磁场有关。",
+      "进入磁场前若经过电场加速，还要先用能量关系求速度。"
+    ],
+    "example": "例题：同速同电荷量粒子进入同一磁场，质量越大半径怎样？解析：r=mv/qB，质量越大半径越大。",
+    "hint": "质谱仪题常常先电场加速、再磁场偏转，分两段分析。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "带电粒子在匀强磁场中的运动",
+      "电势差",
+      "动能"
+    ],
+    "graph": {
+      "prerequisite": [
+        "洛伦兹力",
+        "动能"
+      ],
+      "next": [
+        "回旋加速器"
+      ],
+      "related_core": [
+        "荷质比",
+        "轨道半径"
+      ]
+    }
+  },
+  {
+    "id": "selective2_cyclotron",
+    "name": "回旋加速器",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "回旋加速器利用磁场使带电粒子做圆周运动，并用交变电场反复加速粒子。",
+    "formula": "T = 2πm / qB",
+    "symbols": "T 表示粒子在磁场中运动周期；m 表示质量；q 表示电荷量；B 表示磁感应强度。",
+    "mistakes": [
+      "磁场负责偏转，不直接增加粒子动能。",
+      "加速发生在两 D 形盒之间的电场区域。"
+    ],
+    "example": "例题：增大磁感应强度 B，粒子回旋周期如何变化？解析：T=2πm/qB，B 增大，周期减小。",
+    "hint": "回旋加速器要分清磁场“转弯”和电场“加速”的作用。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "带电粒子在匀强磁场中的运动",
+      "电场",
+      "交变电流"
+    ],
+    "graph": {
+      "prerequisite": [
+        "洛伦兹力",
+        "电场力做功"
+      ],
+      "next": [
+        "电磁感应"
+      ],
+      "related_core": [
+        "周期",
+        "加速"
+      ]
+    }
+  },
+  {
+    "id": "selective2_right_hand_rule",
+    "name": "右手螺旋定则",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "右手螺旋定则用于判断电流产生磁场的方向，直导线和通电螺线管都可以使用。",
+    "formula": "",
+    "symbols": "直导线中拇指指电流方向，四指环绕方向为磁感线方向；螺线管中四指指电流方向，拇指指 N 极方向。",
+    "mistakes": [
+      "直导线和螺线管的手势含义不同，不要混用。",
+      "判断前要先确认电流方向，而不是电子运动方向。"
+    ],
+    "example": "例题：竖直向上的电流周围磁感线方向怎样？解析：右手拇指向上，四指弯曲方向就是磁感线环绕方向。",
+    "hint": "多用手实际比划，方向判断比死记文字可靠。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "磁场",
+      "磁感线",
+      "安培力"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电流",
+        "磁场"
+      ],
+      "next": [
+        "安培力"
+      ],
+      "related_core": [
+        "方向判断",
+        "右手"
+      ]
+    }
+  },
+  {
+    "id": "selective2_left_hand_rule",
+    "name": "左手定则",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "磁场",
+    "definition": "左手定则用于判断磁场对电流或正电荷运动产生的力的方向。",
+    "formula": "",
+    "symbols": "让磁感线穿入掌心，四指指电流方向或正电荷运动方向，拇指所指为受力方向。",
+    "mistakes": [
+      "负电荷受力方向与左手定则直接判断的方向相反。",
+      "四指应指电流方向或正电荷运动方向，不是电子运动方向。"
+    ],
+    "example": "例题：正电荷向右进入垂直纸面向里的磁场，受力方向如何？解析：按左手定则，力向上。",
+    "hint": "方向题一定先标出 B、v 或 I，再用左手定则，不要凭空间想象硬猜。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "安培力",
+      "洛伦兹力",
+      "右手螺旋定则"
+    ],
+    "graph": {
+      "prerequisite": [
+        "磁场",
+        "矢量方向"
+      ],
+      "next": [
+        "洛伦兹力"
+      ],
+      "related_core": [
+        "方向判断",
+        "左手"
+      ]
+    }
   }
 ]
