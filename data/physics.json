@@ -5323,5 +5323,368 @@
         "数量级估算"
       ]
     }
+  },
+  {
+    "id": "selective3_gas_pressure_micro",
+    "name": "气体压强的微观解释",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "气体压强来自大量气体分子频繁撞击容器壁，对容器壁产生持续压力的平均效果。",
+    "formula": "p = F / S",
+    "symbols": "p 表示压强，单位 Pa；F 表示压力；S 表示受力面积。",
+    "mistakes": [
+      "气体压强不是某一个分子撞击造成的，而是大量分子撞击的统计结果。",
+      "温度升高时分子平均动能增大，撞击更剧烈，压强可能增大。"
+    ],
+    "example": "例题：密闭容器体积不变，气体温度升高，压强通常怎样变化？解析：分子平均动能增大，撞击容器壁更频繁更强，压强增大。",
+    "hint": "气体压强题要从分子撞击容器壁的角度理解。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "温度的微观意义",
+      "理想气体状态方程",
+      "等容变化"
+    ],
+    "graph": {
+      "prerequisite": [
+        "分子热运动",
+        "压强"
+      ],
+      "next": [
+        "理想气体",
+        "等容变化"
+      ],
+      "related_core": [
+        "分子碰撞",
+        "统计平均"
+      ]
+    }
+  },
+  {
+    "id": "selective3_ideal_gas",
+    "name": "理想气体",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "理想气体是一种忽略分子体积和分子间相互作用的模型，适合描述一定条件下的实际气体近似行为。",
+    "formula": "",
+    "symbols": "理想气体模型强调分子体积可忽略、除碰撞外分子间作用可忽略。",
+    "mistakes": [
+      "理想气体是模型，不是真实气体完全如此。",
+      "高温低压时实际气体更接近理想气体。"
+    ],
+    "example": "例题：为什么高温低压气体更接近理想气体？解析：分子距离较大，分子间作用相对较弱，分子自身体积影响小。",
+    "hint": "理想气体和质点一样，是为了简化问题建立的模型。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "分子动理论",
+      "理想气体状态方程",
+      "气体实验定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "分子动理论"
+      ],
+      "next": [
+        "理想气体状态方程"
+      ],
+      "related_core": [
+        "模型化",
+        "近似条件"
+      ]
+    }
+  },
+  {
+    "id": "selective3_boyle_law",
+    "name": "玻意耳定律",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "一定质量气体在温度不变时，压强与体积成反比。",
+    "formula": "pV = C；p1V1 = p2V2",
+    "symbols": "p 表示气体压强；V 表示气体体积；C 为常量。",
+    "mistakes": [
+      "玻意耳定律要求温度不变，不能忽略这个条件。",
+      "体积变小压强变大，是反比关系，不是正比关系。"
+    ],
+    "example": "例题：温度不变时，气体体积变为原来一半，压强怎样？解析：pV 不变，体积减半，压强变为 2 倍。",
+    "hint": "遇到“温度不变”优先想到 pV 不变。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "等温变化",
+      "理想气体状态方程",
+      "气体压强"
+    ],
+    "graph": {
+      "prerequisite": [
+        "理想气体"
+      ],
+      "next": [
+        "等温变化"
+      ],
+      "related_core": [
+        "温度不变",
+        "反比"
+      ]
+    }
+  },
+  {
+    "id": "selective3_charles_law",
+    "name": "查理定律",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "一定质量气体在体积不变时，压强与热力学温度成正比。",
+    "formula": "p / T = C；p1 / T1 = p2 / T2",
+    "symbols": "p 表示压强；T 表示热力学温度，单位 K；C 为常量。",
+    "mistakes": [
+      "温度必须用热力学温度 K，不能直接用摄氏温度代入比例式。",
+      "查理定律条件是体积不变。"
+    ],
+    "example": "例题：体积不变时，温度从 300 K 升到 600 K，压强如何变化？解析：p/T 不变，压强变为 2 倍。",
+    "hint": "气体定律中凡是比例式，温度都用 K。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "等容变化",
+      "热力学温度",
+      "理想气体状态方程"
+    ],
+    "graph": {
+      "prerequisite": [
+        "热力学温度"
+      ],
+      "next": [
+        "等容变化"
+      ],
+      "related_core": [
+        "体积不变",
+        "p与T成正比"
+      ]
+    }
+  },
+  {
+    "id": "selective3_gay_lussac_law",
+    "name": "盖-吕萨克定律",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "一定质量气体在压强不变时，体积与热力学温度成正比。",
+    "formula": "V / T = C；V1 / T1 = V2 / T2",
+    "symbols": "V 表示气体体积；T 表示热力学温度；C 为常量。",
+    "mistakes": [
+      "条件是压强不变，不是体积不变。",
+      "温度必须换算成 K 后才能代入。"
+    ],
+    "example": "例题：压强不变时，气体温度从 300 K 升到 450 K，体积变为原来的多少？解析：V 与 T 成正比，变为 1.5 倍。",
+    "hint": "压强不变时看 V/T，不要和查理定律混淆。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "等压变化",
+      "热力学温度",
+      "理想气体状态方程"
+    ],
+    "graph": {
+      "prerequisite": [
+        "热力学温度"
+      ],
+      "next": [
+        "等压变化"
+      ],
+      "related_core": [
+        "压强不变",
+        "V与T成正比"
+      ]
+    }
+  },
+  {
+    "id": "selective3_ideal_gas_equation",
+    "name": "理想气体状态方程",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "理想气体状态方程描述一定量理想气体的压强、体积和热力学温度之间的关系。",
+    "formula": "pV = nRT；p1V1 / T1 = p2V2 / T2",
+    "symbols": "p 表示压强；V 表示体积；n 表示物质的量；R 表示气体常量；T 表示热力学温度。",
+    "mistakes": [
+      "T 必须用 K，不能用摄氏温度。",
+      "使用 p1V1/T1=p2V2/T2 时要求气体质量不变。"
+    ],
+    "example": "例题：一定质量理想气体 p、V 都不变，温度能否改变？解析：由 pV/T 为常量可知 T 也不能改变。",
+    "hint": "综合题先判断哪个量不变，再从状态方程化简。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "玻意耳定律",
+      "查理定律",
+      "盖-吕萨克定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "气体实验定律"
+      ],
+      "next": [
+        "气体图像",
+        "热力学第一定律"
+      ],
+      "related_core": [
+        "状态参量",
+        "统一公式"
+      ]
+    }
+  },
+  {
+    "id": "selective3_isothermal_process",
+    "name": "等温变化",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "等温变化是气体温度保持不变的状态变化过程，此时一定质量理想气体满足 pV 不变。",
+    "formula": "pV = C",
+    "symbols": "p 表示压强；V 表示体积；C 为温度和气体质量确定时的常量。",
+    "mistakes": [
+      "等温不是没有热量交换，可能通过吸热或放热保持温度不变。",
+      "等温图像在 p-V 图中是双曲线。"
+    ],
+    "example": "例题：等温压缩气体时，外界对气体做功，气体温度不变，能量如何平衡？解析：内能不变，气体需向外放热。",
+    "hint": "等温过程抓住 T 不变，理想气体内能通常不变。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "玻意耳定律",
+      "理想气体状态方程",
+      "内能"
+    ],
+    "graph": {
+      "prerequisite": [
+        "玻意耳定律"
+      ],
+      "next": [
+        "热力学第一定律"
+      ],
+      "related_core": [
+        "T不变",
+        "pV不变"
+      ]
+    }
+  },
+  {
+    "id": "selective3_isobaric_process",
+    "name": "等压变化",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "等压变化是气体压强保持不变的状态变化过程，此时一定质量理想气体体积与热力学温度成正比。",
+    "formula": "V / T = C",
+    "symbols": "V 表示体积；T 表示热力学温度；C 为常量。",
+    "mistakes": [
+      "等压膨胀时气体对外做功。",
+      "判断体积变化时必须用 K 温度。"
+    ],
+    "example": "例题：等压加热气体，温度升高，体积如何变化？解析：V/T 不变，温度升高体积增大。",
+    "hint": "等压过程常和气体做功 W=pΔV 联系起来。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "盖-吕萨克定律",
+      "气体做功",
+      "热力学第一定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "盖-吕萨克定律"
+      ],
+      "next": [
+        "气体做功"
+      ],
+      "related_core": [
+        "p不变",
+        "V随T变"
+      ]
+    }
+  },
+  {
+    "id": "selective3_isochoric_process",
+    "name": "等容变化",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "等容变化是气体体积保持不变的状态变化过程，此时一定质量理想气体压强与热力学温度成正比。",
+    "formula": "p / T = C",
+    "symbols": "p 表示压强；T 表示热力学温度；C 为常量。",
+    "mistakes": [
+      "等容过程体积不变，所以气体不对外做体积功。",
+      "压强与摄氏温度不成正比，必须换成 K。"
+    ],
+    "example": "例题：密闭钢瓶中气体升温，体积不变，压强怎样？解析：p/T 不变，温度升高压强增大。",
+    "hint": "等容过程常用于理解密闭容器加热后压强升高。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "查理定律",
+      "气体压强",
+      "热力学第一定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "查理定律"
+      ],
+      "next": [
+        "热力学第一定律"
+      ],
+      "related_core": [
+        "V不变",
+        "不做体积功"
+      ]
+    }
+  },
+  {
+    "id": "selective3_gas_graphs",
+    "name": "气体状态图像",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "气体",
+    "definition": "气体状态图像用 p-V、p-T、V-T 等图像表示气体状态变化，能直观看出哪个状态参量不变。",
+    "formula": "pV / T = C",
+    "symbols": "p、V、T 分别表示压强、体积、热力学温度；图像斜率和面积常有物理意义。",
+    "mistakes": [
+      "不同坐标系下同一过程图像形状不同，不能死记一张图。",
+      "p-V 图像下的面积可表示气体做功，其他图像面积通常不能直接这样解释。"
+    ],
+    "example": "例题：p-V 图中一条水平线表示什么过程？解析：纵轴 p 不变，所以是等压变化。",
+    "hint": "读图先看坐标轴，再判断哪个量保持不变。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "等温变化",
+      "等压变化",
+      "等容变化"
+    ],
+    "graph": {
+      "prerequisite": [
+        "理想气体状态方程"
+      ],
+      "next": [
+        "热力学第一定律综合"
+      ],
+      "related_core": [
+        "状态图像",
+        "过程识别"
+      ]
+    }
   }
 ]
