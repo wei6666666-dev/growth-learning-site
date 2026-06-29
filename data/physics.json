@@ -6054,5 +6054,370 @@
         "逆向热传递"
       ]
     }
+  },
+  {
+    "id": "selective3_atomic_structure",
+    "name": "原子结构",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "原子由带正电的原子核和核外电子组成，原子核集中了几乎全部质量，电子在核外运动。",
+    "formula": "",
+    "symbols": "原子核带正电，电子带负电；原子整体通常呈电中性。",
+    "mistakes": [
+      "原子不是实心小球，内部大部分是空旷空间。",
+      "原子核很小但质量占绝大部分。"
+    ],
+    "example": "例题：为什么说原子核很小但很重？解析：原子核半径远小于原子半径，却包含质子和中子，集中了主要质量。",
+    "hint": "原子结构先抓住“核小而重、电子在外”。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电子",
+      "原子核",
+      "卢瑟福核式结构"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电荷"
+      ],
+      "next": [
+        "卢瑟福核式结构",
+        "玻尔模型"
+      ],
+      "related_core": [
+        "原子核",
+        "核外电子"
+      ]
+    }
+  },
+  {
+    "id": "selective3_rutherford_model",
+    "name": "卢瑟福核式结构",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "卢瑟福通过 α 粒子散射实验提出原子核式结构：原子中心有很小、带正电、质量很大的原子核。",
+    "formula": "",
+    "symbols": "α 粒子带正电，少数大角度偏转说明原子内部存在强正电中心。",
+    "mistakes": [
+      "大多数 α 粒子直穿说明原子内大部分空间空旷。",
+      "少数粒子大角度偏转不能用葡萄干模型解释。"
+    ],
+    "example": "例题：α 粒子散射实验中大多数粒子几乎不偏转，说明什么？解析：原子内大部分空间是空的。",
+    "hint": "记住实验现象和结论一一对应。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "原子结构",
+      "原子核",
+      "α粒子散射"
+    ],
+    "graph": {
+      "prerequisite": [
+        "原子结构"
+      ],
+      "next": [
+        "玻尔模型"
+      ],
+      "related_core": [
+        "散射实验",
+        "核式结构"
+      ]
+    }
+  },
+  {
+    "id": "selective3_bohr_model",
+    "name": "玻尔原子模型",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "玻尔模型认为电子只能在某些稳定轨道上运动，原子能量只能取一系列不连续的值。",
+    "formula": "hν = Em - En",
+    "symbols": "h 表示普朗克常量；ν 表示光子频率；Em、En 表示两个能级的能量。",
+    "mistakes": [
+      "电子不是任意轨道都能稳定存在，只能处在允许轨道。",
+      "跃迁吸收或放出光子的能量等于能级差。"
+    ],
+    "example": "例题：电子从高能级跃迁到低能级，会吸收还是放出光子？解析：能量减少，放出光子。",
+    "hint": "玻尔模型的关键词是不连续能级和跃迁。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "能级",
+      "电子跃迁",
+      "氢原子光谱"
+    ],
+    "graph": {
+      "prerequisite": [
+        "卢瑟福核式结构"
+      ],
+      "next": [
+        "能级",
+        "氢原子光谱"
+      ],
+      "related_core": [
+        "定态",
+        "跃迁"
+      ]
+    }
+  },
+  {
+    "id": "selective3_energy_level",
+    "name": "能级",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "原子能量只能取某些确定值，这些允许的能量值叫能级。",
+    "formula": "ΔE = hν",
+    "symbols": "ΔE 表示两个能级间能量差；hν 表示吸收或放出光子的能量。",
+    "mistakes": [
+      "能级是不连续的，不是任意连续取值。",
+      "跃迁只发生在两个能级之间，光子能量必须等于能级差。"
+    ],
+    "example": "例题：能级差为 3 eV，原子跃迁放出的光子能量是多少？解析：光子能量等于能级差，即 3 eV。",
+    "hint": "能级题就是找能量差，再对应光子能量。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "玻尔原子模型",
+      "电子跃迁",
+      "光子"
+    ],
+    "graph": {
+      "prerequisite": [
+        "玻尔模型"
+      ],
+      "next": [
+        "电子跃迁",
+        "光谱"
+      ],
+      "related_core": [
+        "不连续",
+        "能级差"
+      ]
+    }
+  },
+  {
+    "id": "selective3_electron_transition",
+    "name": "电子跃迁",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "电子在不同能级之间变化叫跃迁，向高能级跃迁吸收能量，向低能级跃迁放出能量。",
+    "formula": "hν = E高 - E低",
+    "symbols": "ν 表示光频率；E高、E低 表示两个能级能量。",
+    "mistakes": [
+      "吸收光子时光子能量必须刚好等于能级差。",
+      "向低能级跃迁才会发射光子。"
+    ],
+    "example": "例题：电子吸收 2 eV 光子，可能从某能级跃迁到高 3 eV 的能级吗？解析：不能，能量不匹配。",
+    "hint": "跃迁题先判断方向，再算能级差。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "能级",
+      "光谱",
+      "光子"
+    ],
+    "graph": {
+      "prerequisite": [
+        "能级"
+      ],
+      "next": [
+        "氢原子光谱"
+      ],
+      "related_core": [
+        "吸收",
+        "发射"
+      ]
+    }
+  },
+  {
+    "id": "selective3_hydrogen_spectrum",
+    "name": "氢原子光谱",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "氢原子光谱由一系列分立谱线组成，说明氢原子的能量状态是不连续的。",
+    "formula": "hν = Em - En",
+    "symbols": "ν 表示谱线对应光频率；Em、En 表示跃迁前后能级。",
+    "mistakes": [
+      "线状光谱说明能级分立，不是连续能量变化。",
+      "不同谱线对应不同能级差。"
+    ],
+    "example": "例题：为什么氢原子发光不是连续彩带，而是一条条谱线？解析：能级分立，跃迁能量只能取特定值。",
+    "hint": "把光谱线和能级跃迁一一对应起来。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "能级",
+      "电子跃迁",
+      "光子"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电子跃迁"
+      ],
+      "next": [
+        "光谱分析"
+      ],
+      "related_core": [
+        "线状光谱",
+        "能级分立"
+      ]
+    }
+  },
+  {
+    "id": "selective3_spectrum",
+    "name": "光谱",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "光谱是光按波长或频率展开后的分布，不同元素的线状光谱具有特征性。",
+    "formula": "c = λν",
+    "symbols": "c 表示光速；λ 表示波长；ν 表示频率。",
+    "mistakes": [
+      "不同元素的特征谱线不同，可用于识别元素。",
+      "连续光谱和线状光谱反映的发光机制不同。"
+    ],
+    "example": "例题：为什么可以通过恒星光谱判断元素组成？解析：不同元素有特征谱线，谱线相当于元素的指纹。",
+    "hint": "光谱题抓住“特征谱线”这个核心。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "氢原子光谱",
+      "电子跃迁",
+      "波长和频率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "光的频率和波长"
+      ],
+      "next": [
+        "光谱分析"
+      ],
+      "related_core": [
+        "特征谱线",
+        "元素识别"
+      ]
+    }
+  },
+  {
+    "id": "selective3_photon",
+    "name": "光子",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "光子是光能量的一份一份的量子，频率越高，单个光子的能量越大。",
+    "formula": "E = hν",
+    "symbols": "E 表示光子能量；h 表示普朗克常量；ν 表示光频率。",
+    "mistakes": [
+      "光强变大不一定表示单个光子能量变大，单个光子能量由频率决定。",
+      "频率越高，波长越短，光子能量越大。"
+    ],
+    "example": "例题：紫光和红光相比，哪个单个光子能量大？解析：紫光频率更高，E=hν 更大。",
+    "hint": "光子能量只看频率，不看亮不亮。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "能级",
+      "电子跃迁",
+      "光电效应"
+    ],
+    "graph": {
+      "prerequisite": [
+        "频率"
+      ],
+      "next": [
+        "光电效应",
+        "波粒二象性"
+      ],
+      "related_core": [
+        "量子化",
+        "E=hν"
+      ]
+    }
+  },
+  {
+    "id": "selective3_excitation_ionization",
+    "name": "激发与电离",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "原子吸收能量后电子跃迁到较高能级叫激发；电子脱离原子束缚叫电离。",
+    "formula": "E吸收 ≥ E电离",
+    "symbols": "E吸收 表示原子吸收能量；E电离 表示使电子脱离原子所需最小能量。",
+    "mistakes": [
+      "激发后电子仍属于原子，电离后电子脱离原子。",
+      "入射能量不足以达到能级差时，原子不能吸收该光子完成跃迁。"
+    ],
+    "example": "例题：电子从基态被提升到较高能级但未脱离原子，这叫什么？解析：激发。",
+    "hint": "区分激发和电离，看电子是否还被原子束缚。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "能级",
+      "电子跃迁",
+      "光子"
+    ],
+    "graph": {
+      "prerequisite": [
+        "能级",
+        "光子"
+      ],
+      "next": [
+        "光电效应"
+      ],
+      "related_core": [
+        "激发",
+        "电离"
+      ]
+    }
+  },
+  {
+    "id": "selective3_atomic_model_limits",
+    "name": "原子模型的局限",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子结构",
+    "definition": "不同原子模型能解释一定现象，也有适用范围和局限，科学模型会随着实验事实不断修正。",
+    "formula": "",
+    "symbols": "模型用于解释现象和预测规律，但不是对真实世界的完全复制。",
+    "mistakes": [
+      "不能把玻尔轨道简单理解为电子像行星一样精确绕核运动。",
+      "旧模型不是完全没用，而是在适用范围内有解释价值。"
+    ],
+    "example": "例题：玻尔模型能解释氢原子光谱，但对复杂原子不够准确，说明什么？解析：模型有适用范围，需要发展更完善理论。",
+    "hint": "学近代物理要有模型意识：实验推动模型升级。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "玻尔模型",
+      "氢原子光谱",
+      "量子理论"
+    ],
+    "graph": {
+      "prerequisite": [
+        "原子结构"
+      ],
+      "next": [
+        "波粒二象性"
+      ],
+      "related_core": [
+        "模型",
+        "适用范围"
+      ]
+    }
   }
 ]
