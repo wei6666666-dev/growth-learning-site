@@ -4589,5 +4589,376 @@
         "交流"
       ]
     }
+  },
+  {
+    "id": "selective2_alternating_current",
+    "name": "交变电流",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "交变电流是大小和方向都随时间周期性变化的电流，生活中的市电就是常见交变电流。",
+    "formula": "i = Im sinωt",
+    "symbols": "i 表示瞬时电流；Im 表示电流最大值；ω 表示角速度；t 表示时间。",
+    "mistakes": [
+      "交变电流不是简单地“大小变”，方向也会周期性改变。",
+      "瞬时值、最大值和有效值不是同一个量，计算时不能混用。"
+    ],
+    "example": "例题：某交流电流表达式 i=5sin100πt A，最大值是多少？解析：最大值 Im=5 A。",
+    "hint": "学习交流电先分清瞬时值、峰值、有效值三种说法。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "发电机原理",
+      "正弦式交流电",
+      "有效值"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电磁感应",
+        "发电机原理"
+      ],
+      "next": [
+        "正弦式交流电",
+        "有效值"
+      ],
+      "related_core": [
+        "周期变化",
+        "方向改变"
+      ]
+    }
+  },
+  {
+    "id": "selective2_sine_current",
+    "name": "正弦式交流电",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "按正弦规律变化的交流电叫正弦式交流电，它的电流或电压图像是平滑的正弦曲线。",
+    "formula": "e = Em sinωt；u = Um sinωt；i = Im sinωt",
+    "symbols": "e、u、i 表示瞬时值；Em、Um、Im 表示最大值；ω 表示角速度。",
+    "mistakes": [
+      "正弦式交流电的图像过零点不代表电路断开，只是瞬时值为零。",
+      "表达式中的角速度 ω 不是普通频率 f，二者满足 ω=2πf。"
+    ],
+    "example": "例题：u=220√2 sin100πt V，角速度是多少？解析：ω=100π rad/s。",
+    "hint": "看到 sin 后先读出最大值和角速度，再求周期、频率或瞬时值。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "交变电流",
+      "周期和频率",
+      "峰值"
+    ],
+    "graph": {
+      "prerequisite": [
+        "三角函数图像",
+        "交变电流"
+      ],
+      "next": [
+        "周期和频率",
+        "有效值"
+      ],
+      "related_core": [
+        "正弦图像",
+        "瞬时值"
+      ]
+    }
+  },
+  {
+    "id": "selective2_ac_period_frequency",
+    "name": "周期和频率",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "周期表示交流电完成一次完整变化所用时间，频率表示每秒完成完整变化的次数。",
+    "formula": "f = 1 / T；ω = 2πf",
+    "symbols": "T 表示周期，单位 s；f 表示频率，单位 Hz；ω 表示角速度，单位 rad/s。",
+    "mistakes": [
+      "周期越大，频率越小，二者互为倒数。",
+      "我国生活用电频率为 50 Hz，对应周期是 0.02 s。"
+    ],
+    "example": "例题：某交流电频率 50 Hz，周期是多少？解析：T=1/f=1/50=0.02 s。",
+    "hint": "频率、周期、角速度三者经常连着考，要能快速互相转换。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "正弦式交流电",
+      "峰值",
+      "有效值"
+    ],
+    "graph": {
+      "prerequisite": [
+        "圆周运动角速度"
+      ],
+      "next": [
+        "交流电图像"
+      ],
+      "related_core": [
+        "周期",
+        "频率"
+      ]
+    }
+  },
+  {
+    "id": "selective2_peak_value",
+    "name": "峰值",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "峰值也叫最大值，是交流电瞬时电压或电流在一个周期内能达到的最大大小。",
+    "formula": "Um = √2 U；Im = √2 I",
+    "symbols": "Um、Im 表示电压和电流峰值；U、I 表示有效值。",
+    "mistakes": [
+      "家用电 220 V 是有效值，不是峰值。",
+      "峰值比有效值大 √2 倍，只适用于正弦式交流电。"
+    ],
+    "example": "例题：家用电有效值 220 V，峰值约多少？解析：Um=√2U≈311 V。",
+    "hint": "遇到生活用电标称值，优先把它看作有效值。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "有效值",
+      "正弦式交流电",
+      "周期和频率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "正弦式交流电"
+      ],
+      "next": [
+        "有效值"
+      ],
+      "related_core": [
+        "最大值",
+        "√2关系"
+      ]
+    }
+  },
+  {
+    "id": "selective2_rms_value",
+    "name": "有效值",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "交流电有效值是根据热效应等效定义的数值，表示与某一直流电在同一电阻上产生相同热量的效果。",
+    "formula": "U = Um / √2；I = Im / √2",
+    "symbols": "U、I 表示交流电压和电流有效值；Um、Im 表示峰值。",
+    "mistakes": [
+      "交流电表通常显示有效值，不显示峰值。",
+      "有效值公式 U=Um/√2 只适用于正弦式交流电。"
+    ],
+    "example": "例题：某正弦交流电峰值电压 311 V，有效值约多少？解析：U=Um/√2≈220 V。",
+    "hint": "计算电功率和电热时通常用有效值。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "峰值",
+      "焦耳定律",
+      "电功率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "焦耳定律",
+        "峰值"
+      ],
+      "next": [
+        "交流电功率",
+        "变压器"
+      ],
+      "related_core": [
+        "热效应等效",
+        "电表读数"
+      ]
+    }
+  },
+  {
+    "id": "selective2_ac_power",
+    "name": "交流电功率",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "交流电功率描述交流电路中电能转化快慢，在纯电阻电路中可用有效值计算。",
+    "formula": "P = UI；P = I^2R；P = U^2 / R",
+    "symbols": "P 表示平均功率；U、I 表示有效值；R 表示电阻。",
+    "mistakes": [
+      "计算交流电功率时，U 和 I 通常要用有效值。",
+      "非纯电阻或复杂交流电路不能简单照搬纯电阻公式。"
+    ],
+    "example": "例题：电阻接在有效值 220 V 的交流电上，电流有效值 0.5 A，功率多少？解析：P=UI=110 W。",
+    "hint": "高中阶段纯电阻交流电路可像直流一样用有效值计算。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "有效值",
+      "电功率",
+      "焦耳定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "有效值",
+        "电功率"
+      ],
+      "next": [
+        "远距离输电"
+      ],
+      "related_core": [
+        "平均功率",
+        "纯电阻"
+      ]
+    }
+  },
+  {
+    "id": "selective2_transformer",
+    "name": "理想变压器",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "理想变压器利用电磁感应改变交流电压，忽略能量损失时输入功率等于输出功率。",
+    "formula": "U1 / U2 = n1 / n2；I1 / I2 = n2 / n1",
+    "symbols": "U 表示电压有效值；I 表示电流有效值；n 表示线圈匝数；下标 1、2 表示原副线圈。",
+    "mistakes": [
+      "变压器不能改变稳定直流电压。",
+      "升压变压器电压升高，但电流减小，功率不能凭空变大。"
+    ],
+    "example": "例题：原线圈 100 匝，副线圈 500 匝，输入 20 V，输出多少？解析：U2=100 V。",
+    "hint": "变压器先用匝数比求电压，再用功率守恒求电流。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "变压器基础",
+      "有效值",
+      "电磁感应"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电磁感应",
+        "有效值"
+      ],
+      "next": [
+        "远距离输电"
+      ],
+      "related_core": [
+        "匝数比",
+        "功率守恒"
+      ]
+    }
+  },
+  {
+    "id": "selective2_long_distance_transmission",
+    "name": "远距离输电",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "远距离输电通常先升高电压、降低电流，以减少输电线上的电能损失。",
+    "formula": "P损 = I^2R",
+    "symbols": "P损 表示输电线损耗功率；I 表示输电电流；R 表示输电线电阻。",
+    "mistakes": [
+      "减少损耗的关键是减小电流，不是简单减小电压。",
+      "输送功率一定时，电压越高，电流越小，线路损耗越小。"
+    ],
+    "example": "例题：输电线电流变为原来 1/2，线路损耗如何变化？解析：P损=I^2R，变为原来的 1/4。",
+    "hint": "远距离输电抓住一个公式：损耗和电流平方成正比。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "理想变压器",
+      "交流电功率",
+      "焦耳定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "理想变压器",
+        "焦耳定律"
+      ],
+      "next": [
+        "电能输送综合"
+      ],
+      "related_core": [
+        "升压降流",
+        "线路损耗"
+      ]
+    }
+  },
+  {
+    "id": "selective2_ac_generator",
+    "name": "交流发电机",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "交流发电机通过线圈在磁场中转动，使磁通量周期性变化，从而产生正弦式交流电。",
+    "formula": "e = Em sinωt",
+    "symbols": "e 表示瞬时电动势；Em 表示最大电动势；ω 表示线圈转动角速度。",
+    "mistakes": [
+      "发电机输出电能来自外界做功，不是凭空产生。",
+      "线圈转速越大，交流电频率和最大电动势通常越大。"
+    ],
+    "example": "例题：发电机线圈转速变快，输出交流电频率如何变化？解析：周期变短，频率增大。",
+    "hint": "交流发电机把机械能转化为电能，图像来自磁通量的周期变化。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "发电机原理",
+      "正弦式交流电",
+      "电磁感应"
+    ],
+    "graph": {
+      "prerequisite": [
+        "发电机原理"
+      ],
+      "next": [
+        "交变电流",
+        "有效值"
+      ],
+      "related_core": [
+        "机械能转电能",
+        "周期变化"
+      ]
+    }
+  },
+  {
+    "id": "selective2_ac_graph",
+    "name": "交流电图像",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "交变电流",
+    "definition": "交流电图像用横轴表示时间、纵轴表示瞬时值，能直观看出周期、峰值和方向变化。",
+    "formula": "T = 2π / ω",
+    "symbols": "T 表示周期；ω 表示角速度；图像最高点对应峰值，过零点对应瞬时值为零。",
+    "mistakes": [
+      "图像在横轴下方表示方向相反，不代表电流大小为负。",
+      "读图时要区分一个周期和半个周期。"
+    ],
+    "example": "例题：图像每 0.02 s 重复一次，频率是多少？解析：f=1/T=50 Hz。",
+    "hint": "读交流电图像按“峰值、周期、零点、正负方向”四步来。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "正弦式交流电",
+      "周期和频率",
+      "峰值"
+    ],
+    "graph": {
+      "prerequisite": [
+        "正弦函数",
+        "周期和频率"
+      ],
+      "next": [
+        "有效值"
+      ],
+      "related_core": [
+        "读图",
+        "瞬时值"
+      ]
+    }
   }
 ]
