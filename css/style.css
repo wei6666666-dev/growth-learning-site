@@ -1923,6 +1923,10 @@ select:focus {
   overflow: hidden;
 }
 
+.auth-card [hidden] {
+  display: none !important;
+}
+
 .auth-shell {
   display: grid;
   gap: 18px;
