@@ -3772,3 +3772,63 @@ select:focus {
   .score-form .form-row { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { .trend-line, .analytics-stat, .exam-card { animation: none !important; stroke-dashoffset: 0; } }
+
+/* Refined dark analytics hero */
+.dark .stats-hero,
+[data-theme="dark"] .stats-hero {
+  border-color: rgba(255, 255, 255, .075);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(103, 178, 149, .18), transparent 32%),
+    radial-gradient(circle at 92% 18%, rgba(255, 255, 255, .055), transparent 28%),
+    linear-gradient(135deg, rgba(28, 34, 31, .96), rgba(18, 19, 18, .92));
+  box-shadow: 0 24px 72px rgba(0, 0, 0, .34);
+}
+
+.dark .stats-hero-bg,
+[data-theme="dark"] .stats-hero-bg {
+  opacity: .22;
+  background-image:
+    linear-gradient(90deg, rgba(145, 204, 180, .10) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(145, 204, 180, .08) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 56% 46%, #000, transparent 76%);
+}
+
+.dark .stats-hero .eyebrow,
+.dark .stats-hero .hero-copy,
+.dark .stats-hero-data span,
+[data-theme="dark"] .stats-hero .eyebrow,
+[data-theme="dark"] .stats-hero .hero-copy,
+[data-theme="dark"] .stats-hero-data span {
+  color: rgba(235, 242, 238, .66);
+}
+
+.dark .stats-hero h1,
+.dark .stats-hero-data strong,
+[data-theme="dark"] .stats-hero h1,
+[data-theme="dark"] .stats-hero-data strong {
+  color: rgba(250, 253, 251, .96);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .18);
+}
+
+.dark .stats-hero-data div,
+[data-theme="dark"] .stats-hero-data div {
+  border-color: rgba(255, 255, 255, .075);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .035));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .07),
+    0 14px 34px rgba(0, 0, 0, .16);
+}
+
+.dark .grade-switch,
+[data-theme="dark"] .grade-switch {
+  border-color: rgba(255, 255, 255, .08);
+  background: rgba(255, 255, 255, .035);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+.dark .grade-switch-thumb,
+[data-theme="dark"] .grade-switch-thumb {
+  background: linear-gradient(145deg, rgba(112, 175, 151, .24), rgba(255, 255, 255, .07));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .26);
+}

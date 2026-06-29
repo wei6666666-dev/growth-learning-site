@@ -1,11 +1,11 @@
-const CACHE_NAME = "growth-pwa-v30";
+const CACHE_NAME = "growth-pwa-v31";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/physics.html",
   "/mistakes.html",
   "/statistics.html",
-  "/css/style.css?v=20260629-refined-badges",
+  "/css/style.css?v=20260629-dark-stats",
   "/js/dataStore.js?v=20260629-data-layer",
   "/js/supabase-config.js?v=20260629-supabase",
   "/js/script.js?v=20260629-data-layer",
