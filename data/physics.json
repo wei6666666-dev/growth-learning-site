@@ -19,7 +19,23 @@
       "motion_reference_frame",
       "motion_displacement",
       "motion_average_velocity"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "运动的描述",
+    "graph": {
+      "prerequisite": [
+        "motion_reference_frame",
+        "motion_displacement"
+      ],
+      "next": [
+        "motion_average_velocity"
+      ],
+      "related_core": [
+        "motion_reference_frame",
+        "motion_displacement",
+        "motion_average_velocity"
+      ]
+    }
   },
   {
     "id": "motion_reference_frame",
@@ -41,7 +57,23 @@
       "motion_particle",
       "motion_displacement",
       "motion_instant_velocity"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "运动的描述",
+    "graph": {
+      "prerequisite": [
+        "motion_particle",
+        "motion_displacement"
+      ],
+      "next": [
+        "motion_instant_velocity"
+      ],
+      "related_core": [
+        "motion_particle",
+        "motion_displacement",
+        "motion_instant_velocity"
+      ]
+    }
   },
   {
     "id": "motion_time_moment",
@@ -63,7 +95,23 @@
       "motion_average_velocity",
       "motion_instant_velocity",
       "motion_acceleration"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "运动的描述",
+    "graph": {
+      "prerequisite": [
+        "motion_average_velocity",
+        "motion_instant_velocity"
+      ],
+      "next": [
+        "motion_acceleration"
+      ],
+      "related_core": [
+        "motion_average_velocity",
+        "motion_instant_velocity",
+        "motion_acceleration"
+      ]
+    }
   },
   {
     "id": "motion_displacement",
@@ -85,7 +133,23 @@
       "motion_path_length",
       "motion_average_velocity",
       "motion_velocity_formula"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "运动的描述",
+    "graph": {
+      "prerequisite": [
+        "motion_path_length",
+        "motion_average_velocity"
+      ],
+      "next": [
+        "motion_velocity_formula"
+      ],
+      "related_core": [
+        "motion_path_length",
+        "motion_average_velocity",
+        "motion_velocity_formula"
+      ]
+    }
   },
   {
     "id": "motion_path_length",
@@ -107,7 +171,23 @@
       "motion_displacement",
       "motion_average_velocity",
       "motion_instant_velocity"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "运动的描述",
+    "graph": {
+      "prerequisite": [
+        "motion_displacement",
+        "motion_average_velocity"
+      ],
+      "next": [
+        "motion_instant_velocity"
+      ],
+      "related_core": [
+        "motion_displacement",
+        "motion_average_velocity",
+        "motion_instant_velocity"
+      ]
+    }
   },
   {
     "id": "motion_average_velocity",
@@ -130,7 +210,25 @@
       "motion_time_moment",
       "motion_instant_velocity",
       "motion_acceleration"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "运动的描述",
+    "graph": {
+      "prerequisite": [
+        "motion_displacement",
+        "motion_time_moment"
+      ],
+      "next": [
+        "motion_instant_velocity",
+        "motion_acceleration"
+      ],
+      "related_core": [
+        "motion_displacement",
+        "motion_time_moment",
+        "motion_instant_velocity",
+        "motion_acceleration"
+      ]
+    }
   },
   {
     "id": "motion_instant_velocity",
@@ -152,7 +250,23 @@
       "motion_average_velocity",
       "motion_acceleration",
       "motion_uniformly_accelerated"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "运动的描述",
+    "graph": {
+      "prerequisite": [
+        "motion_average_velocity",
+        "motion_acceleration"
+      ],
+      "next": [
+        "motion_uniformly_accelerated"
+      ],
+      "related_core": [
+        "motion_average_velocity",
+        "motion_acceleration",
+        "motion_uniformly_accelerated"
+      ]
+    }
   },
   {
     "id": "motion_acceleration",
@@ -175,7 +289,25 @@
       "motion_instant_velocity",
       "motion_uniformly_accelerated",
       "newton_second_law"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "匀变速直线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_average_velocity",
+        "motion_instant_velocity"
+      ],
+      "next": [
+        "motion_uniformly_accelerated",
+        "newton_second_law"
+      ],
+      "related_core": [
+        "motion_average_velocity",
+        "motion_instant_velocity",
+        "motion_uniformly_accelerated",
+        "newton_second_law"
+      ]
+    }
   },
   {
     "id": "motion_uniformly_accelerated",
@@ -198,7 +330,25 @@
       "motion_velocity_formula",
       "motion_displacement_formula",
       "motion_free_fall"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "匀变速直线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_acceleration",
+        "motion_velocity_formula"
+      ],
+      "next": [
+        "motion_displacement_formula",
+        "motion_free_fall"
+      ],
+      "related_core": [
+        "motion_acceleration",
+        "motion_velocity_formula",
+        "motion_displacement_formula",
+        "motion_free_fall"
+      ]
+    }
   },
   {
     "id": "motion_velocity_formula",
@@ -220,7 +370,23 @@
       "motion_acceleration",
       "motion_uniformly_accelerated",
       "motion_displacement_formula"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "匀变速直线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_acceleration",
+        "motion_uniformly_accelerated"
+      ],
+      "next": [
+        "motion_displacement_formula"
+      ],
+      "related_core": [
+        "motion_acceleration",
+        "motion_uniformly_accelerated",
+        "motion_displacement_formula"
+      ]
+    }
   },
   {
     "id": "motion_displacement_formula",
@@ -242,7 +408,23 @@
       "motion_displacement",
       "motion_velocity_formula",
       "motion_uniformly_accelerated"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "匀变速直线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_displacement",
+        "motion_velocity_formula"
+      ],
+      "next": [
+        "motion_uniformly_accelerated"
+      ],
+      "related_core": [
+        "motion_displacement",
+        "motion_velocity_formula",
+        "motion_uniformly_accelerated"
+      ]
+    }
   },
   {
     "id": "motion_free_fall",
@@ -264,7 +446,23 @@
       "motion_uniformly_accelerated",
       "motion_acceleration",
       "force_gravity"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "匀变速直线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_uniformly_accelerated",
+        "motion_acceleration"
+      ],
+      "next": [
+        "force_gravity"
+      ],
+      "related_core": [
+        "motion_uniformly_accelerated",
+        "motion_acceleration",
+        "force_gravity"
+      ]
+    }
   },
   {
     "id": "motion_vertical_throw",
@@ -286,7 +484,23 @@
       "motion_free_fall",
       "motion_velocity_formula",
       "motion_displacement_formula"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "匀变速直线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_free_fall",
+        "motion_velocity_formula"
+      ],
+      "next": [
+        "motion_displacement_formula"
+      ],
+      "related_core": [
+        "motion_free_fall",
+        "motion_velocity_formula",
+        "motion_displacement_formula"
+      ]
+    }
   },
   {
     "id": "force_gravity",
@@ -308,7 +522,23 @@
       "motion_free_fall",
       "force_elastic",
       "newton_second_law"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "相互作用",
+    "graph": {
+      "prerequisite": [
+        "motion_free_fall",
+        "force_elastic"
+      ],
+      "next": [
+        "newton_second_law"
+      ],
+      "related_core": [
+        "motion_free_fall",
+        "force_elastic",
+        "newton_second_law"
+      ]
+    }
   },
   {
     "id": "force_elastic",
@@ -330,7 +560,23 @@
       "force_gravity",
       "force_friction",
       "force_composition_decomposition"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "相互作用",
+    "graph": {
+      "prerequisite": [
+        "force_gravity",
+        "force_friction"
+      ],
+      "next": [
+        "force_composition_decomposition"
+      ],
+      "related_core": [
+        "force_gravity",
+        "force_friction",
+        "force_composition_decomposition"
+      ]
+    }
   },
   {
     "id": "force_friction",
@@ -352,7 +598,23 @@
       "force_elastic",
       "force_composition_decomposition",
       "newton_laws_application"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "相互作用",
+    "graph": {
+      "prerequisite": [
+        "force_elastic",
+        "force_composition_decomposition"
+      ],
+      "next": [
+        "newton_laws_application"
+      ],
+      "related_core": [
+        "force_elastic",
+        "force_composition_decomposition",
+        "newton_laws_application"
+      ]
+    }
   },
   {
     "id": "force_composition_decomposition",
@@ -374,7 +636,23 @@
       "force_elastic",
       "force_friction",
       "newton_second_law"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "相互作用",
+    "graph": {
+      "prerequisite": [
+        "force_elastic",
+        "force_friction"
+      ],
+      "next": [
+        "newton_second_law"
+      ],
+      "related_core": [
+        "force_elastic",
+        "force_friction",
+        "newton_second_law"
+      ]
+    }
   },
   {
     "id": "newton_first_law",
@@ -396,7 +674,23 @@
       "newton_inertia",
       "newton_second_law",
       "force_friction"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "牛顿运动定律",
+    "graph": {
+      "prerequisite": [
+        "newton_inertia",
+        "newton_second_law"
+      ],
+      "next": [
+        "force_friction"
+      ],
+      "related_core": [
+        "newton_inertia",
+        "newton_second_law",
+        "force_friction"
+      ]
+    }
   },
   {
     "id": "newton_second_law",
@@ -419,7 +713,25 @@
       "force_composition_decomposition",
       "newton_laws_application",
       "newton_third_law"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "牛顿运动定律",
+    "graph": {
+      "prerequisite": [
+        "motion_acceleration",
+        "force_composition_decomposition"
+      ],
+      "next": [
+        "newton_laws_application",
+        "newton_third_law"
+      ],
+      "related_core": [
+        "motion_acceleration",
+        "force_composition_decomposition",
+        "newton_laws_application",
+        "newton_third_law"
+      ]
+    }
   },
   {
     "id": "newton_third_law",
@@ -441,7 +753,23 @@
       "newton_second_law",
       "force_friction",
       "newton_laws_application"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "牛顿运动定律",
+    "graph": {
+      "prerequisite": [
+        "newton_second_law",
+        "force_friction"
+      ],
+      "next": [
+        "newton_laws_application"
+      ],
+      "related_core": [
+        "newton_second_law",
+        "force_friction",
+        "newton_laws_application"
+      ]
+    }
   },
   {
     "id": "newton_inertia",
@@ -463,7 +791,23 @@
       "newton_first_law",
       "newton_second_law",
       "newton_laws_application"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "牛顿运动定律",
+    "graph": {
+      "prerequisite": [
+        "newton_first_law",
+        "newton_second_law"
+      ],
+      "next": [
+        "newton_laws_application"
+      ],
+      "related_core": [
+        "newton_first_law",
+        "newton_second_law",
+        "newton_laws_application"
+      ]
+    }
   },
   {
     "id": "newton_laws_application",
@@ -486,7 +830,25 @@
       "force_friction",
       "force_composition_decomposition",
       "motion_acceleration"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "牛顿运动定律",
+    "graph": {
+      "prerequisite": [
+        "newton_second_law",
+        "force_friction"
+      ],
+      "next": [
+        "force_composition_decomposition",
+        "motion_acceleration"
+      ],
+      "related_core": [
+        "newton_second_law",
+        "force_friction",
+        "force_composition_decomposition",
+        "motion_acceleration"
+      ]
+    }
   },
   {
     "id": "experiment_ticker_timer",
@@ -508,7 +870,23 @@
       "motion_average_velocity",
       "motion_instant_velocity",
       "motion_acceleration"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "实验专区",
+    "graph": {
+      "prerequisite": [
+        "motion_average_velocity",
+        "motion_instant_velocity"
+      ],
+      "next": [
+        "motion_acceleration"
+      ],
+      "related_core": [
+        "motion_average_velocity",
+        "motion_instant_velocity",
+        "motion_acceleration"
+      ]
+    }
   },
   {
     "id": "experiment_cart_acceleration",
@@ -530,7 +908,23 @@
       "motion_acceleration",
       "motion_uniformly_accelerated",
       "motion_velocity_formula"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "实验专区",
+    "graph": {
+      "prerequisite": [
+        "motion_acceleration",
+        "motion_uniformly_accelerated"
+      ],
+      "next": [
+        "motion_velocity_formula"
+      ],
+      "related_core": [
+        "motion_acceleration",
+        "motion_uniformly_accelerated",
+        "motion_velocity_formula"
+      ]
+    }
   },
   {
     "id": "experiment_spring_elastic",
@@ -551,7 +945,20 @@
     "related": [
       "force_elastic",
       "force_composition_decomposition"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "实验专区",
+    "graph": {
+      "prerequisite": [
+        "force_elastic",
+        "force_composition_decomposition"
+      ],
+      "next": [],
+      "related_core": [
+        "force_elastic",
+        "force_composition_decomposition"
+      ]
+    }
   },
   {
     "id": "experiment_newton_second",
@@ -573,7 +980,23 @@
       "newton_second_law",
       "motion_acceleration",
       "force_friction"
-    ]
+    ],
+    "textbook": "必修一",
+    "category": "实验专区",
+    "graph": {
+      "prerequisite": [
+        "newton_second_law",
+        "motion_acceleration"
+      ],
+      "next": [
+        "force_friction"
+      ],
+      "related_core": [
+        "newton_second_law",
+        "motion_acceleration",
+        "force_friction"
+      ]
+    }
   },
   {
     "id": "curve_motion",
@@ -596,7 +1019,25 @@
       "motion_acceleration",
       "newton_second_law",
       "projectile_motion"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "曲线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_instant_velocity",
+        "motion_acceleration"
+      ],
+      "next": [
+        "newton_second_law",
+        "projectile_motion"
+      ],
+      "related_core": [
+        "motion_instant_velocity",
+        "motion_acceleration",
+        "newton_second_law",
+        "projectile_motion"
+      ]
+    }
   },
   {
     "id": "curve_velocity_direction",
@@ -618,7 +1059,23 @@
       "curve_motion",
       "motion_instant_velocity",
       "uniform_circular_motion"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "曲线运动",
+    "graph": {
+      "prerequisite": [
+        "curve_motion",
+        "motion_instant_velocity"
+      ],
+      "next": [
+        "uniform_circular_motion"
+      ],
+      "related_core": [
+        "curve_motion",
+        "motion_instant_velocity",
+        "uniform_circular_motion"
+      ]
+    }
   },
   {
     "id": "motion_decomposition",
@@ -641,7 +1098,25 @@
       "motion_displacement",
       "motion_velocity_formula",
       "motion_free_fall"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "曲线运动",
+    "graph": {
+      "prerequisite": [
+        "projectile_motion",
+        "motion_displacement"
+      ],
+      "next": [
+        "motion_velocity_formula",
+        "motion_free_fall"
+      ],
+      "related_core": [
+        "projectile_motion",
+        "motion_displacement",
+        "motion_velocity_formula",
+        "motion_free_fall"
+      ]
+    }
   },
   {
     "id": "projectile_motion",
@@ -664,7 +1139,25 @@
       "motion_free_fall",
       "motion_velocity_formula",
       "motion_displacement_formula"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "曲线运动",
+    "graph": {
+      "prerequisite": [
+        "motion_decomposition",
+        "motion_free_fall"
+      ],
+      "next": [
+        "motion_velocity_formula",
+        "motion_displacement_formula"
+      ],
+      "related_core": [
+        "motion_decomposition",
+        "motion_free_fall",
+        "motion_velocity_formula",
+        "motion_displacement_formula"
+      ]
+    }
   },
   {
     "id": "uniform_circular_motion",
@@ -686,7 +1179,23 @@
       "curve_velocity_direction",
       "centripetal_acceleration",
       "centripetal_force"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "圆周运动",
+    "graph": {
+      "prerequisite": [
+        "curve_velocity_direction",
+        "centripetal_acceleration"
+      ],
+      "next": [
+        "centripetal_force"
+      ],
+      "related_core": [
+        "curve_velocity_direction",
+        "centripetal_acceleration",
+        "centripetal_force"
+      ]
+    }
   },
   {
     "id": "centripetal_force",
@@ -709,7 +1218,25 @@
       "centripetal_acceleration",
       "newton_second_law",
       "force_composition_decomposition"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "圆周运动",
+    "graph": {
+      "prerequisite": [
+        "uniform_circular_motion",
+        "centripetal_acceleration"
+      ],
+      "next": [
+        "newton_second_law",
+        "force_composition_decomposition"
+      ],
+      "related_core": [
+        "uniform_circular_motion",
+        "centripetal_acceleration",
+        "newton_second_law",
+        "force_composition_decomposition"
+      ]
+    }
   },
   {
     "id": "centripetal_acceleration",
@@ -731,7 +1258,23 @@
       "uniform_circular_motion",
       "centripetal_force",
       "motion_acceleration"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "圆周运动",
+    "graph": {
+      "prerequisite": [
+        "uniform_circular_motion",
+        "centripetal_force"
+      ],
+      "next": [
+        "motion_acceleration"
+      ],
+      "related_core": [
+        "uniform_circular_motion",
+        "centripetal_force",
+        "motion_acceleration"
+      ]
+    }
   },
   {
     "id": "circular_motion_life",
@@ -754,7 +1297,25 @@
       "force_friction",
       "force_gravity",
       "newton_second_law"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "圆周运动",
+    "graph": {
+      "prerequisite": [
+        "centripetal_force",
+        "force_friction"
+      ],
+      "next": [
+        "force_gravity",
+        "newton_second_law"
+      ],
+      "related_core": [
+        "centripetal_force",
+        "force_friction",
+        "force_gravity",
+        "newton_second_law"
+      ]
+    }
   },
   {
     "id": "kepler_laws",
@@ -776,7 +1337,23 @@
       "universal_gravitation",
       "artificial_satellite",
       "uniform_circular_motion"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "万有引力与宇宙航行",
+    "graph": {
+      "prerequisite": [
+        "universal_gravitation",
+        "artificial_satellite"
+      ],
+      "next": [
+        "uniform_circular_motion"
+      ],
+      "related_core": [
+        "universal_gravitation",
+        "artificial_satellite",
+        "uniform_circular_motion"
+      ]
+    }
   },
   {
     "id": "universal_gravitation",
@@ -799,7 +1376,25 @@
       "artificial_satellite",
       "newton_third_law",
       "force_gravity"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "万有引力与宇宙航行",
+    "graph": {
+      "prerequisite": [
+        "kepler_laws",
+        "artificial_satellite"
+      ],
+      "next": [
+        "newton_third_law",
+        "force_gravity"
+      ],
+      "related_core": [
+        "kepler_laws",
+        "artificial_satellite",
+        "newton_third_law",
+        "force_gravity"
+      ]
+    }
   },
   {
     "id": "artificial_satellite",
@@ -822,7 +1417,25 @@
       "centripetal_force",
       "uniform_circular_motion",
       "cosmic_velocity"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "万有引力与宇宙航行",
+    "graph": {
+      "prerequisite": [
+        "universal_gravitation",
+        "centripetal_force"
+      ],
+      "next": [
+        "uniform_circular_motion",
+        "cosmic_velocity"
+      ],
+      "related_core": [
+        "universal_gravitation",
+        "centripetal_force",
+        "uniform_circular_motion",
+        "cosmic_velocity"
+      ]
+    }
   },
   {
     "id": "cosmic_velocity",
@@ -844,7 +1457,23 @@
       "artificial_satellite",
       "universal_gravitation",
       "centripetal_force"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "万有引力与宇宙航行",
+    "graph": {
+      "prerequisite": [
+        "artificial_satellite",
+        "universal_gravitation"
+      ],
+      "next": [
+        "centripetal_force"
+      ],
+      "related_core": [
+        "artificial_satellite",
+        "universal_gravitation",
+        "centripetal_force"
+      ]
+    }
   },
   {
     "id": "work",
@@ -867,7 +1496,25 @@
       "kinetic_energy",
       "force_composition_decomposition",
       "motion_displacement"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "机械能守恒定律",
+    "graph": {
+      "prerequisite": [
+        "power",
+        "kinetic_energy"
+      ],
+      "next": [
+        "force_composition_decomposition",
+        "motion_displacement"
+      ],
+      "related_core": [
+        "power",
+        "kinetic_energy",
+        "force_composition_decomposition",
+        "motion_displacement"
+      ]
+    }
   },
   {
     "id": "power",
@@ -889,7 +1536,23 @@
       "work",
       "motion_average_velocity",
       "kinetic_energy"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "机械能守恒定律",
+    "graph": {
+      "prerequisite": [
+        "work",
+        "motion_average_velocity"
+      ],
+      "next": [
+        "kinetic_energy"
+      ],
+      "related_core": [
+        "work",
+        "motion_average_velocity",
+        "kinetic_energy"
+      ]
+    }
   },
   {
     "id": "kinetic_energy",
@@ -911,7 +1574,23 @@
       "work",
       "mechanical_energy_conservation",
       "motion_velocity_formula"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "机械能守恒定律",
+    "graph": {
+      "prerequisite": [
+        "work",
+        "mechanical_energy_conservation"
+      ],
+      "next": [
+        "motion_velocity_formula"
+      ],
+      "related_core": [
+        "work",
+        "mechanical_energy_conservation",
+        "motion_velocity_formula"
+      ]
+    }
   },
   {
     "id": "potential_energy",
@@ -933,7 +1612,23 @@
       "force_gravity",
       "force_elastic",
       "mechanical_energy_conservation"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "机械能守恒定律",
+    "graph": {
+      "prerequisite": [
+        "force_gravity",
+        "force_elastic"
+      ],
+      "next": [
+        "mechanical_energy_conservation"
+      ],
+      "related_core": [
+        "force_gravity",
+        "force_elastic",
+        "mechanical_energy_conservation"
+      ]
+    }
   },
   {
     "id": "mechanical_energy_conservation",
@@ -956,6 +1651,387 @@
       "potential_energy",
       "work",
       "motion_free_fall"
-    ]
+    ],
+    "textbook": "必修二",
+    "category": "机械能守恒定律",
+    "graph": {
+      "prerequisite": [
+        "kinetic_energy",
+        "potential_energy"
+      ],
+      "next": [
+        "work",
+        "motion_free_fall"
+      ],
+      "related_core": [
+        "kinetic_energy",
+        "potential_energy",
+        "work",
+        "motion_free_fall"
+      ]
+    }
+  },
+  {
+    "id": "selective1_momentum_concept",
+    "name": "动量",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "动量用来描述物体运动的“冲劲”，它既与质量有关，也与速度有关，是一个有方向的物理量。",
+    "formula": "p = mv",
+    "symbols": "p 表示动量，单位 kg·m/s；m 表示质量，单位 kg；v 表示速度，单位 m/s；动量方向与速度方向相同。",
+    "mistakes": [
+      "动量是矢量，不能只比较大小，还要注意方向。",
+      "速度变了动量一定变，但质量不同的物体即使速度相同，动量也可能不同。"
+    ],
+    "example": "例题：质量 2 kg 的小车以 3 m/s 向东运动，动量是多少？解析：p=mv=2×3=6 kg·m/s，方向向东。",
+    "hint": "学动量先抓住一句话：质量越大、速度越大，物体越不容易被拦停。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "motion_velocity",
+      "newton_second_law",
+      "selective1_impulse",
+      "selective1_momentum_conservation"
+    ],
+    "graph": {
+      "prerequisite": [
+        "motion_velocity",
+        "newton_second_law"
+      ],
+      "next": [
+        "selective1_impulse",
+        "selective1_momentum_conservation"
+      ],
+      "related_core": [
+        "motion_velocity",
+        "newton_second_law"
+      ]
+    }
+  },
+  {
+    "id": "selective1_impulse",
+    "name": "冲量",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "冲量表示力在一段时间内对物体运动状态的累积作用，力越大、作用时间越长，冲量越大。",
+    "formula": "I = Ft",
+    "symbols": "I 表示冲量，单位 N·s；F 表示恒力，单位 N；t 表示力的作用时间，单位 s；冲量方向与力的方向相同。",
+    "mistakes": [
+      "冲量不是力，也不是时间，而是力和时间共同决定的效果。",
+      "力方向改变时，不能简单用大小相加，要考虑冲量的方向。"
+    ],
+    "example": "例题：10 N 的水平力作用在物体上 0.5 s，冲量是多少？解析：I=Ft=10×0.5=5 N·s，方向与力方向相同。",
+    "hint": "把冲量理解成“推了多久、推得多用力”的总效果。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_momentum_concept",
+      "selective1_impulse_momentum_theorem"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_momentum_concept",
+        "newton_second_law"
+      ],
+      "next": [
+        "selective1_impulse_momentum_theorem"
+      ],
+      "related_core": [
+        "force_composition",
+        "newton_second_law"
+      ]
+    }
+  },
+  {
+    "id": "selective1_impulse_momentum_theorem",
+    "name": "动量定理",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "动量定理说明：合外力的冲量等于物体动量的变化量，是连接力和运动变化的重要工具。",
+    "formula": "I = Δp = mv2 - mv1",
+    "symbols": "I 表示合外力冲量，单位 N·s；Δp 表示动量变化量；v1、v2 分别表示初速度和末速度。",
+    "mistakes": [
+      "公式中的 I 必须是合外力的冲量，不是某一个力的冲量。",
+      "计算 Δp 时要先规定正方向，不能只用末动量大小减初动量大小。"
+    ],
+    "example": "例题：1 kg 小球速度由 2 m/s 向右变为 6 m/s 向右，合外力冲量是多少？解析：取向右为正，I=Δp=1×6-1×2=4 N·s。",
+    "hint": "遇到短时间碰撞、打击、缓冲题，优先想到动量定理。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_momentum_concept",
+      "selective1_impulse",
+      "selective1_collision"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_momentum_concept",
+        "selective1_impulse"
+      ],
+      "next": [
+        "selective1_momentum_conservation",
+        "selective1_collision"
+      ],
+      "related_core": [
+        "newton_second_law"
+      ]
+    }
+  },
+  {
+    "id": "selective1_momentum_conservation",
+    "name": "动量守恒定律",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "如果一个系统所受合外力为零，或合外力远小于内部相互作用力，系统总动量保持不变。",
+    "formula": "m1v1 + m2v2 = m1v1' + m2v2'",
+    "symbols": "m1、m2 表示两个物体质量；v1、v2 表示碰前速度；v1'、v2' 表示碰后速度；速度都要按同一正方向取正负。",
+    "mistakes": [
+      "守恒的是系统总动量，不是每个物体各自的动量。",
+      "只有满足合外力为零或可忽略时，才能直接使用动量守恒。"
+    ],
+    "example": "例题：光滑水平面上，1 kg 小车以 4 m/s 撞上静止的 1 kg 小车后粘在一起，求共同速度。解析：1×4+1×0=(1+1)v，v=2 m/s。",
+    "hint": "先选系统，再看外力，最后统一正方向列守恒式。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_momentum_concept",
+      "selective1_collision",
+      "selective1_explosion_recoil"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_momentum_concept",
+        "selective1_impulse_momentum_theorem"
+      ],
+      "next": [
+        "selective1_collision",
+        "selective1_explosion_recoil"
+      ],
+      "related_core": [
+        "newton_third_law"
+      ]
+    }
+  },
+  {
+    "id": "selective1_collision",
+    "name": "碰撞",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "碰撞是物体在很短时间内发生强烈相互作用的过程，常用动量守恒和能量变化来分析。",
+    "formula": "p总前 = p总后",
+    "symbols": "p总前、p总后分别表示系统碰撞前后的总动量；若题目涉及能量，还要比较碰前后动能是否守恒。",
+    "mistakes": [
+      "碰撞过程时间很短，但不代表所有碰撞都机械能守恒。",
+      "碰撞题必须区分系统内力和外力，不能把内力当成破坏动量守恒的原因。"
+    ],
+    "example": "例题：两小球在光滑水平面碰撞，系统是否一定动量守恒？解析：若水平方向外力可忽略，系统总动量守恒，但机械能不一定守恒。",
+    "hint": "碰撞题先判动量守恒，再根据题意判断动能是否守恒。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_momentum_conservation",
+      "selective1_elastic_collision",
+      "selective1_inelastic_collision"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_momentum_conservation"
+      ],
+      "next": [
+        "selective1_elastic_collision",
+        "selective1_inelastic_collision"
+      ],
+      "related_core": [
+        "mechanical_energy_conservation"
+      ]
+    }
+  },
+  {
+    "id": "selective1_elastic_collision",
+    "name": "弹性碰撞",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "弹性碰撞是碰撞前后系统总动量守恒、总动能也守恒的碰撞模型。",
+    "formula": "p总前 = p总后，Ek总前 = Ek总后",
+    "symbols": "p 表示动量；Ek 表示动能，Ek=1/2mv²；弹性碰撞通常要同时列动量方程和动能方程。",
+    "mistakes": [
+      "弹性碰撞不是“有弹簧才发生”，关键看动能是否守恒。",
+      "只列动量守恒不能判断弹性碰撞，还必须检查动能。"
+    ],
+    "example": "例题：两球碰撞后总动量不变，总动能也不变，这是什么碰撞？解析：满足动量守恒和动能守恒，是弹性碰撞。",
+    "hint": "弹性碰撞的关键词是“两守恒”：动量守恒、动能守恒。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_collision",
+      "kinetic_energy",
+      "mechanical_energy_conservation"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_collision",
+        "kinetic_energy"
+      ],
+      "next": [
+        "selective1_inelastic_collision"
+      ],
+      "related_core": [
+        "mechanical_energy_conservation"
+      ]
+    }
+  },
+  {
+    "id": "selective1_inelastic_collision",
+    "name": "非弹性碰撞",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "非弹性碰撞中系统总动量可以守恒，但一部分机械能会转化为内能、声能或形变能。",
+    "formula": "p总前 = p总后，Ek总后 < Ek总前",
+    "symbols": "p 表示系统总动量；Ek 表示系统总动能；完全非弹性碰撞常表现为碰后两物体具有共同速度。",
+    "mistakes": [
+      "非弹性碰撞不是动量不守恒，而是动能通常不守恒。",
+      "两个物体粘在一起属于完全非弹性碰撞，不能再列动能守恒。"
+    ],
+    "example": "例题：子弹射入木块并留在木块中，能否用机械能守恒？解析：不能，碰撞中有大量机械能转化为内能，但水平方向外力可忽略时动量守恒。",
+    "hint": "看到“粘在一起”“嵌入”“共同运动”，优先想到完全非弹性碰撞。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_collision",
+      "selective1_momentum_conservation",
+      "kinetic_energy"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_momentum_conservation",
+        "kinetic_energy"
+      ],
+      "next": [
+        "selective1_explosion_recoil"
+      ],
+      "related_core": [
+        "mechanical_energy_conservation"
+      ]
+    }
+  },
+  {
+    "id": "selective1_explosion_recoil",
+    "name": "反冲与爆炸",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "反冲和爆炸都可以看成系统内部相互作用导致各部分向不同方向运动，常用动量守恒分析。",
+    "formula": "0 = m1v1 + m2v2",
+    "symbols": "当系统初始总动量为 0 时，分开后各部分动量大小相等、方向相反；m 表示质量，v 表示速度。",
+    "mistakes": [
+      "爆炸过程机械能通常增加，不能用机械能守恒。",
+      "反冲速度大小与质量有关，质量小的一方通常速度更大。"
+    ],
+    "example": "例题：静止小车上人向后跳下，小车为什么向前动？解析：人和车组成系统，水平方向外力可忽略，总动量仍为 0，人向后有动量，车必须向前有等大反向动量。",
+    "hint": "反冲题抓住“原来静止，总动量为零，分开后动量反向”。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_momentum_conservation",
+      "newton_third_law"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_momentum_conservation",
+        "newton_third_law"
+      ],
+      "next": [
+        "selective1_momentum_system"
+      ],
+      "related_core": [
+        "newton_third_law"
+      ]
+    }
+  },
+  {
+    "id": "selective1_momentum_system",
+    "name": "系统与内外力",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "动量问题中，系统是被整体研究的物体组合；系统内物体之间的力叫内力，系统外物体对系统的力叫外力。",
+    "formula": "ΣF外 = 0 ⇒ p总守恒",
+    "symbols": "ΣF外 表示系统所受合外力；p总 表示系统总动量；判断守恒前必须先明确系统包含哪些物体。",
+    "mistakes": [
+      "系统选得不同，内力和外力的判断会改变。",
+      "内力不能改变系统总动量，但能改变系统内各物体的动量。"
+    ],
+    "example": "例题：两小车相互推开，若把两车作为系统，推力是内力还是外力？解析：是内力，不能改变两车系统总动量。",
+    "hint": "列动量守恒前先圈出系统，再检查系统外有没有明显外力。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_momentum_conservation",
+      "newton_third_law",
+      "selective1_explosion_recoil"
+    ],
+    "graph": {
+      "prerequisite": [
+        "newton_third_law"
+      ],
+      "next": [
+        "selective1_momentum_conservation"
+      ],
+      "related_core": [
+        "selective1_explosion_recoil"
+      ]
+    }
+  },
+  {
+    "id": "selective1_momentum_experiment",
+    "name": "验证动量守恒实验",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "动量",
+    "definition": "验证动量守恒实验通过测量碰撞前后物体的速度和质量，比较系统总动量是否近似相等。",
+    "formula": "m1v1 + m2v2 ≈ m1v1' + m2v2'",
+    "symbols": "m 表示质量；v 表示碰前速度；v' 表示碰后速度；实验中“≈”表示考虑误差后的近似相等。",
+    "mistakes": [
+      "实验要尽量减小摩擦，否则外力冲量会影响总动量。",
+      "速度方向必须统一正方向记录，不能只记录速度大小。"
+    ],
+    "example": "例题：实验中碰后总动量略小于碰前，可能原因是什么？解析：轨道摩擦或空气阻力产生外力冲量，使系统动量不完全守恒。",
+    "hint": "实验题重点看误差来源：摩擦、测时、速度方向和系统选择。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_momentum_conservation",
+      "selective1_collision",
+      "ticker_experiment"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_momentum_conservation",
+        "ticker_experiment"
+      ],
+      "next": [
+        "selective1_elastic_collision"
+      ],
+      "related_core": [
+        "selective1_collision"
+      ]
+    }
   }
 ]
