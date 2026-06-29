@@ -2397,5 +2397,362 @@
         "selective1_simple_pendulum"
       ]
     }
+  },
+  {
+    "id": "selective1_mechanical_wave",
+    "name": "机械波",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "机械波是机械振动在介质中的传播，传播的是振动形式和能量，介质中的质点只在平衡位置附近振动。",
+    "formula": "v = λf",
+    "symbols": "v 表示波速，单位 m/s；λ 表示波长，单位 m；f 表示频率，单位 Hz。",
+    "mistakes": [
+      "机械波必须依靠介质传播，真空中不能传播机械波。",
+      "波向前传播时，介质质点并不随波一起向前移动，只是在原位置附近振动。"
+    ],
+    "example": "例题：绳波向右传播，绳上的小点会一直向右跑吗？解析：不会，小点只在平衡位置附近振动，向右传播的是波形和能量。",
+    "hint": "理解机械波时，把“质点振动”和“波形传播”分开看。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_simple_harmonic_motion",
+      "selective1_wave_speed_wavelength_frequency",
+      "selective1_transverse_longitudinal_wave"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_simple_harmonic_motion",
+        "selective1_period_frequency"
+      ],
+      "next": [
+        "selective1_transverse_longitudinal_wave",
+        "selective1_wave_speed_wavelength_frequency"
+      ],
+      "related_core": [
+        "selective1_vibration_graph"
+      ]
+    }
+  },
+  {
+    "id": "selective1_transverse_longitudinal_wave",
+    "name": "横波与纵波",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "横波中质点振动方向与波传播方向垂直，纵波中质点振动方向与波传播方向在同一直线上。",
+    "formula": "",
+    "symbols": "横波常出现波峰、波谷；纵波常出现密部、疏部。判断关键是比较质点振动方向和波传播方向。",
+    "mistakes": [
+      "横波和纵波不是看波形好不好看，而是看振动方向与传播方向的关系。",
+      "声波在空气中通常是纵波，不是横波。"
+    ],
+    "example": "例题：弹簧上疏密相间向前传播，质点沿弹簧方向振动，这是横波还是纵波？解析：振动方向与传播方向相同，是纵波。",
+    "hint": "一句话判断：垂直是横波，同线是纵波。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_mechanical_wave",
+      "selective1_wave_image",
+      "selective1_sound_wave"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_mechanical_wave"
+      ],
+      "next": [
+        "selective1_wave_image",
+        "selective1_sound_wave"
+      ],
+      "related_core": [
+        "selective1_period_frequency"
+      ]
+    }
+  },
+  {
+    "id": "selective1_wave_speed_wavelength_frequency",
+    "name": "波速、波长与频率",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "波速表示波传播的快慢，波长表示相邻两个相同振动状态质点之间的距离，频率由波源决定。",
+    "formula": "v = λf = λ/T",
+    "symbols": "v 表示波速；λ 表示波长；f 表示频率；T 表示周期。波进入新介质时，频率通常不变，波速和波长可能改变。",
+    "mistakes": [
+      "波速由介质性质决定，不是由振幅决定。",
+      "波从一种介质进入另一种介质时，频率不变，不能把 v、λ、f 都随意改。"
+    ],
+    "example": "例题：某机械波波长 2 m，频率 5 Hz，波速是多少？解析：v=λf=2×5=10 m/s。",
+    "hint": "波速公式最常用，先看题目给的是 λ、f 还是 T。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_mechanical_wave",
+      "selective1_period_frequency",
+      "selective1_wave_image"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_period_frequency",
+        "selective1_mechanical_wave"
+      ],
+      "next": [
+        "selective1_wave_image",
+        "selective1_wave_reflection_refraction"
+      ],
+      "related_core": [
+        "selective1_vibration_graph"
+      ]
+    }
+  },
+  {
+    "id": "selective1_wave_image",
+    "name": "波的图像",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "波的图像表示某一时刻介质中各质点的位移随位置的变化关系，可以读出波长和各质点瞬时位移。",
+    "formula": "相邻波峰间距 = λ",
+    "symbols": "横轴通常表示位置 x，纵轴表示位移 y；λ 表示波长。波的图像是某一时刻的空间分布，不是质点的运动轨迹。",
+    "mistakes": [
+      "波的图像不是振动图像，横轴一个是位置，一个是时间。",
+      "波形向前传播不代表质点沿着曲线前进。"
+    ],
+    "example": "例题：波的图像上相邻两个波峰相距 0.8 m，波长是多少？解析：相邻波峰对应相同振动状态，距离就是波长 λ=0.8 m。",
+    "hint": "读图先分清横轴：位置轴是波形图，时间轴是振动图。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_vibration_graph",
+      "selective1_wave_speed_wavelength_frequency",
+      "selective1_wave_propagation_direction"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_vibration_graph",
+        "selective1_wave_speed_wavelength_frequency"
+      ],
+      "next": [
+        "selective1_wave_propagation_direction"
+      ],
+      "related_core": [
+        "selective1_transverse_longitudinal_wave"
+      ]
+    }
+  },
+  {
+    "id": "selective1_wave_propagation_direction",
+    "name": "波的传播方向判断",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "根据波形图和某质点的振动方向，可以判断波向哪边传播；也可以根据传播方向判断质点下一瞬间的运动方向。",
+    "formula": "沿传播方向看，后一质点重复前一质点的振动",
+    "symbols": "“前一质点”指波先到达的质点；判断时常用微小时间后波形平移的方法。",
+    "mistakes": [
+      "不能只看质点在波峰还是波谷来判断传播方向。",
+      "波形平移方向是波传播方向，不是质点实际运动路径。"
+    ],
+    "example": "例题：已知横波向右传播，某点位于波形上升段，它下一瞬间向上还是向下？解析：可把波形向右平移一点看该点位移变化，判断其振动方向。",
+    "hint": "不会判断时，用“波形微微平移法”最稳。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_image",
+      "selective1_phase",
+      "selective1_mechanical_wave"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_image",
+        "selective1_phase"
+      ],
+      "next": [
+        "selective1_wave_interference"
+      ],
+      "related_core": [
+        "selective1_transverse_longitudinal_wave"
+      ]
+    }
+  },
+  {
+    "id": "selective1_wave_reflection_refraction",
+    "name": "波的反射与折射",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "波遇到障碍或介质边界时可能返回原介质形成反射，进入另一介质时传播方向和波速可能改变形成折射。",
+    "formula": "f入 = f反 = f折",
+    "symbols": "f 表示频率。波在边界处频率由波源决定，通常保持不变；不同介质中波速可能不同，所以波长可能改变。",
+    "mistakes": [
+      "波反射或折射时频率通常不变，不要把频率也随介质改变。",
+      "波速变了时，波长也会随之改变，因为 v=λf。"
+    ],
+    "example": "例题：水波进入较浅区域后波速变小，频率不变，波长怎样？解析：由 v=λf，f 不变，v 变小，所以 λ 变小。",
+    "hint": "边界问题抓住：频率不变，波速看介质，波长跟着变。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_speed_wavelength_frequency",
+      "selective1_wave_image"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_speed_wavelength_frequency"
+      ],
+      "next": [
+        "selective1_wave_interference",
+        "selective1_wave_diffraction"
+      ],
+      "related_core": [
+        "selective1_mechanical_wave"
+      ]
+    }
+  },
+  {
+    "id": "selective1_wave_interference",
+    "name": "波的干涉",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "频率相同、振动情况稳定的两列波相遇时，会在空间形成稳定的加强和减弱分布，这种现象叫干涉。",
+    "formula": "同相加强，反相减弱",
+    "symbols": "加强点表示两列波位移同向叠加；减弱点表示两列波位移反向抵消。稳定干涉需要相干波源。",
+    "mistakes": [
+      "两列波相遇不一定形成稳定干涉，必须满足相干条件。",
+      "干涉后两列波会继续传播，不是相遇后互相消失。"
+    ],
+    "example": "例题：两列相同频率水波相遇后某些位置水面振动总是很强，这是为什么？解析：这些位置两波同相叠加，形成稳定加强点。",
+    "hint": "干涉关键词：相干、叠加、加强点、减弱点。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_propagation_direction",
+      "selective1_wave_reflection_refraction",
+      "selective1_wave_superposition"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_superposition",
+        "selective1_phase"
+      ],
+      "next": [
+        "selective1_wave_diffraction"
+      ],
+      "related_core": [
+        "selective1_mechanical_wave"
+      ]
+    }
+  },
+  {
+    "id": "selective1_wave_diffraction",
+    "name": "波的衍射",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "波遇到障碍物或通过孔缝时会绕到障碍物后面继续传播，这种现象叫衍射。",
+    "formula": "障碍或孔缝尺寸接近波长时，衍射明显",
+    "symbols": "λ 表示波长。孔缝或障碍物尺寸与波长越接近，衍射越明显。",
+    "mistakes": [
+      "衍射不是波被反弹，而是波绕过障碍继续传播。",
+      "不是只有很小孔才衍射，关键看孔缝或障碍尺寸与波长的比较。"
+    ],
+    "example": "例题：为什么隔着门也能听到屋内声音？解析：声波能绕过门缝或门边传播，发生衍射。",
+    "hint": "记住“尺寸接近波长，绕射更明显”。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_speed_wavelength_frequency",
+      "selective1_wave_interference",
+      "selective1_sound_wave"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_speed_wavelength_frequency"
+      ],
+      "next": [
+        "selective1_sound_wave",
+        "selective1_doppler_effect"
+      ],
+      "related_core": [
+        "selective1_wave_interference"
+      ]
+    }
+  },
+  {
+    "id": "selective1_wave_superposition",
+    "name": "波的叠加原理",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "几列波在同一区域相遇时，每个质点的位移等于各列波单独引起位移的矢量和，相遇后各列波继续传播。",
+    "formula": "y = y1 + y2 + ...",
+    "symbols": "y 表示合位移；y1、y2 表示各列波单独造成的位移。位移方向相同相加，方向相反相减。",
+    "mistakes": [
+      "波相遇后不会永久融合或消失，而是继续保持各自传播。",
+      "叠加要考虑位移方向，不能只把振幅大小简单相加。"
+    ],
+    "example": "例题：两列波使某质点分别产生 +2 cm 和 -1 cm 位移，合位移是多少？解析：y=2+(-1)=1 cm。",
+    "hint": "叠加本质是“同一质点同一时刻的位移相加”。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_interference",
+      "selective1_wave_image"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_image"
+      ],
+      "next": [
+        "selective1_wave_interference"
+      ],
+      "related_core": [
+        "selective1_mechanical_wave"
+      ]
+    }
+  },
+  {
+    "id": "selective1_doppler_effect",
+    "name": "多普勒效应",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械波",
+    "definition": "当波源和观察者相对运动时，观察者接收到的频率会发生变化，这种现象叫多普勒效应。",
+    "formula": "接近时频率变高，远离时频率变低",
+    "symbols": "观察频率指观察者实际接收到的频率；波源频率指波源本身发出的频率。相对接近和远离决定频率变化趋势。",
+    "mistakes": [
+      "多普勒效应改变的是观察者接收到的频率，不一定改变波源本身发出的频率。",
+      "判断频率高低要看相对距离是变近还是变远。"
+    ],
+    "example": "例题：救护车靠近你时声音音调变高，远离时音调变低，属于什么现象？解析：这是多普勒效应，靠近时接收频率变高，远离时接收频率变低。",
+    "hint": "听到音调变高，多半是波源和观察者在接近。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_speed_wavelength_frequency",
+      "selective1_sound_wave"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_speed_wavelength_frequency"
+      ],
+      "next": [
+        "selective1_light_wave"
+      ],
+      "related_core": [
+        "selective1_sound_wave"
+      ]
+    }
   }
 ]
