@@ -2,7 +2,6 @@
 // 这意味着刷新页面后，任务、笔记、视频、错题和素材仍然会保留在本机浏览器里。
 const STORAGE_KEY = "growth-interactive-learning";
 const THEME_KEY = "growth-theme";
-const COUNTDOWN_KEY = "growth-gaokao-countdown";
 
 // 仅学习用途，不用于生产环境：前端直连 API 会让密钥进入浏览器环境。
 // 为避免把密钥提交到公开仓库，OpenRouter Key 会保存在当前浏览器 localStorage。
@@ -43,7 +42,6 @@ let physicsDataStatus = {
   loading: true,
   error: "",
 };
-let countdownSettings = loadCountdownSettings();
 
 const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "实验专区", "视频课程"];
 const requiredTwoCategories = ["曲线运动", "圆周运动", "万有引力与宇宙航行", "机械能守恒定律", "视频课程"];
@@ -940,67 +938,7 @@ function renderToday() {
   }).format(new Date());
 }
 
-function loadCountdownSettings() {
-  const defaults = {
-    targetDate: "2029-06-07",
-    density: "medium",
-    theme: "light",
-    showMotto: true,
-    showUnit: true,
-  };
-  try {
-    const saved = JSON.parse(localStorage.getItem(COUNTDOWN_KEY) || "{}");
-    return { ...defaults, ...saved };
-  } catch {
-    return defaults;
-  }
-}
-
-function saveCountdownSettings() {
-  localStorage.setItem(COUNTDOWN_KEY, JSON.stringify(countdownSettings));
-}
-
-function getCountdownDays(dateText) {
-  const target = new Date(`${dateText || "2029-06-07"}T00:00:00`);
-  const today = new Date();
-  const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  if (Number.isNaN(target.getTime())) return 0;
-  return Math.ceil((target - start) / 86400000);
-}
-
-function formatCountdownDate(dateText) {
-  const target = new Date(`${dateText}T00:00:00`);
-  if (Number.isNaN(target.getTime())) return "目标日期：未设置";
-  return `目标日期：${target.getFullYear()}年${target.getMonth() + 1}月${target.getDate()}日`;
-}
-
-function syncCountdownControls() {
-  const dateInput = $("#gaokaoTargetDate");
-  if (dateInput) dateInput.value = countdownSettings.targetDate;
-  const showMotto = $("#gaokaoShowMotto");
-  if (showMotto) showMotto.checked = Boolean(countdownSettings.showMotto);
-  const showUnit = $("#gaokaoShowUnit");
-  if (showUnit) showUnit.checked = Boolean(countdownSettings.showUnit);
-  $$("[data-density]").forEach((button) => button.classList.toggle("active", button.dataset.density === countdownSettings.density));
-  $$("[data-countdown-theme-value]").forEach((button) => button.classList.toggle("active", button.dataset.countdownThemeValue === countdownSettings.theme));
-}
-
-function renderGaokaoCountdown() {
-  const card = $("#gaokaoCountdownCard");
-  if (!card) return;
-  const days = getCountdownDays(countdownSettings.targetDate);
-  const safeDays = Math.max(0, days);
-  card.classList.remove("density-loose", "density-medium", "density-tight", "theme-light", "theme-dark");
-  card.classList.add(`density-${countdownSettings.density}`, `theme-${countdownSettings.theme}`);
-  $("#gaokaoDays").textContent = String(safeDays).padStart(3, "0");
-  $("#gaokaoTargetLabel").textContent = formatCountdownDate(countdownSettings.targetDate);
-  $("#gaokaoMotto").hidden = !countdownSettings.showMotto;
-  $("#gaokaoUnit").hidden = !countdownSettings.showUnit;
-  syncCountdownControls();
-}
-
 function renderHome() {
-  renderGaokaoCountdown();
   const todayTasks = state.tasks.filter((item) => item.createdAt === todayKey());
   const doneCount = todayTasks.filter((item) => item.done).length;
   $("#taskProgress").textContent = `${doneCount}/${todayTasks.length}`;
@@ -2037,20 +1975,6 @@ document.addEventListener("click", (event) => {
   const nav = event.target.closest("[data-page]");
   if (nav) setPage(nav.dataset.page);
 
-  const density = event.target.closest("[data-density]");
-  if (density) {
-    countdownSettings.density = density.dataset.density;
-    saveCountdownSettings();
-    renderGaokaoCountdown();
-  }
-
-  const countdownTheme = event.target.closest("[data-countdown-theme-value]");
-  if (countdownTheme) {
-    countdownSettings.theme = countdownTheme.dataset.countdownThemeValue;
-    saveCountdownSettings();
-    renderGaokaoCountdown();
-  }
-
   const grade = event.target.closest("[data-grade]");
   if (grade) {
     const surface = $("#analyticsSurface");
@@ -2272,11 +2196,6 @@ $("#taskForm").addEventListener("submit", (event) => {
   render();
 });
 
-const gaokaoSettingsForm = $("#gaokaoSettings");
-if (gaokaoSettingsForm) {
-  gaokaoSettingsForm.addEventListener("submit", (event) => event.preventDefault());
-}
-
 $("#videoForm").addEventListener("submit", (event) => {
   event.preventDefault();
   const bv = extractBV($("#videoBvInput").value);
@@ -2410,21 +2329,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("input", (event) => {
-  if (event.target.matches("#gaokaoTargetDate")) {
-    countdownSettings.targetDate = event.target.value || "2029-06-07";
-    saveCountdownSettings();
-    renderGaokaoCountdown();
-  }
-  if (event.target.matches("#gaokaoShowMotto")) {
-    countdownSettings.showMotto = event.target.checked;
-    saveCountdownSettings();
-    renderGaokaoCountdown();
-  }
-  if (event.target.matches("#gaokaoShowUnit")) {
-    countdownSettings.showUnit = event.target.checked;
-    saveCountdownSettings();
-    renderGaokaoCountdown();
-  }
   if (event.target.matches("#scoreSubject")) {
     $("#scoreFull").value = ["语文", "数学", "英语"].includes(event.target.value) ? 120 : 100;
   }
