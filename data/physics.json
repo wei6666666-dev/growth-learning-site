@@ -3476,5 +3476,374 @@
         "决定式"
       ]
     }
+  },
+  {
+    "id": "selective2_circuit_basic",
+    "name": "电路",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "电路是让电荷定向移动形成电流的闭合路径，通常由电源、用电器、导线和开关组成。",
+    "formula": "",
+    "symbols": "电源提供电能；用电器消耗电能；开关控制通断；导线连接各元件。",
+    "mistakes": [
+      "只有闭合电路中才有持续电流。",
+      "导线并不是“没有作用”，它负责连接并近似看作等势连接。"
+    ],
+    "example": "例题：灯泡、开关、电池用导线连成一圈但开关断开，灯是否发光？解析：不发光。电路没有闭合，不能形成持续电流。",
+    "hint": "先学会画规范电路图，再去分析电流、电压和电阻。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电流",
+      "电压",
+      "电阻"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电荷",
+        "电势差"
+      ],
+      "next": [
+        "电流",
+        "欧姆定律"
+      ],
+      "related_core": [
+        "闭合回路",
+        "电源"
+      ]
+    }
+  },
+  {
+    "id": "selective2_electric_current",
+    "name": "电流",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "电流表示电荷定向移动的快慢，数值上等于单位时间内通过导体横截面的电荷量。",
+    "formula": "I = Q / t",
+    "symbols": "I 表示电流，单位 A；Q 表示通过横截面的电荷量，单位 C；t 表示时间，单位 s。",
+    "mistakes": [
+      "电流方向规定为正电荷定向移动方向，与金属中电子运动方向相反。",
+      "有电压不一定有电流，电路还必须闭合。"
+    ],
+    "example": "例题：10 s 内通过导体横截面的电荷量为 5 C，电流多大？解析：I=Q/t=5/10=0.5 A。",
+    "hint": "电流题先找通过某一截面的电荷量和对应时间。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电路",
+      "电压",
+      "欧姆定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电荷",
+        "电路"
+      ],
+      "next": [
+        "欧姆定律"
+      ],
+      "related_core": [
+        "定向移动",
+        "单位时间"
+      ]
+    }
+  },
+  {
+    "id": "selective2_voltage",
+    "name": "电压",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "电压也叫电势差，它推动电荷在电路中定向移动，是形成电流的重要原因。",
+    "formula": "U = W / q",
+    "symbols": "U 表示电压，单位 V；W 表示电场力或电源移动电荷做的功，单位 J；q 表示电荷量，单位 C。",
+    "mistakes": [
+      "电压是两点之间的量，不能只说某一个点有电压。",
+      "有电压时如果电路断开，也不会有持续电流。"
+    ],
+    "example": "例题：移动 2 C 电荷做功 12 J，两点电压是多少？解析：U=W/q=12/2=6 V。",
+    "hint": "把电压看成两点间的“能量差”，不要把它和电流混为一谈。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电势差",
+      "电流",
+      "欧姆定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电势差"
+      ],
+      "next": [
+        "欧姆定律"
+      ],
+      "related_core": [
+        "两点量",
+        "推动电荷"
+      ]
+    }
+  },
+  {
+    "id": "selective2_resistance",
+    "name": "电阻",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "电阻表示导体对电流阻碍作用的大小，与材料、长度、横截面积和温度等因素有关。",
+    "formula": "R = ρL / S",
+    "symbols": "R 表示电阻，单位 Ω；ρ 表示电阻率；L 表示导体长度；S 表示横截面积。",
+    "mistakes": [
+      "电阻不是因为接入电路才“产生”，它是导体本身的性质。",
+      "导体越长电阻越大，横截面积越大电阻越小。"
+    ],
+    "example": "例题：同种材料导线长度变为原来 2 倍，横截面积不变，电阻如何变化？解析：R 与 L 成正比，电阻变为原来 2 倍。",
+    "hint": "电阻的决定因素用“长、细、材料、温度”来记。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电流",
+      "欧姆定律",
+      "串联电路"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电路"
+      ],
+      "next": [
+        "欧姆定律"
+      ],
+      "related_core": [
+        "阻碍作用",
+        "电阻率"
+      ]
+    }
+  },
+  {
+    "id": "selective2_ohm_law",
+    "name": "欧姆定律",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "欧姆定律说明在温度等条件不变时，通过导体的电流与两端电压成正比，与电阻成反比。",
+    "formula": "I = U / R",
+    "symbols": "I 表示电流，单位 A；U 表示导体两端电压，单位 V；R 表示电阻，单位 Ω。",
+    "mistakes": [
+      "I=U/R 适用于纯电阻或线性元件，不是所有元件都严格满足。",
+      "公式中的 U 必须是该电阻两端电压，不能拿电源总电压乱代。"
+    ],
+    "example": "例题：电阻 6 Ω，两端电压 12 V，电流多大？解析：I=U/R=12/6=2 A。",
+    "hint": "做欧姆定律题一定对应清楚“哪个电阻、哪段电压、哪条电流”。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电流",
+      "电压",
+      "电阻"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电流",
+        "电压",
+        "电阻"
+      ],
+      "next": [
+        "串联电路",
+        "并联电路"
+      ],
+      "related_core": [
+        "比例关系",
+        "对应关系"
+      ]
+    }
+  },
+  {
+    "id": "selective2_series_circuit",
+    "name": "串联电路",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "串联电路中各元件首尾相连，电流只有一条路径，因此各处电流相等。",
+    "formula": "I = I1 = I2；U = U1 + U2；R = R1 + R2",
+    "symbols": "I 表示电流；U 表示总电压；R 表示等效电阻；下标表示各个电阻上的量。",
+    "mistakes": [
+      "串联电路电流相等，但各电阻两端电压不一定相等。",
+      "总电阻等于各电阻之和，所以串联越多总电阻越大。"
+    ],
+    "example": "例题：2 Ω 和 4 Ω 电阻串联接 12 V 电源，电流是多少？解析：R总=6 Ω，I=U/R=12/6=2 A。",
+    "hint": "串联先求总电阻和总电流，再分配各部分电压。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "欧姆定律",
+      "并联电路",
+      "电功率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "欧姆定律"
+      ],
+      "next": [
+        "闭合电路欧姆定律"
+      ],
+      "related_core": [
+        "电流相等",
+        "分压"
+      ]
+    }
+  },
+  {
+    "id": "selective2_parallel_circuit",
+    "name": "并联电路",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "并联电路中各支路两端接在相同两点之间，因此各支路两端电压相等，电流分流。",
+    "formula": "U = U1 = U2；I = I1 + I2；1/R = 1/R1 + 1/R2",
+    "symbols": "U 表示电压；I 表示总电流；R 表示等效电阻；下标表示各支路量。",
+    "mistakes": [
+      "并联电路电压相等，但各支路电流不一定相等。",
+      "并联后的总电阻小于任一支路电阻。"
+    ],
+    "example": "例题：6 Ω 和 3 Ω 电阻并联，总电阻是多少？解析：1/R=1/6+1/3=1/2，所以 R=2 Ω。",
+    "hint": "并联先抓住“同端电压相等”，再用欧姆定律求支路电流。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "欧姆定律",
+      "串联电路",
+      "电功率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "欧姆定律"
+      ],
+      "next": [
+        "闭合电路欧姆定律"
+      ],
+      "related_core": [
+        "电压相等",
+        "分流"
+      ]
+    }
+  },
+  {
+    "id": "selective2_electric_power",
+    "name": "电功率",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "电功率表示电流做功快慢，也表示用电器消耗电能快慢。",
+    "formula": "P = W / t；P = UI；P = I^2R；P = U^2 / R",
+    "symbols": "P 表示功率，单位 W；W 表示电功，单位 J；t 表示时间；U 表示电压；I 表示电流；R 表示电阻。",
+    "mistakes": [
+      "P=U^2/R 和 P=I^2R 使用时要看 U、I 是否对应同一个电阻。",
+      "额定功率不等于任何时候的实际功率。"
+    ],
+    "example": "例题：电阻两端电压 6 V，电流 0.5 A，功率是多少？解析：P=UI=6×0.5=3 W。",
+    "hint": "电功率公式很多，但核心是“同一对象、同一时刻”的 U、I、R 要对应。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电功",
+      "欧姆定律",
+      "焦耳定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "欧姆定律",
+        "功率"
+      ],
+      "next": [
+        "焦耳定律"
+      ],
+      "related_core": [
+        "做功快慢",
+        "实际功率"
+      ]
+    }
+  },
+  {
+    "id": "selective2_joule_law",
+    "name": "焦耳定律",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "焦耳定律描述电流通过导体产生热量的规律，热量与电流平方、电阻和通电时间成正比。",
+    "formula": "Q = I^2Rt",
+    "symbols": "Q 表示电热，单位 J；I 表示电流；R 表示电阻；t 表示通电时间。",
+    "mistakes": [
+      "电热与电流平方成正比，电流变 2 倍，热量变 4 倍。",
+      "非纯电阻电路中电功不一定全部转化为热，不能随便用 Q=UIt。"
+    ],
+    "example": "例题：2 A 电流通过 3 Ω 电阻 10 s，产生多少热？解析：Q=I^2Rt=4×3×10=120 J。",
+    "hint": "遇到发热问题先判断是不是纯电阻，再选择公式。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电功率",
+      "欧姆定律",
+      "电阻"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电功率",
+        "电阻"
+      ],
+      "next": [
+        "闭合电路欧姆定律"
+      ],
+      "related_core": [
+        "电热",
+        "纯电阻"
+      ]
+    }
+  },
+  {
+    "id": "selective2_closed_circuit_ohm",
+    "name": "闭合电路欧姆定律",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电路",
+    "definition": "闭合电路欧姆定律描述含电源内阻的完整电路中，电动势、总电阻和电流之间的关系。",
+    "formula": "I = E / (R + r)；U = E - Ir",
+    "symbols": "I 表示电路电流；E 表示电源电动势；R 表示外电阻；r 表示电源内阻；U 表示路端电压。",
+    "mistakes": [
+      "电动势 E 不是路端电压 U，电源有内阻时 U 通常小于 E。",
+      "外电阻变化会影响电流，也会影响路端电压。"
+    ],
+    "example": "例题：电源电动势 6 V，内阻 1 Ω，外电阻 5 Ω，电流是多少？解析：I=E/(R+r)=6/(5+1)=1 A。",
+    "hint": "闭合电路题先把电源内阻也画进电路，再列总电阻。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "欧姆定律",
+      "串联电路",
+      "电功率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "欧姆定律",
+        "串联电路"
+      ],
+      "next": [
+        "磁场"
+      ],
+      "related_core": [
+        "电动势",
+        "内阻"
+      ]
+    }
   }
 ]
