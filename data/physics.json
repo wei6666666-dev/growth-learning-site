@@ -6419,5 +6419,370 @@
         "适用范围"
       ]
     }
+  },
+  {
+    "id": "selective3_nuclear_structure",
+    "name": "原子核结构",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "原子核由质子和中子组成，质子带正电，中子不带电，核子之间存在很强的核力。",
+    "formula": "A = Z + N",
+    "symbols": "A 表示质量数；Z 表示质子数；N 表示中子数。",
+    "mistakes": [
+      "质量数不是原子核质量的精确数值，而是核子总数。",
+      "质子数决定元素种类，中子数不同可形成同位素。"
+    ],
+    "example": "例题：某原子核 Z=6，N=8，质量数 A 是多少？解析：A=Z+N=14。",
+    "hint": "原子核题先分清质子数、中子数和质量数。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "同位素",
+      "核力",
+      "结合能"
+    ],
+    "graph": {
+      "prerequisite": [
+        "原子结构"
+      ],
+      "next": [
+        "同位素",
+        "核反应"
+      ],
+      "related_core": [
+        "质子",
+        "中子"
+      ]
+    }
+  },
+  {
+    "id": "selective3_isotope",
+    "name": "同位素",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "质子数相同、中子数不同的原子互称同位素，它们属于同一种元素，但质量数不同。",
+    "formula": "A = Z + N",
+    "symbols": "Z 相同表示同种元素；N 不同导致质量数 A 不同。",
+    "mistakes": [
+      "同位素化学性质相近，因为质子数和核外电子数相同。",
+      "同位素不是不同元素，而是同一元素的不同核素。"
+    ],
+    "example": "例题：碳-12 和碳-14 是不是同位素？解析：是。它们质子数同为 6，中子数不同。",
+    "hint": "判断同位素只看质子数是否相同、中子数是否不同。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "原子核结构",
+      "放射性",
+      "半衰期"
+    ],
+    "graph": {
+      "prerequisite": [
+        "原子核结构"
+      ],
+      "next": [
+        "放射性衰变"
+      ],
+      "related_core": [
+        "质子数相同",
+        "中子数不同"
+      ]
+    }
+  },
+  {
+    "id": "selective3_radioactivity",
+    "name": "天然放射现象",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "某些不稳定原子核会自发放出射线并转变成其他原子核，这种现象叫天然放射现象。",
+    "formula": "",
+    "symbols": "常见射线有 α 射线、β 射线和 γ 射线。",
+    "mistakes": [
+      "放射性来自原子核变化，不是核外电子变化。",
+      "放射性衰变不受普通温度、压强、化学状态明显影响。"
+    ],
+    "example": "例题：放射性元素衰变是原子核变化还是核外电子变化？解析：是原子核变化。",
+    "hint": "放射性问题都要回到“不稳定原子核”。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "α衰变",
+      "β衰变",
+      "半衰期"
+    ],
+    "graph": {
+      "prerequisite": [
+        "原子核结构"
+      ],
+      "next": [
+        "三种射线",
+        "半衰期"
+      ],
+      "related_core": [
+        "自发衰变",
+        "核变化"
+      ]
+    }
+  },
+  {
+    "id": "selective3_alpha_beta_gamma",
+    "name": "α、β、γ射线",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "α 射线是氦核流，β 射线是高速电子流或正电子流，γ 射线是高能电磁波。",
+    "formula": "",
+    "symbols": "α 带正电、穿透能力弱；β 带电、穿透能力较强；γ 不带电、穿透能力强。",
+    "mistakes": [
+      "γ 射线不是粒子流中的带电粒子，而是电磁波。",
+      "穿透能力和电离能力不同，α 电离强但穿透弱。"
+    ],
+    "example": "例题：哪种射线穿透能力最强？解析：通常 γ 射线穿透能力最强。",
+    "hint": "用“α重、β轻、γ是光子”来区分三类射线。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "天然放射现象",
+      "核衰变",
+      "电磁波"
+    ],
+    "graph": {
+      "prerequisite": [
+        "放射性"
+      ],
+      "next": [
+        "衰变方程"
+      ],
+      "related_core": [
+        "射线性质",
+        "穿透能力"
+      ]
+    }
+  },
+  {
+    "id": "selective3_decay_law",
+    "name": "衰变规律",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "放射性衰变遵循统计规律，单个原子核何时衰变无法准确预言，但大量原子核的衰变有确定规律。",
+    "formula": "N = N0(1/2)^(t/T)",
+    "symbols": "N 表示剩余原子核数；N0 表示初始原子核数；T 表示半衰期；t 表示时间。",
+    "mistakes": [
+      "半衰期是大量原子核的统计规律，不是某个原子核寿命。",
+      "经过两个半衰期剩余 1/4，不是 0。"
+    ],
+    "example": "例题：某样品经过 3 个半衰期后剩余多少？解析：剩余 (1/2)^3=1/8。",
+    "hint": "半衰期题用每过一个 T 就乘 1/2。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "半衰期",
+      "天然放射现象",
+      "同位素"
+    ],
+    "graph": {
+      "prerequisite": [
+        "放射性"
+      ],
+      "next": [
+        "半衰期应用"
+      ],
+      "related_core": [
+        "统计规律",
+        "指数衰减"
+      ]
+    }
+  },
+  {
+    "id": "selective3_half_life",
+    "name": "半衰期",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "半衰期是放射性原子核数衰减到原来一半所需的时间，是描述衰变快慢的物理量。",
+    "formula": "N = N0 / 2",
+    "symbols": "N0 表示初始数量；N 表示经过一个半衰期后的剩余数量。",
+    "mistakes": [
+      "半衰期与样品初始多少无关。",
+      "外界普通物理化学条件一般不能改变半衰期。"
+    ],
+    "example": "例题：某放射性样品半衰期 5 天，10 天后剩余多少？解析：经过 2 个半衰期，剩余 1/4。",
+    "hint": "半衰期题画时间轴最不容易错。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "衰变规律",
+      "同位素",
+      "放射性应用"
+    ],
+    "graph": {
+      "prerequisite": [
+        "衰变规律"
+      ],
+      "next": [
+        "核能应用"
+      ],
+      "related_core": [
+        "减半时间",
+        "统计规律"
+      ]
+    }
+  },
+  {
+    "id": "selective3_mass_defect",
+    "name": "质量亏损",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "原子核的质量小于组成它的各核子质量之和，这个差值叫质量亏损。",
+    "formula": "Δm = Zmp + Nmn - m核",
+    "symbols": "Δm 表示质量亏损；mp、mn 分别表示质子和中子质量；m核 表示原子核质量。",
+    "mistakes": [
+      "质量亏损不是质量消失，而是以结合能形式体现。",
+      "计算时要统一质量单位。"
+    ],
+    "example": "例题：核子单独质量总和比原子核质量大，差值对应什么？解析：对应原子核结合能。",
+    "hint": "质量亏损和核能释放要用质能方程联系。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "结合能",
+      "质能方程",
+      "核反应"
+    ],
+    "graph": {
+      "prerequisite": [
+        "原子核结构"
+      ],
+      "next": [
+        "结合能",
+        "质能方程"
+      ],
+      "related_core": [
+        "质量差",
+        "能量"
+      ]
+    }
+  },
+  {
+    "id": "selective3_binding_energy",
+    "name": "结合能",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "把核子结合成原子核时释放的能量，或把原子核拆成自由核子所需的能量，叫结合能。",
+    "formula": "E = Δmc²",
+    "symbols": "E 表示结合能；Δm 表示质量亏损；c 表示光速。",
+    "mistakes": [
+      "比结合能越大，原子核通常越稳定。",
+      "结合能大不等于一定容易释放能量，要看反应前后总结合能变化。"
+    ],
+    "example": "例题：质量亏损越大，结合能怎样？解析：由 E=Δmc²，质量亏损越大，结合能越大。",
+    "hint": "核能题常看反应前后结合能或质量差。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "质量亏损",
+      "质能方程",
+      "核裂变"
+    ],
+    "graph": {
+      "prerequisite": [
+        "质量亏损"
+      ],
+      "next": [
+        "核裂变",
+        "核聚变"
+      ],
+      "related_core": [
+        "E=mc²",
+        "稳定性"
+      ]
+    }
+  },
+  {
+    "id": "selective3_nuclear_fission",
+    "name": "核裂变",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "重原子核分裂成两个或多个较轻原子核并释放能量的过程叫核裂变。",
+    "formula": "重核 + n → 中等质量核 + n + 能量",
+    "symbols": "n 表示中子；裂变中释放的中子可能引发链式反应。",
+    "mistakes": [
+      "裂变释放能量来自反应前后质量差，不是化学燃烧。",
+      "链式反应需要合适条件控制，否则可能失控。"
+    ],
+    "example": "例题：核电站利用的是裂变还是聚变？解析：目前主要利用可控核裂变。",
+    "hint": "裂变关键词：重核、中子、链式反应、释放能量。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "结合能",
+      "链式反应",
+      "核能"
+    ],
+    "graph": {
+      "prerequisite": [
+        "结合能"
+      ],
+      "next": [
+        "核反应堆"
+      ],
+      "related_core": [
+        "重核分裂",
+        "链式反应"
+      ]
+    }
+  },
+  {
+    "id": "selective3_nuclear_fusion",
+    "name": "核聚变",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "原子核",
+    "definition": "轻原子核结合成较重原子核并释放能量的过程叫核聚变，太阳能量主要来自聚变。",
+    "formula": "轻核 + 轻核 → 较重核 + 能量",
+    "symbols": "聚变需要极高温度克服原子核间电斥力。",
+    "mistakes": [
+      "聚变不是普通化学反应，而是原子核变化。",
+      "聚变释放能量，但实现可控聚变条件很苛刻。"
+    ],
+    "example": "例题：太阳发光发热主要来自什么过程？解析：轻核聚变释放能量。",
+    "hint": "聚变关键词：轻核、高温、太阳、释放能量。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "结合能",
+      "太阳能量",
+      "质能方程"
+    ],
+    "graph": {
+      "prerequisite": [
+        "结合能",
+        "库仑力"
+      ],
+      "next": [
+        "核能利用"
+      ],
+      "related_core": [
+        "轻核结合",
+        "高温条件"
+      ]
+    }
   }
 ]
