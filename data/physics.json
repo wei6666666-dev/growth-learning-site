@@ -3103,5 +3103,378 @@
         "selective1_transverse_longitudinal_wave"
       ]
     }
+  },
+  {
+    "id": "selective2_charge",
+    "name": "电荷",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电荷是物体带电性质的量度，自然界中有正电荷和负电荷，同种电荷相互排斥，异种电荷相互吸引。",
+    "formula": "Q = ne",
+    "symbols": "Q 表示电荷量，单位 C；n 表示元电荷个数；e 表示元电荷，e = 1.6×10^-19 C。",
+    "mistakes": [
+      "带电体不是只含一种电荷，而是正负电荷数量不相等。",
+      "电荷量是标量，没有方向，不能像力那样画成箭头相加。"
+    ],
+    "example": "例题：某物体失去 2×10^12 个电子，带电量是多少？解析：Q = ne = 2×10^12×1.6×10^-19 C = 3.2×10^-7 C，因失去电子而带正电。",
+    "hint": "先抓住“电荷守恒”和“正负电荷相互作用”，后面的电场、电势才有根基。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "库仑定律",
+      "电场",
+      "电场强度"
+    ],
+    "graph": {
+      "prerequisite": [
+        "原子结构基础"
+      ],
+      "next": [
+        "库仑定律",
+        "电场"
+      ],
+      "related_core": [
+        "电荷守恒",
+        "元电荷"
+      ]
+    }
+  },
+  {
+    "id": "selective2_coulomb_law",
+    "name": "库仑定律",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "库仑定律描述真空中两个静止点电荷之间相互作用力的大小和方向，力沿两电荷连线。",
+    "formula": "F = kq1q2 / r^2",
+    "symbols": "F 表示库仑力，单位 N；q1、q2 表示两个点电荷的电荷量，单位 C；r 表示距离，单位 m；k 为静电力常量。",
+    "mistakes": [
+      "公式适用于真空中静止点电荷，不能直接套到任意带电物体。",
+      "判断方向时要先看同种排斥、异种吸引，再沿连线画力。"
+    ],
+    "example": "例题：两个电荷距离变为原来的 2 倍，库仑力如何变化？解析：F 与 r^2 成反比，距离变 2 倍，力变为原来的 1/4。",
+    "hint": "把库仑定律和万有引力定律对比学习：形式相似，但作用对象和方向规则不同。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电荷",
+      "电场强度",
+      "万有引力定律"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电荷",
+        "力的合成与分解"
+      ],
+      "next": [
+        "电场强度"
+      ],
+      "related_core": [
+        "平方反比",
+        "点电荷模型"
+      ]
+    }
+  },
+  {
+    "id": "selective2_electric_field",
+    "name": "电场",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电场是电荷周围存在的一种物质，它能对放入其中的电荷产生力的作用。",
+    "formula": "E = F / q",
+    "symbols": "E 表示电场强度，单位 N/C 或 V/m；F 表示试探电荷所受电场力，单位 N；q 表示试探电荷电荷量，单位 C。",
+    "mistakes": [
+      "电场不是看不见就不存在，它通过对电荷施力表现出来。",
+      "电场方向规定为正试探电荷受力方向，负电荷受力方向与电场方向相反。"
+    ],
+    "example": "例题：某点放入 2×10^-6 C 正电荷，受力 0.04 N，该点电场强度是多少？解析：E = F/q = 0.04/(2×10^-6)=2.0×10^4 N/C。",
+    "hint": "学习电场时要把“场”理解成空间属性，而不是某个具体电荷本身。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电荷",
+      "电场强度",
+      "电场线"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电荷",
+        "库仑定律"
+      ],
+      "next": [
+        "电场强度",
+        "电场线"
+      ],
+      "related_core": [
+        "场的观点",
+        "试探电荷"
+      ]
+    }
+  },
+  {
+    "id": "selective2_electric_field_strength",
+    "name": "电场强度",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电场强度表示电场本身强弱和方向，是描述电场性质的物理量。",
+    "formula": "E = F / q；E = kQ / r^2",
+    "symbols": "E 表示电场强度；F 表示电场力；q 表示试探电荷；Q 表示场源电荷；r 表示到场源电荷的距离。",
+    "mistakes": [
+      "E = F/q 中 q 是试探电荷，电场强度不由这个试探电荷决定。",
+      "点电荷场强 E = kQ/r^2 的方向要根据 Q 的正负判断。"
+    ],
+    "example": "例题：距离正点电荷越远，场强怎样变化？解析：E = kQ/r^2，距离变大，场强按平方反比减小，方向从正电荷向外。",
+    "hint": "做场强题时先找“谁产生电场”，再判断“这个点的场强”。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电场",
+      "库仑定律",
+      "电场线"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电场",
+        "库仑定律"
+      ],
+      "next": [
+        "电势差",
+        "电容器"
+      ],
+      "related_core": [
+        "矢量",
+        "叠加原理"
+      ]
+    }
+  },
+  {
+    "id": "selective2_electric_field_lines",
+    "name": "电场线",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电场线是用来形象表示电场方向和强弱的假想曲线，曲线上每点切线方向就是该点电场方向。",
+    "formula": "",
+    "symbols": "电场线越密表示电场越强；电场线方向表示正电荷受力方向。",
+    "mistakes": [
+      "电场线是人为画出的辅助线，不是真实存在的线。",
+      "电场线不能相交，因为同一点电场方向只能有一个。"
+    ],
+    "example": "例题：两条电场线较密的区域和较疏的区域，哪里场强大？解析：较密处场强更大，因为电场线疏密表示强弱。",
+    "hint": "看电场线图时先看箭头方向，再看疏密变化。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电场",
+      "电场强度",
+      "电势"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电场强度"
+      ],
+      "next": [
+        "电势",
+        "电势差"
+      ],
+      "related_core": [
+        "方向",
+        "疏密"
+      ]
+    }
+  },
+  {
+    "id": "selective2_electric_potential_energy",
+    "name": "电势能",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电势能是电荷在电场中由于位置不同而具有的能量，类似重力场中的重力势能。",
+    "formula": "W电 = -ΔEp",
+    "symbols": "W电 表示电场力做功，单位 J；ΔEp 表示电势能变化量，单位 J。",
+    "mistakes": [
+      "电场力做正功时，电势能减少；做负功时，电势能增加。",
+      "电势能属于“电荷和电场组成的系统”，不能只说某个孤立电荷自己有电势能。"
+    ],
+    "example": "例题：电场力对电荷做功 5 J，电势能如何变化？解析：W电 = -ΔEp，所以 ΔEp = -5 J，电势能减少 5 J。",
+    "hint": "把电势能和重力势能类比，重点看力做功和能量变化的关系。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "功",
+      "电势",
+      "电势差"
+    ],
+    "graph": {
+      "prerequisite": [
+        "功",
+        "电场"
+      ],
+      "next": [
+        "电势",
+        "电势差"
+      ],
+      "related_core": [
+        "功能关系",
+        "势能变化"
+      ]
+    }
+  },
+  {
+    "id": "selective2_electric_potential",
+    "name": "电势",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电势表示电场中某点能量性质的高低，可以理解为单位正电荷在该点具有的电势能。",
+    "formula": "φ = Ep / q",
+    "symbols": "φ 表示电势，单位 V；Ep 表示电势能，单位 J；q 表示电荷量，单位 C。",
+    "mistakes": [
+      "电势是标量，没有方向，但有正负。",
+      "电势高低取决于零电势点的选取，但电势差与零点选取无关。"
+    ],
+    "example": "例题：某点 2 C 电荷具有 10 J 电势能，该点电势是多少？解析：φ = Ep/q = 10/2 = 5 V。",
+    "hint": "电势像“电场中的高度”，但不要把它当成距离高度。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电势能",
+      "电势差",
+      "电场线"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电势能"
+      ],
+      "next": [
+        "电势差"
+      ],
+      "related_core": [
+        "单位正电荷",
+        "标量"
+      ]
+    }
+  },
+  {
+    "id": "selective2_potential_difference",
+    "name": "电势差",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电势差表示电场中两点电势的差，也叫电压，反映单位电荷从一点移动到另一点时电场力做功的多少。",
+    "formula": "UAB = φA - φB；WAB = qUAB",
+    "symbols": "UAB 表示 A、B 两点电势差，单位 V；φA、φB 表示两点电势；WAB 表示电场力做功；q 表示电荷量。",
+    "mistakes": [
+      "电势差有下标顺序，UAB 和 UBA 互为相反数。",
+      "电场力做功与路径无关，只与初末位置电势差有关。"
+    ],
+    "example": "例题：2 C 电荷从 A 到 B，电场力做功 12 J，UAB 是多少？解析：UAB = WAB/q = 12/2 = 6 V。",
+    "hint": "电势差题一定先看清从哪点到哪点，再代入下标方向。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电势",
+      "电势能",
+      "电容"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电势",
+        "功"
+      ],
+      "next": [
+        "电容器",
+        "电路"
+      ],
+      "related_core": [
+        "电压",
+        "路径无关"
+      ]
+    }
+  },
+  {
+    "id": "selective2_capacitor",
+    "name": "电容器",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电容器是能够储存电荷和电场能的元件，最常见的是由两块彼此绝缘且相距很近的导体板组成的平行板电容器。",
+    "formula": "C = Q / U",
+    "symbols": "C 表示电容，单位 F；Q 表示一块极板所带电荷量的绝对值，单位 C；U 表示两极板间电压，单位 V。",
+    "mistakes": [
+      "电容器两极板带等量异种电荷，不能只看其中一块板的正负。",
+      "电容 C 由电容器本身结构决定，不是由某一次 Q 或 U 单独决定。"
+    ],
+    "example": "例题：电容器带电量 2×10^-6 C，两端电压 4 V，电容是多少？解析：C = Q/U = 5×10^-7 F。",
+    "hint": "把电容器想成“储存电荷的容器”，但它储存的是等量异种电荷形成的电场状态。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电容",
+      "电势差",
+      "电场强度"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电势差",
+        "电场"
+      ],
+      "next": [
+        "电容"
+      ],
+      "related_core": [
+        "储能",
+        "平行板"
+      ]
+    }
+  },
+  {
+    "id": "selective2_capacitance",
+    "name": "电容",
+    "textbook": "选择性必修二",
+    "chapter": "选择性必修二",
+    "category": "电场",
+    "definition": "电容表示电容器容纳电荷本领的大小，数值上等于电荷量与两端电压的比值。",
+    "formula": "C = Q / U；C = εS / 4πkd",
+    "symbols": "C 表示电容；Q 表示电荷量；U 表示电压；S 表示正对面积；d 表示极板距离；ε 表示介质影响。",
+    "mistakes": [
+      "C = Q/U 是定义式，不表示 C 随 Q 增大而增大。",
+      "平行板电容器中，正对面积越大电容越大，板间距离越大电容越小。"
+    ],
+    "example": "例题：同一电容器电压变为原来 2 倍，电容是否改变？解析：不改变。电容由结构和介质决定，Q 会随 U 成比例变化。",
+    "hint": "记住电容看“结构”，充了多少电只是它当前状态。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "电容器",
+      "电势差",
+      "电路"
+    ],
+    "graph": {
+      "prerequisite": [
+        "电容器",
+        "电势差"
+      ],
+      "next": [
+        "电路"
+      ],
+      "related_core": [
+        "定义式",
+        "决定式"
+      ]
+    }
   }
 ]

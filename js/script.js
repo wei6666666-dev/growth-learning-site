@@ -46,20 +46,24 @@ let physicsDataStatus = {
 const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "实验专区", "视频课程"];
 const requiredTwoCategories = ["曲线运动", "圆周运动", "万有引力与宇宙航行", "机械能守恒定律", "视频课程"];
 const selectiveOneCategories = ["动量", "机械振动", "机械波", "光", "视频课程"];
+const selectiveTwoCategories = ["电场", "电路", "磁场", "电磁感应", "交变电流", "视频课程"];
 const textbookCategoryMap = {
   required1: physicsCategories,
   required2: requiredTwoCategories,
   selective1: selectiveOneCategories,
+  selective2: selectiveTwoCategories,
 };
 const textbookKeyMap = {
   "必修一": "required1",
   "必修二": "required2",
   "选择性必修一": "selective1",
+  "选择性必修二": "selective2",
 };
 const textbookLabels = {
   required1: "高一上 · 必修第一册",
   required2: "高一下 · 必修第二册",
   selective1: "选择性必修一",
+  selective2: "选择性必修二",
 };
 const materialThemes = ["成长", "坚持", "挫折", "亲情", "青春", "责任"];
 
@@ -76,6 +80,11 @@ const categoryIcons = {
   "机械振动": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12c2.2-6 4.4 6 6.6 0s4.4-6 6.6 0S20 15 20 12"/><path d="M12 5v14"/></svg>`,
   "机械波": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/><path d="M4 18h16"/></svg>`,
   "光": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h10"/><path d="m11 8 4 4-4 4"/><path d="M18 5v14"/><path d="M20 7v10"/></svg>`,
+  "电场": `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="2"/><path d="M12 12h8"/><path d="m17 9 3 3-3 3"/><path d="M5 6h6M5 18h6"/></svg>`,
+  "电路": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14v10H5z"/><path d="M8 12h3"/><path d="M13 12h3"/><circle cx="5" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>`,
+  "磁场": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v7a5 5 0 0 0 10 0V5"/><path d="M7 9h4M13 9h4"/><path d="M4 19h16"/></svg>`,
+  "电磁感应": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h7"/><path d="m8 8 4 4-4 4"/><rect x="14" y="6" width="6" height="12" rx="2"/><path d="M16 8v8M18 8v8"/></svg>`,
+  "交变电流": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c2-6 4 6 6 0s4-6 6 0 4 6 6 0"/><path d="M4 18h16"/></svg>`,
   "实验专区": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v7l-4 7a3 3 0 0 0 2.6 4h6.8A3 3 0 0 0 18 17l-4-7V3"/><path d="M8 16h8"/></svg>`,
   "视频课程": `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="m10 9 5 3-5 3Z"/></svg>`,
 };
@@ -323,6 +332,7 @@ function inferTextbookKey(raw) {
   if (raw.textbook) return raw.textbook;
   if (raw.chapter === "必修二") return "必修二";
   if (String(raw.chapter || "").startsWith("选择性必修一")) return "选择性必修一";
+  if (String(raw.chapter || "").startsWith("选择性必修二")) return "选择性必修二";
   return "必修一";
 }
 
@@ -1396,6 +1406,9 @@ function renderSupplementDiagram(rawId = "") {
   }
   if (id.includes("wave") || id.includes("doppler")) {
     return `<svg class="mini-diagram motion-diagram wave-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="trace" d="M28 96 C50 46 72 146 94 96 S138 46 160 96 204 146 226 96"/><path class="accent-line" d="M36 52h184" marker-end="url(#miniArrow)"/><path class="span-line" d="M50 132h88"/><path class="height-line" d="M94 96v-48"/><text x="108" y="148">lambda</text><text x="102" y="72">A</text><text x="112" y="38">波形传播</text><text x="70" y="166">质点振动</text></svg>`;
+  }
+  if (id.includes("electric") || id.includes("charge") || id.includes("coulomb") || id.includes("potential") || id.includes("capacitor") || id.includes("capacitance")) {
+    return `<svg class="mini-diagram motion-diagram electric-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="field-line" d="M72 48 C122 18 172 18 220 48"/><path class="field-line" d="M72 132 C122 162 172 162 220 132"/><path class="field-line" d="M80 90H214" marker-end="url(#miniArrow)"/><circle class="moving-dot" cx="66" cy="90" r="18"/><circle class="moving-dot small" cx="216" cy="90" r="10"/><path class="accent-line" d="M94 90h82" marker-end="url(#miniArrow)"/><path class="height-line" d="M166 58v64"/><text x="58" y="96">+</text><text x="212" y="96">q</text><text x="120" y="78">电场方向</text><text x="172" y="136">E = F / q</text></svg>`;
   }
   if (id.includes("light") || id.includes("optics")) {
     return `<svg class="mini-diagram motion-diagram optics-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="height-line" d="M132 28v132"/><path class="track-line" d="M42 94H222"/><path class="diag-force" d="M44 46 132 94" marker-end="url(#miniArrow)"/><path class="accent-line" d="M132 94 218 132" marker-end="url(#miniArrow)"/><path class="average-line" d="M132 94 214 58" marker-end="url(#miniArrow)"/><text x="62" y="50">入射光</text><text x="168" y="126">折射光</text><text x="166" y="54">反射光</text><text x="138" y="88">界面</text></svg>`;
