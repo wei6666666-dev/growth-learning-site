@@ -1415,7 +1415,7 @@ function renderSupplementDiagram(rawId = "") {
   if (id.includes("vibration") || id.includes("harmonic") || id.includes("oscillator") || id.includes("pendulum") || id.includes("amplitude") || id.includes("phase") || id.includes("resonance")) {
     return `<svg class="mini-diagram motion-diagram vibration-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="track-line" d="M34 132H226"/><path class="spring-line" d="M44 92 h34 l8-18 l10 36 l10-36 l10 36 l10-36 l10 36 l8-18 h36"/><rect class="force-block" x="178" y="74" width="38" height="38" rx="8"/><path class="span-line" d="M130 56v96"/><path class="accent-line" d="M178 92h-52" marker-end="url(#miniArrow)"/><path class="average-line" d="M90 154h94" marker-end="url(#miniArrow)"/><text x="114" y="48">平衡位置</text><text x="96" y="170">A</text><text x="126" y="86">回复力</text></svg>`;
   }
-  if (id.includes("wave") || id.includes("doppler")) {
+  if ((id.includes("wave") && !id.includes("wave_particle") && !id.includes("matter_wave")) || id.includes("doppler")) {
     return `<svg class="mini-diagram motion-diagram wave-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="trace" d="M28 96 C50 46 72 146 94 96 S138 46 160 96 204 146 226 96"/><path class="accent-line" d="M36 52h184" marker-end="url(#miniArrow)"/><path class="span-line" d="M50 132h88"/><path class="height-line" d="M94 96v-48"/><text x="108" y="148">lambda</text><text x="102" y="72">A</text><text x="112" y="38">波形传播</text><text x="70" y="166">质点振动</text></svg>`;
   }
   if (id.includes("wave_particle") || id.includes("photoelectric") || id.includes("de_broglie") || id.includes("matter_wave") || id.includes("uncertainty") || id.includes("compton") || id.includes("quantum")) {
