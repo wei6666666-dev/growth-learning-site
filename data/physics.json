@@ -6784,5 +6784,371 @@
         "高温条件"
       ]
     }
+  },
+  {
+    "id": "selective3_wave_particle_duality",
+    "name": "波粒二象性",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "微观粒子和光既表现出波动性，也表现出粒子性，这种双重属性叫波粒二象性。",
+    "formula": "E = hν；p = h / λ",
+    "symbols": "E 表示光子能量；p 表示动量；h 表示普朗克常量；ν 表示频率；λ 表示波长。",
+    "mistakes": [
+      "波粒二象性不是说光有时变成波、有时变成粒子，而是同一对象在不同实验中表现不同属性。",
+      "宏观物体也有物质波，但波长极小，通常观察不到。"
+    ],
+    "example": "例题：光电效应体现光的什么性？解析：体现光的粒子性，因为光能量一份一份传递给电子。",
+    "hint": "用实验现象区分波动性和粒子性，不要只背概念。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "光子",
+      "光电效应",
+      "德布罗意波"
+    ],
+    "graph": {
+      "prerequisite": [
+        "光子",
+        "动量"
+      ],
+      "next": [
+        "光电效应",
+        "物质波"
+      ],
+      "related_core": [
+        "波动性",
+        "粒子性"
+      ]
+    }
+  },
+  {
+    "id": "selective3_photoelectric_effect",
+    "name": "光电效应",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "光照射金属表面时，金属中的电子吸收光子能量后逸出的现象叫光电效应。",
+    "formula": "hν = W0 + Ek",
+    "symbols": "hν 表示光子能量；W0 表示逸出功；Ek 表示光电子最大初动能。",
+    "mistakes": [
+      "能否发生光电效应取决于光频率是否足够高，不取决于光强是否足够大。",
+      "光强增大主要增加光电子数量，不一定增加单个电子最大初动能。"
+    ],
+    "example": "例题：红光照不出电子，增大红光强度一定能照出吗？解析：不能。频率低于极限频率时，光子能量不足。",
+    "hint": "光电效应题先看频率，再看光强。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "光子",
+      "逸出功",
+      "极限频率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "光子"
+      ],
+      "next": [
+        "爱因斯坦光电效应方程"
+      ],
+      "related_core": [
+        "粒子性",
+        "频率条件"
+      ]
+    }
+  },
+  {
+    "id": "selective3_work_function",
+    "name": "逸出功",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "电子从金属表面逸出所需的最小能量叫逸出功，不同金属逸出功不同。",
+    "formula": "W0 = hν0",
+    "symbols": "W0 表示逸出功；ν0 表示极限频率；h 表示普朗克常量。",
+    "mistakes": [
+      "逸出功由金属材料决定，不由入射光强决定。",
+      "入射光频率低于极限频率时，即使照很久也不能逸出电子。"
+    ],
+    "example": "例题：某金属极限频率越大，逸出功怎样？解析：W0=hν0，极限频率越大，逸出功越大。",
+    "hint": "逸出功是材料门槛，光子能量必须跨过这道门槛。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "光电效应",
+      "极限频率",
+      "光子能量"
+    ],
+    "graph": {
+      "prerequisite": [
+        "光子能量"
+      ],
+      "next": [
+        "光电效应方程"
+      ],
+      "related_core": [
+        "材料属性",
+        "能量门槛"
+      ]
+    }
+  },
+  {
+    "id": "selective3_threshold_frequency",
+    "name": "极限频率",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "刚好能使某金属发生光电效应的最低入射光频率叫极限频率。",
+    "formula": "ν0 = W0 / h",
+    "symbols": "ν0 表示极限频率；W0 表示逸出功；h 表示普朗克常量。",
+    "mistakes": [
+      "极限频率以下不能发生光电效应，增加光强也无效。",
+      "极限频率由金属决定，不由入射光决定。"
+    ],
+    "example": "例题：入射光频率等于极限频率时，光电子最大初动能是多少？解析：光子能量刚好克服逸出功，最大初动能为 0。",
+    "hint": "极限频率就是光电效应的最低通行证。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "逸出功",
+      "光电效应",
+      "光子"
+    ],
+    "graph": {
+      "prerequisite": [
+        "逸出功"
+      ],
+      "next": [
+        "光电效应图像"
+      ],
+      "related_core": [
+        "最低频率",
+        "材料决定"
+      ]
+    }
+  },
+  {
+    "id": "selective3_photoelectric_equation",
+    "name": "光电效应方程",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "爱因斯坦光电效应方程说明光子能量一部分用于克服逸出功，剩余部分转化为光电子最大初动能。",
+    "formula": "Ek = hν - W0",
+    "symbols": "Ek 表示最大初动能；hν 表示光子能量；W0 表示逸出功。",
+    "mistakes": [
+      "最大初动能随频率线性增加，不随光强直接增加。",
+      "如果 hν < W0，则不会发生光电效应。"
+    ],
+    "example": "例题：光子能量 5 eV，金属逸出功 2 eV，最大初动能多少？解析：Ek=3 eV。",
+    "hint": "方程就是能量账本：光子能量=逸出功+剩余动能。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "光电效应",
+      "逸出功",
+      "极限频率"
+    ],
+    "graph": {
+      "prerequisite": [
+        "光电效应",
+        "能量守恒"
+      ],
+      "next": [
+        "光电效应图像"
+      ],
+      "related_core": [
+        "能量守恒",
+        "线性关系"
+      ]
+    }
+  },
+  {
+    "id": "selective3_de_broglie_wave",
+    "name": "德布罗意波",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "德布罗意提出实物粒子也具有波动性，其波长与粒子动量成反比。",
+    "formula": "λ = h / p",
+    "symbols": "λ 表示德布罗意波长；h 表示普朗克常量；p 表示粒子动量。",
+    "mistakes": [
+      "物质波不是机械波，不需要介质传播。",
+      "宏观物体动量大，德布罗意波长极小，难以观察。"
+    ],
+    "example": "例题：同一电子速度越大，德布罗意波长怎样？解析：动量 p 增大，λ=h/p 减小。",
+    "hint": "德布罗意波把粒子动量和波长联系起来。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "波粒二象性",
+      "动量",
+      "电子衍射"
+    ],
+    "graph": {
+      "prerequisite": [
+        "动量",
+        "波长"
+      ],
+      "next": [
+        "电子衍射"
+      ],
+      "related_core": [
+        "λ=h/p",
+        "实物粒子波动性"
+      ]
+    }
+  },
+  {
+    "id": "selective3_electron_diffraction",
+    "name": "电子衍射",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "电子束通过晶体等微小结构时出现衍射图样，说明电子具有波动性。",
+    "formula": "λ = h / p",
+    "symbols": "λ 表示电子对应的物质波波长；p 表示电子动量。",
+    "mistakes": [
+      "电子衍射不是光的衍射，而是实物粒子表现波动性的证据。",
+      "衍射明显要求障碍物或缝的尺度与波长相近。"
+    ],
+    "example": "例题：电子能发生衍射说明电子具有什么性？解析：说明电子具有波动性。",
+    "hint": "电子衍射是物质波最重要的实验证据之一。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "德布罗意波",
+      "波粒二象性",
+      "光的衍射"
+    ],
+    "graph": {
+      "prerequisite": [
+        "德布罗意波",
+        "衍射"
+      ],
+      "next": [
+        "量子观念"
+      ],
+      "related_core": [
+        "实验证据",
+        "波动性"
+      ]
+    }
+  },
+  {
+    "id": "selective3_matter_wave",
+    "name": "物质波",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "物质波是与实物粒子运动状态相联系的波，反映微观粒子的波动属性。",
+    "formula": "λ = h / mv",
+    "symbols": "m 表示粒子质量；v 表示速度；mv 为动量。",
+    "mistakes": [
+      "物质波不是粒子在空间中真实抖动形成的普通波。",
+      "质量和速度越大，物质波波长越小。"
+    ],
+    "example": "例题：同速电子和质子相比，谁的物质波波长更长？解析：电子质量小，动量小，波长更长。",
+    "hint": "物质波题通常把 p=mv 代入 λ=h/p。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "德布罗意波",
+      "电子衍射",
+      "动量"
+    ],
+    "graph": {
+      "prerequisite": [
+        "德布罗意波"
+      ],
+      "next": [
+        "不确定性关系"
+      ],
+      "related_core": [
+        "微观波动",
+        "动量"
+      ]
+    }
+  },
+  {
+    "id": "selective3_uncertainty_principle",
+    "name": "不确定性关系",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "微观粒子的位置和动量不可能同时被无限精确地确定，这是微观世界的基本特征。",
+    "formula": "ΔxΔp ≥ h / 4π",
+    "symbols": "Δx 表示位置不确定量；Δp 表示动量不确定量；h 表示普朗克常量。",
+    "mistakes": [
+      "不确定性不是仪器不够精密造成的普通误差，而是微观规律本身。",
+      "位置越确定，动量通常越不确定。"
+    ],
+    "example": "例题：若想把电子位置测得更准确，动量不确定性会怎样？解析：会增大。",
+    "hint": "不确定性关系帮助理解为什么微观粒子不能按经典轨道精确描述。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "物质波",
+      "波粒二象性",
+      "原子模型的局限"
+    ],
+    "graph": {
+      "prerequisite": [
+        "物质波"
+      ],
+      "next": [
+        "量子观念"
+      ],
+      "related_core": [
+        "位置",
+        "动量"
+      ]
+    }
+  },
+  {
+    "id": "selective3_quantum_view",
+    "name": "量子观念",
+    "textbook": "选择性必修三",
+    "chapter": "选择性必修三",
+    "category": "波粒二象性",
+    "definition": "量子观念认为微观世界中能量、状态等常表现为分立和概率性的规律，不能完全用经典图像解释。",
+    "formula": "E = hν",
+    "symbols": "E 表示能量量子；hν 表示与频率对应的一份能量。",
+    "mistakes": [
+      "量子不是“很小的粒子”的同义词，而是一份离散的物理量。",
+      "微观概率规律不等于完全没有规律。"
+    ],
+    "example": "例题：原子光谱呈线状与什么观念有关？解析：能级分立，体现量子化观念。",
+    "hint": "量子观念的核心是分立、概率和实验事实。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "能级",
+      "光子",
+      "不确定性关系"
+    ],
+    "graph": {
+      "prerequisite": [
+        "能级",
+        "光子"
+      ],
+      "next": [
+        "近代物理综合"
+      ],
+      "related_core": [
+        "量子化",
+        "概率"
+      ]
+    }
   }
 ]
