@@ -1383,7 +1383,24 @@ function renderDiagram(id, rawId = id) {
     "mechanical-energy": `<svg class="mini-diagram motion-diagram energy-diagram" viewBox="0 0 260 190"><defs>${svgArrow()}</defs><path class="track-line" d="M36 156H226"/><path class="trace" d="M44 144 C86 44 164 40 220 144"/><circle class="moving-dot" cx="84" cy="78" r="10"/><circle class="paper-dot d2" cx="134" cy="52" r="5"/><circle class="paper-dot d3" cx="188" cy="100" r="5"/><path class="component-y" d="M84 78v66" marker-end="url(#miniArrow)"/><path class="speed-arrow" d="M98 80h64" marker-end="url(#miniArrow)"/><path class="average-line" d="M56 164h148" marker-end="url(#miniArrow)"/><text x="54" y="58">势能大</text><text x="142" y="72">动能增大</text><text x="82" y="178">机械能守恒</text></svg>`,
   };
   const key = diagrams[id] ? id : diagramAliases[id] || diagramAliases[rawId] || rawId;
-  return diagrams[key] || diagrams.force;
+  return diagrams[key] || renderSupplementDiagram(rawId) || diagrams.force;
+}
+
+function renderSupplementDiagram(rawId = "") {
+  const id = String(rawId);
+  if (id.includes("momentum") || id.includes("impulse") || id.includes("collision") || id.includes("recoil")) {
+    return `<svg class="mini-diagram motion-diagram momentum-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="track-line" d="M34 132H226"/><circle class="moving-dot" cx="74" cy="132" r="14"/><rect class="force-block" x="150" y="106" width="46" height="26" rx="8"/><path class="speed-arrow" d="M92 132h72" marker-end="url(#miniArrow)"/><path class="pair-b" d="M150 116H96" marker-end="url(#miniArrow)"/><text x="94" y="96">p = mv</text><text x="86" y="154">动量方向</text><text x="152" y="100">碰撞体</text></svg>`;
+  }
+  if (id.includes("vibration") || id.includes("harmonic") || id.includes("oscillator") || id.includes("pendulum") || id.includes("amplitude") || id.includes("phase") || id.includes("resonance")) {
+    return `<svg class="mini-diagram motion-diagram vibration-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="track-line" d="M34 132H226"/><path class="spring-line" d="M44 92 h34 l8-18 l10 36 l10-36 l10 36 l10-36 l10 36 l8-18 h36"/><rect class="force-block" x="178" y="74" width="38" height="38" rx="8"/><path class="span-line" d="M130 56v96"/><path class="accent-line" d="M178 92h-52" marker-end="url(#miniArrow)"/><path class="average-line" d="M90 154h94" marker-end="url(#miniArrow)"/><text x="114" y="48">平衡位置</text><text x="96" y="170">A</text><text x="126" y="86">回复力</text></svg>`;
+  }
+  if (id.includes("wave") || id.includes("doppler")) {
+    return `<svg class="mini-diagram motion-diagram wave-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="trace" d="M28 96 C50 46 72 146 94 96 S138 46 160 96 204 146 226 96"/><path class="accent-line" d="M36 52h184" marker-end="url(#miniArrow)"/><path class="span-line" d="M50 132h88"/><path class="height-line" d="M94 96v-48"/><text x="108" y="148">lambda</text><text x="102" y="72">A</text><text x="112" y="38">波形传播</text><text x="70" y="166">质点振动</text></svg>`;
+  }
+  if (id.includes("light") || id.includes("optics")) {
+    return `<svg class="mini-diagram motion-diagram optics-diagram" viewBox="0 0 260 180"><defs>${svgArrow()}</defs><path class="height-line" d="M132 28v132"/><path class="track-line" d="M42 94H222"/><path class="diag-force" d="M44 46 132 94" marker-end="url(#miniArrow)"/><path class="accent-line" d="M132 94 218 132" marker-end="url(#miniArrow)"/><path class="average-line" d="M132 94 214 58" marker-end="url(#miniArrow)"/><text x="62" y="50">入射光</text><text x="168" y="126">折射光</text><text x="166" y="54">反射光</text><text x="138" y="88">界面</text></svg>`;
+  }
+  return "";
 }
 
 function svgArrow() {

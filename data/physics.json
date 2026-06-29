@@ -2754,5 +2754,354 @@
         "selective1_sound_wave"
       ]
     }
+  },
+  {
+    "id": "selective1_light_straight",
+    "name": "光的直线传播",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "在同种均匀介质中，光沿直线传播。影子、小孔成像和日食月食都能用这个规律解释。",
+    "formula": "",
+    "symbols": "光线是表示光传播方向的理想模型，箭头表示传播方向；实际光束有宽度，光线只是便于分析的抽象。",
+    "mistakes": [
+      "光的直线传播有条件：同种、均匀介质。",
+      "光线不是实际存在的一根线，而是表示传播方向的模型。"
+    ],
+    "example": "例题：小孔成像为什么是倒立的？解析：物体上方发出的光沿直线通过小孔后到达屏下方，下方发出的光到达屏上方，所以成倒立像。",
+    "hint": "遇到影子和小孔成像，先画两条边缘光线。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_light_reflection",
+      "selective1_light_refraction"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_speed_wavelength_frequency"
+      ],
+      "next": [
+        "selective1_light_reflection",
+        "selective1_light_refraction"
+      ],
+      "related_core": [
+        "selective1_wave_diffraction"
+      ]
+    }
+  },
+  {
+    "id": "selective1_light_reflection",
+    "name": "光的反射",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "光射到界面后返回原介质的现象叫反射，反射光线、入射光线和法线在同一平面内。",
+    "formula": "∠i = ∠r",
+    "symbols": "∠i 表示入射角；∠r 表示反射角；角都要从法线量起，不是从镜面量起。",
+    "mistakes": [
+      "入射角和反射角都是与法线的夹角。",
+      "镜面反射和漫反射都遵守反射定律。"
+    ],
+    "example": "例题：入射光线与法线夹角 35°，反射角是多少？解析：反射角等于入射角，所以为 35°。",
+    "hint": "画反射题一定先画法线，再量角。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_light_straight",
+      "selective1_plane_mirror",
+      "selective1_light_refraction"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_light_straight"
+      ],
+      "next": [
+        "selective1_plane_mirror",
+        "selective1_light_refraction"
+      ],
+      "related_core": [
+        "selective1_wave_reflection_refraction"
+      ]
+    }
+  },
+  {
+    "id": "selective1_plane_mirror",
+    "name": "平面镜成像",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "平面镜成像是光的反射形成的虚像，像和物关于镜面对称，大小相等、正立。",
+    "formula": "像距 = 物距",
+    "symbols": "像距是像到镜面的距离；物距是物到镜面的距离。平面镜中的像不能用光屏承接，属于虚像。",
+    "mistakes": [
+      "平面镜成的是虚像，不是实际光线会聚形成的实像。",
+      "人远离镜子时，像大小不变，只是看起来视角变小。"
+    ],
+    "example": "例题：人离平面镜 1.5 m，像离人多远？解析：像到镜面 1.5 m，人到镜面 1.5 m，所以像离人 3.0 m。",
+    "hint": "平面镜题抓住“关于镜面对称”。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_light_reflection",
+      "selective1_light_straight"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_light_reflection"
+      ],
+      "next": [
+        "selective1_light_refraction"
+      ],
+      "related_core": [
+        "selective1_light_straight"
+      ]
+    }
+  },
+  {
+    "id": "selective1_light_refraction",
+    "name": "光的折射",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "光从一种介质斜射入另一种介质时，传播方向通常发生改变，这种现象叫折射。",
+    "formula": "n = sin i / sin r",
+    "symbols": "i 表示入射角；r 表示折射角；n 表示相对折射率。角都从法线量起。",
+    "mistakes": [
+      "垂直入射时传播方向不变，但传播速度仍可能改变。",
+      "进入光密介质时折射角通常变小，不是光线一定向下偏。"
+    ],
+    "example": "例题：筷子插入水中看起来弯折，主要是什么现象？解析：水中筷子反射的光从水进入空气时发生折射，人眼沿折射光反向看，觉得筷子变浅、弯折。",
+    "hint": "折射题先判断从哪种介质到哪种介质，再画法线。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_light_reflection",
+      "selective1_refractive_index",
+      "selective1_total_internal_reflection"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_light_reflection"
+      ],
+      "next": [
+        "selective1_refractive_index",
+        "selective1_total_internal_reflection"
+      ],
+      "related_core": [
+        "selective1_wave_reflection_refraction"
+      ]
+    }
+  },
+  {
+    "id": "selective1_refractive_index",
+    "name": "折射率",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "折射率反映介质对光传播的影响，真空中光速与介质中光速之比叫该介质的绝对折射率。",
+    "formula": "n = c / v",
+    "symbols": "n 表示折射率；c 表示真空中光速；v 表示光在介质中的速度。n 越大，光在该介质中传播越慢。",
+    "mistakes": [
+      "折射率越大，光速越小，不是光速越大。",
+      "折射率没有单位，是两个速度的比值。"
+    ],
+    "example": "例题：某介质折射率为 1.5，光在其中速度是多少？解析：v=c/n≈3.0×10^8/1.5=2.0×10^8 m/s。",
+    "hint": "记住 n=c/v，折射率大代表光走得慢。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_light_refraction",
+      "selective1_total_internal_reflection"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_light_refraction"
+      ],
+      "next": [
+        "selective1_total_internal_reflection"
+      ],
+      "related_core": [
+        "selective1_wave_speed_wavelength_frequency"
+      ]
+    }
+  },
+  {
+    "id": "selective1_total_internal_reflection",
+    "name": "全反射",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "光从光密介质射向光疏介质且入射角大于临界角时，折射光消失，光全部反射回原介质，这叫全反射。",
+    "formula": "sin C = 1 / n",
+    "symbols": "C 表示临界角；n 表示光密介质相对光疏介质的折射率。全反射要求从光密到光疏且入射角足够大。",
+    "mistakes": [
+      "从光疏介质到光密介质不会发生全反射。",
+      "达到临界角时折射角为 90°，大于临界角才发生全反射。"
+    ],
+    "example": "例题：光从玻璃射向空气时可能全反射，从空气射向玻璃能全反射吗？解析：不能，全反射必须从光密介质射向光疏介质。",
+    "hint": "全反射先看方向：光密到光疏，再看角度。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_light_refraction",
+      "selective1_refractive_index",
+      "selective1_optical_fiber"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_light_refraction",
+        "selective1_refractive_index"
+      ],
+      "next": [
+        "selective1_optical_fiber"
+      ],
+      "related_core": [
+        "selective1_light_reflection"
+      ]
+    }
+  },
+  {
+    "id": "selective1_optical_fiber",
+    "name": "光纤",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "光纤利用全反射让光在细长透明介质中多次反射向前传播，可用于通信和医学内窥镜。",
+    "formula": "全反射条件：i > C",
+    "symbols": "i 表示入射角；C 表示临界角。光纤芯层折射率通常大于包层折射率。",
+    "mistakes": [
+      "光纤导光主要靠全反射，不是靠镜子反射。",
+      "光纤要求芯层和包层折射率合理搭配。"
+    ],
+    "example": "例题：光纤为什么能让光沿弯曲路径传播？解析：光在芯层和包层交界处不断发生全反射，所以能被限制在光纤内传播。",
+    "hint": "光纤是全反射最典型的应用。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_total_internal_reflection",
+      "selective1_refractive_index"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_total_internal_reflection"
+      ],
+      "next": [
+        "selective1_light_interference"
+      ],
+      "related_core": [
+        "selective1_light_refraction"
+      ]
+    }
+  },
+  {
+    "id": "selective1_light_interference",
+    "name": "光的干涉",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "两束相干光相遇时，会出现明暗相间的稳定条纹，这说明光具有波动性。",
+    "formula": "相长干涉明，相消干涉暗",
+    "symbols": "相干光要求频率相同、相位差稳定；明纹对应加强，暗纹对应减弱。",
+    "mistakes": [
+      "普通两盏灯通常不能形成稳定干涉，因为相位关系不稳定。",
+      "干涉条纹不是光被遮挡形成的普通影子。"
+    ],
+    "example": "例题：双缝干涉实验出现明暗条纹说明什么？解析：说明光能发生干涉，具有波动性。",
+    "hint": "光的干涉要联系机械波干涉来理解。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_interference",
+      "selective1_light_diffraction",
+      "selective1_light_polarization"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_interference"
+      ],
+      "next": [
+        "selective1_light_diffraction",
+        "selective1_light_polarization"
+      ],
+      "related_core": [
+        "selective1_light_wave_particle"
+      ]
+    }
+  },
+  {
+    "id": "selective1_light_diffraction",
+    "name": "光的衍射",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "光遇到很小的障碍物或通过很窄的缝时，会偏离直线传播方向进入几何阴影区，这种现象叫光的衍射。",
+    "formula": "缝宽接近波长时，衍射明显",
+    "symbols": "缝宽越接近光的波长，衍射现象越明显；可见光波长很短，所以日常衍射不容易明显观察。",
+    "mistakes": [
+      "光也能衍射，只是因为波长很短，通常不如水波、声波明显。",
+      "衍射不是折射，二者产生原因不同。"
+    ],
+    "example": "例题：为什么光的衍射需要很窄的缝才明显？解析：可见光波长很短，只有缝宽接近波长时衍射才明显。",
+    "hint": "把光的衍射和机械波衍射对照学习。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_wave_diffraction",
+      "selective1_light_interference"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_wave_diffraction"
+      ],
+      "next": [
+        "selective1_light_polarization"
+      ],
+      "related_core": [
+        "selective1_light_interference"
+      ]
+    }
+  },
+  {
+    "id": "selective1_light_polarization",
+    "name": "光的偏振",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "光",
+    "definition": "偏振现象说明光的振动方向具有特定取向，也说明光是横波。",
+    "formula": "",
+    "symbols": "偏振片只允许某一方向的光振动通过；自然光可看成包含各个方向振动的光。",
+    "mistakes": [
+      "只有横波才有偏振现象，纵波没有偏振。",
+      "偏振片变暗不是因为吸收了所有光，而是只允许部分振动方向通过。"
+    ],
+    "example": "例题：为什么偏振现象能说明光是横波？解析：偏振与振动方向有关，只有横波有垂直于传播方向的不同振动取向。",
+    "hint": "偏振是判断横波的重要证据。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_light_interference",
+      "selective1_light_diffraction"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_light_interference"
+      ],
+      "next": [
+        "selective1_light_wave_particle"
+      ],
+      "related_core": [
+        "selective1_transverse_longitudinal_wave"
+      ]
+    }
   }
 ]
