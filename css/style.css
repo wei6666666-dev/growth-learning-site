@@ -517,6 +517,34 @@ button:active {
   color: var(--muted);
 }
 
+.difficulty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-strong) 82%, transparent);
+  color: color-mix(in srgb, var(--muted) 88%, var(--text));
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.difficulty-badge i {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 62%, var(--muted));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 9%, transparent);
+}
+
+:root.dark .difficulty-badge {
+  background: color-mix(in srgb, var(--surface-strong) 74%, transparent);
+  border-color: color-mix(in srgb, var(--line) 72%, transparent);
+}
+
 .knowledge-status::before {
   width: 6px;
   height: 6px;
@@ -3211,6 +3239,7 @@ select:focus {
 
   #page-library .physics-chip,
   #page-library .tag,
+  #page-library .difficulty-badge,
   #page-library .status {
     min-height: 28px;
     max-width: 100%;

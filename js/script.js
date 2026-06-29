@@ -400,6 +400,19 @@ function getKnowledgeTier(item) {
   return "standard";
 }
 
+function getDifficultyLevel(item) {
+  const raw = String(item.difficulty || "");
+  const starCount = raw.split("⭐").length - 1;
+  if (starCount) return starCount;
+  const fallbackCount = (raw.match(/猸/g) || []).length;
+  return Math.max(1, fallbackCount || 1);
+}
+
+function renderDifficultyBadge(item) {
+  const level = Math.min(5, getDifficultyLevel(item));
+  return `<span class="difficulty-badge" aria-label="难度 ${level} 级"><i></i><span>Level ${level}</span></span>`;
+}
+
 function getKnowledgeStatus(id) {
   if (state.masteredKnowledge.includes(id)) return { text: "已掌握", className: "mastered" };
   if (state.learningKnowledge?.includes(id) || state.notes[id]) return { text: "学习中", className: "learning" };
@@ -933,7 +946,7 @@ function renderLibrary() {
         <span class="status knowledge-status ${status.className}">${status.text}</span>
         <span class="physics-chip">易错 ${item.mistakes?.length || 1}</span>
         ${relatedNames.length ? `<span class="physics-chip">关联 ${relatedNames.map(escapeHTML).join(" / ")}</span>` : ""}
-        <span class="tag">${escapeHTML(item.difficulty)}</span>
+        ${renderDifficultyBadge(item)}
       </div>
       <div class="card-actions">
         <button class="mini-button detail-button" type="button" data-open-detail="${item.id}">进入详情</button>
