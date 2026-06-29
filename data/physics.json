@@ -1013,7 +1013,7 @@
     "hint": "抓住“速度沿切线，合力指向弯曲一侧”。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch5",
+    "video": "BV1c7411m7D6",
     "related": [
       "motion_instant_velocity",
       "motion_acceleration",
@@ -1133,7 +1133,7 @@
     "hint": "平抛题先用竖直方向求时间，再用水平方向求射程。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch5",
+    "video": "BV1c7411m7D6",
     "related": [
       "motion_decomposition",
       "motion_free_fall",
@@ -1253,7 +1253,7 @@
     "hint": "看到圆周运动加速度，优先判断是否指向圆心。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch6",
+    "video": "BV13b411A7dc",
     "related": [
       "uniform_circular_motion",
       "centripetal_force",
@@ -1332,7 +1332,7 @@
     "hint": "离中心天体越远，绕一圈通常越慢。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch7",
+    "video": "BV141QyYrELE",
     "related": [
       "universal_gravitation",
       "artificial_satellite",
@@ -1370,7 +1370,7 @@
     "hint": "万有引力题重点看质量乘积和距离平方。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch7",
+    "video": "BV141QyYrELE",
     "related": [
       "kepler_laws",
       "artificial_satellite",
@@ -1531,7 +1531,7 @@
     "hint": "功率题要分清“做了多少功”和“做功有多快”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch8",
+    "video": "BV1J4411i76E",
     "related": [
       "work",
       "motion_average_velocity",
@@ -3494,7 +3494,7 @@
     "hint": "先学会画规范电路图，再去分析电流、电压和电阻。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "电流",
       "电压",
@@ -3532,7 +3532,7 @@
     "hint": "电流题先找通过某一截面的电荷量和对应时间。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "电路",
       "电压",
@@ -3569,7 +3569,7 @@
     "hint": "把电压看成两点间的“能量差”，不要把它和电流混为一谈。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "电势差",
       "电流",
@@ -3605,7 +3605,7 @@
     "hint": "电阻的决定因素用“长、细、材料、温度”来记。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "电流",
       "欧姆定律",
@@ -3641,7 +3641,7 @@
     "hint": "做欧姆定律题一定对应清楚“哪个电阻、哪段电压、哪条电流”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "电流",
       "电压",
@@ -3680,7 +3680,7 @@
     "hint": "串联先求总电阻和总电流，再分配各部分电压。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "欧姆定律",
       "并联电路",
@@ -3716,7 +3716,7 @@
     "hint": "并联先抓住“同端电压相等”，再用欧姆定律求支路电流。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "欧姆定律",
       "串联电路",
@@ -3752,7 +3752,7 @@
     "hint": "电功率公式很多，但核心是“同一对象、同一时刻”的 U、I、R 要对应。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "电功",
       "欧姆定律",
@@ -3789,7 +3789,7 @@
     "hint": "遇到发热问题先判断是不是纯电阻，再选择公式。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "电功率",
       "欧姆定律",
@@ -3826,7 +3826,7 @@
     "hint": "闭合电路题先把电源内阻也画进电路，再列总电阻。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1dx411b7FD",
+    "video": "BV1k72cBXEih",
     "related": [
       "欧姆定律",
       "串联电路",
@@ -3863,7 +3863,7 @@
     "hint": "学磁场先建立“电流能产生磁场”的观念，再学受力和运动。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "磁感应强度",
       "磁感线",
@@ -3901,7 +3901,7 @@
     "hint": "记住 B 像电场中的 E，是描述“场”的量。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "磁场",
       "安培力",
@@ -3939,7 +3939,7 @@
     "hint": "看磁感线图时先看方向，再看疏密。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "磁场",
       "磁感应强度",
@@ -3975,7 +3975,7 @@
     "hint": "安培力题先画 B 和 I，再用左手定则定方向。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "磁感应强度",
       "左手定则",
@@ -4013,7 +4013,7 @@
     "hint": "洛伦兹力只改变速度方向时不做功，这是理解圆周运动的关键。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "安培力",
       "带电粒子在磁场中的运动",
@@ -4050,7 +4050,7 @@
     "hint": "把洛伦兹力当向心力列方程，是这类题的核心套路。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "洛伦兹力",
       "向心力",
@@ -4088,7 +4088,7 @@
     "hint": "质谱仪题常常先电场加速、再磁场偏转，分两段分析。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "带电粒子在匀强磁场中的运动",
       "电势差",
@@ -4125,7 +4125,7 @@
     "hint": "回旋加速器要分清磁场“转弯”和电场“加速”的作用。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "带电粒子在匀强磁场中的运动",
       "电场",
@@ -4162,7 +4162,7 @@
     "hint": "多用手实际比划，方向判断比死记文字可靠。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "磁场",
       "磁感线",
@@ -4199,7 +4199,7 @@
     "hint": "方向题一定先标出 B、v 或 I，再用左手定则，不要凭空间想象硬猜。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1T4411o7Ei",
+    "video": "BV1ov6nBnEjB",
     "related": [
       "安培力",
       "洛伦兹力",
@@ -6072,7 +6072,7 @@
     "hint": "原子结构先抓住“核小而重、电子在外”。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "电子",
       "原子核",
@@ -6109,7 +6109,7 @@
     "hint": "记住实验现象和结论一一对应。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "原子结构",
       "原子核",
@@ -6145,7 +6145,7 @@
     "hint": "玻尔模型的关键词是不连续能级和跃迁。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "能级",
       "电子跃迁",
@@ -6182,7 +6182,7 @@
     "hint": "能级题就是找能量差，再对应光子能量。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "玻尔原子模型",
       "电子跃迁",
@@ -6219,7 +6219,7 @@
     "hint": "跃迁题先判断方向，再算能级差。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "能级",
       "光谱",
@@ -6255,7 +6255,7 @@
     "hint": "把光谱线和能级跃迁一一对应起来。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "能级",
       "电子跃迁",
@@ -6291,7 +6291,7 @@
     "hint": "光谱题抓住“特征谱线”这个核心。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "氢原子光谱",
       "电子跃迁",
@@ -6327,7 +6327,7 @@
     "hint": "光子能量只看频率，不看亮不亮。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "能级",
       "电子跃迁",
@@ -6364,7 +6364,7 @@
     "hint": "区分激发和电离，看电子是否还被原子束缚。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "能级",
       "电子跃迁",
@@ -6401,7 +6401,7 @@
     "hint": "学近代物理要有模型意识：实验推动模型升级。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BV1X7411D7Rx",
+    "video": "BV1Au411x7nS",
     "related": [
       "玻尔模型",
       "氢原子光谱",
@@ -6802,7 +6802,7 @@
     "hint": "用实验现象区分波动性和粒子性，不要只背概念。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "光子",
       "光电效应",
@@ -6840,7 +6840,7 @@
     "hint": "光电效应题先看频率，再看光强。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "光子",
       "逸出功",
@@ -6876,7 +6876,7 @@
     "hint": "逸出功是材料门槛，光子能量必须跨过这道门槛。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "光电效应",
       "极限频率",
@@ -6912,7 +6912,7 @@
     "hint": "极限频率就是光电效应的最低通行证。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "逸出功",
       "光电效应",
@@ -6948,7 +6948,7 @@
     "hint": "方程就是能量账本：光子能量=逸出功+剩余动能。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "光电效应",
       "逸出功",
@@ -6985,7 +6985,7 @@
     "hint": "德布罗意波把粒子动量和波长联系起来。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "波粒二象性",
       "动量",
@@ -7022,7 +7022,7 @@
     "hint": "电子衍射是物质波最重要的实验证据之一。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "德布罗意波",
       "波粒二象性",
@@ -7059,7 +7059,7 @@
     "hint": "物质波题通常把 p=mv 代入 λ=h/p。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "德布罗意波",
       "电子衍射",
@@ -7095,7 +7095,7 @@
     "hint": "不确定性关系帮助理解为什么微观粒子不能按经典轨道精确描述。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "物质波",
       "波粒二象性",
@@ -7131,7 +7131,7 @@
     "hint": "量子观念的核心是分立、概率和实验事实。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BV1Ts411c7Xe",
+    "video": "BV1tu4y1f7W7",
     "related": [
       "能级",
       "光子",
