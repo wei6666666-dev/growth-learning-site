@@ -1038,6 +1038,25 @@ function renderVideos() {
   `).join("") : `<div class="empty-state">还没有匹配的视频。</div>`;
 }
 
+function normalizeBv(value) {
+  const match = String(value || "").match(/BV[0-9A-Za-z]+/);
+  return match ? match[0] : "";
+}
+
+function getKnowledgeVideo(item) {
+  const bv = normalizeBv(item?.video);
+  if (!item || !bv) return null;
+  return {
+    id: `knowledge-video-${item.id}`,
+    title: `${item.name} · Bilibili 讲解`,
+    bv,
+    topic: item.name,
+    status: "未观看",
+    favorite: false,
+    source: "knowledge",
+  };
+}
+
 function renderPhysicsTags(id) {
   const pointItem = knowledgePoints.find((item) => item.id === id);
   const tags = physicsTags[id] || physicsTags[pointItem?.detailId] || [pointItem?.difficulty || "Physics"];
@@ -1162,7 +1181,12 @@ function openDetail(id) {
     example: item.example,
     tip: item.hint,
   } : richPointDetails[detailId];
-  const relatedVideos = state.videos.filter((video) => video.topic.includes(item.name) || item.name.includes(video.topic));
+  const knowledgeVideo = getKnowledgeVideo(item);
+  const userVideos = state.videos.filter((video) => video.topic.includes(item.name) || item.name.includes(video.topic));
+  const relatedVideos = [
+    ...(knowledgeVideo ? [knowledgeVideo] : []),
+    ...userVideos.filter((video) => normalizeBv(video.bv) !== knowledgeVideo?.bv),
+  ];
   $("#detailContent").innerHTML = `
     <div class="detail-title-row">
       <div>
@@ -1485,7 +1509,12 @@ function labInputs(type, fields, result) {
 }
 
 function openPlayer(videoId) {
-  const video = state.videos.find((item) => item.id === videoId);
+  let video = state.videos.find((item) => item.id === videoId);
+  if (!video && videoId?.startsWith("knowledge-video-")) {
+    const pointId = videoId.replace("knowledge-video-", "");
+    const pointItem = knowledgePoints.find((item) => item.id === pointId);
+    video = getKnowledgeVideo(pointItem);
+  }
   if (!video) return;
   $("#playerTitle").textContent = video.title;
   $("#playerFrame").innerHTML = `<iframe src="https://player.bilibili.com/player.html?bvid=${encodeURIComponent(video.bv)}" allowfullscreen="allowfullscreen" scrolling="no" title="${escapeHTML(video.title)}"></iframe>`;

@@ -14,7 +14,7 @@
     "hint": "判断能否看作质点时，先看题目关心的是整体运动，还是物体自身形状和转动。",
     "difficulty": "⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1rr421T7ZD",
     "related": [
       "motion_reference_frame",
       "motion_displacement",
@@ -52,7 +52,7 @@
     "hint": "遇到运动描述题，先补一句“以谁为参考系”。",
     "difficulty": "⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1rr421T7ZD",
     "related": [
       "motion_particle",
       "motion_displacement",
@@ -90,7 +90,7 @@
     "hint": "看到“末、初、某一刻”想时刻，看到“内、经过、持续”想时间。",
     "difficulty": "⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1aL4y1s7o4",
     "related": [
       "motion_average_velocity",
       "motion_instant_velocity",
@@ -128,7 +128,7 @@
     "hint": "画出起点和终点，位移就是从起点指向终点的箭头。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1rr421T7ZD",
     "related": [
       "motion_path_length",
       "motion_average_velocity",
@@ -166,7 +166,7 @@
     "hint": "路程看走过的轨迹长度，位移看起点到终点。",
     "difficulty": "⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Mq4y187PL",
     "related": [
       "motion_displacement",
       "motion_average_velocity",
@@ -204,7 +204,7 @@
     "hint": "平均速度一定对应一段过程，计算时先找位移。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iD421E74e",
     "related": [
       "motion_displacement",
       "motion_time_moment",
@@ -245,7 +245,7 @@
     "hint": "平均速度看一段，瞬时速度看一点。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1sw4m1Y7ih",
     "related": [
       "motion_average_velocity",
       "motion_acceleration",
@@ -283,7 +283,7 @@
     "hint": "判断加速度方向时，看速度变化量的方向。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1sw4m1R7cz",
     "related": [
       "motion_average_velocity",
       "motion_instant_velocity",
@@ -324,7 +324,7 @@
     "hint": "先列已知量，再选择未知量最少的公式。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uZubzzEza",
     "related": [
       "motion_acceleration",
       "motion_velocity_formula",
@@ -365,7 +365,7 @@
     "hint": "速度公式适合求某一时刻的速度。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1oP411A7Ey",
     "related": [
       "motion_acceleration",
       "motion_uniformly_accelerated",
@@ -403,7 +403,7 @@
     "hint": "要求一段时间内走到哪里，优先考虑位移公式。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1fA411q7FD",
     "related": [
       "motion_displacement",
       "motion_velocity_formula",
@@ -441,7 +441,7 @@
     "hint": "自由落体就是初速度为0、加速度为g的匀加速直线运动。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eRtSe4EMV",
     "related": [
       "motion_uniformly_accelerated",
       "motion_acceleration",
@@ -479,7 +479,7 @@
     "hint": "竖直上抛要统一正方向，常取向上为正，则加速度为 -g。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Xu4y187Tf",
     "related": [
       "motion_free_fall",
       "motion_velocity_formula",
@@ -517,7 +517,7 @@
     "hint": "看到质量求重力，先写G = mg，再标方向竖直向下。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JNbpzJEj2",
     "related": [
       "motion_free_fall",
       "force_elastic",
@@ -555,7 +555,7 @@
     "hint": "判断弹力先找接触，再看形变方向。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JNbpzJEj2",
     "related": [
       "force_gravity",
       "force_friction",
@@ -593,7 +593,7 @@
     "hint": "判断摩擦力方向时，先判断相对运动或相对运动趋势。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ft411f7jm",
     "related": [
       "force_elastic",
       "force_composition_decomposition",
@@ -631,7 +631,7 @@
     "hint": "遇到斜面或斜拉力，优先考虑正交分解。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1t72hYREae",
     "related": [
       "force_elastic",
       "force_friction",
@@ -669,7 +669,7 @@
     "hint": "用牛顿第一定律纠正直觉：没有合外力，速度不会自己改变。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1tR4y1y7yb",
     "related": [
       "newton_inertia",
       "newton_second_law",
@@ -707,7 +707,7 @@
     "hint": "牛顿第二定律题目按对象、受力、方向、方程四步走。",
     "difficulty": "⭐⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dt411e7AD",
     "related": [
       "motion_acceleration",
       "force_composition_decomposition",
@@ -748,7 +748,7 @@
     "hint": "区分第三定律和平衡力，先看两个力是否作用在同一个物体上。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Pm421s7aN",
     "related": [
       "newton_second_law",
       "force_friction",
@@ -786,7 +786,7 @@
     "hint": "凡是解释“保持原状态”的现象，先想到惯性。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1NW411z7XA",
     "related": [
       "newton_first_law",
       "newton_second_law",
@@ -824,7 +824,7 @@
     "hint": "先画受力图，再选方向，最后列ΣF = ma。",
     "difficulty": "⭐⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ag411p7Yn",
     "related": [
       "newton_second_law",
       "force_friction",
@@ -865,7 +865,7 @@
     "hint": "处理纸带题先数间隔，再看点距变化判断加速还是减速。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu1exp",
+    "video": "BV1MC411t75o",
     "related": [
       "motion_average_velocity",
       "motion_instant_velocity",
@@ -903,7 +903,7 @@
     "hint": "实验题要把纸带、速度表和 v-t 图像联系起来看。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu1exp",
+    "video": "BV1Rh4y1q7xe",
     "related": [
       "motion_acceleration",
       "motion_uniformly_accelerated",
@@ -941,7 +941,7 @@
     "hint": "画 F-x 图像时，斜率就是弹簧的劲度系数。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu1exp",
+    "video": "BV1hG411A7Nx",
     "related": [
       "force_elastic",
       "force_composition_decomposition"
@@ -975,7 +975,7 @@
     "hint": "这类实验最重要的是控制变量和理解图像斜率含义。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu1exp",
+    "video": "BV1Wg41177Ee",
     "related": [
       "newton_second_law",
       "motion_acceleration",
@@ -1054,7 +1054,7 @@
     "hint": "遇到曲线运动速度方向题，就在该点画切线。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch5",
+    "video": "BV1c7411m7D6",
     "related": [
       "curve_motion",
       "motion_instant_velocity",
@@ -1092,7 +1092,7 @@
     "hint": "二维运动先画水平和竖直方向，再分别列式。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch5",
+    "video": "BV1qf4y1b7G2",
     "related": [
       "projectile_motion",
       "motion_displacement",
@@ -1174,7 +1174,7 @@
     "hint": "先区分线速度、角速度、周期，它们描述同一转动的不同侧面。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch6",
+    "video": "BV13b411A7dc",
     "related": [
       "curve_velocity_direction",
       "centripetal_acceleration",
@@ -1212,7 +1212,7 @@
     "hint": "圆周受力题先找圆心，再写指向圆心方向合力。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch6",
+    "video": "BV1ub411v7dt",
     "related": [
       "uniform_circular_motion",
       "centripetal_acceleration",
@@ -1291,7 +1291,7 @@
     "hint": "生活圆周题统一回到“谁提供指向圆心的合力”。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch6",
+    "video": "BV1B2R3YkEaP",
     "related": [
       "centripetal_force",
       "force_friction",
@@ -1411,7 +1411,7 @@
     "hint": "卫星问题先写“万有引力 = 向心力”。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch7",
+    "video": "BV141QyYrELE",
     "related": [
       "universal_gravitation",
       "centripetal_force",
@@ -1452,7 +1452,7 @@
     "hint": "先记住第一宇宙速度的物理意义，再理解更高宇宙速度。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch7",
+    "video": "BV1UsRQBbEwK",
     "related": [
       "artificial_satellite",
       "universal_gravitation",
@@ -1490,7 +1490,7 @@
     "hint": "判断做功先问：有没有力，有没有沿力方向的位移。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch8",
+    "video": "BV1J4411i76E",
     "related": [
       "power",
       "kinetic_energy",
@@ -1569,7 +1569,7 @@
     "hint": "动能题特别注意速度平方。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch8",
+    "video": "BV1D4411i7Ur",
     "related": [
       "work",
       "mechanical_energy_conservation",
@@ -1607,7 +1607,7 @@
     "hint": "势能题先选零势能面，再看高度或形变量变化。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch8",
+    "video": "BV1z4411e7vn",
     "related": [
       "force_gravity",
       "force_elastic",
@@ -1645,7 +1645,7 @@
     "hint": "先检查守恒条件，再选初末状态列能量等式。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "BVbixiu2ch8",
+    "video": "BV1z4411e7eG",
     "related": [
       "kinetic_energy",
       "potential_energy",
@@ -1688,7 +1688,7 @@
     "hint": "学动量先抓住一句话：质量越大、速度越大，物体越不容易被拦停。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV17fVnz6Em9",
     "related": [
       "motion_velocity",
       "newton_second_law",
@@ -1727,7 +1727,7 @@
     "hint": "把冲量理解成“推了多久、推得多用力”的总效果。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1gspneoEkk",
     "related": [
       "selective1_momentum_concept",
       "selective1_impulse_momentum_theorem"
@@ -1763,7 +1763,7 @@
     "hint": "遇到短时间碰撞、打击、缓冲题，优先想到动量定理。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV17fVnz6Em9",
     "related": [
       "selective1_momentum_concept",
       "selective1_impulse",
@@ -1800,7 +1800,7 @@
     "hint": "先选系统，再看外力，最后统一正方向列守恒式。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV17fVnz6Em9",
     "related": [
       "selective1_momentum_concept",
       "selective1_collision",
@@ -1837,7 +1837,7 @@
     "hint": "碰撞题先判动量守恒，再根据题意判断动能是否守恒。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV17fVnz6Em9",
     "related": [
       "selective1_momentum_conservation",
       "selective1_elastic_collision",
@@ -1873,7 +1873,7 @@
     "hint": "弹性碰撞的关键词是“两守恒”：动量守恒、动能守恒。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV17fVnz6Em9",
     "related": [
       "selective1_collision",
       "kinetic_energy",
@@ -1909,7 +1909,7 @@
     "hint": "看到“粘在一起”“嵌入”“共同运动”，优先想到完全非弹性碰撞。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1N441177Ck",
     "related": [
       "selective1_collision",
       "selective1_momentum_conservation",
@@ -1945,7 +1945,7 @@
     "hint": "反冲题抓住“原来静止，总动量为零，分开后动量反向”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12e4y1X7FP",
     "related": [
       "selective1_momentum_conservation",
       "newton_third_law"
@@ -1980,7 +1980,7 @@
     "hint": "列动量守恒前先圈出系统，再检查系统外有没有明显外力。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV17fVnz6Em9",
     "related": [
       "selective1_momentum_conservation",
       "newton_third_law",
@@ -2015,7 +2015,7 @@
     "hint": "实验题重点看误差来源：摩擦、测时、速度方向和系统选择。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1i1421k7vT",
     "related": [
       "selective1_momentum_conservation",
       "selective1_collision",
@@ -2051,7 +2051,7 @@
     "hint": "学简谐运动先抓住“离得越远，拉回来的力越大”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1R24y1t7Mj",
     "related": [
       "elastic",
       "selective1_amplitude",
@@ -2088,7 +2088,7 @@
     "hint": "把平衡位置理解成“最中间、最想停住但往往冲过去”的位置。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1rb41127yf",
     "related": [
       "selective1_simple_harmonic_motion",
       "selective1_amplitude",
@@ -2125,7 +2125,7 @@
     "hint": "看到两端距离，先除以 2 才是振幅。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1XY411R7b4",
     "related": [
       "selective1_equilibrium_position",
       "selective1_period_frequency",
@@ -2161,7 +2161,7 @@
     "hint": "数振动次数时，要确认是否完成“完整来回”。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12m41117i7",
     "related": [
       "selective1_amplitude",
       "selective1_vibration_graph",
@@ -2197,7 +2197,7 @@
     "hint": "判断相位要同时看位置和运动方向。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV15KJV6LE1C",
     "related": [
       "selective1_period_frequency",
       "uniform_circular_motion",
@@ -2234,7 +2234,7 @@
     "hint": "弹簧振子题先找平衡位置，再量相对平衡位置的位移。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1R24y1t7Mj",
     "related": [
       "elastic",
       "selective1_simple_harmonic_motion",
@@ -2271,7 +2271,7 @@
     "hint": "单摆周期重点看摆长和 g，不看质量。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1fg4y1t7Xz",
     "related": [
       "gravity",
       "selective1_period_frequency",
@@ -2307,7 +2307,7 @@
     "hint": "读振动图像先找振幅 A，再找周期 T。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1BM411s7vG",
     "related": [
       "selective1_amplitude",
       "selective1_period_frequency",
@@ -2343,7 +2343,7 @@
     "hint": "记住三点：中间速度最大，两端速度为零，理想情况下总能量不变。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1MM4y1k7S9",
     "related": [
       "mechanical_energy_conservation",
       "kinetic_energy",
@@ -2379,7 +2379,7 @@
     "hint": "生活中的秋千、乐器、桥梁振动都是理解共振的好例子。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1R24y1t7Mj",
     "related": [
       "selective1_period_frequency",
       "selective1_simple_pendulum",
@@ -2415,7 +2415,7 @@
     "hint": "理解机械波时，把“质点振动”和“波形传播”分开看。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_simple_harmonic_motion",
       "selective1_wave_speed_wavelength_frequency",
@@ -2452,7 +2452,7 @@
     "hint": "一句话判断：垂直是横波，同线是纵波。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_mechanical_wave",
       "selective1_wave_image",
@@ -2488,7 +2488,7 @@
     "hint": "波速公式最常用，先看题目给的是 λ、f 还是 T。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_mechanical_wave",
       "selective1_period_frequency",
@@ -2525,7 +2525,7 @@
     "hint": "读图先分清横轴：位置轴是波形图，时间轴是振动图。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_vibration_graph",
       "selective1_wave_speed_wavelength_frequency",
@@ -2561,7 +2561,7 @@
     "hint": "不会判断时，用“波形微微平移法”最稳。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_wave_image",
       "selective1_phase",
@@ -2597,7 +2597,7 @@
     "hint": "边界问题抓住：频率不变，波速看介质，波长跟着变。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12N411G74i",
     "related": [
       "selective1_wave_speed_wavelength_frequency",
       "selective1_wave_image"
@@ -2632,7 +2632,7 @@
     "hint": "干涉关键词：相干、叠加、加强点、减弱点。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_wave_propagation_direction",
       "selective1_wave_reflection_refraction",
@@ -2668,7 +2668,7 @@
     "hint": "记住“尺寸接近波长，绕射更明显”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_wave_speed_wavelength_frequency",
       "selective1_wave_interference",
@@ -2704,7 +2704,7 @@
     "hint": "叠加本质是“同一质点同一时刻的位移相加”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1cN411N7bu",
     "related": [
       "selective1_wave_interference",
       "selective1_wave_image"
@@ -2738,7 +2738,7 @@
     "hint": "听到音调变高，多半是波源和观察者在接近。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1iT411s72y",
     "related": [
       "selective1_wave_speed_wavelength_frequency",
       "selective1_sound_wave"
@@ -2772,7 +2772,7 @@
     "hint": "遇到影子和小孔成像，先画两条边缘光线。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1bDjo6pE8U",
     "related": [
       "selective1_light_reflection",
       "selective1_light_refraction"
@@ -2807,7 +2807,7 @@
     "hint": "画反射题一定先画法线，再量角。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12c411W7rA",
     "related": [
       "selective1_light_straight",
       "selective1_plane_mirror",
@@ -2843,7 +2843,7 @@
     "hint": "平面镜题抓住“关于镜面对称”。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Tw4m1Y7w7",
     "related": [
       "selective1_light_reflection",
       "selective1_light_straight"
@@ -2877,7 +2877,7 @@
     "hint": "折射题先判断从哪种介质到哪种介质，再画法线。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1bDjo6pE8U",
     "related": [
       "selective1_light_reflection",
       "selective1_refractive_index",
@@ -2913,7 +2913,7 @@
     "hint": "记住 n=c/v，折射率大代表光走得慢。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1bDjo6pE8U",
     "related": [
       "selective1_light_refraction",
       "selective1_total_internal_reflection"
@@ -2947,7 +2947,7 @@
     "hint": "全反射先看方向：光密到光疏，再看角度。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1bDjo6pE8U",
     "related": [
       "selective1_light_refraction",
       "selective1_refractive_index",
@@ -2983,7 +2983,7 @@
     "hint": "光纤是全反射最典型的应用。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1bDjo6pE8U",
     "related": [
       "selective1_total_internal_reflection",
       "selective1_refractive_index"
@@ -3017,7 +3017,7 @@
     "hint": "光的干涉要联系机械波干涉来理解。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1bDjo6pE8U",
     "related": [
       "selective1_wave_interference",
       "selective1_light_diffraction",
@@ -3053,7 +3053,7 @@
     "hint": "把光的衍射和机械波衍射对照学习。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1bDjo6pE8U",
     "related": [
       "selective1_wave_diffraction",
       "selective1_light_interference"
@@ -3087,7 +3087,7 @@
     "hint": "偏振是判断横波的重要证据。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T7411j7Ru",
     "related": [
       "selective1_light_interference",
       "selective1_light_diffraction"
@@ -3121,7 +3121,7 @@
     "hint": "先抓住“电荷守恒”和“正负电荷相互作用”，后面的电场、电势才有根基。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "库仑定律",
       "电场",
@@ -3158,7 +3158,7 @@
     "hint": "把库仑定律和万有引力定律对比学习：形式相似，但作用对象和方向规则不同。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "电荷",
       "电场强度",
@@ -3195,7 +3195,7 @@
     "hint": "学习电场时要把“场”理解成空间属性，而不是某个具体电荷本身。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "电荷",
       "电场强度",
@@ -3233,7 +3233,7 @@
     "hint": "做场强题时先找“谁产生电场”，再判断“这个点的场强”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "电场",
       "库仑定律",
@@ -3271,7 +3271,7 @@
     "hint": "看电场线图时先看箭头方向，再看疏密变化。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "电场",
       "电场强度",
@@ -3308,7 +3308,7 @@
     "hint": "把电势能和重力势能类比，重点看力做功和能量变化的关系。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "功",
       "电势",
@@ -3346,7 +3346,7 @@
     "hint": "电势像“电场中的高度”，但不要把它当成距离高度。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "电势能",
       "电势差",
@@ -3382,7 +3382,7 @@
     "hint": "电势差题一定先看清从哪点到哪点，再代入下标方向。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "电势",
       "电势能",
@@ -3420,7 +3420,7 @@
     "hint": "把电容器想成“储存电荷的容器”，但它储存的是等量异种电荷形成的电场状态。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Z4411C7xH",
     "related": [
       "电容",
       "电势差",
@@ -3457,7 +3457,7 @@
     "hint": "记住电容看“结构”，充了多少电只是它当前状态。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV12p3XzqE2c",
     "related": [
       "电容器",
       "电势差",
@@ -3494,7 +3494,7 @@
     "hint": "先学会画规范电路图，再去分析电流、电压和电阻。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "电流",
       "电压",
@@ -3532,7 +3532,7 @@
     "hint": "电流题先找通过某一截面的电荷量和对应时间。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "电路",
       "电压",
@@ -3569,7 +3569,7 @@
     "hint": "把电压看成两点间的“能量差”，不要把它和电流混为一谈。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "电势差",
       "电流",
@@ -3605,7 +3605,7 @@
     "hint": "电阻的决定因素用“长、细、材料、温度”来记。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "电流",
       "欧姆定律",
@@ -3641,7 +3641,7 @@
     "hint": "做欧姆定律题一定对应清楚“哪个电阻、哪段电压、哪条电流”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "电流",
       "电压",
@@ -3680,7 +3680,7 @@
     "hint": "串联先求总电阻和总电流，再分配各部分电压。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "欧姆定律",
       "并联电路",
@@ -3716,7 +3716,7 @@
     "hint": "并联先抓住“同端电压相等”，再用欧姆定律求支路电流。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "欧姆定律",
       "串联电路",
@@ -3752,7 +3752,7 @@
     "hint": "电功率公式很多，但核心是“同一对象、同一时刻”的 U、I、R 要对应。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "电功",
       "欧姆定律",
@@ -3789,7 +3789,7 @@
     "hint": "遇到发热问题先判断是不是纯电阻，再选择公式。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "电功率",
       "欧姆定律",
@@ -3826,7 +3826,7 @@
     "hint": "闭合电路题先把电源内阻也画进电路，再列总电阻。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1dx411b7FD",
     "related": [
       "欧姆定律",
       "串联电路",
@@ -3863,7 +3863,7 @@
     "hint": "学磁场先建立“电流能产生磁场”的观念，再学受力和运动。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "磁感应强度",
       "磁感线",
@@ -3901,7 +3901,7 @@
     "hint": "记住 B 像电场中的 E，是描述“场”的量。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "磁场",
       "安培力",
@@ -3939,7 +3939,7 @@
     "hint": "看磁感线图时先看方向，再看疏密。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "磁场",
       "磁感应强度",
@@ -3975,7 +3975,7 @@
     "hint": "安培力题先画 B 和 I，再用左手定则定方向。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "磁感应强度",
       "左手定则",
@@ -4013,7 +4013,7 @@
     "hint": "洛伦兹力只改变速度方向时不做功，这是理解圆周运动的关键。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "安培力",
       "带电粒子在磁场中的运动",
@@ -4050,7 +4050,7 @@
     "hint": "把洛伦兹力当向心力列方程，是这类题的核心套路。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "洛伦兹力",
       "向心力",
@@ -4088,7 +4088,7 @@
     "hint": "质谱仪题常常先电场加速、再磁场偏转，分两段分析。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "带电粒子在匀强磁场中的运动",
       "电势差",
@@ -4125,7 +4125,7 @@
     "hint": "回旋加速器要分清磁场“转弯”和电场“加速”的作用。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "带电粒子在匀强磁场中的运动",
       "电场",
@@ -4162,7 +4162,7 @@
     "hint": "多用手实际比划，方向判断比死记文字可靠。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "磁场",
       "磁感线",
@@ -4199,7 +4199,7 @@
     "hint": "方向题一定先标出 B、v 或 I，再用左手定则，不要凭空间想象硬猜。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1T4411o7Ei",
     "related": [
       "安培力",
       "洛伦兹力",
@@ -4236,7 +4236,7 @@
     "hint": "电磁感应题先盯住“磁通量有没有变化”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "电磁感应现象",
       "法拉第电磁感应定律",
@@ -4273,7 +4273,7 @@
     "hint": "判断感应电流的第一句话永远是：磁通量是否变化？",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "磁通量",
       "感应电流",
@@ -4311,7 +4311,7 @@
     "hint": "大小用欧姆定律，方向用楞次定律。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "电磁感应现象",
       "楞次定律",
@@ -4348,7 +4348,7 @@
     "hint": "看到“变化快慢”就想到 ΔΦ/Δt。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "磁通量",
       "感应电动势",
@@ -4385,7 +4385,7 @@
     "hint": "方向题按三步：原磁场方向、磁通量增减、感应磁场方向。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "感应电流",
       "磁通量",
@@ -4422,7 +4422,7 @@
     "hint": "动生电动势题重点看 B、L、v 是否两两垂直。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "法拉第电磁感应定律",
       "洛伦兹力",
@@ -4459,7 +4459,7 @@
     "hint": "记住自感的关键词是“自己电流变化影响自己”。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "法拉第电磁感应定律",
       "楞次定律",
@@ -4496,7 +4496,7 @@
     "hint": "涡流要从“闭合回路很多、磁通量变化”来理解。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "电磁感应现象",
       "焦耳定律",
@@ -4534,7 +4534,7 @@
     "hint": "发电机用“磁通量周期性变化”理解，比死记图像更稳。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "法拉第电磁感应定律",
       "交变电流",
@@ -4570,7 +4570,7 @@
     "hint": "变压器题抓住匝数比决定电压比，再用功率近似守恒判断电流。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1k7411j7oG",
     "related": [
       "电磁感应现象",
       "交变电流",
@@ -4607,7 +4607,7 @@
     "hint": "学习交流电先分清瞬时值、峰值、有效值三种说法。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "发电机原理",
       "正弦式交流电",
@@ -4645,7 +4645,7 @@
     "hint": "看到 sin 后先读出最大值和角速度，再求周期、频率或瞬时值。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "交变电流",
       "周期和频率",
@@ -4683,7 +4683,7 @@
     "hint": "频率、周期、角速度三者经常连着考，要能快速互相转换。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "正弦式交流电",
       "峰值",
@@ -4719,7 +4719,7 @@
     "hint": "遇到生活用电标称值，优先把它看作有效值。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "有效值",
       "正弦式交流电",
@@ -4755,7 +4755,7 @@
     "hint": "计算电功率和电热时通常用有效值。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "峰值",
       "焦耳定律",
@@ -4793,7 +4793,7 @@
     "hint": "高中阶段纯电阻交流电路可像直流一样用有效值计算。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "有效值",
       "电功率",
@@ -4830,7 +4830,7 @@
     "hint": "变压器先用匝数比求电压，再用功率守恒求电流。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "变压器基础",
       "有效值",
@@ -4867,7 +4867,7 @@
     "hint": "远距离输电抓住一个公式：损耗和电流平方成正比。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "理想变压器",
       "交流电功率",
@@ -4904,7 +4904,7 @@
     "hint": "交流发电机把机械能转化为电能，图像来自磁通量的周期变化。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "发电机原理",
       "正弦式交流电",
@@ -4941,7 +4941,7 @@
     "hint": "读交流电图像按“峰值、周期、零点、正负方向”四步来。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1g7411M7YA",
     "related": [
       "正弦式交流电",
       "周期和频率",
@@ -4978,7 +4978,7 @@
     "hint": "先把三条基本观点背熟，再用它们解释扩散、布朗运动和内能。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "扩散现象",
       "布朗运动",
@@ -5015,7 +5015,7 @@
     "hint": "微观尺度题重点学会数量级表达。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "阿伏伽德罗常量",
       "油膜法估测分子大小"
@@ -5050,7 +5050,7 @@
     "hint": "把 NA 当成宏观 mol 和微观粒子数之间的换算器。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "分子大小",
       "气体分子数",
@@ -5086,7 +5086,7 @@
     "hint": "用扩散解释生活现象时，一定扣住“分子无规则热运动”。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "分子动理论",
       "温度的微观意义",
@@ -5122,7 +5122,7 @@
     "hint": "记住布朗运动是“看得见的小颗粒”反映“看不见的分子”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "扩散现象",
       "分子热运动",
@@ -5158,7 +5158,7 @@
     "hint": "看到温度，就想到大量分子热运动平均动能。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "布朗运动",
       "内能",
@@ -5194,7 +5194,7 @@
     "hint": "用“近斥远引”帮助理解固体、液体的性质。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "分子势能",
       "物体的内能",
@@ -5231,7 +5231,7 @@
     "hint": "分子势能和宏观势能类似，关键看相互作用和相对位置。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "分子间作用力",
       "内能",
@@ -5267,7 +5267,7 @@
     "hint": "区分内能和机械能，是热学题少犯错的第一步。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "温度的微观意义",
       "分子势能",
@@ -5304,7 +5304,7 @@
     "hint": "油膜法题最容易错在体积换算，先算纯油酸体积。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1uiLgzYEwM",
     "related": [
       "分子大小",
       "阿伏伽德罗常量",
@@ -5341,7 +5341,7 @@
     "hint": "气体压强题要从分子撞击容器壁的角度理解。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "温度的微观意义",
       "理想气体状态方程",
@@ -5379,7 +5379,7 @@
     "hint": "理想气体和质点一样，是为了简化问题建立的模型。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "分子动理论",
       "理想气体状态方程",
@@ -5415,7 +5415,7 @@
     "hint": "遇到“温度不变”优先想到 pV 不变。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "等温变化",
       "理想气体状态方程",
@@ -5451,7 +5451,7 @@
     "hint": "气体定律中凡是比例式，温度都用 K。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "等容变化",
       "热力学温度",
@@ -5487,7 +5487,7 @@
     "hint": "压强不变时看 V/T，不要和查理定律混淆。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "等压变化",
       "热力学温度",
@@ -5523,7 +5523,7 @@
     "hint": "综合题先判断哪个量不变，再从状态方程化简。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "玻意耳定律",
       "查理定律",
@@ -5560,7 +5560,7 @@
     "hint": "等温过程抓住 T 不变，理想气体内能通常不变。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "玻意耳定律",
       "理想气体状态方程",
@@ -5596,7 +5596,7 @@
     "hint": "等压过程常和气体做功 W=pΔV 联系起来。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "盖-吕萨克定律",
       "气体做功",
@@ -5632,7 +5632,7 @@
     "hint": "等容过程常用于理解密闭容器加热后压强升高。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "查理定律",
       "气体压强",
@@ -5668,7 +5668,7 @@
     "hint": "读图先看坐标轴，再判断哪个量保持不变。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1JL4y1a7GS",
     "related": [
       "等温变化",
       "等压变化",
@@ -5704,7 +5704,7 @@
     "hint": "热学能量题先写 ΔU=Q+W，再按符号约定代入。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "物体的内能",
       "热传递",
@@ -5742,7 +5742,7 @@
     "hint": "看到温度差导致能量转移，就判断为热传递。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "内能",
       "比热容",
@@ -5779,7 +5779,7 @@
     "hint": "看有没有力和位移导致能量转化，判断做功改变内能。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "气体做功",
       "内能",
@@ -5816,7 +5816,7 @@
     "hint": "p-V 图像题先看体积是否变化，再看面积。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "等压变化",
       "气体状态图像",
@@ -5853,7 +5853,7 @@
     "hint": "绝热题看到 Q=0，第一时间把第一定律简化。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "热力学第一定律",
       "气体做功",
@@ -5889,7 +5889,7 @@
     "hint": "第二定律关键词是“方向性”和“不可逆”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "热传递",
       "热机效率",
@@ -5926,7 +5926,7 @@
     "hint": "判断不可逆过程，看它能否自发且无其他影响地恢复原状。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "热力学第二定律",
       "扩散现象",
@@ -5962,7 +5962,7 @@
     "hint": "热机题画清高温热源、做功、低温热源三部分。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "热力学第二定律",
       "热机效率",
@@ -6000,7 +6000,7 @@
     "hint": "效率题先分清吸收热量、放出热量和对外做功。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "热机",
       "热力学第二定律",
@@ -6036,7 +6036,7 @@
     "hint": "制冷机是第二定律的生活例子：逆向热传递必须付出代价。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV14K4y1u7sU",
     "related": [
       "热力学第二定律",
       "热传递",
@@ -6072,7 +6072,7 @@
     "hint": "原子结构先抓住“核小而重、电子在外”。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "电子",
       "原子核",
@@ -6109,7 +6109,7 @@
     "hint": "记住实验现象和结论一一对应。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "原子结构",
       "原子核",
@@ -6145,7 +6145,7 @@
     "hint": "玻尔模型的关键词是不连续能级和跃迁。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "能级",
       "电子跃迁",
@@ -6182,7 +6182,7 @@
     "hint": "能级题就是找能量差，再对应光子能量。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "玻尔原子模型",
       "电子跃迁",
@@ -6219,7 +6219,7 @@
     "hint": "跃迁题先判断方向，再算能级差。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "能级",
       "光谱",
@@ -6255,7 +6255,7 @@
     "hint": "把光谱线和能级跃迁一一对应起来。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "能级",
       "电子跃迁",
@@ -6291,7 +6291,7 @@
     "hint": "光谱题抓住“特征谱线”这个核心。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "氢原子光谱",
       "电子跃迁",
@@ -6327,7 +6327,7 @@
     "hint": "光子能量只看频率，不看亮不亮。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "能级",
       "电子跃迁",
@@ -6364,7 +6364,7 @@
     "hint": "区分激发和电离，看电子是否还被原子束缚。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "能级",
       "电子跃迁",
@@ -6401,7 +6401,7 @@
     "hint": "学近代物理要有模型意识：实验推动模型升级。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1X7411D7Rx",
     "related": [
       "玻尔模型",
       "氢原子光谱",
@@ -6437,7 +6437,7 @@
     "hint": "原子核题先分清质子数、中子数和质量数。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "同位素",
       "核力",
@@ -6474,7 +6474,7 @@
     "hint": "判断同位素只看质子数是否相同、中子数是否不同。",
     "difficulty": "⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "原子核结构",
       "放射性",
@@ -6510,7 +6510,7 @@
     "hint": "放射性问题都要回到“不稳定原子核”。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "α衰变",
       "β衰变",
@@ -6547,7 +6547,7 @@
     "hint": "用“α重、β轻、γ是光子”来区分三类射线。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "天然放射现象",
       "核衰变",
@@ -6583,7 +6583,7 @@
     "hint": "半衰期题用每过一个 T 就乘 1/2。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "半衰期",
       "天然放射现象",
@@ -6619,7 +6619,7 @@
     "hint": "半衰期题画时间轴最不容易错。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "衰变规律",
       "同位素",
@@ -6655,7 +6655,7 @@
     "hint": "质量亏损和核能释放要用质能方程联系。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "结合能",
       "质能方程",
@@ -6692,7 +6692,7 @@
     "hint": "核能题常看反应前后结合能或质量差。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "质量亏损",
       "质能方程",
@@ -6729,7 +6729,7 @@
     "hint": "裂变关键词：重核、中子、链式反应、释放能量。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "结合能",
       "链式反应",
@@ -6765,7 +6765,7 @@
     "hint": "聚变关键词：轻核、高温、太阳、释放能量。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1eE421w7jh",
     "related": [
       "结合能",
       "太阳能量",
@@ -6802,7 +6802,7 @@
     "hint": "用实验现象区分波动性和粒子性，不要只背概念。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "光子",
       "光电效应",
@@ -6840,7 +6840,7 @@
     "hint": "光电效应题先看频率，再看光强。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "光子",
       "逸出功",
@@ -6876,7 +6876,7 @@
     "hint": "逸出功是材料门槛，光子能量必须跨过这道门槛。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "光电效应",
       "极限频率",
@@ -6912,7 +6912,7 @@
     "hint": "极限频率就是光电效应的最低通行证。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "逸出功",
       "光电效应",
@@ -6948,7 +6948,7 @@
     "hint": "方程就是能量账本：光子能量=逸出功+剩余动能。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "光电效应",
       "逸出功",
@@ -6985,7 +6985,7 @@
     "hint": "德布罗意波把粒子动量和波长联系起来。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "波粒二象性",
       "动量",
@@ -7022,7 +7022,7 @@
     "hint": "电子衍射是物质波最重要的实验证据之一。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "德布罗意波",
       "波粒二象性",
@@ -7059,7 +7059,7 @@
     "hint": "物质波题通常把 p=mv 代入 λ=h/p。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "德布罗意波",
       "电子衍射",
@@ -7095,7 +7095,7 @@
     "hint": "不确定性关系帮助理解为什么微观粒子不能按经典轨道精确描述。",
     "difficulty": "⭐⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "物质波",
       "波粒二象性",
@@ -7131,7 +7131,7 @@
     "hint": "量子观念的核心是分立、概率和实验事实。",
     "difficulty": "⭐⭐⭐",
     "status": "unlearned",
-    "video": "",
+    "video": "BV1Ts411c7Xe",
     "related": [
       "能级",
       "光子",
