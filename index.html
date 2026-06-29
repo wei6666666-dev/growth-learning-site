@@ -280,24 +280,67 @@
           </div>
         </section>
 
-        <section class="page-view" id="page-stats" data-page-view="stats">
-          <div class="hero compact reveal">
-            <div>
-              <p class="eyebrow">Study Statistics</p>
+        <section class="page-view stats-analytics-page" id="page-stats" data-page-view="stats">
+          <div class="stats-hero reveal" id="statsHero">
+            <div class="stats-hero-bg" aria-hidden="true"></div>
+            <div class="stats-hero-main">
+              <p class="eyebrow">Growth Analytics</p>
               <h1>学习统计</h1>
-              <p class="hero-copy">让努力看得见，但不让数字喧宾夺主。</p>
+              <p class="hero-copy" id="statsHeroAdvice">把成绩、排名和学科变化，整理成一张安静的成长地图。</p>
+            </div>
+            <div class="stats-hero-data" id="statsHeroData"></div>
+          </div>
+
+          <div class="grade-switch-wrap reveal">
+            <div class="grade-switch" id="gradeSwitch" role="tablist" aria-label="年级切换">
+              <span class="grade-switch-thumb" aria-hidden="true"></span>
+              <button class="grade-option active" type="button" data-grade="高一">高一</button>
+              <button class="grade-option" type="button" data-grade="高二">高二</button>
+              <button class="grade-option" type="button" data-grade="高三">高三</button>
             </div>
           </div>
-          <section class="panel">
-            <div class="panel-head">
-              <div>
-                <p class="eyebrow">Auto Summary</p>
-                <h2>自动统计</h2>
+
+          <section class="analytics-surface" id="analyticsSurface">
+            <div class="stats-grid analytics-metrics" id="statsGrid"></div>
+
+            <section class="analytics-card chart-card">
+              <div class="analytics-card-head">
+                <div><p class="eyebrow">Score Trend</p><h2>成绩趋势</h2></div>
+                <div class="chart-tabs" id="scoreChartMode">
+                  <button class="active" type="button" data-score-chart="total">总分</button>
+                  <button type="button" data-score-chart="subject">单科</button>
+                  <button type="button" data-score-chart="rate">得分率</button>
+                </div>
               </div>
-            </div>
-            <div class="stats-grid" id="statsGrid"></div>
-            <div class="progress-board" id="progressBoard"></div>
+              <div class="chart-shell" id="scoreChart"></div>
+            </section>
+
+            <section class="analytics-card chart-card">
+              <div class="analytics-card-head">
+                <div><p class="eyebrow">Rank Movement</p><h2>排名趋势</h2></div>
+                <div class="chart-legend"><span><i class="legend-class"></i>班级排名</span><span><i class="legend-grade"></i>年级排名</span></div>
+              </div>
+              <div class="chart-shell" id="rankChart"></div>
+            </section>
+
+            <section class="analytics-card subject-card">
+              <div class="analytics-card-head">
+                <div><p class="eyebrow">Subject Insight</p><h2>学科分析</h2></div>
+                <span class="pill" id="subjectFocusLabel">全部学科</span>
+              </div>
+              <div class="subject-grid" id="subjectGrid"></div>
+            </section>
+
+            <section class="analytics-card timeline-card">
+              <div class="analytics-card-head">
+                <div><p class="eyebrow">Exam Timeline</p><h2>考试记录</h2></div>
+                <button class="primary-button" type="button" data-open-score-form>添加成绩</button>
+              </div>
+              <div class="exam-timeline" id="examTimeline"></div>
+            </section>
           </section>
+
+          <button class="score-fab" type="button" data-open-score-form aria-label="添加成绩">+</button>
         </section>
       </main>
 
@@ -386,9 +429,41 @@
       </article>
     </div>
 
+    <div class="modal score-modal" id="scoreModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-score></div>
+      <article class="modal-card score-sheet" role="dialog" aria-modal="true" aria-labelledby="scoreModalTitle">
+        <button class="close-button" type="button" data-close-score aria-label="关闭">×</button>
+        <p class="eyebrow">Exam Record</p>
+        <h2 id="scoreModalTitle">添加成绩</h2>
+        <form class="score-form" id="scoreForm">
+          <div class="form-row">
+            <label>考试名称<input id="scoreExamName" type="text" placeholder="例如 期中考试" required /></label>
+            <label>考试日期<input id="scoreExamDate" type="date" required /></label>
+          </div>
+          <div class="form-row">
+            <label>年级<select id="scoreGrade"><option>高一</option><option>高二</option><option>高三</option></select></label>
+            <label>学科<select id="scoreSubject"></select></label>
+          </div>
+          <div class="form-row">
+            <label>分数<input id="scoreValue" type="number" min="0" step="0.5" placeholder="92" required /></label>
+            <label>满分<input id="scoreFull" type="number" min="1" step="1" placeholder="100" required /></label>
+          </div>
+          <div class="form-row">
+            <label>班级排名<input id="scoreClassRank" type="number" min="1" step="1" placeholder="8" required /></label>
+            <label>年级排名<input id="scoreGradeRank" type="number" min="1" step="1" placeholder="66" required /></label>
+          </div>
+          <div class="form-row">
+            <label>考试人数<input id="scoreStudentCount" type="number" min="1" step="1" placeholder="680" required /></label>
+            <label>备注<input id="scoreNote" type="text" maxlength="80" placeholder="本次选择题稳定，压轴题需复盘" /></label>
+          </div>
+          <button class="primary-button" type="submit">保存成绩</button>
+        </form>
+      </article>
+    </div>
+
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./js/supabase-config.js?v=20260629-supabase"></script>
-    <script src="./js/script.js?v=20260629-bilibili-videos"></script>
+    <script src="./js/script.js?v=20260629-stats-analytics"></script>
   </body>
 </html>

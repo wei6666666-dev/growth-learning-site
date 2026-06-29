@@ -70,6 +70,8 @@ const textbookLabels = {
   selective3: "选择性必修三",
 };
 const materialThemes = ["成长", "坚持", "挫折", "亲情", "青春", "责任"];
+const scoreSubjects = ["语文", "数学", "英语", "物理", "化学", "生物", "政治", "历史", "地理"];
+const gradeOptions = ["高一", "高二", "高三"];
 
 const categoryIcons = {
   "运动的描述": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17c4-8 10-10 16-4"/><circle cx="5" cy="17" r="1.6"/><circle cx="13" cy="10" r="1.4"/><circle cx="20" cy="13" r="1.6"/></svg>`,
@@ -305,6 +307,10 @@ const defaultState = {
   learningKnowledge: [],
   notes: {},
   aiChats: {},
+  activeGrade: "高一",
+  activeScoreChart: "total",
+  activeScoreSubject: "物理",
+  scoreRecords: seedScoreRecords(),
   videos: [
     { id: "bv-BV1Y64y1B7QC", title: "【运动的描述】质点", bv: "BV1Y64y1B7QC", topic: "质点 / 参考系", status: "未观看", favorite: false },
     { id: "bv-BV1TNWFzWERn", title: "高中物理必修一第一章：运动的描述", bv: "BV1TNWFzWERn", topic: "运动的描述", status: "未观看", favorite: false },
@@ -527,6 +533,48 @@ function material(id, theme, title, content, favorite, custom) {
   return { id, theme, title, content, favorite, custom };
 }
 
+function scoreRecord(examName, date, grade, subject, score, fullScore, classRank, gradeRank, studentCount, note = "") {
+  return {
+    id: `score-${grade}-${subject}-${date}-${Math.random().toString(36).slice(2, 8)}`,
+    examName,
+    date,
+    grade,
+    subject,
+    score,
+    fullScore,
+    classRank,
+    gradeRank,
+    studentCount,
+    note,
+    createdAt: new Date().toISOString(),
+  };
+}
+
+function seedScoreRecords() {
+  return [
+    scoreRecord("第一次月考", "2026-03-18", "高一", "语文", 104, 120, 12, 96, 680, "阅读稳定，作文还可以更有层次。"),
+    scoreRecord("第一次月考", "2026-03-18", "高一", "数学", 92, 120, 18, 148, 680, "函数题失分偏多。"),
+    scoreRecord("第一次月考", "2026-03-18", "高一", "英语", 108, 120, 10, 88, 680, "完形和阅读速度不错。"),
+    scoreRecord("第一次月考", "2026-03-18", "高一", "物理", 78, 100, 16, 132, 680, "受力分析需要继续练。"),
+    scoreRecord("期中考试", "2026-04-28", "高一", "语文", 109, 120, 8, 72, 682, "作文结构更清楚了。"),
+    scoreRecord("期中考试", "2026-04-28", "高一", "数学", 98, 120, 14, 116, 682, "基础题更稳，压轴题仍需拆解。"),
+    scoreRecord("期中考试", "2026-04-28", "高一", "英语", 111, 120, 9, 80, 682, "词汇积累有效。"),
+    scoreRecord("期中考试", "2026-04-28", "高一", "物理", 86, 100, 8, 64, 682, "运动学进步明显。"),
+    scoreRecord("第二次月考", "2026-06-12", "高一", "语文", 112, 120, 6, 58, 685, "表达更稳。"),
+    scoreRecord("第二次月考", "2026-06-12", "高一", "数学", 101, 120, 12, 102, 685, "集合和函数仍可提升。"),
+    scoreRecord("第二次月考", "2026-06-12", "高一", "英语", 113, 120, 7, 62, 685, "保持阅读节奏。"),
+    scoreRecord("第二次月考", "2026-06-12", "高一", "物理", 91, 100, 5, 41, 685, "本次物理进步明显。"),
+    scoreRecord("开学摸底", "2026-03-10", "高二", "数学", 96, 150, 20, 188, 720, "新阶段先稳住基础。"),
+    scoreRecord("开学摸底", "2026-03-10", "高二", "物理", 74, 100, 16, 132, 720, "电场概念需要复盘。"),
+    scoreRecord("期中考试", "2026-05-04", "高二", "数学", 112, 150, 14, 121, 720, "解析几何进步。"),
+    scoreRecord("期中考试", "2026-05-04", "高二", "物理", 82, 100, 10, 88, 720, "电路题更稳。"),
+    scoreRecord("一轮诊断", "2026-04-16", "高三", "语文", 106, 150, 24, 210, 760, "作文素材可继续积累。"),
+    scoreRecord("一轮诊断", "2026-04-16", "高三", "数学", 118, 150, 18, 164, 760, "选择填空速度不错。"),
+    scoreRecord("二轮模拟", "2026-06-01", "高三", "语文", 113, 150, 16, 142, 760, "审题更稳。"),
+    scoreRecord("二轮模拟", "2026-06-01", "高三", "数学", 126, 150, 12, 108, 760, "压轴题有突破。"),
+  ];
+}
+
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -538,6 +586,10 @@ function loadState() {
     const merged = { ...structuredClone(defaultState), ...JSON.parse(saved) };
     merged.videos = normalizeStoredVideos(merged.videos);
     merged.aiChats = merged.aiChats || {};
+    merged.scoreRecords = Array.isArray(merged.scoreRecords) && merged.scoreRecords.length ? merged.scoreRecords : seedScoreRecords();
+    merged.activeGrade = merged.activeGrade || "高一";
+    merged.activeScoreChart = merged.activeScoreChart || "total";
+    merged.activeScoreSubject = merged.activeScoreSubject || "物理";
     if (merged.activeCategory === "必修二") {
       merged.activeTextbook = "required2";
       merged.activeCategory = "曲线运动";
@@ -915,6 +967,10 @@ function render() {
 
 function renderFormOptions() {
   $("#mistakeTopic").innerHTML = knowledgePoints.map((item) => `<option value="${item.name}">${item.name}</option>`).join("");
+  const scoreSubject = $("#scoreSubject");
+  if (scoreSubject) scoreSubject.innerHTML = scoreSubjects.map((subject) => `<option value="${subject}">${subject}</option>`).join("");
+  const scoreDate = $("#scoreExamDate");
+  if (scoreDate && !scoreDate.value) scoreDate.value = todayKey();
 }
 
 function renderToday() {
@@ -1133,26 +1189,255 @@ function getMetrics() {
 }
 
 function renderStats() {
+  const records = getGradeRecords();
+  syncGradeSwitch();
+  syncScoreChartTabs();
+  renderStatsHero(records);
+  renderStatsMetrics(records);
+  renderScoreChart(records);
+  renderRankChart(records);
+  renderSubjectAnalysis(records);
+  renderExamTimeline(records);
+}
+
+function getGradeRecords(grade = state.activeGrade) {
+  return (state.scoreRecords || [])
+    .filter((record) => record.grade === grade)
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+}
+
+function groupExams(records) {
+  const groups = new Map();
+  records.forEach((record) => {
+    const key = `${record.examName}__${record.date}`;
+    if (!groups.has(key)) groups.set(key, { examName: record.examName, date: record.date, records: [] });
+    groups.get(key).records.push(record);
+  });
+  return [...groups.values()].sort((a, b) => new Date(a.date) - new Date(b.date)).map((exam) => {
+    const total = sum(exam.records.map((item) => Number(item.score)));
+    const full = sum(exam.records.map((item) => Number(item.fullScore)));
+    const classRank = Math.round(avg(exam.records.map((item) => Number(item.classRank))));
+    const gradeRank = Math.round(avg(exam.records.map((item) => Number(item.gradeRank))));
+    const studentCount = Math.max(...exam.records.map((item) => Number(item.studentCount) || 1));
+    return { ...exam, total, full, rate: full ? total / full : 0, classRank, gradeRank, studentCount };
+  });
+}
+
+function sum(values) {
+  return values.reduce((total, value) => total + (Number(value) || 0), 0);
+}
+
+function avg(values) {
+  const clean = values.map(Number).filter((value) => Number.isFinite(value));
+  return clean.length ? sum(clean) / clean.length : 0;
+}
+
+function formatDate(date) {
+  return new Intl.DateTimeFormat("zh-CN", { month: "short", day: "numeric" }).format(new Date(date));
+}
+
+function renderStatsHero(records) {
+  const exams = groupExams(records);
+  const latest = exams.at(-1);
+  const previous = exams.at(-2);
+  const subjectSummary = getSubjectSummary(records);
+  const best = subjectSummary.reduce((top, item) => (!top || item.avgRate > top.avgRate ? item : top), null);
+  const weak = subjectSummary.reduce((low, item) => (!low || item.avgRate < low.avgRate ? item : low), null);
+  const totalDelta = latest && previous ? latest.total - previous.total : 0;
+  const advice = latest
+    ? `${best?.subject || "优势学科"}保持不错，${weak?.subject || "薄弱学科"}仍有提升空间。${totalDelta > 0 ? `最近总分提升 ${Math.round(totalDelta)} 分。` : totalDelta < 0 ? "最近总分略有波动，先复盘失分点。" : "最近表现保持稳定。"}`
+    : "添加一次考试成绩后，这里会生成你的学习建议。";
+  const heroAdvice = $("#statsHeroAdvice");
+  if (heroAdvice) heroAdvice.textContent = advice;
+  const heroData = $("#statsHeroData");
+  if (!heroData) return;
+  heroData.innerHTML = latest ? [
+    ["当前年级", state.activeGrade],
+    ["最近考试", latest.examName],
+    ["最近总分", `${Math.round(latest.total)}/${Math.round(latest.full)}`],
+    ["年级排名", `#${latest.gradeRank}`],
+    ["班级排名", `#${latest.classRank}`],
+  ].map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("") : `<div><span>当前年级</span><strong>${state.activeGrade}</strong></div><div><span>状态</span><strong>暂无成绩</strong></div>`;
+}
+
+function renderStatsMetrics(records) {
   const metrics = getMetrics();
-  const stats = [
-    ["今日完成任务数", metrics.doneTasks],
-    ["已掌握知识点", metrics.mastered],
-    ["已观看视频", metrics.watchedVideos],
-    ["错题总数", metrics.mistakes],
-    ["连续打卡天数", metrics.streak],
+  const exams = groupExams(records);
+  const latest = exams.at(-1);
+  const subjectSummary = getSubjectSummary(records);
+  const best = subjectSummary.reduce((top, item) => (!top || item.avgRate > top.avgRate ? item : top), null);
+  const weak = subjectSummary.reduce((low, item) => (!low || item.avgRate < low.avgRate ? item : low), null);
+  const averageTotal = Math.round(avg(exams.map((exam) => exam.total)));
+  const averageRate = Math.round(avg(exams.map((exam) => exam.rate)) * 100);
+  const bestRank = Math.min(...exams.map((exam) => exam.gradeRank).filter(Boolean), Infinity);
+  const cards = [
+    ["最近总分", latest ? Math.round(latest.total) : 0, latest ? `满分 ${Math.round(latest.full)}` : "等待录入"],
+    ["平均总分", averageTotal || 0, `${exams.length} 次考试`],
+    ["平均得分率", `${averageRate || 0}%`, "按考试满分计算"],
+    ["最高学科", best?.subject || "暂无", best ? `${Math.round(best.avgRate * 100)}%` : "添加成绩后生成"],
+    ["最弱学科", weak?.subject || "暂无", weak ? `${Math.round(weak.avgRate * 100)}%` : "用于复盘"],
+    ["最近排名", latest ? `#${latest.gradeRank}` : "#-", latest ? `班级 #${latest.classRank}` : "暂无"],
+    ["最佳排名", Number.isFinite(bestRank) ? `#${bestRank}` : "#-", "年级排名"],
+    ["考试次数", exams.length, `学习 ${metrics.streak} 天`],
+    ["学习天数", metrics.streak, `任务 ${metrics.doneTasks} 项`],
   ];
-  $("#statsGrid").innerHTML = stats.map(([label, value]) => `<div class="stat-card"><span class="muted">${label}</span><strong>${value}</strong></div>`).join("");
-  $("#progressBoard").innerHTML = [
-    ["知识掌握", metrics.mastered, knowledgePoints.length],
-    ["视频观看", metrics.watchedVideos, Math.max(state.videos.length, 1)],
-    ["今日任务", metrics.doneTasks, Math.max(state.tasks.filter((item) => item.createdAt === todayKey()).length, 1)],
-  ].map(([label, value, total]) => {
-    const percent = Math.min(100, Math.round((value / total) * 100));
-    return `<div class="progress-card">
-      <label><span>${label}</span><span>${percent}%</span></label>
-      <div class="progress-track"><div class="progress-value" style="width:${percent}%"></div></div>
-    </div>`;
+  const grid = $("#statsGrid");
+  if (!grid) return;
+  grid.innerHTML = cards.map(([label, value, hint], index) => `<div class="stat-card analytics-stat" style="--delay:${index * 35}ms"><span class="muted">${label}</span><strong data-animated-number>${value}</strong><small>${hint}</small></div>`).join("");
+  animateStatNumbers(grid);
+}
+
+function renderScoreChart(records) {
+  const exams = groupExams(records);
+  let points = [];
+  let title = "总分趋势";
+  if (state.activeScoreChart === "rate") {
+    title = "得分率趋势";
+    points = exams.map((exam) => ({ label: exam.examName, date: exam.date, value: Math.round(exam.rate * 100), suffix: "%" }));
+  } else if (state.activeScoreChart === "subject") {
+    title = `${state.activeScoreSubject}趋势`;
+    points = records.filter((item) => item.subject === state.activeScoreSubject).map((item) => ({ label: item.examName, date: item.date, value: Number(item.score), suffix: `/${item.fullScore}` }));
+  } else {
+    points = exams.map((exam) => ({ label: exam.examName, date: exam.date, value: Math.round(exam.total), suffix: "" }));
+  }
+  const chart = $("#scoreChart");
+  if (chart) chart.innerHTML = buildLineChart(points, { title, empty: "添加成绩后显示成绩趋势。" });
+}
+
+function renderRankChart(records) {
+  const exams = groupExams(records);
+  const pointsA = exams.map((exam) => ({ label: exam.examName, date: exam.date, value: exam.classRank, suffix: "名" }));
+  const pointsB = exams.map((exam) => ({ label: exam.examName, date: exam.date, value: exam.gradeRank, suffix: "名" }));
+  const chart = $("#rankChart");
+  if (chart) chart.innerHTML = buildLineChart(pointsA, { title: "排名趋势", second: pointsB, invert: true, empty: "添加成绩后显示排名趋势。" });
+}
+
+function getSubjectSummary(records) {
+  return scoreSubjects.map((subject) => {
+    const items = records.filter((record) => record.subject === subject).sort((a, b) => new Date(a.date) - new Date(b.date));
+    const latest = items.at(-1);
+    const previous = items.at(-2);
+    const avgScore = avg(items.map((item) => item.score));
+    const highest = Math.max(...items.map((item) => item.score), 0);
+    const lowest = items.length ? Math.min(...items.map((item) => item.score)) : 0;
+    const avgRank = Math.round(avg(items.map((item) => item.gradeRank)));
+    const avgRate = avg(items.map((item) => item.score / item.fullScore));
+    const change = latest && previous ? (latest.score / latest.fullScore) - (previous.score / previous.fullScore) : 0;
+    return { subject, items, latest, previous, avgScore, highest, lowest, avgRank, avgRate, change };
+  }).filter((item) => item.items.length);
+}
+
+function renderSubjectAnalysis(records) {
+  const summary = getSubjectSummary(records);
+  const label = $("#subjectFocusLabel");
+  if (label) label.textContent = state.activeScoreSubject || "全部学科";
+  const grid = $("#subjectGrid");
+  if (!grid) return;
+  grid.innerHTML = summary.length ? summary.map((item) => {
+    const trend = item.change > 0.015 ? "up" : item.change < -0.015 ? "down" : "same";
+    const trendText = trend === "up" ? "进步" : trend === "down" ? "波动" : "稳定";
+    return `<button class="subject-insight ${state.activeScoreSubject === item.subject ? "active" : ""}" type="button" data-score-subject="${item.subject}">
+      <span>${item.subject}</span>
+      <strong>${Math.round(item.avgScore)}<small>均分</small></strong>
+      <div><em>最高 ${Math.round(item.highest)}</em><em>最低 ${Math.round(item.lowest)}</em></div>
+      <div><em>最近 ${item.latest.score}/${item.latest.fullScore}</em><em>排名 #${item.latest.gradeRank}</em></div>
+      <b class="trend-${trend}">${trendText} ${Math.abs(Math.round(item.change * 100))}%</b>
+    </button>`;
+  }).join("") : `<div class="empty-state">当前年级还没有学科成绩。</div>`;
+}
+
+function renderExamTimeline(records) {
+  const list = [...records].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const timeline = $("#examTimeline");
+  if (!timeline) return;
+  timeline.innerHTML = list.length ? list.map((record) => {
+    const previous = [...records].filter((item) => item.subject === record.subject && new Date(item.date) < new Date(record.date)).sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+    const delta = previous ? (record.score / record.fullScore) - (previous.score / previous.fullScore) : 0;
+    const trend = delta > 0.015 ? "up" : delta < -0.015 ? "down" : "same";
+    const trendIcon = trend === "up" ? "↑ 进步" : trend === "down" ? "↓ 退步" : "— 保持";
+    const rate = Math.round((record.score / record.fullScore) * 100);
+    return `<article class="exam-card trend-${trend}" data-score-id="${record.id}">
+      <div class="exam-dot"></div>
+      <div class="exam-main">
+        <span>${formatDate(record.date)} · ${record.grade}</span>
+        <h3>${record.examName}</h3>
+        <p>${record.subject} · ${record.score}/${record.fullScore} · 得分率 ${rate}%</p>
+        ${record.note ? `<small>${escapeHTML(record.note)}</small>` : ""}
+      </div>
+      <div class="exam-side">
+        <strong>${trendIcon}</strong>
+        <span>班级 #${record.classRank}</span>
+        <span>年级 #${record.gradeRank}/${record.studentCount}</span>
+        <button class="mini-button danger-button" type="button" data-delete-score="${record.id}">删除</button>
+      </div>
+    </article>`;
+  }).join("") : `<div class="empty-state">还没有成绩记录，点击添加成绩开始建立趋势。</div>`;
+}
+
+function buildLineChart(points, options = {}) {
+  if (!points.length) return `<div class="chart-empty">${options.empty || "暂无数据"}</div>`;
+  const second = options.second || [];
+  const allValues = [...points, ...second].map((item) => Number(item.value)).filter(Number.isFinite);
+  const min = Math.min(...allValues);
+  const max = Math.max(...allValues);
+  const width = 720;
+  const height = 280;
+  const pad = 42;
+  const scaleX = (index, total) => total <= 1 ? width / 2 : pad + (index * (width - pad * 2)) / (total - 1);
+  const scaleY = (value) => {
+    if (max === min) return height / 2;
+    const ratio = (value - min) / (max - min);
+    return options.invert ? pad + ratio * (height - pad * 2) : height - pad - ratio * (height - pad * 2);
+  };
+  const pathFor = (series) => series.map((item, index) => `${index ? "L" : "M"} ${scaleX(index, series.length).toFixed(1)} ${scaleY(item.value).toFixed(1)}`).join(" ");
+  const nodesFor = (series, kind = "primary") => series.map((item, index) => {
+    const x = scaleX(index, series.length);
+    const y = scaleY(item.value);
+    return `<button class="chart-node ${kind}" style="left:${(x / width) * 100}%;top:${(y / height) * 100}%" type="button" data-chart-tip="${escapeHTML(item.label)} · ${formatDate(item.date)} · ${item.value}${item.suffix || ""}"></button>`;
   }).join("");
+  return `<div class="chart-title-row"><strong>${options.title || "趋势"}</strong><span>${points.length} 个节点</span></div>
+    <div class="svg-chart" data-chart-area>
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${options.title || "趋势图"}">
+        <path class="grid-line" d="M${pad} ${pad}H${width - pad}M${pad} ${height / 2}H${width - pad}M${pad} ${height - pad}H${width - pad}" />
+        ${second.length ? `<path class="trend-line trend-line-secondary" d="${pathFor(second)}" />` : ""}
+        <path class="trend-line" d="${pathFor(points)}" />
+      </svg>
+      ${nodesFor(points)}${second.length ? nodesFor(second, "secondary") : ""}
+      <div class="chart-tooltip" id="chartTooltip"></div>
+    </div>`;
+}
+
+function syncGradeSwitch() {
+  const switcher = $("#gradeSwitch");
+  if (!switcher) return;
+  const index = Math.max(0, gradeOptions.indexOf(state.activeGrade));
+  switcher.style.setProperty("--grade-index", index);
+  $$(".grade-option").forEach((button) => button.classList.toggle("active", button.dataset.grade === state.activeGrade));
+  $$("#scoreGrade option").forEach((option) => { option.selected = option.value === state.activeGrade; });
+}
+
+function syncScoreChartTabs() {
+  $$("#scoreChartMode button").forEach((button) => button.classList.toggle("active", button.dataset.scoreChart === state.activeScoreChart));
+}
+
+function animateStatNumbers(container) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  container.querySelectorAll("[data-animated-number]").forEach((node) => {
+    const raw = node.textContent.trim();
+    const target = Number(raw.replace(/[^0-9.]/g, ""));
+    if (!Number.isFinite(target) || !target) return;
+    const prefix = raw.startsWith("#") ? "#" : "";
+    const suffix = raw.endsWith("%") ? "%" : "";
+    const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min(1, (now - start) / 620);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      node.textContent = `${prefix}${Math.round(target * eased)}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+      else node.textContent = raw;
+    };
+    requestAnimationFrame(tick);
+  });
 }
 
 function updateStreak() {
@@ -1730,6 +2015,55 @@ document.addEventListener("click", (event) => {
   const nav = event.target.closest("[data-page]");
   if (nav) setPage(nav.dataset.page);
 
+  const grade = event.target.closest("[data-grade]");
+  if (grade) {
+    const surface = $("#analyticsSurface");
+    surface?.classList.add("switching");
+    state.activeGrade = grade.dataset.grade;
+    saveState();
+    setTimeout(() => {
+      renderStats();
+      surface?.classList.remove("switching");
+    }, 180);
+  }
+
+  const scoreChart = event.target.closest("[data-score-chart]");
+  if (scoreChart) {
+    state.activeScoreChart = scoreChart.dataset.scoreChart;
+    $$("#scoreChartMode button").forEach((button) => button.classList.toggle("active", button === scoreChart));
+    saveState();
+    renderStats();
+  }
+
+  const scoreSubject = event.target.closest("[data-score-subject]");
+  if (scoreSubject) {
+    state.activeScoreSubject = scoreSubject.dataset.scoreSubject;
+    state.activeScoreChart = "subject";
+    saveState();
+    renderStats();
+  }
+
+  if (event.target.closest("[data-open-score-form]")) {
+    prepareScoreForm();
+    openModal("#scoreModal");
+  }
+
+  if (event.target.closest("[data-close-score]")) closeModal("#scoreModal");
+
+  const deleteScore = event.target.closest("[data-delete-score]");
+  if (deleteScore && confirmDelete("确定删除这条成绩记录吗？")) {
+    const card = deleteScore.closest(".exam-card");
+    card?.classList.add("removing");
+    setTimeout(() => {
+      state.scoreRecords = state.scoreRecords.filter((item) => item.id !== deleteScore.dataset.deleteScore);
+      saveState("成绩记录已删除");
+      renderStats();
+    }, 180);
+  }
+
+  const chartTip = event.target.closest("[data-chart-tip]");
+  if (chartTip) showChartTip(chartTip);
+
   const textbook = event.target.closest("[data-textbook]");
   if (textbook) {
     state.activeTextbook = textbook.dataset.textbook;
@@ -1972,16 +2306,79 @@ $("#materialForm").addEventListener("submit", (event) => {
   renderMaterials();
 });
 
+function prepareScoreForm() {
+  const form = $("#scoreForm");
+  if (!form) return;
+  form.reset();
+  $("#scoreExamDate").value = todayKey();
+  $("#scoreGrade").value = state.activeGrade;
+  $("#scoreSubject").value = state.activeScoreSubject || "物理";
+  $("#scoreFull").value = ["语文", "数学", "英语"].includes($("#scoreSubject").value) ? 120 : 100;
+}
+
+const scoreForm = $("#scoreForm");
+if (scoreForm) {
+  scoreForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const record = {
+      id: `score-${Date.now()}`,
+      examName: $("#scoreExamName").value.trim(),
+      date: $("#scoreExamDate").value,
+      grade: $("#scoreGrade").value,
+      subject: $("#scoreSubject").value,
+      score: Number($("#scoreValue").value),
+      fullScore: Number($("#scoreFull").value),
+      classRank: Number($("#scoreClassRank").value),
+      gradeRank: Number($("#scoreGradeRank").value),
+      studentCount: Number($("#scoreStudentCount").value),
+      note: $("#scoreNote").value.trim(),
+      createdAt: new Date().toISOString(),
+    };
+    if (!record.examName || !record.date || record.score > record.fullScore) {
+      showToast("请检查考试名称、日期和分数");
+      return;
+    }
+    state.activeGrade = record.grade;
+    state.activeScoreSubject = record.subject;
+    state.scoreRecords.unshift(record);
+    saveState("成绩已保存");
+    closeModal("#scoreModal");
+    renderStats();
+    setTimeout(() => document.querySelector(`[data-score-id="${CSS.escape(record.id)}"]`)?.classList.add("just-added"), 30);
+  });
+}
+
+function showChartTip(node) {
+  const area = node.closest("[data-chart-area]");
+  const tip = area?.querySelector(".chart-tooltip");
+  if (!area || !tip) return;
+  tip.textContent = node.dataset.chartTip;
+  tip.style.left = node.style.left;
+  tip.style.top = node.style.top;
+  tip.classList.add("show");
+  clearTimeout(showChartTip.timer);
+  showChartTip.timer = setTimeout(() => tip.classList.remove("show"), 1800);
+}
+
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   closeModal("#detailModal");
   closeModal("#playerModal");
   closeModal("#authModal");
+  closeModal("#scoreModal");
 });
 
 document.addEventListener("input", (event) => {
+  if (event.target.matches("#scoreSubject")) {
+    $("#scoreFull").value = ["语文", "数学", "英语"].includes(event.target.value) ? 120 : 100;
+  }
   if (!event.target.closest(".mini-lab")) return;
   updateMiniLab(event.target.closest(".mini-lab"));
+});
+
+document.addEventListener("pointerover", (event) => {
+  const chartTip = event.target.closest("[data-chart-tip]");
+  if (chartTip) showChartTip(chartTip);
 });
 
 document.addEventListener("pointerdown", (event) => {
