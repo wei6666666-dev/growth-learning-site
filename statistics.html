@@ -153,9 +153,14 @@
               <h1>物理知识库</h1>
               <p class="hero-copy">从运动开始，把高中物理一点点搭起来。</p>
             </div>
-            <div class="term-card">
-              <span>当前教材</span>
-              <strong>高一上 · 必修第一册</strong>
+            <div class="term-card textbook-card">
+              <span>????</span>
+              <strong id="currentTextbookLabel">??? ? ?????</strong>
+              <div class="textbook-switch" role="group" aria-label="????">
+                <button class="textbook-option active" type="button" data-textbook="required1">???</button>
+                <button class="textbook-option" type="button" data-textbook="required2">???</button>
+                <button class="textbook-option" type="button" data-textbook="selective1">选择性必修一</button>
+              </div>
             </div>
           </div>
           <div class="library-layout">
@@ -382,6 +387,6 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./js/supabase-config.js?v=20260629-supabase"></script>
-    <script src="./js/script.js?v=20260629-refined-badges"></script>
+    <script src="./js/script.js?v=20260629-selective1-nav"></script>
   </body>
 </html>

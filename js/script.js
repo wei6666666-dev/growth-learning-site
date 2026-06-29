@@ -45,9 +45,21 @@ let physicsDataStatus = {
 
 const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "实验专区", "视频课程"];
 const requiredTwoCategories = ["曲线运动", "圆周运动", "万有引力与宇宙航行", "机械能守恒定律", "视频课程"];
+const selectiveOneCategories = ["动量", "机械振动", "机械波", "光", "视频课程"];
+const textbookCategoryMap = {
+  required1: physicsCategories,
+  required2: requiredTwoCategories,
+  selective1: selectiveOneCategories,
+};
+const textbookKeyMap = {
+  "必修一": "required1",
+  "必修二": "required2",
+  "选择性必修一": "selective1",
+};
 const textbookLabels = {
   required1: "高一上 · 必修第一册",
   required2: "高一下 · 必修第二册",
+  selective1: "选择性必修一",
 };
 const materialThemes = ["成长", "坚持", "挫折", "亲情", "青春", "责任"];
 
@@ -60,6 +72,10 @@ const categoryIcons = {
   "圆周运动": `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M12 5v7h7"/><path d="m17 10 2 2-2 2"/></svg>`,
   "万有引力与宇宙航行": `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M4 12c3-6 13-6 16 0"/><path d="M4 12c3 6 13 6 16 0"/><circle cx="18" cy="8" r="1.4"/></svg>`,
   "机械能守恒定律": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18h14"/><path d="M7 16 12 6l5 10"/><path d="M9 13h6"/><circle cx="12" cy="6" r="1.5"/></svg>`,
+  "动量": `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="12" r="2"/><path d="M9.5 12h8"/><path d="m15 8 4 4-4 4"/><path d="M5 18h14"/></svg>`,
+  "机械振动": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12c2.2-6 4.4 6 6.6 0s4.4-6 6.6 0S20 15 20 12"/><path d="M12 5v14"/></svg>`,
+  "机械波": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/><path d="M4 18h16"/></svg>`,
+  "光": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h10"/><path d="m11 8 4 4-4 4"/><path d="M18 5v14"/><path d="M20 7v10"/></svg>`,
   "实验专区": `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v7l-4 7a3 3 0 0 0 2.6 4h6.8A3 3 0 0 0 18 17l-4-7V3"/><path d="M8 16h8"/></svg>`,
   "视频课程": `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="m10 9 5 3-5 3Z"/></svg>`,
 };
@@ -303,6 +319,13 @@ function normalizeChapter(chapter) {
   return String(chapter || "").replace(/^第[一二三四五六七八九十]+章：?/, "") || "运动的描述";
 }
 
+function inferTextbookKey(raw) {
+  if (raw.textbook) return raw.textbook;
+  if (raw.chapter === "必修二") return "必修二";
+  if (String(raw.chapter || "").startsWith("选择性必修一")) return "选择性必修一";
+  return "必修一";
+}
+
 function getRequiredTwoCategory(id) {
   if (["curve_motion", "curve_velocity_direction", "motion_decomposition", "projectile_motion"].includes(id)) return "曲线运动";
   if (["uniform_circular_motion", "centripetal_force", "centripetal_acceleration", "circular_motion_life"].includes(id)) return "圆周运动";
@@ -374,7 +397,8 @@ function normalizePhysicsPoint(raw) {
   return {
     id: raw.id,
     name: raw.name,
-    category: raw.chapter === "必修二" ? getRequiredTwoCategory(raw.id) : normalizeChapter(raw.chapter),
+    textbook: raw.textbook || inferTextbookKey(raw),
+    category: raw.category || (raw.chapter === "必修二" ? getRequiredTwoCategory(raw.id) : normalizeChapter(raw.chapter)),
     chapter: raw.chapter,
     difficulty: raw.difficulty || "⭐",
     summary: displaySummary(raw.definition),
@@ -420,7 +444,19 @@ function getKnowledgeStatus(id) {
 }
 
 function getTextbookCategories() {
-  return state.activeTextbook === "required2" ? requiredTwoCategories : physicsCategories;
+  return textbookCategoryMap[state.activeTextbook] || physicsCategories;
+}
+
+function getDefaultCategoryForTextbook(textbook = state.activeTextbook) {
+  return (textbookCategoryMap[textbook] || physicsCategories)[0];
+}
+
+function getActiveTextbookName() {
+  return textbookLabels[state.activeTextbook]?.replace(/^.*·\s*/, "").replace("第一册", "一").replace("第二册", "二") || "必修一";
+}
+
+function isPointInActiveTextbook(item) {
+  return textbookKeyMap[item.textbook] === state.activeTextbook || item.textbook === getActiveTextbookName();
 }
 
 function syncTextbookControls() {
@@ -891,18 +927,19 @@ function renderHome() {
 }
 
 function renderLibrary() {
+  if (!textbookCategoryMap[state.activeTextbook]) state.activeTextbook = "required1";
   syncTextbookControls();
   const visibleCategories = getTextbookCategories();
   if (!visibleCategories.includes(state.activeCategory)) {
-    state.activeCategory = state.activeTextbook === "required2" ? "曲线运动" : "运动的描述";
+    state.activeCategory = getDefaultCategoryForTextbook();
   }
   const sidebarTitle = $(".sidebar-title");
   if (sidebarTitle) sidebarTitle.textContent = "知识分类";
 
   $("#categoryList").innerHTML = visibleCategories.map((category) => {
-    const count = category === "视频课程" ? state.videos.length : knowledgePoints.filter((item) => item.category === category).length;
+    const count = category === "视频课程" ? state.videos.length : knowledgePoints.filter((item) => item.category === category && isPointInActiveTextbook(item)).length;
     return `<button class="category-button ${state.activeCategory === category ? "active" : ""}" type="button" data-category="${category}">
-      <span class="category-label">${categoryIcons[category]}<span>${category}</span></span><small>${count}</small>
+      <span class="category-label">${categoryIcons[category] || categoryIcons["运动的描述"]}<span>${category}</span></span><small>${count}</small>
     </button>`;
   }).join("");
 
@@ -924,7 +961,7 @@ function renderLibrary() {
     return;
   }
 
-  const points = knowledgePoints.filter((item) => item.category === state.activeCategory && filteredTextMatch([item.name, item.summary, item.category]));
+  const points = knowledgePoints.filter((item) => item.category === state.activeCategory && isPointInActiveTextbook(item) && filteredTextMatch([item.name, item.summary, item.category, item.textbook]));
   $("#libraryCount").textContent = `${points.length} 个知识点`;
   const errorNotice = physicsDataStatus.error ? `<div class="library-notice error-notice">${physicsDataStatus.error}</div>` : "";
   $("#knowledgeGrid").innerHTML = points.length ? errorNotice + points.map((item) => {
@@ -1596,7 +1633,7 @@ document.addEventListener("click", (event) => {
   const textbook = event.target.closest("[data-textbook]");
   if (textbook) {
     state.activeTextbook = textbook.dataset.textbook;
-    state.activeCategory = state.activeTextbook === "required2" ? "曲线运动" : "运动的描述";
+    state.activeCategory = getDefaultCategoryForTextbook(state.activeTextbook);
     saveState();
     renderLibrary();
   }
