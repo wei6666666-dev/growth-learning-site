@@ -2033,5 +2033,369 @@
         "selective1_collision"
       ]
     }
+  },
+  {
+    "id": "selective1_simple_harmonic_motion",
+    "name": "简谐运动",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "简谐运动是一种最基本的周期性振动，物体总是在平衡位置附近往复运动，回复力大小与位移大小成正比、方向总指向平衡位置。",
+    "formula": "F = -kx",
+    "symbols": "F 表示回复力，单位 N；k 表示比例系数或劲度系数，单位 N/m；x 表示相对平衡位置的位移，单位 m；负号表示回复力方向与位移方向相反。",
+    "mistakes": [
+      "简谐运动不是任意来回运动，必须满足回复力与位移成正比且方向相反。",
+      "位移 x 是相对平衡位置的位移，不是相对出发点的路程。"
+    ],
+    "example": "例题：弹簧振子离平衡位置越远，回复力怎样变化？解析：由 F=-kx 可知，位移大小越大，回复力大小越大，方向始终指向平衡位置。",
+    "hint": "学简谐运动先抓住“离得越远，拉回来的力越大”。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "elastic",
+      "selective1_amplitude",
+      "selective1_spring_oscillator"
+    ],
+    "graph": {
+      "prerequisite": [
+        "elastic",
+        "newton_second_law"
+      ],
+      "next": [
+        "selective1_amplitude",
+        "selective1_spring_oscillator"
+      ],
+      "related_core": [
+        "mechanical_energy_conservation"
+      ]
+    }
+  },
+  {
+    "id": "selective1_equilibrium_position",
+    "name": "平衡位置",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "平衡位置是振动物体在不振动时能够静止的位置，也是振动过程中回复力为零的位置。",
+    "formula": "x = 0 时，F回复 = 0",
+    "symbols": "x 表示相对平衡位置的位移；F回复 表示回复力。物体经过平衡位置时，回复力为零，但速度通常最大。",
+    "mistakes": [
+      "平衡位置不是速度为零的位置，物体经过平衡位置时速度通常最大。",
+      "回复力为零不代表物体一定静止，还要看此时速度是否为零。"
+    ],
+    "example": "例题：弹簧振子经过平衡位置时，回复力和速度分别怎样？解析：回复力为零，但由于惯性继续运动，速度达到最大。",
+    "hint": "把平衡位置理解成“最中间、最想停住但往往冲过去”的位置。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_simple_harmonic_motion",
+      "selective1_amplitude",
+      "newton_first_law"
+    ],
+    "graph": {
+      "prerequisite": [
+        "newton_first_law",
+        "elastic"
+      ],
+      "next": [
+        "selective1_amplitude",
+        "selective1_period_frequency"
+      ],
+      "related_core": [
+        "selective1_simple_harmonic_motion"
+      ]
+    }
+  },
+  {
+    "id": "selective1_amplitude",
+    "name": "振幅",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "振幅是振动物体离开平衡位置的最大距离，反映振动的强弱。",
+    "formula": "A = |x|max",
+    "symbols": "A 表示振幅，单位 m；x 表示相对平衡位置的位移。振幅是标量，只表示最大距离，不表示方向。",
+    "mistakes": [
+      "振幅不是一次全程往返的路程，振子从最左到最右的距离是 2A。",
+      "振幅没有方向，不能把左侧振幅记为负数。"
+    ],
+    "example": "例题：振子最左端到最右端相距 0.20 m，振幅是多少？解析：两端距离为 2A，所以 A=0.10 m。",
+    "hint": "看到两端距离，先除以 2 才是振幅。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_equilibrium_position",
+      "selective1_period_frequency",
+      "selective1_vibration_graph"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_equilibrium_position"
+      ],
+      "next": [
+        "selective1_period_frequency",
+        "selective1_vibration_graph"
+      ],
+      "related_core": [
+        "selective1_simple_harmonic_motion"
+      ]
+    }
+  },
+  {
+    "id": "selective1_period_frequency",
+    "name": "周期与频率",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "周期表示完成一次全振动所用的时间，频率表示单位时间内完成全振动的次数。",
+    "formula": "f = 1/T",
+    "symbols": "T 表示周期，单位 s；f 表示频率，单位 Hz；周期越短，频率越大。",
+    "mistakes": [
+      "一次全振动必须回到原来的位置并且运动方向也相同。",
+      "频率和周期互为倒数，不能把它们当成同一个量。"
+    ],
+    "example": "例题：某振子 5 s 内完成 10 次全振动，周期和频率是多少？解析：T=5/10=0.5 s，f=1/T=2 Hz。",
+    "hint": "数振动次数时，要确认是否完成“完整来回”。",
+    "difficulty": "⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_amplitude",
+      "selective1_vibration_graph",
+      "selective1_simple_pendulum"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_amplitude"
+      ],
+      "next": [
+        "selective1_vibration_graph",
+        "selective1_simple_pendulum"
+      ],
+      "related_core": [
+        "uniform_circular_motion"
+      ]
+    }
+  },
+  {
+    "id": "selective1_phase",
+    "name": "相位",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "相位用来描述振动进行到哪一步，它能区分两个振动是否同步、谁领先谁落后。",
+    "formula": "φ = ωt + φ0",
+    "symbols": "φ 表示相位；ω 表示角频率，单位 rad/s；t 表示时间，单位 s；φ0 表示初相位。",
+    "mistakes": [
+      "相位不是位置本身，而是描述振动状态进程的量。",
+      "两个物体位置相同，不一定相位相同，还要看速度方向是否相同。"
+    ],
+    "example": "例题：两个振子同时经过平衡位置，一个向右、一个向左，它们相位是否相同？解析：不同，因为虽然位置相同，但运动方向相反，振动状态不同。",
+    "hint": "判断相位要同时看位置和运动方向。",
+    "difficulty": "⭐⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_period_frequency",
+      "uniform_circular_motion",
+      "selective1_vibration_graph"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_period_frequency",
+        "uniform_circular_motion"
+      ],
+      "next": [
+        "selective1_vibration_graph",
+        "selective1_mechanical_wave"
+      ],
+      "related_core": [
+        "selective1_simple_harmonic_motion"
+      ]
+    }
+  },
+  {
+    "id": "selective1_spring_oscillator",
+    "name": "弹簧振子",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "弹簧振子是由弹簧和小物体组成的理想振动模型，常用来研究简谐运动。",
+    "formula": "F = -kx",
+    "symbols": "k 表示弹簧劲度系数，单位 N/m；x 表示相对平衡位置的位移；F 表示弹簧对振子的回复力。",
+    "mistakes": [
+      "弹簧振子的回复力通常是弹力的合力效果，不一定等于物体所受某一个力。",
+      "在平衡位置弹簧可能仍有形变，但回复力为零。"
+    ],
+    "example": "例题：水平光滑面上的弹簧振子被拉离平衡位置 0.04 m，k=50 N/m，回复力大小多少？解析：F=kx=50×0.04=2 N，方向指向平衡位置。",
+    "hint": "弹簧振子题先找平衡位置，再量相对平衡位置的位移。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "elastic",
+      "selective1_simple_harmonic_motion",
+      "selective1_vibration_energy"
+    ],
+    "graph": {
+      "prerequisite": [
+        "elastic",
+        "newton_second_law"
+      ],
+      "next": [
+        "selective1_vibration_energy",
+        "selective1_vibration_graph"
+      ],
+      "related_core": [
+        "selective1_simple_harmonic_motion"
+      ]
+    }
+  },
+  {
+    "id": "selective1_simple_pendulum",
+    "name": "单摆",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "单摆是在细线下悬挂小球的小角度摆动模型，当摆角较小时可近似看作简谐运动。",
+    "formula": "T = 2π√(l/g)",
+    "symbols": "T 表示周期，单位 s；l 表示摆长，单位 m；g 表示重力加速度，单位 m/s²。小角度条件下，周期与摆球质量无关。",
+    "mistakes": [
+      "单摆周期与摆球质量无关，不是球越重摆得越快。",
+      "公式 T=2π√(l/g) 只适用于小角度摆动。"
+    ],
+    "example": "例题：同地点两个单摆，摆长分别为 1 m 和 4 m，周期关系如何？解析：T 与 √l 成正比，4 m 摆长的周期是 1 m 的 2 倍。",
+    "hint": "单摆周期重点看摆长和 g，不看质量。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "gravity",
+      "selective1_period_frequency",
+      "selective1_simple_harmonic_motion"
+    ],
+    "graph": {
+      "prerequisite": [
+        "gravity",
+        "selective1_period_frequency"
+      ],
+      "next": [
+        "selective1_forced_vibration_resonance"
+      ],
+      "related_core": [
+        "selective1_simple_harmonic_motion"
+      ]
+    }
+  },
+  {
+    "id": "selective1_vibration_graph",
+    "name": "振动图像",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "振动图像通常表示位移随时间变化的关系，可以从图中读出振幅、周期和不同时刻的运动状态。",
+    "formula": "x = A sin(ωt + φ0)",
+    "symbols": "x 表示位移；A 表示振幅；ω 表示角频率；t 表示时间；φ0 表示初相位。图像的横轴通常是时间，纵轴是位移。",
+    "mistakes": [
+      "振动图像不是物体运动轨迹，不能把正弦曲线当成实际空间路线。",
+      "图像斜率反映速度方向和大小变化趋势，不能只看位移正负。"
+    ],
+    "example": "例题：振动图像上相邻两个波峰的时间间隔是什么？解析：相邻两个相同振动状态之间的时间是一个周期 T。",
+    "hint": "读振动图像先找振幅 A，再找周期 T。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_amplitude",
+      "selective1_period_frequency",
+      "selective1_phase"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_amplitude",
+        "selective1_period_frequency"
+      ],
+      "next": [
+        "selective1_mechanical_wave"
+      ],
+      "related_core": [
+        "selective1_phase"
+      ]
+    }
+  },
+  {
+    "id": "selective1_vibration_energy",
+    "name": "振动中的能量",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "理想振动中，动能和势能会相互转化，总机械能保持不变；在平衡位置动能最大，在最大位移处势能最大。",
+    "formula": "E = Ek + Ep",
+    "symbols": "E 表示总机械能；Ek 表示动能；Ep 表示势能。忽略阻力时，总机械能守恒。",
+    "mistakes": [
+      "平衡位置不是能量最小点对所有能量都最小，而是势能最小、动能最大。",
+      "最大位移处速度为零，动能为零，但势能最大。"
+    ],
+    "example": "例题：弹簧振子到达最大位移处时速度和能量怎样？解析：速度为零，动能为零，弹性势能最大，总机械能不变。",
+    "hint": "记住三点：中间速度最大，两端速度为零，理想情况下总能量不变。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "mechanical_energy_conservation",
+      "kinetic_energy",
+      "selective1_spring_oscillator"
+    ],
+    "graph": {
+      "prerequisite": [
+        "mechanical_energy_conservation",
+        "kinetic_energy"
+      ],
+      "next": [
+        "selective1_forced_vibration_resonance"
+      ],
+      "related_core": [
+        "selective1_simple_harmonic_motion"
+      ]
+    }
+  },
+  {
+    "id": "selective1_forced_vibration_resonance",
+    "name": "受迫振动与共振",
+    "textbook": "选择性必修一",
+    "chapter": "选择性必修一",
+    "category": "机械振动",
+    "definition": "受迫振动是在周期性外力作用下产生的振动；当外力频率接近物体固有频率时，振幅显著增大，这种现象叫共振。",
+    "formula": "f驱 ≈ f固 时，振幅较大",
+    "symbols": "f驱 表示驱动力频率；f固 表示系统固有频率。共振强弱还与阻尼有关。",
+    "mistakes": [
+      "共振不是频率越大越明显，而是驱动力频率接近固有频率时最明显。",
+      "共振有有利也有有害，不能简单认为一定不好。"
+    ],
+    "example": "例题：推秋千时为什么要按合适节奏推？解析：推的频率接近秋千的固有频率时，能量不断有效输入，振幅增大，形成明显共振。",
+    "hint": "生活中的秋千、乐器、桥梁振动都是理解共振的好例子。",
+    "difficulty": "⭐⭐⭐",
+    "status": "unlearned",
+    "video": "",
+    "related": [
+      "selective1_period_frequency",
+      "selective1_simple_pendulum",
+      "selective1_vibration_energy"
+    ],
+    "graph": {
+      "prerequisite": [
+        "selective1_period_frequency",
+        "selective1_vibration_energy"
+      ],
+      "next": [
+        "selective1_mechanical_wave"
+      ],
+      "related_core": [
+        "selective1_simple_pendulum"
+      ]
+    }
   }
 ]
