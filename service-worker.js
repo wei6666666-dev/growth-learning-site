@@ -1,4 +1,4 @@
-const CACHE_NAME = "growth-pwa-v29";
+const CACHE_NAME = "growth-pwa-v30";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,8 +6,9 @@ const APP_SHELL = [
   "/mistakes.html",
   "/statistics.html",
   "/css/style.css?v=20260629-refined-badges",
+  "/js/dataStore.js?v=20260629-data-layer",
   "/js/supabase-config.js?v=20260629-supabase",
-  "/js/script.js?v=20260629-stats-analytics",
+  "/js/script.js?v=20260629-data-layer",
   "/data/physics.json",
   "/manifest.json",
   "/assets/icon-192.png",
@@ -51,7 +52,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname === "/data/physics.json" || url.pathname === "/js/supabase-config.js") {
+  if (url.pathname === "/data/physics.json" || url.pathname === "/js/supabase-config.js" || url.pathname === "/js/dataStore.js") {
     event.respondWith(
       fetch(request)
         .then((response) => {
