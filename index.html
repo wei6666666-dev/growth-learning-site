@@ -11,7 +11,7 @@
     <link rel="manifest" href="./manifest.json" />
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png" />
-    <link rel="stylesheet" href="./css/style.css?v=20260629-physics-hero" />
+    <link rel="stylesheet" href="./css/style.css?v=20260629-gaokao-countdown-3" />
   </head>
   <body data-initial-page="home">
     <div class="app-loader" id="appLoader" aria-hidden="true">
@@ -73,6 +73,54 @@
               </nav>
             </div>
           </div>
+
+          <section class="panel gaokao-countdown reveal" aria-labelledby="gaokaoCountdownTitle">
+            <div class="countdown-display" id="gaokaoCountdownCard">
+              <div class="scanline-field" aria-hidden="true"></div>
+              <p class="countdown-kicker">距离高考还有</p>
+              <div class="countdown-main">
+                <strong class="scanline-number" id="gaokaoDays">000</strong>
+                <span class="countdown-unit" id="gaokaoUnit">天</span>
+              </div>
+              <p class="countdown-date" id="gaokaoTargetLabel">目标日期：2029年6月7日</p>
+              <p class="countdown-motto" id="gaokaoMotto">为梦想而战，未来可期</p>
+            </div>
+            <form class="countdown-settings" id="gaokaoSettings">
+              <div class="countdown-settings-head">
+                <div>
+                  <p class="eyebrow">Gaokao Countdown</p>
+                  <h2 id="gaokaoCountdownTitle">高考倒计时牌</h2>
+                </div>
+              </div>
+              <label class="setting-row">
+                <span>目标日期</span>
+                <input id="gaokaoTargetDate" type="date" value="2029-06-07" />
+              </label>
+              <div class="setting-row">
+                <span>线条密度</span>
+                <div class="segmented compact-segmented" data-countdown-density>
+                  <button type="button" data-density="loose">稀疏</button>
+                  <button type="button" data-density="medium">适中</button>
+                  <button type="button" data-density="tight">紧密</button>
+                </div>
+              </div>
+              <div class="setting-row">
+                <span>主题</span>
+                <div class="segmented compact-segmented" data-countdown-theme>
+                  <button type="button" data-countdown-theme-value="light">浅色</button>
+                  <button type="button" data-countdown-theme-value="dark">深色</button>
+                </div>
+              </div>
+              <label class="switch-row">
+                <span>显示文案</span>
+                <input id="gaokaoShowMotto" type="checkbox" checked />
+              </label>
+              <label class="switch-row">
+                <span>显示“天”字</span>
+                <input id="gaokaoShowUnit" type="checkbox" checked />
+              </label>
+            </form>
+          </section>
 
           <div class="home-grid">
             <section class="panel task-panel reveal">
@@ -465,6 +513,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./js/dataStore.js?v=20260629-data-layer"></script>
     <script src="./js/supabase-config.js?v=20260629-supabase"></script>
-    <script src="./js/script.js?v=20260629-data-layer"></script>
+    <script src="./js/script.js?v=20260629-gaokao-countdown"></script>
   </body>
 </html>
