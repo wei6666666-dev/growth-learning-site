@@ -3532,16 +3532,14 @@ select:focus {
   }
 
   .detail-title-row {
-    position: sticky;
-    top: 0;
-    z-index: 4;
+    position: static;
     display: grid;
     gap: 10px;
-    margin: -6px -16px 12px;
-    padding: calc(62px + env(safe-area-inset-top)) 16px 16px;
+    margin: 0 0 12px;
+    padding: 0 0 16px;
     border-bottom: 1px solid var(--line);
-    background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
-    backdrop-filter: blur(18px);
+    background: transparent;
+    backdrop-filter: none;
   }
 
   .detail-title-row h2 {
