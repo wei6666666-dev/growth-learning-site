@@ -11,7 +11,7 @@
     <link rel="manifest" href="./manifest.json" />
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png" />
-    <link rel="stylesheet" href="./css/style.css?v=20260629-scanline-countdown" />
+    <link rel="stylesheet" href="./css/style.css?v=20260630-countdown-modal" />
   </head>
   <body data-initial-page="library">
     <div class="app-loader" id="appLoader" aria-hidden="true">
@@ -75,7 +75,10 @@
           </div>
 
           <section class="panel countdown-module reveal" data-countdown-root aria-labelledby="countdownTitle">
-            <div class="countdown-card" data-countdown-card data-density="medium">
+            <div class="countdown-card" data-countdown-card data-density="medium" data-theme="scanline">
+              <button class="countdown-settings-trigger" type="button" data-countdown-open aria-label="打开倒计时设置">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.4a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Z"/><path d="M19.4 13.5a7.8 7.8 0 0 0 0-3l2-1.5-2-3.4-2.4 1a8.5 8.5 0 0 0-2.6-1.5L14 2.5h-4l-.4 2.6A8.5 8.5 0 0 0 7 6.6l-2.4-1-2 3.4 2 1.5a7.8 7.8 0 0 0 0 3l-2 1.5 2 3.4 2.4-1a8.5 8.5 0 0 0 2.6 1.5l.4 2.6h4l.4-2.6a8.5 8.5 0 0 0 2.6-1.5l2.4 1 2-3.4-2-1.5Z"/></svg>
+              </button>
               <p class="countdown-kicker">距离高考还有</p>
               <div class="countdown-number-row">
                 <div class="scanline-number-renderer" data-scanline-number aria-label="高考倒计时天数"></div>
@@ -83,42 +86,50 @@
               </div>
               <p class="countdown-date" data-countdown-target-label>目标日期：2029/06/07</p>
             </div>
-            <aside class="countdown-stepper" aria-label="高考倒计时设置">
-              <div class="countdown-stepper-head">
-                <p class="eyebrow">Scanline Countdown</p>
-                <h2 id="countdownTitle">高考倒计时牌</h2>
-                <p>用水平扫描线生成数字，保持安静、克制和清晰。</p>
-              </div>
-              <div class="countdown-step active">
-                <span class="step-index">01</span>
-                <div>
-                  <strong>选择目标日期</strong>
-                  <input class="step-date-input" data-countdown-target type="date" value="2029-06-07" />
+            <div class="countdown-modal" data-countdown-modal aria-hidden="true">
+              <div class="countdown-modal-backdrop" data-countdown-dismiss></div>
+              <aside class="countdown-settings-panel" role="dialog" aria-modal="true" aria-labelledby="countdownTitle">
+                <button class="countdown-modal-close" type="button" data-countdown-close aria-label="关闭倒计时设置">×</button>
+                <div class="countdown-stepper-head">
+                  <p class="eyebrow">Scanline Countdown</p>
+                  <h2 id="countdownTitle">高考倒计时设置</h2>
+                  <p>调整日期和视觉样式，保存后回到纯净倒计时牌。</p>
                 </div>
-              </div>
-              <div class="countdown-step">
-                <span class="step-index">02</span>
-                <div>
-                  <strong>选择扫描线密度</strong>
-                  <div class="countdown-density-control" role="group" aria-label="扫描线密度">
-                    <button type="button" data-countdown-density-value="sparse">Sparse</button>
-                    <button type="button" data-countdown-density-value="medium">Medium</button>
-                    <button type="button" data-countdown-density-value="dense">Dense</button>
+                <div class="countdown-step active">
+                  <span class="step-index">01</span>
+                  <div>
+                    <strong>选择目标日期</strong>
+                    <input class="step-date-input" data-countdown-target type="date" value="2029-06-07" />
                   </div>
                 </div>
-              </div>
-              <div class="countdown-step preview-step">
-                <span class="step-index">03</span>
-                <div>
-                  <strong>实时预览</strong>
-                  <p>左侧卡片会即时同步设置。</p>
-                  <label class="countdown-toggle">
-                    <input data-countdown-show-unit type="checkbox" checked />
-                    <span>显示“天”字</span>
-                  </label>
+                <div class="countdown-step">
+                  <span class="step-index">02</span>
+                  <div>
+                    <strong>选择扫描线密度</strong>
+                    <div class="countdown-density-control" role="group" aria-label="扫描线密度">
+                      <button type="button" data-countdown-density-value="sparse">Sparse</button>
+                      <button type="button" data-countdown-density-value="medium">Medium</button>
+                      <button type="button" data-countdown-density-value="dense">Dense</button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </aside>
+                <div class="countdown-step">
+                  <span class="step-index">03</span>
+                  <div>
+                    <strong>选择主题</strong>
+                    <div class="countdown-density-control" role="group" aria-label="倒计时主题">
+                      <button type="button" data-countdown-theme-value="scanline">Scanline</button>
+                      <button type="button" data-countdown-theme-value="minimal">Minimal</button>
+                    </div>
+                    <label class="countdown-toggle">
+                      <input data-countdown-show-unit type="checkbox" checked />
+                      <span>显示“天”字</span>
+                    </label>
+                  </div>
+                </div>
+                <button class="primary-button countdown-save-button" type="button" data-countdown-save>保存设置</button>
+              </aside>
+            </div>
           </section>
 
           <div class="home-grid">
@@ -511,10 +522,10 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./js/dataStore.js?v=20260629-data-layer"></script>
-    <script src="./js/countdownStore.js?v=20260629-scanline-countdown"></script>
-    <script src="./js/ScanlineNumberRenderer.js?v=20260629-scanline-countdown"></script>
-    <script src="./js/CountdownCard.js?v=20260629-scanline-countdown"></script>
+    <script src="./js/countdownStore.js?v=20260630-countdown-modal"></script>
+    <script src="./js/ScanlineNumberRenderer.js?v=20260630-countdown-modal"></script>
+    <script src="./js/CountdownCard.js?v=20260630-countdown-modal-2"></script>
     <script src="./js/supabase-config.js?v=20260629-supabase"></script>
-    <script src="./js/script.js?v=20260629-scanline-countdown"></script>
+    <script src="./js/script.js?v=20260630-countdown-modal"></script>
   </body>
 </html>

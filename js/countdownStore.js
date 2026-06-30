@@ -9,13 +9,14 @@
   };
 
   const validDensity = new Set(["sparse", "medium", "dense"]);
+  const validTheme = new Set(["scanline", "minimal"]);
 
   function normalize(data = {}) {
     return {
       targetDate: typeof data.targetDate === "string" && data.targetDate ? data.targetDate : DEFAULT_DATA.targetDate,
       title: typeof data.title === "string" && data.title ? data.title : DEFAULT_DATA.title,
       showUnit: typeof data.showUnit === "boolean" ? data.showUnit : DEFAULT_DATA.showUnit,
-      theme: "scanline",
+      theme: validTheme.has(data.theme) ? data.theme : DEFAULT_DATA.theme,
       density: validDensity.has(data.density) ? data.density : DEFAULT_DATA.density,
     };
   }
