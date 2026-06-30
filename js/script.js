@@ -648,7 +648,7 @@ function syncTextbookControls() {
   if (switcher) {
     switcher.innerHTML = entries.map(([key, text]) => '<button class="textbook-option ' + (key === state.activeTextbook ? 'active' : '') + '" type="button" data-textbook="' + key + '">' + escapeHTML(String(text)).replace(/^.*?\s*/, "") + '</button>').join("");
   }
-  $(".textbook-option").forEach((button) => {
+  $$(".textbook-option").forEach((button) => {
     button.classList.toggle("active", button.dataset.textbook === state.activeTextbook);
   });
 }
@@ -1253,8 +1253,8 @@ function renderLibrary() {
   const heroTitle = hero?.querySelector("h1");
   const heroCopy = hero?.querySelector(".hero-copy");
   if (heroEyebrow) heroEyebrow.textContent = (subjectMeta.title || subjectMeta.name || "Subject") + " Library";
-  if (heroTitle) heroTitle.textContent = (subjectMeta.name || "??") + "???";
-  if (heroCopy) heroCopy.textContent = subjectMeta.description || "??????????";
+  if (heroTitle) heroTitle.textContent = (subjectMeta.name || "学科") + "知识库";
+  if (heroCopy) heroCopy.textContent = subjectMeta.description || "把知识一点点搭起来。";
   const textbookCard = $("#page-library .textbook-card");
   if (textbookCard && !textbookCard.querySelector("[data-open-subjects]")) {
     textbookCard.insertAdjacentHTML("beforeend", '<div class="subject-route-bar"><button class="mini-button" type="button" data-open-subjects>??????</button></div>');
