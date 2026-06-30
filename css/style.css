@@ -4199,7 +4199,8 @@ select:focus {
 }
 
 /* Growth Analytics 2.0 */
-.stats-analytics-page { display: flex; flex-direction: column; gap: 22px; }
+.page-view.stats-analytics-page { display: none; flex-direction: column; gap: 22px; }
+.page-view.stats-analytics-page.active { display: flex; }
 .stats-hero { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 28px; padding: 38px; border: 1px solid var(--border); border-radius: 28px; background: radial-gradient(circle at 18% 20%, rgba(122,196,162,.30), transparent 38%), linear-gradient(135deg, rgba(238,249,242,.86), rgba(255,255,255,.70)); box-shadow: 0 24px 70px rgba(32,52,44,.08); backdrop-filter: blur(22px); }
 [data-theme="dark"] .stats-hero { background: radial-gradient(circle at 18% 20%, rgba(95,172,142,.20), transparent 42%), linear-gradient(135deg, rgba(29,38,34,.80), rgba(18,18,18,.72)); }
 .stats-hero-bg { position: absolute; inset: 0; opacity: .45; background-image: linear-gradient(90deg, color-mix(in srgb, var(--accent) 18%, transparent) 1px, transparent 1px), linear-gradient(0deg, color-mix(in srgb, var(--accent) 14%, transparent) 1px, transparent 1px); background-size: 52px 52px; mask-image: radial-gradient(circle at 55% 48%, #000, transparent 70%); pointer-events: none; }

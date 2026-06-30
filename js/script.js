@@ -906,15 +906,19 @@ function setPage(page) {
   state.activePage = page;
   state.search = "";
   globalSearch.value = "";
-  window.GrowthAppState?.setState({
-    currentPage: page,
+  const pageState = {
     grade: state.activeGrade,
     scores: window.GrowthDataStore?.getScores?.() || [],
     tasks: state.tasks,
     physics: getPhysicsStateSnapshot(),
     settings: { theme: localStorage.getItem(THEME_KEY) || "" },
     ui: { modal: null },
-  });
+  };
+  if (window.GrowthRender?.renderPage) {
+    window.GrowthRender.renderPage(page, pageState);
+  } else {
+    window.GrowthAppState?.setState({ ...pageState, currentPage: page });
+  }
   saveState();
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
