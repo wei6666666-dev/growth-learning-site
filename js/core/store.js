@@ -1,0 +1,3 @@
+(() => {
+  window.GrowthStore = window.GrowthAppState;
+})();

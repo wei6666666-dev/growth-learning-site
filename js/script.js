@@ -580,6 +580,14 @@ function normalizeStoredVideos(videos = []) {
 
 function saveState(message) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  window.GrowthAppState?.setState({
+    currentPage: state.activePage || window.GrowthAppState.getState().currentPage,
+    grade: state.activeGrade,
+    scores: window.GrowthDataStore?.getScores?.() || [],
+    tasks: state.tasks || [],
+    physics: getPhysicsStateSnapshot(),
+    settings: { theme: localStorage.getItem(THEME_KEY) || "" },
+  });
   if (message) showToast(message);
   queueCloudSync();
 }
@@ -896,14 +904,33 @@ function applyTheme() {
 
 function setPage(page) {
   state.activePage = page;
-  document.body.dataset.activePage = page;
   state.search = "";
   globalSearch.value = "";
-  $$(".page-view").forEach((view) => view.classList.toggle("active", view.dataset.pageView === page));
-  $$(".nav-trigger").forEach((button) => button.classList.toggle("active", button.dataset.page === page));
+  window.GrowthAppState?.setState({
+    currentPage: page,
+    grade: state.activeGrade,
+    scores: window.GrowthDataStore?.getScores?.() || [],
+    tasks: state.tasks,
+    physics: getPhysicsStateSnapshot(),
+    settings: { theme: localStorage.getItem(THEME_KEY) || "" },
+    ui: { modal: null },
+  });
   saveState();
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function getPhysicsStateSnapshot() {
+  return {
+    activeTextbook: state.activeTextbook,
+    activeCategory: state.activeCategory,
+    masteredKnowledge: state.masteredKnowledge || [],
+    learningKnowledge: state.learningKnowledge || [],
+    knowledgeFavorites: state.knowledgeFavorites || [],
+    notes: state.notes || {},
+    videos: state.videos || [],
+    mistakes: state.mistakes || [],
+  };
 }
 
 function filteredTextMatch(values) {
@@ -913,12 +940,15 @@ function filteredTextMatch(values) {
 
 function render() {
   renderFormOptions();
-  renderToday();
-  renderHome();
-  renderLibrary();
-  renderMistakes();
-  renderMaterials();
-  renderStats();
+  const activePage = window.GrowthAppState?.getState?.().currentPage || state.activePage || "home";
+  if (activePage === "home") {
+    renderToday();
+    renderHome();
+  }
+  if (activePage === "library") renderLibrary();
+  if (activePage === "mistakes") renderMistakes();
+  if (activePage === "materials") renderMaterials();
+  if (activePage === "stats") renderStats();
 }
 
 function renderFormOptions() {
@@ -1157,7 +1187,9 @@ function renderStats() {
 }
 
 function getGradeRecords(grade = state.activeGrade) {
-  return (window.GrowthDataStore?.getScores() || [])
+  const appScores = window.GrowthAppState?.getState?.().scores;
+  const source = Array.isArray(appScores) ? appScores : (window.GrowthDataStore?.getScores() || []);
+  return source
     .filter((record) => record.grade === grade)
     .sort((a, b) => new Date(a.date) - new Date(b.date));
 }
@@ -1923,6 +1955,8 @@ function registerServiceWorker() {
 
 async function initApp() {
   applyTheme();
+  window.GrowthPersist?.attach();
+  window.GrowthRender?.attachRenderer();
   updateStreak();
   setPage(initialPage);
   await loadPhysicsData();
@@ -1982,7 +2016,7 @@ document.addEventListener("click", (event) => {
     state.activeGrade = grade.dataset.grade;
     saveState();
     setTimeout(() => {
-      renderStats();
+      render();
       surface?.classList.remove("switching");
     }, 180);
   }
@@ -1992,7 +2026,7 @@ document.addEventListener("click", (event) => {
     state.activeScoreChart = scoreChart.dataset.scoreChart;
     $$("#scoreChartMode button").forEach((button) => button.classList.toggle("active", button === scoreChart));
     saveState();
-    renderStats();
+    render();
   }
 
   const scoreSubject = event.target.closest("[data-score-subject]");
@@ -2000,7 +2034,7 @@ document.addEventListener("click", (event) => {
     state.activeScoreSubject = scoreSubject.dataset.scoreSubject;
     state.activeScoreChart = "subject";
     saveState();
-    renderStats();
+    render();
   }
 
   if (event.target.closest("[data-open-score-form]")) {
@@ -2016,8 +2050,9 @@ document.addEventListener("click", (event) => {
     card?.classList.add("removing");
     setTimeout(() => {
       window.GrowthDataStore?.deleteScore(deleteScore.dataset.deleteScore);
+      window.GrowthAppState?.setState({ scores: window.GrowthDataStore?.getScores?.() || [] });
       saveState("成绩记录已删除");
-      renderStats();
+      render();
     }, 180);
   }
 
@@ -2301,9 +2336,13 @@ if (scoreForm) {
     state.activeGrade = record.grade;
     state.activeScoreSubject = record.subject;
     window.GrowthDataStore.addScore(record);
+    window.GrowthAppState?.setState({
+      grade: state.activeGrade,
+      scores: window.GrowthDataStore?.getScores?.() || [],
+    });
     saveState("成绩已保存");
     closeModal("#scoreModal");
-    renderStats();
+    render();
     setTimeout(() => document.querySelector(`[data-score-id="${CSS.escape(record.id)}"]`)?.classList.add("just-added"), 30);
   });
 }

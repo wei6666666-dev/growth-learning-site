@@ -1,4 +1,4 @@
-const CACHE_NAME = "growth-pwa-v38";
+const CACHE_NAME = "growth-pwa-v40";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -7,11 +7,21 @@ const APP_SHELL = [
   "/statistics.html",
   "/css/style.css?v=20260630-countdown-modal",
   "/js/dataStore.js?v=20260629-data-layer",
+  "/js/store/appState.js?v=20260630-state-architecture",
+  "/js/core/store.js?v=20260630-state-architecture",
+  "/js/core/persist.js?v=20260630-state-architecture",
+  "/js/core/render.js?v=20260630-state-architecture",
+  "/js/pages/home.js?v=20260630-state-architecture",
+  "/js/pages/stats.js?v=20260630-state-architecture",
+  "/js/pages/physics.js?v=20260630-state-architecture",
+  "/js/components/cards.js?v=20260630-state-architecture",
+  "/js/components/charts.js?v=20260630-state-architecture",
+  "/js/components/navbar.js?v=20260630-state-architecture",
   "/js/countdownStore.js?v=20260630-countdown-modal",
   "/js/ScanlineNumberRenderer.js?v=20260630-countdown-modal",
   "/js/CountdownCard.js?v=20260630-countdown-modal-2",
   "/js/supabase-config.js?v=20260629-supabase",
-  "/js/script.js?v=20260630-countdown-modal",
+  "/js/script.js?v=20260630-state-architecture",
   "/data/physics.json",
   "/manifest.json",
   "/assets/icon-192.png",
