@@ -1802,6 +1802,139 @@ function openPlayer(videoId) {
   openModal("#playerModal");
 }
 
+function flashSearchTarget(selector) {
+  requestAnimationFrame(() => {
+    const node = document.querySelector(selector);
+    if (!node) return;
+    node.scrollIntoView({ behavior: "smooth", block: "center" });
+    node.classList.add("search-jump-highlight");
+    setTimeout(() => node.classList.remove("search-jump-highlight"), 1800);
+  });
+}
+
+function openSearchKnowledge(id) {
+  const item = knowledgePoints.find((pointItem) => pointItem.id === id);
+  if (!item) return;
+  state.activeTextbook = item.textbook || state.activeTextbook;
+  state.activeCategory = item.category;
+  setPage("library");
+  renderLibrary();
+  setTimeout(() => openDetail(id), 80);
+}
+
+function openSearchVideo(id, topic = "") {
+  const videoPointId = id?.startsWith("knowledge-video-") ? id.replace("knowledge-video-", "") : "";
+  if (videoPointId) {
+    openSearchKnowledge(videoPointId);
+    setTimeout(() => openPlayer(id), 150);
+    return;
+  }
+  const video = state.videos.find((item) => item.id === id);
+  if (video) {
+    const videoCategory = getTextbookCategories().find((category) => category.includes("视频")) || state.activeCategory;
+    state.activeCategory = videoCategory;
+    setPage("library");
+    renderLibrary();
+    setTimeout(() => {
+      flashSearchTarget(`[data-play-video="${CSS.escape(id)}"]`);
+      openPlayer(id);
+    }, 120);
+    return;
+  }
+  if (topic) {
+    const point = knowledgePoints.find((item) => item.name === topic || topic.includes(item.name));
+    if (point) openSearchKnowledge(point.id);
+  }
+}
+
+function openSearchMistake(id) {
+  const item = state.mistakes.find((mistake) => mistake.id === id);
+  setPage("mistakes");
+  setTimeout(() => {
+    flashSearchTarget(`[data-master-mistake="${CSS.escape(id)}"]`);
+    if (!item) return;
+    $("#detailContent").innerHTML = `
+      <div class="detail-title-row">
+        <div><p class="eyebrow">${escapeHTML(item.subject)} · ${escapeHTML(item.topic)}</p><h2>错题详情</h2></div>
+        <span class="status ${item.mastered ? "mastered" : ""}">${item.mastered ? "已掌握" : "待复习"}</span>
+      </div>
+      <div class="detail-grid">
+        ${detailBlock("题目", item.question, "full")}
+        ${detailBlock("错误原因", item.reason, "full mistake-block")}
+        ${detailBlock("正确思路", item.solution, "full tip-block")}
+      </div>`;
+    openModal("#detailModal");
+  }, 120);
+}
+
+function openSearchMaterial(id) {
+  const item = state.materials.find((materialItem) => materialItem.id === id);
+  if (item) state.activeTheme = item.theme;
+  setPage("materials");
+  setTimeout(() => {
+    flashSearchTarget(`[data-favorite-material="${CSS.escape(id)}"]`);
+    if (!item) return;
+    $("#detailContent").innerHTML = `
+      <div class="detail-title-row">
+        <div><p class="eyebrow">作文素材 · ${escapeHTML(item.theme)}</p><h2>${escapeHTML(item.title)}</h2></div>
+        <span class="status">${item.favorite ? "已收藏" : "素材"}</span>
+      </div>
+      <div class="detail-grid">
+        ${detailBlock("内容", item.content, "full")}
+        ${detailBlock("使用提示", `可以用于“${item.theme}”主题作文，适合放在开头、结尾或论证段中。`, "full tip-block")}
+      </div>`;
+    openModal("#detailModal");
+  }, 120);
+}
+
+function openSearchScore(id) {
+  const record = (window.GrowthAppState?.getState?.().scores || window.GrowthDataStore?.getScores?.() || []).find((item) => item.id === id);
+  setPage("stats");
+  setTimeout(() => {
+    flashSearchTarget(`[data-score-id="${CSS.escape(id)}"]`);
+    if (!record) return;
+    $("#detailContent").innerHTML = `
+      <div class="detail-title-row">
+        <div><p class="eyebrow">${escapeHTML(record.grade)} · ${escapeHTML(record.subject)}</p><h2>${escapeHTML(record.examName)}</h2></div>
+        <span class="status">${escapeHTML(record.date)}</span>
+      </div>
+      <div class="detail-grid">
+        ${detailBlock("成绩", `${record.score}/${record.fullScore}`, "")}
+        ${detailBlock("排名", `班级排名 ${record.classRank || "-"}，年级排名 ${record.gradeRank || "-"}，考试人数 ${record.totalStudents || "-"}`, "")}
+        ${detailBlock("备注", record.note || "暂无备注", "full tip-block")}
+      </div>`;
+    openModal("#detailModal");
+  }, 160);
+}
+
+function getSearchSnapshot() {
+  const knowledgeVideos = knowledgePoints
+    .map((item) => getKnowledgeVideo(item))
+    .filter(Boolean);
+  return {
+    knowledge: knowledgePoints,
+    videos: [...knowledgeVideos, ...(state.videos || [])],
+    mistakes: state.mistakes || [],
+    materials: state.materials || [],
+    scores: window.GrowthAppState?.getState?.().scores || window.GrowthDataStore?.getScores?.() || [],
+    favorites: {
+      knowledge: state.knowledgeFavorites || [],
+      materials: (state.materials || []).filter((item) => item.favorite).map((item) => item.id),
+      videos: (state.videos || []).filter((item) => item.favorite).map((item) => item.id),
+    },
+  };
+}
+
+window.GrowthSearchData = {
+  getSnapshot: getSearchSnapshot,
+  openPage: setPage,
+  openKnowledge: openSearchKnowledge,
+  openVideo: openSearchVideo,
+  openMistake: openSearchMistake,
+  openMaterial: openSearchMaterial,
+  openScore: openSearchScore,
+};
+
 function buildAIContext(item) {
   const detailId = item.detailId || item.id;
   const richDetail = item.symbols ? {
