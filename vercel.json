@@ -3,6 +3,18 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/subjects",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/subject/:subject",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/chemistry",
+      "destination": "/index.html"
+    },
+    {
       "source": "/physics",
       "destination": "/physics.html"
     },

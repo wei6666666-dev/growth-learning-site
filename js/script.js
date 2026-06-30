@@ -37,11 +37,28 @@ const $$ = (selector) => [...document.querySelectorAll(selector)];
 const root = document.documentElement;
 const toast = $("#toast");
 const globalSearch = $("#globalSearch");
-const initialPage = document.body.dataset.initialPage || (location.pathname.endsWith("physics.html") ? "library" : "home");
-let physicsDataStatus = {
+const subjectFramework = window.GrowthSubjectFramework || {};
+const initialRoute = subjectFramework.routeFromPath?.(location.pathname) || { page: "", subject: "" };
+const initialPage = initialRoute.page || document.body.dataset.initialPage || (location.pathname.endsWith("physics.html") ? "library" : "home");
+const SUBJECT_CATALOG_FALLBACK = [
+  { id: "physics", title: "Physics", name: "??", icon: "P", color: "#7bb7a8", status: "active", description: "???????????????????????" },
+  { id: "chemistry", title: "Chemistry", name: "??", icon: "C", color: "#9ebf8f", status: "active", description: "??????????????????????" },
+  { id: "math", title: "Math", name: "??", icon: "M", status: "soon", description: "???????????????" },
+  { id: "biology", title: "Biology", name: "??", icon: "B", status: "soon", description: "???????????????" },
+  { id: "english", title: "English", name: "??", icon: "E", status: "soon", description: "???????????????" },
+  { id: "chinese", title: "Chinese", name: "??", icon: "Z", status: "soon", description: "?????????????????" },
+  { id: "geography", title: "Geography", name: "??", icon: "G", status: "soon", description: "????????????????" },
+  { id: "history", title: "History", name: "??", icon: "H", status: "soon", description: "??????????????" },
+  { id: "politics", title: "Politics", name: "??", icon: "R", status: "soon", description: "???????????????" },
+];
+let subjectCatalog = SUBJECT_CATALOG_FALLBACK;
+let subjectDataStatus = {
   loading: true,
   error: "",
 };
+let physicsDataStatus = subjectDataStatus;
+let subjectTextbookCategoryMap = {};
+let subjectTextbookLabels = {};
 
 const physicsCategories = ["运动的描述", "匀变速直线运动", "相互作用", "牛顿运动定律", "实验专区", "视频课程"];
 const requiredTwoCategories = ["曲线运动", "圆周运动", "万有引力与宇宙航行", "机械能守恒定律", "视频课程"];
@@ -292,6 +309,13 @@ function rich(definition, formulas, quantities, mistakes, example, tip) {
 
 const defaultState = {
   activePage: "home",
+  activeSubject: "physics",
+  subjectStore: {
+    progress: { physics: { mastered: [], learning: [], status: {} }, chemistry: { mastered: [], learning: [], status: {} } },
+    notes: { physics: {}, chemistry: {} },
+    favorites: { physics: [], chemistry: [] },
+    videos: { physics: [], chemistry: [] },
+  },
   activeTextbook: "required1",
   activeCategory: "运动的描述",
   activeTheme: "成长",
@@ -333,7 +357,137 @@ const defaultState = {
   streak: 0,
 };
 
+function normalizeSubjectId(subjectId) {
+  return subjectFramework.normalizeSubjectId?.(subjectId) || (String(subjectId || "physics").toLowerCase() === "chemistry" ? "chemistry" : "physics");
+}
+
+function ensureSubjectStore(target) {
+  target.subjectStore = target.subjectStore || {};
+  target.subjectStore.progress = target.subjectStore.progress || {};
+  target.subjectStore.notes = target.subjectStore.notes || {};
+  target.subjectStore.favorites = target.subjectStore.favorites || {};
+  target.subjectStore.videos = target.subjectStore.videos || {};
+  ["physics", "chemistry"].forEach((subjectId) => {
+    target.subjectStore.progress[subjectId] = target.subjectStore.progress[subjectId] || { mastered: [], learning: [], status: {} };
+    target.subjectStore.progress[subjectId].mastered = Array.isArray(target.subjectStore.progress[subjectId].mastered) ? target.subjectStore.progress[subjectId].mastered : [];
+    target.subjectStore.progress[subjectId].learning = Array.isArray(target.subjectStore.progress[subjectId].learning) ? target.subjectStore.progress[subjectId].learning : [];
+    target.subjectStore.progress[subjectId].status = target.subjectStore.progress[subjectId].status || {};
+    target.subjectStore.notes[subjectId] = target.subjectStore.notes[subjectId] || {};
+    target.subjectStore.favorites[subjectId] = Array.isArray(target.subjectStore.favorites[subjectId]) ? target.subjectStore.favorites[subjectId] : [];
+    target.subjectStore.videos[subjectId] = Array.isArray(target.subjectStore.videos[subjectId]) ? target.subjectStore.videos[subjectId] : [];
+  });
+  return target.subjectStore;
+}
+
+function readStorageJSON(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function uniqueList(...lists) {
+  return [...new Set(lists.flat().filter(Boolean))];
+}
+
+function mergeNotes(...noteObjects) {
+  return Object.assign({}, ...noteObjects.filter((item) => item && typeof item === "object" && !Array.isArray(item)));
+}
+
+function normalizeProgressPayload(payload) {
+  if (Array.isArray(payload)) return { mastered: payload, learning: [], status: {} };
+  if (!payload || typeof payload !== "object") return { mastered: [], learning: [], status: {} };
+  return {
+    mastered: uniqueList(payload.mastered, payload.masteredKnowledge),
+    learning: uniqueList(payload.learning, payload.learningKnowledge),
+    status: payload.status || {},
+  };
+}
+
+function migrateLegacySubjectData(target) {
+  ensureSubjectStore(target);
+  const migrationKey = "growth-subject-migration-v1";
+  if (localStorage.getItem(migrationKey) === "true") return;
+
+  const oldProgress = normalizeProgressPayload(readStorageJSON("physicsProgress", {}));
+  const oldFavorites = readStorageJSON("physicsFavorites", []);
+  const oldNotes = readStorageJSON("physicsNotes", {});
+  const stateProgress = normalizeProgressPayload({
+    masteredKnowledge: target.masteredKnowledge,
+    learningKnowledge: target.learningKnowledge,
+  });
+
+  target.subjectStore.favorites.physics = uniqueList(
+    target.subjectStore.favorites.physics,
+    oldFavorites,
+    target.knowledgeFavorites
+  );
+  target.subjectStore.notes.physics = mergeNotes(
+    target.subjectStore.notes.physics,
+    oldNotes,
+    target.notes
+  );
+  target.subjectStore.progress.physics.mastered = uniqueList(
+    target.subjectStore.progress.physics.mastered,
+    oldProgress.mastered,
+    stateProgress.mastered
+  );
+  target.subjectStore.progress.physics.learning = uniqueList(
+    target.subjectStore.progress.physics.learning,
+    oldProgress.learning,
+    stateProgress.learning
+  );
+  target.subjectStore.progress.physics.status = {
+    ...oldProgress.status,
+    ...target.subjectStore.progress.physics.status,
+  };
+
+  localStorage.setItem(migrationKey, "true");
+}
+
+function persistActiveSubjectState() {
+  ensureSubjectStore(state);
+  const subjectId = normalizeSubjectId(state.activeSubject);
+  state.subjectStore.favorites[subjectId] = uniqueList(state.knowledgeFavorites);
+  state.subjectStore.notes[subjectId] = mergeNotes(state.notes);
+  state.subjectStore.progress[subjectId] = {
+    mastered: uniqueList(state.masteredKnowledge),
+    learning: uniqueList(state.learningKnowledge),
+    status: state.subjectStore.progress[subjectId]?.status || {},
+  };
+  state.subjectStore.videos[subjectId] = Array.isArray(state.videos) ? state.videos : [];
+}
+
+function hydrateActiveSubjectState(subjectId) {
+  ensureSubjectStore(state);
+  const normalizedSubject = normalizeSubjectId(subjectId);
+  const subjectStore = state.subjectStore;
+  state.activeSubject = normalizedSubject;
+  state.knowledgeFavorites = uniqueList(subjectStore.favorites[normalizedSubject]);
+  state.notes = mergeNotes(subjectStore.notes[normalizedSubject]);
+  state.masteredKnowledge = uniqueList(subjectStore.progress[normalizedSubject]?.mastered);
+  state.learningKnowledge = uniqueList(subjectStore.progress[normalizedSubject]?.learning);
+  state.videos = normalizeStoredVideos(subjectStore.videos[normalizedSubject], normalizedSubject === "physics" ? defaultState.videos : []);
+}
+
+function normalizeSubjectPoint(raw, subjectId) {
+  const normalized = normalizePhysicsPoint(raw);
+  normalized.subject = subjectId;
+  normalized.textbookKey = raw.textbookKey || subjectFramework.textbookKeyFromName?.(raw.textbook || raw.chapter) || "required1";
+  normalized.textbook = raw.textbook || normalized.textbook || normalized.chapter;
+  normalized.examFrequency = raw.examFrequency || raw.frequency || "";
+  normalized.experiment = raw.experiment || null;
+  normalized.aiContext = raw.aiContext || "";
+  return normalized;
+}
+
 let state = loadState();
+state.activeSubject = normalizeSubjectId(initialRoute.subject || state.activeSubject || "physics");
+ensureSubjectStore(state);
+migrateLegacySubjectData(state);
+hydrateActiveSubjectState(state.activeSubject);
 
 function point(id, name, category, difficulty, summary, definition, formula, mistake, example) {
   return { id, name, category, difficulty, summary, definition, formula, mistake, example };
@@ -470,25 +624,31 @@ function getKnowledgeStatus(id) {
 }
 
 function getTextbookCategories() {
-  return textbookCategoryMap[state.activeTextbook] || physicsCategories;
+  return subjectTextbookCategoryMap[state.activeTextbook] || textbookCategoryMap[state.activeTextbook] || physicsCategories;
 }
 
 function getDefaultCategoryForTextbook(textbook = state.activeTextbook) {
-  return (textbookCategoryMap[textbook] || physicsCategories)[0];
+  return (subjectTextbookCategoryMap[textbook] || textbookCategoryMap[textbook] || physicsCategories)[0];
 }
 
 function getActiveTextbookName() {
-  return textbookLabels[state.activeTextbook]?.replace(/^.*·\s*/, "").replace("第一册", "一").replace("第二册", "二") || "必修一";
+  return subjectTextbookLabels[state.activeTextbook] || textbookLabels[state.activeTextbook]?.replace(/^.*?\s*/, "").replace("?????", "??").replace("?????", "??") || "?????";
 }
 
 function isPointInActiveTextbook(item) {
-  return textbookKeyMap[item.textbook] === state.activeTextbook || item.textbook === getActiveTextbookName();
+  const itemKey = item.textbookKey || subjectFramework.textbookKeyFromName?.(item.textbook || item.chapter);
+  return itemKey === state.activeTextbook || textbookKeyMap[item.textbook] === state.activeTextbook || item.textbook === getActiveTextbookName();
 }
 
 function syncTextbookControls() {
   const label = $("#currentTextbookLabel");
-  if (label) label.textContent = textbookLabels[state.activeTextbook] || textbookLabels.required1;
-  $$(".textbook-option").forEach((button) => {
+  if (label) label.textContent = subjectTextbookLabels[state.activeTextbook] || textbookLabels[state.activeTextbook] || textbookLabels.required1;
+  const switcher = document.querySelector(".textbook-switch");
+  const entries = Object.entries(subjectTextbookLabels).length ? Object.entries(subjectTextbookLabels) : Object.entries(textbookLabels);
+  if (switcher) {
+    switcher.innerHTML = entries.map(([key, text]) => '<button class="textbook-option ' + (key === state.activeTextbook ? 'active' : '') + '" type="button" data-textbook="' + key + '">' + escapeHTML(String(text)).replace(/^.*?\s*/, "") + '</button>').join("");
+  }
+  $(".textbook-option").forEach((button) => {
     button.classList.toggle("active", button.dataset.textbook === state.activeTextbook);
   });
 }
@@ -504,24 +664,67 @@ function getRelatedNames(item) {
     .slice(0, 2);
 }
 
-async function loadPhysicsData() {
-  physicsDataStatus = { loading: true, error: "" };
+async function loadSubjectCatalog() {
   try {
-    let response = await fetch("./data/physics.json", { cache: "no-store" });
-    if (!response.ok) {
-      response = await fetch("/data/physics.json", { cache: "no-store" });
-    }
-    if (!response.ok) throw new Error("physics.json 加载失败");
-    const physicsData = await response.json();
-    knowledgePoints = physicsData.map(normalizePhysicsPoint);
-    physicsDataStatus = { loading: false, error: "" };
+    let response = await fetch("./data/subjects.json", { cache: "no-store" });
+    if (!response.ok) response = await fetch("/data/subjects.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("subjects.json load failed");
+    subjectCatalog = await response.json();
   } catch (error) {
-    physicsDataStatus = {
-      loading: false,
-      error: "数据加载失败，请检查本地服务器是否启动",
-    };
-    console.warn("使用内置物理知识点备用数据：", error);
+    subjectCatalog = SUBJECT_CATALOG_FALLBACK;
+    console.warn("Subject catalog fallback:", error);
   }
+}
+
+function setSubjectDataStatus(nextStatus) {
+  subjectDataStatus = nextStatus;
+  physicsDataStatus = nextStatus;
+}
+
+function rebuildSubjectTextbookMeta() {
+  const meta = subjectFramework.buildTextbookMeta?.(knowledgePoints) || { categories: {}, labels: {} };
+  subjectTextbookCategoryMap = meta.categories || {};
+  subjectTextbookLabels = meta.labels || {};
+  if (!Object.keys(subjectTextbookCategoryMap).length && state.activeSubject === "physics") {
+    subjectTextbookCategoryMap = textbookCategoryMap;
+    subjectTextbookLabels = textbookLabels;
+  }
+}
+
+async function loadSubjectData(subjectId = state.activeSubject) {
+  persistActiveSubjectState();
+  const nextSubject = normalizeSubjectId(subjectId);
+  state.activeSubject = nextSubject;
+  hydrateActiveSubjectState(nextSubject);
+  setSubjectDataStatus({ loading: true, error: "" });
+  try {
+    let response = await fetch("./data/" + nextSubject + ".json", { cache: "no-store" });
+    if (!response.ok) response = await fetch("/data/" + nextSubject + ".json", { cache: "no-store" });
+    if (!response.ok) throw new Error(nextSubject + ".json load failed");
+    const subjectData = await response.json();
+    knowledgePoints = subjectData.map((item) => normalizeSubjectPoint(item, nextSubject));
+    rebuildSubjectTextbookMeta();
+    if (!subjectTextbookCategoryMap[state.activeTextbook]) {
+      state.activeTextbook = Object.keys(subjectTextbookCategoryMap)[0] || "required1";
+    }
+    if (!getTextbookCategories().includes(state.activeCategory)) {
+      state.activeCategory = getDefaultCategoryForTextbook();
+    }
+    setSubjectDataStatus({ loading: false, error: "" });
+    saveState();
+  } catch (error) {
+    knowledgePoints = [];
+    rebuildSubjectTextbookMeta();
+    setSubjectDataStatus({
+      loading: false,
+      error: "?????????????????????????????",
+    });
+    console.warn("Subject data load failed:", error);
+  }
+}
+
+async function loadPhysicsData() {
+  return loadSubjectData("physics");
 }
 
 function task(text) {
@@ -541,7 +744,9 @@ function loadState() {
   if (!saved) return structuredClone(defaultState);
   try {
     const merged = { ...structuredClone(defaultState), ...JSON.parse(saved) };
-    merged.videos = normalizeStoredVideos(merged.videos);
+    ensureSubjectStore(merged);
+    merged.activeSubject = normalizeSubjectId(initialRoute.subject || merged.activeSubject || "physics");
+    merged.videos = normalizeStoredVideos(merged.videos, merged.activeSubject === "physics" ? defaultState.videos : []);
     merged.aiChats = merged.aiChats || {};
     merged.activeGrade = merged.activeGrade || "高一";
     merged.activeScoreChart = merged.activeScoreChart || "total";
@@ -556,14 +761,14 @@ function loadState() {
   }
 }
 
-function normalizeStoredVideos(videos = []) {
+function normalizeStoredVideos(videos = [], defaultVideos = defaultState.videos) {
   const placeholderBvs = new Set(["BV1xxxxxx", "BV2xxxxxx", "BV3xxxxxx"]);
   const savedVideos = Array.isArray(videos) ? videos : [];
   const cleanSavedVideos = savedVideos.filter((video) => video?.bv && !placeholderBvs.has(video.bv));
   const byBv = new Map();
 
   // 先放默认公开课程，再合并用户自己添加或已经操作过的视频，保留收藏/观看状态。
-  [...defaultState.videos, ...cleanSavedVideos].forEach((video) => {
+  [...defaultVideos, ...cleanSavedVideos].forEach((video) => {
     if (!video?.bv) return;
     const previous = byBv.get(video.bv) || {};
     byBv.set(video.bv, {
@@ -579,6 +784,7 @@ function normalizeStoredVideos(videos = []) {
 }
 
 function saveState(message) {
+  persistActiveSubjectState();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   window.GrowthAppState?.setState({
     currentPage: state.activePage || window.GrowthAppState.getState().currentPage,
@@ -942,6 +1148,50 @@ function filteredTextMatch(values) {
   return !keyword || values.join(" ").toLowerCase().includes(keyword);
 }
 
+function getSubjectMeta(subjectId = state.activeSubject) {
+  return subjectCatalog.find((item) => item.id === subjectId) || SUBJECT_CATALOG_FALLBACK.find((item) => item.id === subjectId) || SUBJECT_CATALOG_FALLBACK[0];
+}
+
+function getSubjectProgress(subjectId) {
+  ensureSubjectStore(state);
+  const store = state.subjectStore.progress[subjectId] || { mastered: [], learning: [] };
+  const meta = getSubjectMeta(subjectId);
+  const knownCount = subjectId === state.activeSubject ? knowledgePoints.length : Number(meta.knowledgeCount || 0);
+  const mastered = uniqueList(store.mastered).length;
+  const total = Math.max(knownCount || Number(meta.knowledgeCount || 0), mastered, 0);
+  const percent = total ? Math.min(100, Math.round((mastered / total) * 100)) : 0;
+  return { mastered, total, percent };
+}
+
+function renderSubjects() {
+  const grid = $("#subjectsGrid");
+  const count = $("#subjectsCount");
+  if (!grid) return;
+  const activeSubjects = subjectCatalog.filter((subject) => subject.status !== "soon").length;
+  if (count) count.textContent = `${activeSubjects} 门可学习`;
+  grid.innerHTML = subjectCatalog.map((subject) => {
+    const progress = getSubjectProgress(subject.id);
+    const isSoon = subject.status === "soon";
+    return `<article class="subject-card ${isSoon ? "soon" : ""}" ${isSoon ? "" : `data-open-subject="${subject.id}"`} style="--subject-color:${subject.color || "#7bb7a8"}">
+      <div>
+        <div class="subject-card-top">
+          <span class="subject-icon">${escapeHTML(subject.icon || subject.name?.[0] || subject.id[0])}</span>
+          <span class="pill">${isSoon ? "Coming Soon" : `${progress.percent}%`}</span>
+        </div>
+        <h3>${escapeHTML(subject.name || subject.title || subject.id)}</h3>
+        <p>${escapeHTML(subject.description || "")}</p>
+      </div>
+      <div>
+        <div class="subject-progress" aria-label="学习进度"><span style="--progress:${progress.percent}%"></span></div>
+        <div class="subject-card-actions">
+          <span>${isSoon ? "等待接入" : `${progress.mastered} / ${progress.total || "?"} 已掌握`}</span>
+          <strong>${isSoon ? "Soon" : "Continue Learning"}</strong>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
 function render() {
   renderFormOptions();
   const activePage = window.GrowthAppState?.getState?.().currentPage || state.activePage || "home";
@@ -949,6 +1199,7 @@ function render() {
     renderToday();
     renderHome();
   }
+  if (activePage === "subjects") renderSubjects();
   if (activePage === "library") renderLibrary();
   if (activePage === "mistakes") renderMistakes();
   if (activePage === "materials") renderMaterials();
@@ -994,8 +1245,20 @@ function renderHome() {
 }
 
 function renderLibrary() {
-  if (!textbookCategoryMap[state.activeTextbook]) state.activeTextbook = "required1";
+  if (!subjectTextbookCategoryMap[state.activeTextbook] && !textbookCategoryMap[state.activeTextbook]) state.activeTextbook = Object.keys(subjectTextbookCategoryMap)[0] || "required1";
   syncTextbookControls();
+  const subjectMeta = getSubjectMeta();
+  const hero = $("#page-library .hero");
+  const heroEyebrow = hero?.querySelector(".eyebrow");
+  const heroTitle = hero?.querySelector("h1");
+  const heroCopy = hero?.querySelector(".hero-copy");
+  if (heroEyebrow) heroEyebrow.textContent = (subjectMeta.title || subjectMeta.name || "Subject") + " Library";
+  if (heroTitle) heroTitle.textContent = (subjectMeta.name || "??") + "???";
+  if (heroCopy) heroCopy.textContent = subjectMeta.description || "??????????";
+  const textbookCard = $("#page-library .textbook-card");
+  if (textbookCard && !textbookCard.querySelector("[data-open-subjects]")) {
+    textbookCard.insertAdjacentHTML("beforeend", '<div class="subject-route-bar"><button class="mini-button" type="button" data-open-subjects>??????</button></div>');
+  }
   const visibleCategories = getTextbookCategories();
   if (!visibleCategories.includes(state.activeCategory)) {
     state.activeCategory = getDefaultCategoryForTextbook();
@@ -1023,14 +1286,20 @@ function renderLibrary() {
   }
 
   if (physicsDataStatus.loading) {
-    $("#libraryCount").textContent = "加载中";
-    $("#knowledgeGrid").innerHTML = `<div class="library-notice loading-notice">正在加载物理知识库数据...</div>`;
+    $("#libraryCount").textContent = "???";
+    $("#knowledgeGrid").innerHTML = '<div class="library-notice loading-notice">????' + escapeHTML(subjectMeta.name || "??") + '?????...</div>';
+    return;
+  }
+
+  if (physicsDataStatus.error) {
+    $("#libraryCount").textContent = "????";
+    $("#knowledgeGrid").innerHTML = '<div class="subject-error-card"><p class="eyebrow">Load Failed</p><h3>??????</h3><p>' + escapeHTML(physicsDataStatus.error) + '</p><button class="primary-button" type="button" data-open-subjects>??????</button></div>';
     return;
   }
 
   const points = knowledgePoints.filter((item) => item.category === state.activeCategory && isPointInActiveTextbook(item) && filteredTextMatch([item.name, item.summary, item.category, item.textbook]));
   $("#libraryCount").textContent = `${points.length} 个知识点`;
-  const errorNotice = physicsDataStatus.error ? `<div class="library-notice error-notice">${physicsDataStatus.error}</div>` : "";
+  const errorNotice = "";
   $("#knowledgeGrid").innerHTML = points.length ? errorNotice + points.map((item) => {
     const favorite = state.knowledgeFavorites.includes(item.id);
     const mastered = state.masteredKnowledge.includes(item.id);
@@ -1479,6 +1748,7 @@ function openDetail(id) {
     <div class="detail-grid">
       ${detailBlock("一、核心定义", richDetail?.definition || item.definition, "definition-module")}
       ${formulaBlock(item)}
+      ${item.experiment ? experimentBlock(item.experiment) : ""}
       ${richDetail ? detailBlock("三、物理量说明", richDetail.quantities, "full quantity-module") : ""}
       <section class="detail-block diagram-block">
         <h3>微型示意图</h3>
@@ -1507,6 +1777,18 @@ function openDetail(id) {
       </section>
     </div>`;
   openModal("#detailModal");
+}
+
+function experimentBlock(experiment) {
+  const rows = [
+    ["????", experiment.purpose],
+    ["????", Array.isArray(experiment.apparatus) ? experiment.apparatus.join("?") : experiment.apparatus],
+    ["????", Array.isArray(experiment.steps) ? experiment.steps.join("?") : experiment.steps],
+    ["????", experiment.phenomenon],
+    ["????", experiment.conclusion],
+    ["????", Array.isArray(experiment.warnings) ? experiment.warnings.join("?") : experiment.warnings],
+  ].filter(([, value]) => value);
+  return '<section class="detail-block full experiment-module"><h3>????</h3><div class="experiment-list">' + rows.map(([label, value]) => '<p><strong>' + escapeHTML(label) + '?</strong>' + escapeHTML(value) + '</p>').join("") + '</div></section>';
 }
 
 function detailBlock(title, content, extraClass = "") {
@@ -2095,9 +2377,8 @@ async function initApp() {
   window.GrowthPersist?.attach();
   window.GrowthRender?.attachRenderer();
   updateStreak();
-  setPage(initialPage);
-  await loadPhysicsData();
-  render();
+  await loadSubjectCatalog();
+  await loadSubjectData(state.activeSubject);
   setPage(initialPage);
   await initAuth();
   hideAppLoader();
@@ -2138,13 +2419,32 @@ $("#authKeepLocal").addEventListener("click", () => {
   showToast("已保持本地数据，稍后可在账户中心同步");
 });
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", async (event) => {
   const authMode = event.target.closest("[data-auth-mode]");
   if (authMode) setAuthMode(authMode.dataset.authMode);
   if (event.target.closest("[data-close-auth]")) closeModal("#authModal");
 
   const nav = event.target.closest("[data-page]");
-  if (nav) setPage(nav.dataset.page);
+  if (nav) {
+    if (nav.dataset.page === "library") {
+      await loadSubjectData("physics");
+    }
+    setPage(nav.dataset.page);
+    return;
+  }
+
+  const subjectsHome = event.target.closest("[data-open-subjects]");
+  if (subjectsHome) {
+    setPage("subjects");
+    return;
+  }
+
+  const subjectCard = event.target.closest("[data-open-subject]");
+  if (subjectCard) {
+    await loadSubjectData(subjectCard.dataset.openSubject);
+    setPage("library");
+    return;
+  }
 
   const grade = event.target.closest("[data-grade]");
   if (grade) {

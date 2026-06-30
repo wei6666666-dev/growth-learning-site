@@ -1,5 +1,5 @@
 (() => {
-  const VALID_PAGES = new Set(["home", "library", "mistakes", "materials", "stats"]);
+  const VALID_PAGES = new Set(["home", "subjects", "library", "mistakes", "materials", "stats"]);
 
   function normalizePage(page) {
     return VALID_PAGES.has(page) ? page : "home";

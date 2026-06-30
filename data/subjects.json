@@ -1,0 +1,35 @@
+[
+  {
+    "id": "physics",
+    "title": "Physics",
+    "name": "物理",
+    "icon": "⌁",
+    "color": "#74a99a",
+    "theme": "motion",
+    "description": "从运动、力和能量开始，把抽象规律整理成可学习的路径。",
+    "textbooks": ["必修一", "必修二", "选择性必修一", "选择性必修二", "选择性必修三"],
+    "knowledgeCount": 120,
+    "chapterCount": 22,
+    "status": "active"
+  },
+  {
+    "id": "chemistry",
+    "title": "Chemistry",
+    "name": "化学",
+    "icon": "⚗",
+    "color": "#8aa7a1",
+    "theme": "reaction",
+    "description": "从物质、反应和实验出发，建立高中化学的核心知识网络。",
+    "textbooks": ["必修一"],
+    "knowledgeCount": 12,
+    "chapterCount": 4,
+    "status": "active"
+  },
+  { "id": "math", "title": "Math", "name": "数学", "icon": "ƒ", "color": "#8f9fb8", "theme": "function", "description": "函数、几何与代数的系统化学习空间。", "textbooks": [], "knowledgeCount": 0, "chapterCount": 0, "status": "soon" },
+  { "id": "biology", "title": "Biology", "name": "生物", "icon": "◌", "color": "#8fae8f", "theme": "cell", "description": "生命系统、细胞与遗传的知识库。", "textbooks": [], "knowledgeCount": 0, "chapterCount": 0, "status": "soon" },
+  { "id": "english", "title": "English", "name": "英语", "icon": "A", "color": "#aaa18d", "theme": "language", "description": "词汇、阅读、写作与语法的长期积累系统。", "textbooks": [], "knowledgeCount": 0, "chapterCount": 0, "status": "soon" },
+  { "id": "chinese", "title": "Chinese", "name": "语文", "icon": "文", "color": "#a8948f", "theme": "reading", "description": "阅读、作文、古诗文与表达的学习系统。", "textbooks": [], "knowledgeCount": 0, "chapterCount": 0, "status": "soon" },
+  { "id": "geography", "title": "Geography", "name": "地理", "icon": "◎", "color": "#8fa5aa", "theme": "earth", "description": "自然地理、人文地理与区域认知。", "textbooks": [], "knowledgeCount": 0, "chapterCount": 0, "status": "soon" },
+  { "id": "history", "title": "History", "name": "历史", "icon": "◷", "color": "#a99a84", "theme": "timeline", "description": "时间线、事件、人物与历史解释。", "textbooks": [], "knowledgeCount": 0, "chapterCount": 0, "status": "soon" },
+  { "id": "politics", "title": "Politics", "name": "政治", "icon": "◇", "color": "#9b9aa8", "theme": "logic", "description": "概念、材料分析与答题逻辑。", "textbooks": [], "knowledgeCount": 0, "chapterCount": 0, "status": "soon" }
+]
