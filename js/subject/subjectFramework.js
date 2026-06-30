@@ -8,10 +8,15 @@
 
   function routeFromPath(pathname) {
     const path = (pathname || "/").replace(/\/+$/, "") || "/";
+    const params = new URLSearchParams(window.location.search || "");
+    const querySubject = params.get("subject");
+    const queryPage = params.get("page");
+    if (querySubject) return { page: queryPage || "library", subject: normalizeSubjectId(querySubject) };
+    if (queryPage === "subjects") return { page: "subjects", subject: "" };
     const subjectMatch = path.match(/^\/subject\/([^/]+)$/);
     if (path === "/subjects") return { page: "subjects", subject: "" };
     if (subjectMatch) return { page: "library", subject: normalizeSubjectId(subjectMatch[1]) };
-    if (path === "/chemistry") return { page: "library", subject: "chemistry" };
+    if (path === "/chemistry" || path === "/chemistry.html") return { page: "library", subject: "chemistry" };
     if (path === "/physics" || path === "/physics.html") return { page: "library", subject: "physics" };
     return { page: "", subject: "" };
   }

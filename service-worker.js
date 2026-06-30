@@ -2,6 +2,8 @@ const CACHE_NAME = "growth-pwa-v45-subjects";
 const APP_SHELL = [
   "/",
   "/index.html",
+  "/chemistry.html",
+  "/subjects.html",
   "/physics.html",
   "/mistakes.html",
   "/statistics.html",
